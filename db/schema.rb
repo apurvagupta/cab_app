@@ -11,15 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205122636) do
+ActiveRecord::Schema.define(:version => 20130206090404) do
 
   create_table "cab_requests", :force => true do |t|
-    t.string   "phone_no"
+    t.string   "contact_no"
     t.string   "destination"
-    t.time     "drop_time"
+    t.time     "time"
     t.text     "comments"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.string   "requester"
+    t.string   "pick_up_for"
+    t.date     "date"
+    t.string   "source"
+    t.integer  "no_of_passengers", :limit => 255
   end
 
   create_table "details", :force => true do |t|
