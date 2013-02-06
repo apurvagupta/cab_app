@@ -33,7 +33,7 @@
       <file leaf-file-name="schema.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/schema.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="1383" selection-end="1383" vertical-scroll-proportion="0.77386934">
+            <state line="33" column="4" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.77386934">
               <folding />
             </state>
           </provider>
@@ -103,6 +103,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -759,7 +764,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1383" selection-end="1383" vertical-scroll-proportion="0.77386934">
+        <state line="33" column="4" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.77386934">
           <folding />
         </state>
       </provider>
