@@ -1,10 +1,12 @@
 class CabRequest < ActiveRecord::Base
 
-  attr_accessible :phone_no ,:destination , :drop_time , :comments
+  attr_accessible :requester,:pick_up_for, :contact_no, :date, :time ,:source,:destination,:no_of_passengers, :comments
 
-  validates_presence_of :phone_no , :destination, :drop_time
-  validates_numericality_of :phone_no, :only_integer => true
-  validates_length_of :phone_no, :is => 10
-  validates_length_of :comments, :maximum => 100
+  validates_presence_of :pick_up_for, :contact_no , :destination, :time, :source,:no_of_passengers
+  validates_format_of :pick_up_for, :with => /^[a-zA-Z\s]*$/
+  validates_numericality_of :contact_no, :only_integer => true
 
+  validates_length_of :contact_no, :is => 10
+  validates_length_of :comments, :maximum => 25
+  validates_length_of :pick_up_for, :maximum => 10
 end

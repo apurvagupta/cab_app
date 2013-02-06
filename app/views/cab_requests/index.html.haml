@@ -1,24 +1,26 @@
 %h1 Create Request
+%h4= link_to "logout",cab_requests_logout_path
 %hr
-%h3 Request ID:
-%br
-%h3 Requester:
-%br
-%h3 Pick Up For:
-%br
-%h3 Contact Number:
-%br
-%h3 Date:
-%br
-%h3 Time:
-%br
-%h3 Pick Up:
-%br
-%h3 Drop:
-%br
-%h3 Number Of Passengers:
-%br
-%h3 Comments:
 
 
-%h4= link_to 'logout', cab_requests_logout_path
+  = form_for(@cab_request) do |f|
+
+    .field
+      = f.label "Request_ID:"
+      = f.text_field :id
+
+    .field
+      = f.label "Requester:"
+      = f.text_field :requester
+
+    .field
+      = f.label "pick_up_for:"
+      = f.text_field :pick_up_for
+
+    .field
+      = f.label "Contact_no:"
+      = f.text_field :contact_no
+
+  %end
+
+

@@ -8,6 +8,10 @@ class CabRequestsController < ApplicationController
     CASClient::Frameworks::Rails::Filter.logout(self)
 
   end
+  def index
+
+    @cab_request = CabRequest.new
+  end
 
 
 
