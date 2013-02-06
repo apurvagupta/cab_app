@@ -13,7 +13,6 @@ describe CabRequest do
       (@cab_request.has_attribute? :destination).should be_true
       (@cab_request.has_attribute? :drop_time).should be_true
       (@cab_request.has_attribute? :comments).should be_true
-      #(@cab_request.)
     end
 
   end

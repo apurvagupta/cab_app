@@ -11,15 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131093843) do
+ActiveRecord::Schema.define(:version => 20130205122636) do
 
   create_table "cab_requests", :force => true do |t|
-    t.integer  "phone_no"
+    t.string   "phone_no"
     t.string   "destination"
     t.time     "drop_time"
     t.text     "comments"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "details", :force => true do |t|
+    t.string "support_phone_no"
+    t.string "vendor_phone_no"
+    t.string "assigned_admins"
   end
 
 end
