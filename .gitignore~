@@ -14,5 +14,5 @@
 /log/*.log
 /tmp
 
-# Ignore workspace.xml file.
+#Ignore workspace.xml file.
 .idea/workspace.xml
