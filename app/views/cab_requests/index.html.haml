@@ -2,7 +2,6 @@
 %h4= link_to "logout",cab_requests_logout_path
 %hr
 
-
   = form_for(@cab_request) do |f|
 
     .field
@@ -20,6 +19,32 @@
     .field
       = f.label "Contact_no:"
       = f.text_field :contact_no
+
+
+    .field
+      =f.label "Source:"
+      %select
+        -@sources.each do|source|
+          %option= source
+        %end
+
+    .field
+      =f.label "Destination:"
+      %select
+        -@destinations.each do|destination|
+          %option= destination
+        %end
+
+    .field
+      =f.label "No of passengers:"
+      %select
+        -@num.each do|i|
+          %option= i
+        %end
+
+    .field
+      =f.label "Comments:"
+      =f.text_field :comments
 
   %end
 
