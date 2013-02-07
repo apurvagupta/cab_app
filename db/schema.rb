@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(:version => 20130206090404) do
     t.integer  "no_of_passengers", :limit => 255
   end
 
+  create_table "configure_details", :force => true do |t|
+    t.string "support_phone_no"
+    t.string "vendor_phone_no"
+    t.string "assigned_admins"
+  end
+
   create_table "details", :force => true do |t|
     t.string "support_phone_no"
     t.string "vendor_phone_no"
