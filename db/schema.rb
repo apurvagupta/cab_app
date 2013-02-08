@@ -2,20 +2,7 @@
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
-#                                                                                          = form_for(@cab_request) do |f|
-
-    .field
-      = f.label "Request_ID:"
-      = f.text_field :id
-
-    .field
-      = f.label "Requester:"
-      = f.text_field :requester
-
-    .field
-      = f.label "pick_up_for:"
-      = f.text_field :pick_up_for
-
+#
 # Note that this schema.rb definition is the authoritative source for your
 # database schema. If you need to create the application database on another
 # system, you should be using db:schema:load, not running all the migrations

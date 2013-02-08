@@ -10,7 +10,8 @@
 
     .field
       = f.label "Requester:"
-      = f.text_field :requester
+      = f.text_field :requester, :disabled => !@cab_request.requester.nil?
+
 
     .field
       = f.label "pick_up_for:"
@@ -69,5 +70,7 @@
       =f.text_field :comments
 
   %end
+
+
 
 
