@@ -12,5 +12,8 @@ class CabRequestsController < ApplicationController
     @num = Array(1..50)
     @sources = ["Airport","Guest House","McKinsey","ThoughtWorks"]
     @destinations = ["Airport","Guest House","McKinsey","ThoughtWorks"]
+    @hours= Array(01..12).map {|n| "%02d" % n}
+    @minutes= [00,30].map {|n| "%02d" % n}
+    @ampm=["am","pm"]
   end
 end

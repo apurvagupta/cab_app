@@ -20,6 +20,28 @@
       = f.label "Contact_no:"
       = f.text_field :contact_no
 
+    .field
+      = f.label "Date"
+      = f.datepicker "date"
+
+    .field
+      = f.label "TIme:"
+      %select
+        -@hours.each do|hours|
+          %option= hours
+        %end
+
+      = ":"
+
+      %select
+        -@minutes.each do|minutes|
+          %option= minutes
+        %end
+      %select
+        -@ampm.each do|ampm|
+          %option= ampm
+        %end
+
 
     .field
       =f.label "Source:"
