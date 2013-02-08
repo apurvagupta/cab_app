@@ -1,0 +1,26 @@
+%h1 Configure Details
+
+%hr
+   = form_for(@detail) do |f|
+
+      .field
+         = f.label "Support Phone Number:"
+         = f.text_field :support_phone_no
+
+      .field
+         = f.label "Vendor phone number:"
+         = f.text_field :vendor_phone_no
+
+      .field
+         = f.label "Assigned admin:"
+         = f.text_field :assigned_admins
+
+      .action
+         = f.submit
+
+   %end
+
+
+
+
+

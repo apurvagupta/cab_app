@@ -1,4 +1,4 @@
-class Details < ActiveRecord::Base
+class Detail < ActiveRecord::Base
 
   attr_accessible :support_phone_no, :vendor_phone_no, :assigned_admins
 
