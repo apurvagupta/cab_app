@@ -1,5 +1,6 @@
 class AdminDetailsController < ApplicationController
 
+
   def create
 
     @detail = AdminDetail.new(params[:detail])

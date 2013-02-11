@@ -19,14 +19,11 @@
 
     .field
       = f.label "Request_ID:"
-      = f.text_field :id
+      = f.text_field :id ,:disabled => true
 
     .field
       = f.label "Requester:"
-
       = f.text_field :requester ,:disabled => !@cab_request.requester.nil?
-
-
 
     .field
       = f.label "pick_up_for:"

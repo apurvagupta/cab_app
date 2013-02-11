@@ -7,10 +7,9 @@ class CabRequestsController < ApplicationController
     flash[:notice] = "You have been logged out."
     CASClient::Frameworks::Rails::Filter.logout(self)
   end
-
-  def index
-    redirect_to new_cab_request_path
-  end
+   def index
+     redirect_to new_cab_request_path
+   end
 
   def init
     @num = Array(1..50)
@@ -22,6 +21,13 @@ class CabRequestsController < ApplicationController
     gab_link
     @cab_request.requester = extract("name")
     @cab_request.contact_no = extract("mobile")
+    if @cab_request.id == nil
+      @cab_request.id=1
+
+    else
+      @cab_request.id=CabRequest.last.id+1
+    end
+
     admin_names
     @bool = @admin_array.include?(@cab_request.requester)
   end

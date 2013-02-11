@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Detail do
+describe AdminDetail do
        
   before :each do
-    @detail = Detail.new :support_phone_no => "1234567890", :vendor_phone_no => "0987654321", :assigned_admins => "sample"
+    @detail = AdminDetail.new :support_phone_no => "1234567890", :vendor_phone_no => "0987654321", :assigned_admins => "sample"
   end
 
   context "Class structure validations" do

@@ -4,7 +4,7 @@ CabApp::Application.routes.draw do
   resources :cab_requests
   resources :admin_details
   resources :admins
-
+  resources :requesters
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
