@@ -30,6 +30,13 @@ describe CabRequest do
 
   end
 
+  context "requester" do
+    it "should not be blank" do
+      @cab_request.requester = nil
+      @cab_request.save.should be_false
+      @cab_request.errors[:requester].first.should == "can't be blank"
+    end
+  end
 
   context "pick up for" do
     it "should not be blank" do
@@ -40,10 +47,10 @@ describe CabRequest do
 
 
     it "should not contain anything other than alphabets" do
-     @cab_request.pick_up_for = "apurva0"
+      @cab_request.pick_up_for = "apurva0"
       @cab_request.save.should be_false
       @cab_request.errors[:pick_up_for].first.should == "is invalid"
-   end
+    end
 
     it "should not contain more than 10 alphabets" do
       @cab_request.pick_up_for = "hello"*3
@@ -76,8 +83,15 @@ describe CabRequest do
 
   end
 
-  context "Time" do
+  context "date" do
+    it "should not be blank" do
+      @cab_request.date = nil
+      @cab_request.save.should be_false
+      @cab_request.errors[:date].first.should == "can't be blank"
+    end
+  end
 
+  context "Time" do
     it "should not be blank" do
       @cab_request.time = nil
       @cab_request.save.should be_false

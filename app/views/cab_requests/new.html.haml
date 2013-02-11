@@ -8,6 +8,14 @@
 %hr
 
   = form_for(@cab_request) do |f|
+    =if @cab_request.errors.any?
+      #error_explanation
+        %h2= pluralize(@cab_request.errors.count, "error")
+        %ul
+          =@cab_request.errors.full_messages.each do |msg|
+            %li=  msg
+          %end
+    %end
 
     .field
       = f.label "Request_ID:"
@@ -15,7 +23,9 @@
 
     .field
       = f.label "Requester:"
-      = f.text_field :requester, :disabled => !@cab_request.requester.nil?
+
+      = f.text_field :requester ,:disabled => !@cab_request.requester.nil?
+
 
 
     .field
@@ -27,45 +37,45 @@
       = f.text_field :contact_no
 
     .field
-      = f.label "Date"
-      = f.datepicker "date"
+      = f.label "Date:"
+      = f.datepicker :date
 
     .field
-      = f.label "TIme:"
-      %select
+      = f.label "Time:"
+      %select{:name => "hours" }
         -@hours.each do|hours|
           %option= hours
         %end
 
       = ":"
 
-      %select
+      %select{:name => "minutes" }
         -@minutes.each do|minutes|
           %option= minutes
         %end
-      %select
+
+      %select{:name=>"ampm"}
         -@ampm.each do|ampm|
           %option= ampm
         %end
 
-
     .field
       =f.label "Source:"
-      %select
+      %select{:name => "cab_request[source]" }
         -@sources.each do|source|
           %option= source
         %end
 
     .field
       =f.label "Destination:"
-      %select
+      %select{:name => "cab_request[destination]" }
         -@destinations.each do|destination|
           %option= destination
         %end
 
     .field
       =f.label "No of passengers:"
-      %select
+      %select{:name => "cab_request[no_of_passengers]" }
         -@num.each do|i|
           %option= i
         %end
@@ -74,5 +84,9 @@
       =f.label "Comments:"
       =f.text_field :comments
 
+    .field
+      =f.submit "Send"
+
   %end
 
+    =link_to 'cancel', cab_requests_path
