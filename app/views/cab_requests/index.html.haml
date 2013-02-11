@@ -1,5 +1,10 @@
 %h1 Create Request
+
+-if @bool
+  %h4= link_to "manage app",admins_path
+
 %h4= link_to "logout",cab_requests_logout_path
+
 %hr
 
   = form_for(@cab_request) do |f|
@@ -70,7 +75,4 @@
       =f.text_field :comments
 
   %end
-
-
-
 
