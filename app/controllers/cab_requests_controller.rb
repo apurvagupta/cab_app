@@ -37,7 +37,7 @@ class CabRequestsController < ApplicationController
 
   def admin_names
 
-    @detail = Detail.first
+    @detail = AdminDetail.first
     @admin_array=[]
     extract_admin_names(@detail.assigned_admins)
 

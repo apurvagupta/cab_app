@@ -6,10 +6,10 @@ class AdminsController < ApplicationController
 
   def configure_details
 
-    if Detail.all == []
-      @detail=Detail.new
+    if AdminDetail.all == []
+      @detail=AdminDetail.new
     else
-      @detail=Detail.all
+      @detail=AdminDetail.all
     end
 
   end
