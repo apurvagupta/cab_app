@@ -20,6 +20,9 @@ class CabRequestsController < ApplicationController
     @ampm=["am","pm"]
     gab_link
     @cab_request.requester = extract("name")
+    if !@cab_request.requester
+      @cab_request.requester = session[:cas_user]
+    end
     @cab_request.contact_no = extract("mobile")
     if @cab_request.id == nil
       @cab_request.id=1
@@ -29,7 +32,7 @@ class CabRequestsController < ApplicationController
     end
 
     admin_names
-    @bool = @admin_array.include?(@cab_request.requester)
+    @bool = (@admin_array.include?((@cab_request.requester).downcase)) || (@admin_array.include?(session[:cas_user]))
   end
 
   def extract (arg)
@@ -41,9 +44,9 @@ class CabRequestsController < ApplicationController
 
   def admin_names
 
-    @detail = AdminDetail.first
+    @admin_detail = AdminDetail.first
     @admin_array=[]
-    extract_admin_names(@detail.assigned_admins)
+    extract_admin_names(@admin_detail.assigned_admins)
 
   end
 
@@ -53,12 +56,11 @@ class CabRequestsController < ApplicationController
 
     if @comma_index == nil
 
-      @admin_array.push(admins.strip)
-      return
+      @admin_array.push((admins.strip).downcase)
 
     else
 
-      @admin_name = admins[0 , @comma_index].strip
+      @admin_name = (admins[0 , @comma_index].strip).downcase
       @admin_array.push(@admin_name)
       admins = admins[@comma_index+1 , admins.length]
       extract_admin_names(admins)

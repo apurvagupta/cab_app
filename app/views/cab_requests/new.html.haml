@@ -23,7 +23,7 @@
 
     .field
       = f.label "Requester:"
-      = f.text_field :requester ,:disabled => !@cab_request.requester.nil?
+      = f.text_field :requester ,:disabled => true
 
     .field
       = f.label "pick_up_for:"
@@ -87,3 +87,5 @@
   %end
 
     =link_to 'cancel', cab_requests_path
+
+
