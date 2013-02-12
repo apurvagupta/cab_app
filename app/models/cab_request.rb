@@ -1,8 +1,8 @@
 class CabRequest < ActiveRecord::Base
 
-  attr_accessible :requester,:pick_up_for, :contact_no, :date, :time ,:source,:destination,:no_of_passengers, :comments
+  attr_accessible :requester,:pick_up_for, :contact_no, :date, :pick_up_time ,:source,:destination,:no_of_passengers, :comments
 
-  validates_presence_of :pick_up_for, :contact_no , :destination, :time, :source,:no_of_passengers, :date , :requester
+  validates_presence_of :pick_up_for, :contact_no , :destination, :pick_up_time, :source,:no_of_passengers, :date , :requester
   validates_format_of :pick_up_for, :with => /^[a-zA-Z\s]*$/
   validates_numericality_of :contact_no, :only_integer => true
 

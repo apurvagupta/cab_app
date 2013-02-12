@@ -35,7 +35,7 @@
       = f.datepicker :date  ,:dateFormat =>"dd/mm/yy"
 
     .field
-      = f.label "Time:"
+      = f.label "pick_up_time:"
       %select{:name => "hours" }
         -@hours.each do|hours|
           %option= hours
@@ -88,3 +88,7 @@
   %end
 
     =link_to 'cancel', cab_requests_path
+
+
+
+

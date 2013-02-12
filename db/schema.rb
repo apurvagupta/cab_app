@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211065556) do
+ActiveRecord::Schema.define(:version => 20130212122225) do
 
   create_table "admin_details", :force => true do |t|
     t.string "support_phone_no"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130211065556) do
   create_table "cab_requests", :force => true do |t|
     t.string   "contact_no"
     t.string   "destination"
-    t.string   "time"
+    t.string   "pick_up_time"
     t.text     "comments"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false

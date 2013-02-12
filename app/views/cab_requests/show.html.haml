@@ -1,4 +1,24 @@
 %h1 YOUR REQUEST HAS BEEN SEND
 %hr
-%b Your Request_ID:
-= @cab_request.id
+
+%table{:cellspacing => 50}
+  %th ID
+  %th PICK_UP_FOR
+  %th CONTACT_NO
+  %th DATE
+  %th PICK_UP_TIME
+  %th SOURCE
+  %th DESTINATION
+  %th NO_OF_PASSENGERS
+  %hr
+  - @cab_request_array.each do |each_request|
+    %tr
+      %td= each_request.id
+      %td= each_request.pick_up_for
+      %td= each_request.contact_no
+      %td= each_request.date
+      %td= each_request.pick_up_time
+      %td= each_request.source
+      %td= each_request.destination
+      %td= each_request.no_of_passengers
+  %end
