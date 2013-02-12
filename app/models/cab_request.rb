@@ -9,4 +9,13 @@ class CabRequest < ActiveRecord::Base
   validates_length_of :contact_no, :is => 10
   validates_length_of :comments, :maximum => 25
   validates_length_of :pick_up_for, :maximum => 10
+
+  validate :check_source_and_destination
+
+  def check_source_and_destination
+    errors.add(:source ," and Destination can't be same") if source == destination
+
+  end
+
 end
+

@@ -19,7 +19,7 @@
 
     .field
       = f.label "Requester:"
-      = f.text_field :requester ,:Readonly => !@cab_request.requester.nil?
+      = f.text_field :requester ,:Readonly => true
 
 
     .field
@@ -55,17 +55,21 @@
 
     .field
       =f.label "Source:"
-      %select{:name => "cab_request[source]" }
+      %select{ :id => "ddl_source" , :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('ddl_source','txt_source');" }
         -@sources.each do|source|
           %option= source
         %end
 
+      =f.text_field :source, :id =>"txt_source" ,:hidden => true,:disabled=>true
+
+
     .field
       =f.label "Destination:"
-      %select{:name => "cab_request[destination]" }
+      %select{:name => "cab_request[destination]",:id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
         -@destinations.each do|destination|
           %option= destination
         %end
+      =f.text_field :destination, :id =>"txt_destination" ,:hidden => true,:disabled=>true
 
     .field
       =f.label "No of passengers:"
@@ -84,5 +88,3 @@
   %end
 
     =link_to 'cancel', cab_requests_path
-
-
