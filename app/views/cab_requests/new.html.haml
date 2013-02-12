@@ -8,19 +8,17 @@
 %hr
 
   = form_for(@cab_request) do |f|
-    =if @cab_request.errors.any?
+    -if @cab_request.errors.any?
       #error_explanation
         %h2= pluralize(@cab_request.errors.count, "error")
         %ul
-          =@cab_request.errors.full_messages.each do |msg|
+          -@cab_request.errors.full_messages.each do |msg|
             %li=  msg
           %end
     %end
-
     .field
       = f.label "Requester:"
       = f.text_field :requester ,:Readonly => true
-
 
     .field
       = f.label "pick_up_for:"
