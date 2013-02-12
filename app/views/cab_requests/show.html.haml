@@ -1,13 +1,4 @@
 %h1 YOUR REQUEST HAS BEEN SEND
 %hr
-  -#= form_for(@cab_request) do |f|
-  -#  =if @cab_request.errors.any?
-  -#
-  -#    %h2= pluralize(@cab_request.errors.count, "error")
-  -#    %ul
-  -#    =@cab_request.errors.full_messages.each do |msg|
-  -#      %li=  msg
-  -#    %end
-  -#
-  -#  %end
-  -#%end
+%b Your Request_ID:
+= @cab_request.id

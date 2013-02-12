@@ -18,12 +18,9 @@
     %end
 
     .field
-      = f.label "Request_ID:"
-      = f.text_field :id ,:disabled => true
-
-    .field
       = f.label "Requester:"
-      = f.text_field :requester ,:disabled => true
+      = f.text_field :requester ,:Readonly => !@cab_request.requester.nil?
+
 
     .field
       = f.label "pick_up_for:"
@@ -35,7 +32,7 @@
 
     .field
       = f.label "Date:"
-      = f.datepicker :date
+      = f.datepicker :date  ,:dateFormat =>"dd/mm/yy"
 
     .field
       = f.label "Time:"

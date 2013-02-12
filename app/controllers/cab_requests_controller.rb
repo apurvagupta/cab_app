@@ -1,6 +1,7 @@
 class CabRequestsController < ApplicationController
   require 'open-uri'
 
+
   def logout
     cookies.delete :auth_token
     reset_session
@@ -13,8 +14,8 @@ class CabRequestsController < ApplicationController
 
   def init
     @num = Array(1..50)
-    @sources = ["Airport","Guest House","McKinsey","ThoughtWorks"]
-    @destinations = ["Airport","Guest House","McKinsey","ThoughtWorks"]
+    @sources = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
+    @destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
     @hours= Array(01..12).map {|n| "%02d" % n}
     @minutes= [00,30].map {|n| "%02d" % n}
     @ampm=["am","pm"]
@@ -24,13 +25,6 @@ class CabRequestsController < ApplicationController
       @cab_request.requester = session[:cas_user]
     end
     @cab_request.contact_no = extract("mobile")
-    if @cab_request.id == nil
-      @cab_request.id=1
-
-    else
-      @cab_request.id=CabRequest.last.id+1
-    end
-
     admin_names
     @bool = (@admin_array.include?((@cab_request.requester).downcase)) || (@admin_array.include?(session[:cas_user]))
   end
@@ -81,8 +75,10 @@ class CabRequestsController < ApplicationController
 
 
   def create
+
     @cab_request=CabRequest.new(params[:cab_request])
     @cab_request.time= params[:hours]<<":"<<params[:minutes]<<" "<<params[:ampm]
+
     if @cab_request.save
       redirect_to cab_request_path(@cab_request)
     else
@@ -92,7 +88,7 @@ class CabRequestsController < ApplicationController
   end
 
   def show
-    #@cab_request=CabRequest.find(params[:]
+    @cab_request=CabRequest.find(params[:id])
   end
 
 end
