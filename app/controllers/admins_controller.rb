@@ -6,7 +6,7 @@ class AdminsController < ApplicationController
 
   def configure_details
 
-      @admin_detail=AdminDetail.all
+      @admin_detail=AdminDetail.first
 
   end
 
