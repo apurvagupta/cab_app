@@ -22,7 +22,8 @@
 
     .field
       = f.label "pick_up_for:"
-      = f.text_field :pick_up_for
+      = f.text_field :pick_up_for ,:id => "pick_up_for", :onblur => "my_func('pick_up_for','label')"
+        %span "field cant be blank", :id => "label", :hidden => true
 
     .field
       = f.label "Contact_no:"
@@ -85,7 +86,7 @@
 
   %end
 
-    =link_to 'cancel', cab_requests_path
+= link_to 'cancel', cab_requests_path
 
 
 
