@@ -1,9 +1,15 @@
 %h1 Create Request
+-@num = Array(1..50)
+-@sources = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
+-@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
+-@hours = Array(01..12).map {|n| "%02d" % n}
+-@minutes = [00,30].map {|n| "%02d" % n}
+-@ampm = ["am","pm"]
 
 -if @bool
   %h4= link_to "manage app",admins_path
 
-%h4= link_to "logout",cab_requests_logout_path
+%h4= link_to "logout",requesters_logout_path
 
 %hr
 
@@ -23,7 +29,7 @@
     .field
       = f.label "pick_up_for:"
       = f.text_field :pick_up_for ,:id => "pick_up_for", :onblur => "my_func('pick_up_for','label')"
-        %span "field cant be blank", :id => "label", :hidden => true
+
 
     .field
       = f.label "Contact_no:"

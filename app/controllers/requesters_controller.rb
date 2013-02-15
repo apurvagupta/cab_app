@@ -4,10 +4,15 @@ class RequestersController < ApplicationController
     create_request
   end
 
-end
-
   def create_request
-
-   redirect_to new_cab_request_path
-
+    redirect_to new_cab_request_path
   end
+
+  def logout
+    cookies.delete :auth_token
+    reset_session
+    flash[:notice] = "You have been logged out."
+    CASClient::Frameworks::Rails::Filter.logout(self)
+  end
+
+end

@@ -14,8 +14,16 @@ class CabRequest < ActiveRecord::Base
 
   def check_source_and_destination
     errors.add(:source ," and Destination can't be same") if source == destination
-
   end
+
+  def init(arg1 , arg2)
+    self.requester = arg1
+    self.contact_no = arg2
+    #@bool = (@admin_array.include?((@cab_request.requester).downcase)) || (@admin_array.include?(session[:cas_user]))
+  end
+
+
+
 
 end
 
