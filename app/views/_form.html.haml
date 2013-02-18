@@ -1,0 +1,21 @@
+= form_for(@info) do |f|
+  -if @info.errors.any?
+    #error_explanation
+      %h2= pluralize(@info.errors.count, "error")
+      %ul
+        -@info.errors.full_messages.each do |msg|
+          %li=  msg
+        %end
+  %end
+
+  .field
+    = f.label "Name:"
+    = f.text_field :name
+
+  .field
+    = f.label "Contact No:"
+    = f.text_field :contact_no
+
+  .action
+    = f.submit
+%end 
