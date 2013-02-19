@@ -1,45 +1,16 @@
 class CabRequestsController < ApplicationController
 
 
-   def index
-     redirect_to new_cab_request_path
-   end
-
-  #def admin_names
-  #
-  #  @admin_detail = AdminDetail.first
-  #  @admin_array=[]
-  #  extract_admin_names(@admin_detail.assigned_admins)
-  #
-  #end
-  #
-  #def extract_admin_names(admins)
-  #
-  #  @comma_index = admins.index(',')
-  #
-  #  if @comma_index == nil
-  #
-  #    @admin_array.push((admins.strip).downcase)
-  #
-  #  else
-  #
-  #    @admin_name = (admins[0 , @comma_index].strip).downcase
-  #    @admin_array.push(@admin_name)
-  #    admins = admins[@comma_index+1 , admins.length]
-  #    extract_admin_names(admins)
-  #
-  #  end
-  #
-  #end
-
   def new
     @cab_request = CabRequest.new
-    @req = Requester.new
+    @req = Requester.new      
     @req.fetch_requester_info(session[:cas_user])
     @cab_request.init(@req.requester_name , @req.requester_contact_no)
   end
 
+
   def create
+    # binding.pry
     @cab_request=CabRequest.new(params[:cab_request])
     @cab_request.pick_up_time = "#{params[:hours]}:#{params[:minutes]} #{params[:ampm]}"
     if @cab_request.save
