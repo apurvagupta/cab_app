@@ -3,14 +3,14 @@ require 'spec_helper'
 describe Vendor do
        
   before :each do
-    @vendor = Vendor.new :vendor_name => "sample", :vendor_contact_no => "1234567890"
+    @vendor = Vendor.new(:name => "sample", :contact_no => "1234567890", :status => false)
   end
 
   context "Class structure validations" do
 
     it "should have all required fields  " do
-      (@vendor.has_attribute? :vendor_name).should be_true
-      (@vendor.has_attribute? :vendor_contact_no).should be_true
+      (@vendor.has_attribute? :name).should be_true
+      (@vendor.has_attribute? :contact_no).should be_true
     end
 
   end
@@ -26,12 +26,12 @@ describe Vendor do
   context "vendor name" do
 
     it "should not be blank" do
-      @vendor.vendor_name = nil
+      @vendor.name= nil
       @vendor.save.should be_false
     end
 
     it "should not contain digits" do
-      @vendor.vendor_name = "hello@123"
+      @vendor.name= "hello@123"
       @vendor.save.should be_false
     end
 
@@ -40,21 +40,21 @@ describe Vendor do
   context "vendor contact number " do
 
     it "should not be blank" do
-      @vendor.vendor_contact_no = nil
+      @vendor.contact_no = nil
       @vendor.save.should be_false
-      @vendor.errors[:vendor_contact_no].first.should == "can't be blank"
+      @vendor.errors[:contact_no].first.should == "can't be blank"
     end
 
     it "should not contain non-numeric data" do
-      @vendor.vendor_contact_no = "a$$@7466748"
+      @vendor.contact_no = "a$$@7466748"
       @vendor.save.should be_false
-      @vendor.errors[:vendor_contact_no].first.should == "is not a number"
+      @vendor.errors[:contact_no].first.should == "is not a number"
     end
 
     it "should not contain more or less than ten digits" do
-      @vendor.vendor_contact_no = "45678"
+      @vendor.contact_no = "45678"
       @vendor.save.should be_false
-      @vendor.errors[:vendor_contact_no].first.should == "is the wrong length (should be 10 characters)"
+      @vendor.errors[:contact_no].first.should == "is the wrong length (should be 10 characters)"
     end
 
   end

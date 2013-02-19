@@ -1,5 +1,5 @@
 class Admin < ActiveRecord::Base
-	attr_accessible :name, :contact_no
+	attr_accessible :name, :contact_no, :status
 
 
      validates_presence_of :name, :contact_no
