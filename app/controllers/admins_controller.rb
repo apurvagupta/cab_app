@@ -18,7 +18,7 @@ class AdminsController < ApplicationController
   	if @info.save
   		redirect_to @info
   	else
-  		render action: 'new'
+  		render action:'new'
   	end
 
   end
@@ -28,7 +28,7 @@ class AdminsController < ApplicationController
   	if @info.update_attributes(params[:admin])
   		redirect_to admins_path
   	else
-  		render action: 'edit'
+  		render action:'edit'
   	end
 
   end

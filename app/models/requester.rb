@@ -3,8 +3,8 @@ class Requester
 
   attr_reader :requester_name , :requester_contact_no
 
-  def gab_link
-    api =  "https://my.thoughtworks.com/api/core/v2/users/username/" + @userid                      rescue nil
+  def gab_link(user_id)
+    api =  "https://my.thoughtworks.com/api/core/v2/users/username/" + user_id                      rescue nil
     @source_code = open(api, :http_basic_authentication => ["ppathak", "Maa_papa143"]).read        rescue nil
   end
 
@@ -18,12 +18,11 @@ class Requester
   end
 
 
-  def fetch_requester_info(userid)
-    @userid = userid
-    gab_link
+  def fetch_requester_info(user_id)
+    gab_link(user_id)
     @requester_name = extract("name")
     if !requester_name
-      @requester_name = @userid
+      @requester_name = user_id
     end
     @requester_contact_no = extract("mobile")
   end
