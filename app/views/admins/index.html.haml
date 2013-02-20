@@ -9,7 +9,7 @@
       %td= admin.name
       %td= admin.contact_no
       %td= link_to 'edit', edit_admin_path(admin)
-      %td= link_to 'delete', admin_path(admin), :method => :delete, :confirm => 'Are you sure?'
+      %td= link_to 'delete', admin_path(admin), :method => :delete, :confirm => 'Are you sure?', :hidden => admin.status
   %end
 
 = link_to 'new', new_admin_path

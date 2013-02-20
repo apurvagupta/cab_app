@@ -1,59 +1,21 @@
--#%h1 ACTIVE VENDOR
--#
--#Vendors:
--#-if(@vendor_names.length == 1)
--#  %input{:value => @vendor_names.pop}
--#-else
--#  %select{:name => "vendors" , :onchange => "func(this, @admin_contact_numbers,'contact_no')"}
--#    -@vendor_names.each do|vendor_name|
--#      %option= vendor_name
--#    %end
--#%end
--#Contact Number:
--#%input{:id => "contact_no" , :value => @vendor_contact_numbers[0]}
--#%br
--#%br
--#%br
--#%h1 ACTIVE ADMIN
--#
--#Admins:
--#-if(@admin_names.length == 1)
--#  %input{:value => @admin_names.pop}
--#-else
--#  %select{:name => "admins" }
--#    -@admin_names.each do|admin_name|
--#      %option= admin_name
--#    %end
--#%end
--#Contact Number:
--#-if(@admin_contact_numbers.length == 1)
--#  %input{:value => @admin_contact_numbers.pop}
--#%end
 
+%h1 ACTIVE ADMIN
+%input{:value => @admin_name, :readonly => true}
+
+%h1 Contact Number:
+%input{:value => @admin_contact_number, :readonly => true}
 %br
 %br
 %br
-%form{:method => :post}
+%h1 ACTIVE VENDOR
+%input{:value => @vendor_name, :readonly => true}
 
-%b ACTIVE _ ADMIN :
-
-%select{:name => "admin"}
-  -@admin_names.each do|admin_name|
-    %option= admin_name
-  %end
-
+%h1 Contact Number:
+%input{:value => @vendor_contact_number, :readonly => true}
 %br
 %br
 %br
+=link_to 'Admins', admins_path
+=link_to 'Edit', '/support_center/edit'
+=link_to 'Vendors', vendors_path
 
-
-%b ACTIVE _ VENDOR :
-
-%select{:name => "vendors"}
-  -@vendor_names.each do|vendor_name|
-    %option= vendor_name
-  %end
-
-%br
-%br
-%h5= button_to "Update", :action => "update"

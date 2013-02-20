@@ -39,20 +39,6 @@ class AdminsController < ApplicationController
   	redirect_to admins_path
   end
 
-
-
-  # def configure_details
-
-  #     @admin=Admin.fi
-    
-  #     if @admin_detail.update_attributes(params[:admin_detail])
-  #     	redirect_to cab_requests_path
-  #     else
-  #     	render :template => "admins/config_details"
-  #     end
-
-  # end
-
 end
 
 
