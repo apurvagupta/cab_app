@@ -1,6 +1,34 @@
 class CabRequestsController < ApplicationController
 
 
+
+  #def admin_names
+  #
+  #  @admin_detail = AdminDetail.first
+  #  @admin_array=[]
+  #  extract_admin_names(@admin_detail.assigned_admins)
+  #
+  #end
+  #
+  #def extract_admin_names(admins)
+  #
+  #  @comma_index = admins.index(',')
+  #
+  #  if @comma_index == nil
+  #
+  #    @admin_array.push((admins.strip).downcase)
+  #
+  #  else
+  #
+  #    @admin_name = (admins[0 , @comma_index].strip).downcase
+  #    @admin_array.push(@admin_name)
+  #    admins = admins[@comma_index+1 , admins.length]
+  #    extract_admin_names(admins)
+  #
+  #  end
+  #
+  #end
+
   def new
     @cab_request = CabRequest.new
     @req = Requester.new      

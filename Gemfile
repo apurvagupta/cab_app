@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem 'rspec-rails'
 gem 'rubycas-client'
+#gem 'rubycas-client-rails'
 gem 'haml-rails'
 gem 'jquery_datepicker'
 gem 'jquery-rails'
