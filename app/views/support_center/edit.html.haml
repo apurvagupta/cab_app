@@ -1,0 +1,18 @@
+%h3 ACTIVE ADMIN :
+
+%select{:name => "admins" }
+  -@admin_names.each do|admin_name|
+    %option= admin_name
+  %end
+
+%br
+%br
+%br
+
+
+%h3 ACTIVE VENDOR :
+
+%select{:name => "vendors" , :onchange => "func(this, @admin_contact_numbers,'contact_no')"}
+  -@vendor_names.each do|vendor_name|
+    %option= vendor_name
+  %end

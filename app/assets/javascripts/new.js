@@ -30,3 +30,8 @@ function my_func(puf,l)
         }
 
 }
+
+function func(element,contact_numbers,input_id)
+{
+   document.getElementById(input_id).value = contact[element.selectedIndex]
+}

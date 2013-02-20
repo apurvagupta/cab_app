@@ -16,7 +16,7 @@ class AdminsController < ApplicationController
   	@info = Admin.new(params[:admin])
 
   	if @info.save
-  		redirect_to @info
+  		redirect_to admins_path
   	else
   		render action:'new'
   	end
@@ -31,10 +31,6 @@ class AdminsController < ApplicationController
   		render action:'edit'
   	end
 
-  end
-
-  def show
-  	redirect_to admins_path
   end
 
   def destroy

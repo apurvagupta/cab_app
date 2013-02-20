@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218100924) do
+ActiveRecord::Schema.define(:version => 20130219113716) do
 
   create_table "admins", :force => true do |t|
     t.string  "name"
     t.string  "contact_no"
-    t.boolean "status"
+    t.boolean "status",     :default => false
   end
 
   create_table "cab_requests", :force => true do |t|
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20130218100924) do
   create_table "vendors", :force => true do |t|
     t.string  "name"
     t.string  "contact_no"
-    t.boolean "status"
+    t.boolean "status",     :default => false
   end
 
 end

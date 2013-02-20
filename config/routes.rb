@@ -1,11 +1,13 @@
 CabApp::Application.routes.draw do
 
   match "/requesters/logout" , :controller => "requesters" , :action => "logout"
+  match "/support_center/update" , :controller => "support_center" , :action => "update"
   resources :cab_requests
   resources :admin_details
   resources :admins
   resources :requesters
   resources :vendors
+  resources :support_center
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
