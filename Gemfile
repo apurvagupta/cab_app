@@ -27,7 +27,7 @@ gem 'rubycas-client'
 gem 'haml-rails'
 gem 'jquery_datepicker'
 gem 'jquery-rails'
-
+gem 'sass-twitter-bootstrap-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
