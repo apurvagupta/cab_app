@@ -4,12 +4,10 @@
 =form_tag :action => :update do
 
   %b ACTIVE _ ADMIN :
-
   %select{:name => "admin"}
     -@admin_names.each do|admin_name|
       %option= admin_name
     %end
-
   %br
   %br
   %br
@@ -18,7 +16,6 @@
     -@vendor_names.each do|vendor_name|
       %option= vendor_name
     %end
-
   %br
   %br
   =submit_tag "Update"

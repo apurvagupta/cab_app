@@ -1,1 +1,3 @@
-@import "twitter/bootstrap"
+//= require_self
+//= require_tree .
+@import "twitter/bootstrap";
