@@ -16,7 +16,6 @@ class Requester
     return extracted_source_code
   end
 
-
   def fetch_requester_info(user_id)
     gab_link(user_id)
     @req = Requester.new

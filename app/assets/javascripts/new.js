@@ -1,5 +1,4 @@
 
-
 function onSelectedValueChange(ddl_id,txt_id)
 {
     var ddl_list = document.getElementById(ddl_id);

@@ -1,0 +1,52 @@
+
+body{
+	background-color: #CD950C;
+}
+
+.header {
+	background-color: black;
+	height: 102px;
+}
+
+form { 
+	padding-top: 20px;
+  	padding-left: 50px;
+ }
+
+h1 {
+	padding-top: 20px;
+	text-align: center;
+	font-size: 40px;
+	color: #CD950C
+}
+
+#logout_link {
+	margin-right: 20px;
+	font-size: 20px;
+}
+
+.left_container {
+	float: none;
+	padding-top: 200px;
+
+}
+
+.right_container {
+	float: right;
+    
+}
+
+label {
+	font-weight: bold;
+}
+
+.left_header {
+	float: left;
+	padding-left: 10px;
+	width: 300px;
+}
+
+.right_header {
+	float: none;
+	text-align: left;
+}

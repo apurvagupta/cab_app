@@ -1,4 +1,3 @@
-%h1 Create Request
 -@num = Array(1..50)
 -@sources = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
 -@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
@@ -6,14 +5,20 @@
 -@minutes = [00,30].map {|n| "%02d" % n}
 -@ampm = ["am","pm"]
 
--if @is_admin
-  %h4= link_to "manage app",support_center_index_path
+.header
+  .left_header
+    %img{:src => "/assets/thoughtworks.gif"}
+  .right_header
+    %h1 Create Request
+    
+    -if @is_admin
+      %h4= link_to "manage app",support_center_index_path
 
-%h4= link_to "logout",requesters_logout_path
+    %h4= link_to "logout",requesters_logout_path, :id => 'logout_link'
 
-%hr
 
-  = form_for(@cab_request) do |f|
+= form_for(@cab_request) do |f|
+  .right_container 
     -if @cab_request.errors.any?
       #error_explanation
         %h2= pluralize(@cab_request.errors.count, "error")
@@ -29,7 +34,6 @@
     .field
       = f.label "pick_up_for:"
       = f.text_field :pick_up_for ,:id => "pick_up_for", :onblur => "my_func('pick_up_for','label')"
-
 
     .field
       = f.label "Contact_no:"
@@ -65,16 +69,15 @@
           %option= source
         %end
 
-      =f.text_field :source, :id =>"txt_source" ,:hidden => true,:disabled=>true
-
+      =f.text_field :source, :id =>"txt_source" ,:hidden => true , :disabled => true
 
     .field
       =f.label "Destination:"
-      %select{:name => "cab_request[destination]",:id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
+      %select{:name => "cab_request[destination]", :id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
         -@destinations.each do|destination|
           %option= destination
         %end
-      =f.text_field :destination, :id =>"txt_destination" ,:hidden => true,:disabled=>true
+      =f.text_field :destination, :id =>"txt_destination" ,:hidden => true , :disabled => true
 
     .field
       =f.label "No of passengers:"
@@ -90,10 +93,7 @@
     .field
       =f.submit "Send"
 
-  %end
+    = link_to 'cancel', cab_requests_path
 
-= link_to 'cancel', cab_requests_path
-
-
-
-
+  .left_container
+    %img{:src => "/assets/Twi_new.gif"}
