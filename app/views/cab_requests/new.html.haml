@@ -6,8 +6,8 @@
 -@minutes = [00,30].map {|n| "%02d" % n}
 -@ampm = ["am","pm"]
 
--if @bool
-  %h4= link_to "manage app",admins_path
+-if @is_admin
+  %h4= link_to "manage app",support_center_index_path
 
 %h4= link_to "logout",requesters_logout_path
 

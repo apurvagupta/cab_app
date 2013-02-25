@@ -5,10 +5,9 @@ class CabRequestsController < ApplicationController
   end
 
   def new
-    @cab_request = CabRequest.new
-    @req = Requester.new
-    @req.fetch_requester_info(session[:cas_user])
-    @cab_request.init(@req.requester_name , @req.requester_contact_no)
+    @req = Requester.new.fetch_requester_info(session[:cas_user])
+    @cab_request = CabRequest.new(:requester => @req.requester_name, :contact_no => @req.requester_contact_no)
+    @is_admin = Admin.all.collect(&:name).include?(@req.requester_name) || @req.requester_name == session[:cas_user]
   end
 
   def create

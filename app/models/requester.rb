@@ -1,7 +1,6 @@
 require 'open-uri'
 class Requester
-
-  attr_reader :requester_name , :requester_contact_no
+  attr_accessor :requester_name , :requester_contact_no
 
   def gab_link(user_id)
     api =  "https://my.thoughtworks.com/api/core/v2/users/username/" + user_id                      rescue nil
@@ -20,11 +19,10 @@ class Requester
 
   def fetch_requester_info(user_id)
     gab_link(user_id)
-    @requester_name = extract("name") || user_id
-    #if !requester_name
-    #  @requester_name = user_id
-    #end
-    @requester_contact_no = extract("mobile")
+    @req = Requester.new
+    @req.requester_name = extract("name") || user_id
+    @req.requester_contact_no = extract("mobile")
+    return @req
   end
 
 

@@ -16,10 +16,5 @@ class CabRequest < ActiveRecord::Base
     errors.add(:source ," and Destination can't be same") if source == destination
   end
 
-  def init(name , contact_no)
-    self.requester = name
-    self.contact_no = contact_no
-  end
-
 end
 
