@@ -12,7 +12,7 @@
     %h1 Create Request
     
     -if @is_admin
-      %h4= link_to "manage app",support_center_index_path
+      %h4= link_to "Manage App",support_center_index_path
 
     %h4= link_to "logout",requesters_logout_path, :id => 'logout_link'
 
@@ -69,7 +69,7 @@
           %option= source
         %end
 
-      =f.text_field :source, :id =>"txt_source" ,:hidden => true , :disabled => true
+      =f.hidden_field :source, :id =>"txt_source" , :disabled => true
 
     .field
       =f.label "Destination:"
@@ -77,7 +77,7 @@
         -@destinations.each do|destination|
           %option= destination
         %end
-      =f.text_field :destination, :id =>"txt_destination" ,:hidden => true , :disabled => true
+      =f.hidden_field :destination, :id =>"txt_destination" , :disabled => true
 
     .field
       =f.label "No of passengers:"
@@ -93,7 +93,7 @@
     .field
       =f.submit "Send"
 
-    = link_to 'cancel', cab_requests_path
+    %h3= link_to 'cancel', cab_requests_path
 
   .left_container
     %img{:src => "/assets/Twi_new.gif"}
