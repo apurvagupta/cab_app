@@ -1,16 +1,17 @@
 
 body{
 	background-color: #CD950C;
+
 }
 
 .header {
 	background-color: black;
-	height: 102px;
+    overflow: auto ;
 }
 
 form { 
-	padding-top: 20px;
-  	padding-left: 50px;
+	padding-top: auto;
+  	padding-left: auto;
  }
 
 h1 {
@@ -30,23 +31,26 @@ h4	{
 
 .left_container {
 	float: none;
-	padding-top: 200px;
+	padding-top: 15%;
+    width: 50%;
 
 }
 
 .right_container {
 	float: right;
+    width: 50%;
     
 }
 
 label {
 	font-weight: bold;
+    font-size: 120%;
 }
 
 .left_header {
 	float: left;
-	padding-left: 10px;
-	width: 300px;
+	padding-left: auto;
+
 }
 
 .right_header {

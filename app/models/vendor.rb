@@ -10,10 +10,10 @@ class Vendor < ActiveRecord::Base
     @vendor_array = Vendor.all
     @vendor_array.each do |vendor|
       vendor.status = false
-      vendor.save
+      vendor.update_attribute(:status,'false')
     end
     self.status = true
-    self.save
+    self.update_attribute(:status,'true')
   end
 
 end
