@@ -3,7 +3,7 @@
 
 %table{:cellspacing => 50 }
   %th ID
-  %th PICK_UP_FOR
+  %th traveler_name
   %th CONTACT_NO
   %th DATE
   %th PICK_UP_TIME
@@ -14,9 +14,9 @@
   - @cab_request_array.each do |each_request|
     %tr
       %td= each_request.id
-      %td= each_request.pick_up_for
+      %td= each_request.traveler_name
       %td= each_request.contact_no
-      %td= each_request.date
+      %td= each_request.pick_up_date
       %td= each_request.pick_up_time
       %td= each_request.source
       %td= each_request.destination

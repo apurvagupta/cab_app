@@ -9,11 +9,12 @@ class Vendor < ActiveRecord::Base
   def set_vendor_status(vendor_name)
     @vendor_array = Vendor.all
     @vendor_array.each do |vendor|
-      vendor.status = false
-      vendor.update_attribute(:status,'false')
+      if(vendor.name == vendor_name)
+        vendor.update_attribute(:status,'true')
+      else
+        vendor.update_attribute(:status,'false')
+      end
     end
-    self.status = true
-    self.update_attribute(:status,'true')
   end
 
 end

@@ -1,9 +1,6 @@
 -@num = Array(1..50)
 -@sources = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
 -@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
--@hours = Array(01..12).map {|n| "%02d" % n}
--@minutes = [00,30].map {|n| "%02d" % n}
--@ampm = ["am","pm"]
 
 .header
   .left_header
@@ -32,8 +29,8 @@
       = f.text_field :requester ,:Readonly => true
 
     .field
-      = f.label "pick_up_for:"
-      = f.text_field :pick_up_for ,:id => "pick_up_for", :onblur => "my_func('pick_up_for','label')"
+      = f.label "traveler_name:"
+      = f.text_field :traveler_name ,:id => "traveler_name", :onblur => "my_func('traveler_name','label')"
 
     .field
       = f.label "Contact_no:"
@@ -41,26 +38,12 @@
 
     .field
       = f.label "Date:"
-      = f.datepicker :date  ,:dateFormat =>"dd/mm/yy"
+      = f.datepicker :pick_up_date  ,:dateFormat =>"dd/mm/yy"
 
     .field
-      = f.label "pick_up_time:"
-      %select{:name => "hours" }
-        -@hours.each do|hours|
-          %option= hours
-        %end
-
-      = ":"
-
-      %select{:name => "minutes" }
-        -@minutes.each do|minutes|
-          %option= minutes
-        %end
-
-      %select{:name=>"ampm"}
-        -@ampm.each do|ampm|
-          %option= ampm
-        %end
+      = f.label "Time:"
+      / = f.timepicker :pick_up_time
+      = f.text_field :pick_up_time , :id => 'pick_up_time'
 
     .field
       =f.label "Source:"
@@ -97,3 +80,4 @@
 
   .left_container
     %img{:src => "/assets/Twi_new.gif"}
+

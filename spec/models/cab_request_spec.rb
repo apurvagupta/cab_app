@@ -3,16 +3,16 @@ require 'spec_helper'
 describe CabRequest do
 
   before :each do
-    @cab_request = CabRequest.new :requester=> "Apurva",:pick_up_for=>"Vishal", :contact_no => "8527644166" , :date => "2013-08-27", :pick_up_time => "05:30" ,:source=>"dilshad garden",:destination=>"office",:no_of_passengers=>3, :comments => "Please"
+    @cab_request = CabRequest.new :requester=> "Apurva",:traveler_name=>"Vishal", :contact_no => "8527644166" , :date => "2013-08-27", :pick_up_time => "05:30" ,:source=>"dilshad garden",:destination=>"office",:no_of_passengers=>3, :comments => "Please"
   end
 
   context "Class structure validations" do
 
     it "should have all required fields  " do
       (@cab_request.has_attribute? :requester).should be_true
-      (@cab_request.has_attribute? :pick_up_for).should be_true
+      (@cab_request.has_attribute? :traveler_name).should be_true
       (@cab_request.has_attribute? :contact_no).should be_true
-      (@cab_request.has_attribute? :date).should be_true
+      (@cab_request.has_attribute? :pick_up_date).should be_true
       (@cab_request.has_attribute? :pick_up_time).should be_true
       (@cab_request.has_attribute? :source).should be_true
       (@cab_request.has_attribute? :destination).should be_true
@@ -40,22 +40,22 @@ describe CabRequest do
 
   context "pick up for" do
     it "should not be blank" do
-      @cab_request.pick_up_for = nil
+      @cab_request.traveler_name = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:pick_up_for].first.should == "can't be blank"
+      @cab_request.errors[:traveler_name].first.should == "can't be blank"
     end
 
 
     it "should not contain anything other than alphabets" do
-      @cab_request.pick_up_for = "apurva0"
+      @cab_request.traveler_name = "apurva0"
       @cab_request.save.should be_false
-      @cab_request.errors[:pick_up_for].first.should == "is invalid"
+      @cab_request.errors[:traveler_name].first.should == "is invalid"
     end
 
     it "should not contain more than 10 alphabets" do
-      @cab_request.pick_up_for = "hello"*3
+      @cab_request.traveler_name = "hello"*3
       @cab_request.save.should be_false
-      @cab_request.errors[:pick_up_for].first.should == "is too long (maximum is 10 characters)"
+      @cab_request.errors[:traveler_name].first.should == "is too long (maximum is 10 characters)"
     end
   end
 
@@ -83,9 +83,9 @@ describe CabRequest do
 
   end
 
-  context "date" do
+  context "pick_up_date" do
     it "should not be blank" do
-      @cab_request.date = nil
+      @cab_request.pick_up_date = nil
       @cab_request.save.should be_false
       @cab_request.errors[:date].first.should == "can't be blank"
     end

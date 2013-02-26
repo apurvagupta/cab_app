@@ -15,3 +15,7 @@ function onSelectedValueChange(ddl_id,txt_id)
     }
 
 }
+
+$(document).ready(function() {
+    $('#pick_up_time').timepicker({ 'scrollDefaultNow': true });
+  })

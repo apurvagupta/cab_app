@@ -9,9 +9,12 @@ class Admin < ActiveRecord::Base
   def set_admin_status(admin_name)
     @admin_array = Admin.all
     @admin_array.each do |admin|
-     admin.update_attribute(:status,'false')
+      if(admin.name == admin_name)
+        admin.update_attribute(:status,'true')
+      else
+        admin.update_attribute(:status,'false')
+      end
     end
-    self.update_attribute(:status,'true')
   end
 
 end

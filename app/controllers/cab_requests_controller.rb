@@ -12,7 +12,11 @@ class CabRequestsController < ApplicationController
 
   def create
     @cab_request=CabRequest.new(params[:cab_request])
-    @cab_request.pick_up_time = "#{params[:hours]}:#{params[:minutes]} #{params[:ampm]}"
+
+    p "<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    p params[:cab_request]
+    p "<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    p @cab_request.pick_up_time
     if @cab_request.save
       redirect_to cab_request_path(@cab_request)
     else
@@ -22,6 +26,7 @@ class CabRequestsController < ApplicationController
 
   def show
     @cab_request=CabRequest.find(params[:id])
+
     @cab_request_array=CabRequest.all(:conditions => {:requester => @cab_request.requester})
   end
 

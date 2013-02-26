@@ -50,10 +50,13 @@ label {
 .left_header {
 	float: left;
 	padding-left: auto;
-
 }
 
 .right_header {
 	float: none;
-	text-align: left;
+	text-align: center;
+}
+
+#pick_up_time {
+	width: 76px;
 }
