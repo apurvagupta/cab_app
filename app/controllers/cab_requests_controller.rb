@@ -12,11 +12,6 @@ class CabRequestsController < ApplicationController
 
   def create
     @cab_request=CabRequest.new(params[:cab_request])
-
-    p "<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    p params[:cab_request]
-    p "<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    p @cab_request.pick_up_time
     if @cab_request.save
       redirect_to cab_request_path(@cab_request)
     else

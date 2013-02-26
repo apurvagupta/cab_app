@@ -18,7 +18,8 @@ class CabRequest < ActiveRecord::Base
   end
 
   def date_and_time_validation
-
+    current_date = Date.today
+    # errors.add(:pick_up_date ," should not be ") if pick_up_date < Date.today
   end
 
 
