@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226070836) do
+ActiveRecord::Schema.define(:version => 20130227074629) do
 
   create_table "admins", :force => true do |t|
     t.string  "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130226070836) do
   create_table "cab_requests", :force => true do |t|
     t.string   "contact_no"
     t.string   "destination"
-    t.time     "pick_up_time",     :limit => 255
+    t.datetime "pick_up_time",     :limit => 255
     t.text     "comments"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
