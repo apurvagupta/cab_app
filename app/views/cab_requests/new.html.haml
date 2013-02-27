@@ -69,9 +69,8 @@
       =f.text_field :comments
 
     .field
-      =f.submit "Send"
-
-    %h3= link_to 'cancel', cab_requests_path
+      =f.submit "Send", :class => 'button'
+      %h3= link_to 'cancel', cab_requests_path
 
   .left_container
     %img{:src => "/assets/Twi_new.gif"}

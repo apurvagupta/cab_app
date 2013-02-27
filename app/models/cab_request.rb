@@ -19,9 +19,15 @@ class CabRequest < ActiveRecord::Base
 
   def date_and_time_validation
     current_date = Date.today
-    # errors.add(:pick_up_date ," should not be ") if pick_up_date < Date.today
+    current_time = Time.now
+    current_time = current_time.strftime("%I:%M%p")
+    # pick_up_time = pick_up_time.strftime("%I:%M%p")
+    p '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+    p current_time.class
+    p pick_up_time.class
+    # p pick_up_time.change(:day =>2023)
+    # p current_time.to_formatted_s(:db)
+    p '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+    errors.add(:pick_up_date," and pick_up_time should not be less than current date-time") if (pick_up_date < current_date) #|| (pick_up_time < current_time)
   end
-
-
 end
-

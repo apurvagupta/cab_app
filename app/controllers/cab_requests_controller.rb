@@ -21,7 +21,7 @@ class CabRequestsController < ApplicationController
   end
 
   def show
-    @req = Requester.new.fetch_requester_info(session[:cas_user])
+    @req = Requester.fetch_requester_info(session[:cas_user])
     @cab_request_array=CabRequest.all(:conditions => {:requester => @req.requester_name})
   end
 

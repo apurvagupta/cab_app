@@ -3,10 +3,30 @@
     %img{:src => "/assets/thoughtworks.gif"}
   .right_header
     %h1 Cab Requisition System
-    %h4= link_to "logout",requesters_logout_path, :id => 'logout_link'
-    %h4= link_to "View My Reports", '/cab_requests/show'
-    -if $is_admin
-      -if @cr
-        %h4= link_to "Manage App",support_center_index_path
-      -if @ad
-        %h4= link_to "Create Request",new_cab_request_path
+  .menu_bar
+    %ui{:id => 'nav'}
+      %li  
+        %h4= link_to "logout",requesters_logout_path, :id => 'logout_link'
+        / %img{:src => "/assets/divider.jpg"}
+      %li
+        %h4= link_to "View My Reports", '/cab_requests/show'
+        / %img{:src => "/assets/divider.jpg"}
+      %li
+        -if $is_admin
+          -if @cr
+            %h4= link_to "Manage App",support_center_index_path
+          -if @ad
+            %h4= link_to "Create Request",new_cab_request_path
+
+/ .header
+/   .left_header
+/     %img{:src => "/assets/thoughtworks.gif"}
+/   .right_header
+/     %h1 Create Cab Request  
+/   .menu_bar    
+/     %ul{:id => 'nav'}
+/       %li
+/         -if @is_admin
+/           %h4= link_to "Manage App",support_center_index_path
+/       %li
+/         %h4= link_to "logout",requesters_logout_path, :id => 'logout_link'

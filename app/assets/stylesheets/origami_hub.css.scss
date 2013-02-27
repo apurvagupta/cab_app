@@ -1,14 +1,28 @@
+#nav {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#nav li {
+	display: block;
+	float: left;
+	margin: 0 5px;
+}
 
 body{
 	background-color: #CD950C;
-
 }
 
 .header {
 	background-color: black;
-    overflow: hidden ;
+    overflow: auto ;
 }
 
+.menu_bar {
+	text-align: right;
+	float: right;
+}
 form { 
 	padding-top: auto;
   	padding-left: auto;
@@ -16,24 +30,13 @@ form {
 
 h1 {
 	padding-top: 20px;
-	text-align: left;
+	text-align: center;
 	font-size: 40px;
 	color: #CD950C
 }
 
-h6 {
-  padding-top: 20px;
-  text-align: center;
-  font-size: 40px;
-  color: #000000;
-}
-
-#logout_link {
-	margin-right: 95px;
- }
-
 h4	{
-   font-size: 20px;
+   text-align: right;
 }
 
 .left_container {
@@ -57,7 +60,6 @@ label {
 .left_header {
 	float: left;
 	padding-left: auto;
-    width: 37%;
 }
 
 .right_header {
@@ -67,4 +69,22 @@ label {
 
 #pick_up_time {
 	width: 76px;
+}
+
+a {
+	font-size: 17px;
+	background: url(button.png);
+	background-size: 100% 100%;
+	color: white;
+	font-weight: normal;	
+}
+
+a:hover {
+	color: #CD950C;
+}
+
+.button {
+	 background: url(button.png);
+ 	background-size: 100% 100%;
+ 	color: white;
 }

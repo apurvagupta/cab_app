@@ -1,4 +1,5 @@
 require 'open-uri'
+
 class Requester
   attr_accessor :requester_name , :requester_contact_no
 
@@ -28,7 +29,6 @@ class Requester
   def self.is_admin(user_id)
     $is_admin = Admin.all.collect(&:name).include?(user_id)
   end
-
 
 end
 
