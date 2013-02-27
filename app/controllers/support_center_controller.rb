@@ -1,10 +1,14 @@
 class SupportCenterController < ApplicationController
   def index
-    @admin_name = Admin.all(:conditions => {:status => true}).pop.name
-    @admin_contact_number = Admin.all(:conditions => {:name => @admin_name}).pop.contact_no
+    @admin_name = Admin.all(:conditions => {:status => true}).pop.name                                  rescue nil
+    @admin_contact_number = Admin.all(:conditions => {:name => @admin_name}).pop.contact_no             rescue nil
 
-    @vendor_name = Vendor.all(:conditions => {:status => true}).pop.name
-    @vendor_contact_number = Vendor.all(:conditions => {:name => @vendor_name}).pop.contact_no
+    @vendor_name = Vendor.all(:conditions => {:status => true}).pop.name                                rescue nil
+    @vendor_contact_number = Vendor.all(:conditions => {:name => @vendor_name}).pop.contact_no          rescue nil
+    if !@admin_name || !@vendor_name
+      redirect_to '/support_center/edit'
+    end
+
   end
 
   def update

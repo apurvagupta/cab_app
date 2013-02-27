@@ -6,7 +6,7 @@ body{
 
 .header {
 	background-color: black;
-    overflow: auto ;
+    overflow: hidden ;
 }
 
 form { 
@@ -16,13 +16,20 @@ form {
 
 h1 {
 	padding-top: 20px;
-	text-align: center;
+	text-align: left;
 	font-size: 40px;
 	color: #CD950C
 }
 
+h6 {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 40px;
+  color: #000000;
+}
+
 #logout_link {
-	margin-right: 55px;
+	margin-right: 95px;
  }
 
 h4	{
@@ -50,6 +57,7 @@ label {
 .left_header {
 	float: left;
 	padding-left: auto;
+    width: 37%;
 }
 
 .right_header {

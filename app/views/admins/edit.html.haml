@@ -1,4 +1,10 @@
-%h1 Editing Admin
+= render '/permissions'
 
-%hr 
-= render '/form'
+-if $is_admin
+  -@ad = "true"
+  = render '/header'
+  -@ad = "false"
+  %h1 Editing Admin
+
+  %hr
+  = render '/form'

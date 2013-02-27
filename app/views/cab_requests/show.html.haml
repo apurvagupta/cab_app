@@ -1,4 +1,9 @@
-%h2 YOUR REQUEST HAS BEEN SEND
+-@cr = "true"
+= render '/header'
+
+-@cr = "false"
+
+%h2= @notice
 %hr
 
 %table{:cellspacing => 50 }

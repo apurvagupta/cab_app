@@ -3,7 +3,7 @@ class CabRequest < ActiveRecord::Base
   attr_accessible :requester,:traveler_name, :contact_no, :pick_up_date, :pick_up_time ,:source,:destination,:no_of_passengers, :comments
 
   validates_presence_of :traveler_name, :contact_no , :destination, :pick_up_time, :source, :no_of_passengers, :pick_up_date , :requester
-  validates_format_of :traveler_name, :with => /^[a-zA-Z\s]*$/
+  validates_format_of :traveler_name, :with => /^[a-z.A-Z\s]*$/
   validates_numericality_of :contact_no, :only_integer => true
 
   validates_length_of :contact_no, :is => 10

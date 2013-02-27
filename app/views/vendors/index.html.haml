@@ -1,15 +1,22 @@
-%table{:cellspacing => 50}
-  %th Name
-  %th Contact No
-  %th 
-  %th 
-  %hr
-  - @vendors.each do |vendor|
-    %tr
-      %td= vendor.name
-      %td= vendor.contact_no
-      %td= link_to 'edit', edit_vendor_path(vendor)
-      %td= link_to 'delete', vendor_path(vendor), :method => :delete, :confirm => 'Are you sure?', :hidden => vendor.status
-  %end
+= render '/permissions'
 
-= link_to 'new', new_vendor_path
+-if $is_admin
+  -@ad = "true"
+  = render '/header'
+  -@ad = "false"
+
+  %table{:cellspacing => 50}
+    %th Name
+    %th Contact No
+    %th
+    %th
+    %hr
+    - @vendors.each do |vendor|
+      %tr
+        %td= vendor.name
+        %td= vendor.contact_no
+        %td= link_to 'edit', edit_vendor_path(vendor)
+        %td= link_to 'delete', vendor_path(vendor), :method => :delete, :confirm => 'Are you sure?', :hidden => vendor.status
+    %end
+
+  = link_to 'new', new_vendor_path

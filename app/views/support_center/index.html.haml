@@ -1,22 +1,27 @@
+= render '/permissions'
 
-%h2 ACTIVE ADMIN
-%input{:value => @admin_name, :readonly => true}
+-if $is_admin
+  -@ad = "true"
+  = render '/header'
+  -@ad = "false"
 
-%h2 Contact Number:
-%input{:value => @admin_contact_number, :readonly => true}
-%br
-%br
-%br
-%h2 ACTIVE VENDOR
-%input{:value => @vendor_name, :readonly => true}
+  %h2 ACTIVE ADMIN
+  %input{:value => @admin_name, :readonly => true}
 
-%h2 Contact Number:
-%input{:value => @vendor_contact_number, :readonly => true}
-%br
-%br
-%br
-%h3= link_to 'Admins', admins_path
-%h3= link_to 'Edit', '/support_center/edit'
-%h3= link_to 'Vendors', vendors_path
+  %h2 Contact Number:
+  %input{:value => @admin_contact_number, :readonly => true}
+  %br
+  %br
+  %br
+  %h2 ACTIVE VENDOR
+  %input{:value => @vendor_name, :readonly => true}
 
+  %h2 Contact Number:
+  %input{:value => @vendor_contact_number, :readonly => true}
+  %br
+  %br
+  %br
+  %h3= link_to 'Admins', admins_path
+  %h3= link_to 'Edit', '/support_center/edit'
+  %h3= link_to 'Vendors', vendors_path
 

@@ -1,18 +1,10 @@
+-@cr = "true"
+= render '/header'
+
+-@cr = "false"
 -@num = Array(1..50)
 -@sources = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
 -@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
-
-.header
-  .left_header
-    %img{:src => "/assets/thoughtworks.gif"}
-  .right_header
-    %h1 Create Cab Request
-    
-    -if @is_admin
-      %h4= link_to "Manage App",support_center_index_path
-
-    %h4= link_to "logout",requesters_logout_path, :id => 'logout_link'
-
 
 = form_for(@cab_request) do |f|
   .right_container 
@@ -24,6 +16,9 @@
             %li=  msg
           %end
     %end
+    %h2 Create Request :
+    %br
+    %br
     .field
       = f.label "Requester:"
       = f.text_field :requester ,:Readonly => true
