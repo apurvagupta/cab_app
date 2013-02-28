@@ -30,6 +30,7 @@ gem 'jquery-rails'
 gem 'sass-twitter-bootstrap-rails'
 gem 'jquery-timepicker-rails'
 gem 'pry'
+gem 'simplecov', :require => false, :group => :test
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

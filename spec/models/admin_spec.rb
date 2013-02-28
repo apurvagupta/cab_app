@@ -11,6 +11,7 @@ describe Admin do
     it "should have all required fields  " do
       (@admin.has_attribute? :name).should be_true
       (@admin.has_attribute? :contact_no).should be_true
+      (@admin.has_attribute? :status).should be_true
     end
 
   end
@@ -55,6 +56,15 @@ describe Admin do
       @admin.contact_no = "45678"
       @admin.save.should be_false
       @admin.errors[:contact_no].first.should == "is the wrong length (should be 10 characters)"
+    end
+
+  end
+  context "Admin Status " do
+
+    it "should not be blank" do
+      @admin.status = nil
+      @admin.save.should be_false
+      @admin.errors[:status].first.should == "can't be blank"
     end
 
   end

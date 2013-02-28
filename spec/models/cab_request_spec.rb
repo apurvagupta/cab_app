@@ -3,7 +3,7 @@ require 'spec_helper'
 describe CabRequest do
 
   before :each do
-    @cab_request = CabRequest.new :requester=> "Apurva",:traveler_name=>"Vishal", :contact_no => "8527644166" , :date => "2013-08-27", :pick_up_time => "05:30" ,:source=>"dilshad garden",:destination=>"office",:no_of_passengers=>3, :comments => "Please"
+    @cab_request = CabRequest.new :requester=> "Apurva",:traveler_name=>"Vishal", :contact_no => "8527644166" , :pick_up_date => "2013-08-27", :pick_up_time => "05:30" ,:source=>"dilshad garden",:destination=>"office",:no_of_passengers=>3, :comments => "Please"
   end
 
   context "Class structure validations" do
@@ -87,8 +87,9 @@ describe CabRequest do
     it "should not be blank" do
       @cab_request.pick_up_date = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:date].first.should == "can't be blank"
+      @cab_request.errors[:pick_up_date].first.should == "can't be blank"
     end
+
   end
 
   context "pick_up_time" do

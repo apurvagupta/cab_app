@@ -15,7 +15,6 @@ describe CabRequestsController do
 			CASClient::Frameworks::Rails::Filter.fake("homer")
 			post :create #, :cab_request => @cab_request
 			response.should render_template("cab_requests/new")
-	    end		
-        
+	    end
 	end
 end
