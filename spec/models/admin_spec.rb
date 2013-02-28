@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin do
        
   before :each do
-    @admin = Admin.new :name => "sample", :contact_no => "1234567890", :status => 0
+    @admin = Admin.new :name => "sample", :contact_no => "1234567890", :status => false
   end
 
   context "Class structure validations" do
@@ -60,13 +60,11 @@ describe Admin do
 
   end
   context "Admin Status " do
-
-    it "should not be blank" do
+    it "should not contain other than a boolean value " do
       @admin.status = nil
       @admin.save.should be_false
-      @admin.errors[:status].first.should == "can't be blank"
+      @admin.errors[:status].first.should == "is not included in the list"
     end
-
   end
 
 end

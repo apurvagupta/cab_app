@@ -15,9 +15,8 @@ class AdminsController < ApplicationController
 
   def create
   	@info = Admin.new(params[:admin])
-
   	if @info.save
-      Requester.is_admin(@user_id)
+      Requester.is_admin(session[:cas_user])
   		redirect_to admins_path
   	else
   		render action:'new'
@@ -38,7 +37,7 @@ class AdminsController < ApplicationController
   def destroy
   	@info = Admin.find(params[:id])
   	@info.destroy
-    Requester.is_admin(@user_id)
+    Requester.is_admin(session[:cas_user])
     redirect_to admins_path
   end
 

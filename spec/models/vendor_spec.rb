@@ -58,6 +58,13 @@ describe Vendor do
     end
 
   end
+  context "Vendor Status " do
+    it "should not contain other than a boolean value " do
+      @vendor.status = nil
+      @vendor.save.should be_false
+      @vendor.errors[:status].first.should == "is not included in the list"
+    end
+  end
 
 end
 
