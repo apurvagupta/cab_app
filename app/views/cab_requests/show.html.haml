@@ -5,7 +5,6 @@
 
 %h2= @notice
 %hr
-
 %table{:cellspacing => 50 }
   %th ID
   %th traveler_name
@@ -16,13 +15,13 @@
   %th DESTINATION
   %th NO_OF_PASSENGERS
   %hr
-  - @cab_request_array.each do |each_request|
+  - @cab_request_array.zip(@date_array).each do |each_request,date|
     %tr
       %td= each_request.id
       %td= each_request.traveler_name
       %td= each_request.contact_no
-      %td= each_request.pick_up_date
-      %td= ist(each_request.pick_up_time)
+      %td= date
+      %td= ist(each_request.pick_up_date_time)
       %td= each_request.source
       %td= each_request.destination
       %td= each_request.no_of_passengers

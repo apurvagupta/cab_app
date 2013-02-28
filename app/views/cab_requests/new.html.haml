@@ -31,13 +31,14 @@
       = f.label "Contact_no:"
       = f.text_field :contact_no
 
-    .field
-      = f.label "Date:"
-      = f.datepicker :pick_up_date ,:dateFormat =>"dd/mm/yy"
+    = form_tag do
+      %label Date:
+      %input{:id => "pick_up_date", :name => "pick_up_date"}
+    %end
 
     .field
       = f.label "Time:"
-      = f.text_field :pick_up_time , :id => 'pick_up_time'
+      = f.text_field :pick_up_date_time , :id => 'pick_up_time'
 
     .field
       =f.label "Source:"

@@ -1,8 +1,8 @@
 class CabRequest < ActiveRecord::Base
 
-  attr_accessible :requester,:traveler_name, :contact_no, :pick_up_date, :pick_up_time ,:source,:destination,:no_of_passengers, :comments
+  attr_accessible :requester,:traveler_name, :contact_no, :pick_up_date_time ,:source,:destination,:no_of_passengers, :comments
 
-  validates_presence_of :traveler_name, :contact_no , :destination, :pick_up_time, :source, :no_of_passengers, :pick_up_date , :requester
+  validates_presence_of :traveler_name, :contact_no , :destination, :pick_up_date_time, :source, :no_of_passengers , :requester
   validates_format_of :traveler_name, :with => /^[a-z.A-Z\s]*$/
   validates_numericality_of :contact_no, :only_integer => true
 
@@ -19,7 +19,10 @@ class CabRequest < ActiveRecord::Base
 
   #def date_and_time_validation
   #  current_time = Time.now
+
   #  errors.add(:pick_up_time," and pick_up_date should not be less than current date-time") if pick_up_time < current_time
+
+  #  errors.add(:pick_up_date_time," and pick_up_date should not be less than current date-time") if pick_up_date_time < current_time                              rescue nil
   #end
 
 end

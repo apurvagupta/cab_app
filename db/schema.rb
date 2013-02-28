@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227074629) do
+ActiveRecord::Schema.define(:version => 20130228090904) do
 
   create_table "admins", :force => true do |t|
     t.string  "name"
@@ -22,15 +22,20 @@ ActiveRecord::Schema.define(:version => 20130227074629) do
   create_table "cab_requests", :force => true do |t|
     t.string   "contact_no"
     t.string   "destination"
-    t.datetime "pick_up_time",     :limit => 255
+    t.datetime "pick_up_date_time", :limit => 255
     t.text     "comments"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "requester"
     t.string   "traveler_name"
-    t.date     "pick_up_date"
     t.string   "source"
-    t.integer  "no_of_passengers", :limit => 255
+    t.integer  "no_of_passengers",  :limit => 255
+  end
+
+  create_table "configure_details", :force => true do |t|
+    t.string "support_phone_no"
+    t.string "vendor_phone_no"
+    t.string "assigned_admins"
   end
 
   create_table "vendors", :force => true do |t|

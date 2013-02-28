@@ -19,5 +19,5 @@ function onSelectedValueChange(ddl_id,txt_id)
 $(document).ready(function() {
 
     $('#pick_up_time').timepicker({ 'scrollDefaultNow': true });
-//    $('#pick_up_date').datepicker({ minDate: 0 });
+    $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy" , minDate: 0});
   })
