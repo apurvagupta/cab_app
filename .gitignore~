@@ -16,3 +16,11 @@
 
 # Ignore workspace.xml file.
 .idea/workspace.xml
+<<<<<<< HEAD
+=======
+
+# ignore simplecov files
+ coverage/.resultset.json
+ coverage/index.html
+
+>>>>>>> Refactoring of support_center is done
