@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Admin do
-       
+
   before :each do
     @admin = Admin.new :name => "sample", :contact_no => "1234567890", :status => false
   end
@@ -24,7 +24,7 @@ describe Admin do
 
   end
 
-    context "admin name" do
+  context "admin name" do
 
     it "should not be blank" do
       @admin.name = nil

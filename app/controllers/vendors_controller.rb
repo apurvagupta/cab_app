@@ -1,36 +1,36 @@
- class VendorsController < ApplicationController
+class VendorsController < ApplicationController
 
   def index
-     @vendors = Vendor.all
+    @vendors = Vendor.all
   end
 
   def new
-  	@info = Vendor.new
+    @info = Vendor.new
   end
 
   def edit
-  	@info = Vendor.find(params[:id])
+    @info = Vendor.find(params[:id])
   end
 
   def create
-  	@info = Vendor.new(params[:vendor])
+    @info = Vendor.new(params[:vendor])
 
-  	if @info.save
-  		redirect_to vendors_path
+    if @info.save
+      redirect_to vendors_path
     else
-      render action:'new'
-  	end
+      render action: 'new'
+    end
 
   end
 
   def update
-  	@info = Vendor.find(params[:id])
+    @info = Vendor.find(params[:id])
 
-  	if @info.update_attributes(params[:vendor])
-  		redirect_to vendors_path
+    if @info.update_attributes(params[:vendor])
+      redirect_to vendors_path
     else
-      render action:'edit'
-  	end
+      render action: 'edit'
+    end
 
   end
 
@@ -40,4 +40,4 @@
     redirect_to vendors_path
   end
 
- end
+end

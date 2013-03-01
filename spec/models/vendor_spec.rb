@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Vendor do
-       
+
   before :each do
     @vendor = Vendor.new(:name => "sample", :contact_no => "1234567890", :status => false)
   end
@@ -36,7 +36,7 @@ describe Vendor do
     end
 
   end
-  
+
   context "vendor contact number " do
 
     it "should not be blank" do
@@ -58,6 +58,7 @@ describe Vendor do
     end
 
   end
+
   context "Vendor Status " do
     it "should not contain other than a boolean value " do
       @vendor.status = nil
