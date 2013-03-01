@@ -11,19 +11,16 @@ class CabRequest < ActiveRecord::Base
   validates_length_of :traveler_name, :maximum => 10
 
   validate :check_source_and_destination
-  #validate :date_and_time_validation
+  validate :date_and_time_validation
 
   def check_source_and_destination
     errors.add(:source ," and Destination can't be same") if source == destination
   end
 
-  #def date_and_time_validation
-  #  current_time = Time.now
-
-  #  errors.add(:pick_up_time," and pick_up_date should not be less than current date-time") if pick_up_time < current_time
-
-  #  errors.add(:pick_up_date_time," and pick_up_date should not be less than current date-time") if pick_up_date_time < current_time                              rescue nil
-  #end
+  def date_and_time_validation
+    current_time = Time.now
+    errors.add(:pick_up_date_time," and pick_up_date should not be less than current date-time") if pick_up_date_time < current_time                              rescue nil
+  end
 
 end
 

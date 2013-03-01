@@ -16,6 +16,3 @@
 
 # Ignore workspace.xml file.
 .idea/workspace.xml
-coverage/.last_run.json
-coverage/.resultset.json
-coverage/index.html

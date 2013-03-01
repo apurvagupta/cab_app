@@ -24,10 +24,8 @@ class CabRequestsController < ApplicationController
   def show
     @req = Requester.fetch_requester_info(session[:cas_user])
     @cab_request_array=CabRequest.all(:conditions => {:requester => @req.requester_name})
-    @time_array = []
     @date_array = []
     @cab_request_array.each do |cr|
-      @time_array.push cr.pick_up_date_time.strftime("%I:%M %P")
       @date_array.push cr.pick_up_date_time.to_date
     end
   end
