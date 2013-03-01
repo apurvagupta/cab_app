@@ -1,11 +1,11 @@
 class SupportCenterController < ApplicationController
   def index
 
-    admin                 = Admin.where(:status => true).first
+    admin                 = Admin.where(status: true).first
     @admin_name           = admin.name
     @admin_contact_number = admin.contact_no
 
-    vendor                 = Vendor.where(:status => true).first
+    vendor                 = Vendor.where(status: true).first
     @vendor_name           = vendor.name
     @vendor_contact_number = vendor.contact_no
 
@@ -15,10 +15,10 @@ class SupportCenterController < ApplicationController
   end
 
   def update
-    admin = Admin.where(:name => params[:admin]).first
+    admin = Admin.where(name: params[:admin]).first
     update_status(admin)
 
-    vendor = Vendor.where(:name => params[:vendor]).first
+    vendor = Vendor.where(name: params[:vendor]).first
     update_status(vendor)
     redirect_to support_center_index_path
   end

@@ -7,7 +7,7 @@ class CabRequestsController < ApplicationController
 
   def new
     @req         = Requester.fetch_requester_info(session[:cas_user])
-    @cab_request = CabRequest.new(:requester => @req.requester_name, :contact_no => @req.requester_contact_no)
+    @cab_request = CabRequest.new(requester: @req.requester_name, contact_no: @req.requester_contact_no)
   end
 
   def create
@@ -17,13 +17,13 @@ class CabRequestsController < ApplicationController
       @notice = "YOUR REQUEST HAS BEEN SEND"
       redirect_to '/cab_requests/show'
     else
-      render :template => "cab_requests/new"
+      render template: "cab_requests/new"
     end
   end
 
   def show
     @req               = Requester.fetch_requester_info(session[:cas_user])
-    @cab_request_array = CabRequest.all(:conditions => { :requester => @req.requester_name })
+    @cab_request_array = CabRequest.all(conditions: { requester: @req.requester_name })
     @date_array        = []
     @cab_request_array.each do |cr|
       @date_array.push cr.pick_up_date_time.to_date

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe CabRequest do
 
   before :each do
-    @cab_request = CabRequest.new :requester => "Apurva", :traveler_name => "Vishal", :contact_no => "8527644166", :pick_up_date_time => Time.new(2913, 02, 07, 4, 0, 0, "+05:30"), :source => "dilshad garden", :destination => "office", :no_of_passengers => 3, :comments => "Please"
+    @cab_request = CabRequest.new requester: "Apurva", traveler_name: "Vishal", contact_no: "8527644166", pick_up_date_time: Time.new(2913, 02, 07, 4, 0, 0, "+05:30"), source: "dilshad garden", destination: "office", no_of_passengers: 3, comments: "Please"
   end
 
   context "Class structure validations" do

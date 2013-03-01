@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin do
 
   before :each do
-    @admin = Admin.new :name => "sample", :contact_no => "1234567890", :status => false
+    @admin = Admin.new name: "sample", contact_no: "1234567890", status: false
   end
 
   context "Class structure validations" do

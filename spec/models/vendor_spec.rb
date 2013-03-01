@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Vendor do
 
   before :each do
-    @vendor = Vendor.new(:name => "sample", :contact_no => "1234567890", :status => false)
+    @vendor = Vendor.new(name: "sample", contact_no: "1234567890", status: false)
   end
 
   context "Class structure validations" do
