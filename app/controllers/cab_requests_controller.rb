@@ -12,7 +12,11 @@ class CabRequestsController < ApplicationController
 
   def create
     @cab_request=CabRequest.new(params[:cab_request])
-    @cab_request.pick_up_date_time=Time.new(params[:pick_up_date].to_date.year,params[:pick_up_date].to_date.month,params[:pick_up_date].to_date.day,@cab_request.pick_up_date_time.hour,@cab_request.pick_up_date_time.min,@cab_request.pick_up_date_time.sec,"+05:30")           rescue nil
+    if @cab_request.pick_up_date_time
+      if @cab_request.pick_up_date_time.to_date == Time.now.to_date
+        @cab_request.pick_up_date_time=Time.new(params[:pick_up_date].to_date.year,params[:pick_up_date].to_date.month,params[:pick_up_date].to_date.day,@cab_request.pick_up_date_time.hour,@cab_request.pick_up_date_time.min,@cab_request.pick_up_date_time.sec,"+05:30")           rescue nil
+      end
+    end
     if @cab_request.save
       @notice = "YOUR REQUEST HAS BEEN SEND"
       redirect_to '/cab_requests/show'

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe CabRequest do
 
   before :each do
-    @cab_request = CabRequest.new :requester=> "Apurva",:traveler_name=>"Vishal", :contact_no => "8527644166" , :pick_up_date => "2013-08-27", :pick_up_time => "05:30" ,:source=>"dilshad garden",:destination=>"office",:no_of_passengers=>3, :comments => "Please"
+    @cab_request = CabRequest.new :requester=> "Apurva",:traveler_name=>"Vishal", :contact_no => "8527644166" , :pick_up_date_time => Time.new(2913,02,07,4,0,0,"+05:30") ,:source=>"dilshad garden",:destination=>"office",:no_of_passengers=>3, :comments => "Please"
   end
 
   context "Class structure validations" do
@@ -12,8 +12,7 @@ describe CabRequest do
       (@cab_request.has_attribute? :requester).should be_true
       (@cab_request.has_attribute? :traveler_name).should be_true
       (@cab_request.has_attribute? :contact_no).should be_true
-      (@cab_request.has_attribute? :pick_up_date).should be_true
-      (@cab_request.has_attribute? :pick_up_time).should be_true
+      (@cab_request.has_attribute? :pick_up_date_time).should be_true
       (@cab_request.has_attribute? :source).should be_true
       (@cab_request.has_attribute? :destination).should be_true
       (@cab_request.has_attribute? :no_of_passengers).should be_true
@@ -83,20 +82,11 @@ describe CabRequest do
 
   end
 
-  context "pick_up_date" do
+  context "pick_up_date_time" do
     it "should not be blank" do
-      @cab_request.pick_up_date = nil
+      @cab_request.pick_up_date_time = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:pick_up_date].first.should == "can't be blank"
-    end
-
-  end
-
-  context "pick_up_time" do
-    it "should not be blank" do
-      @cab_request.pick_up_time = nil
-      @cab_request.save.should be_false
-      @cab_request.errors[:pick_up_time].first.should == "can't be blank"
+      @cab_request.errors[:pick_up_date_time].first.should == "can't be blank"
     end
 
   end
@@ -145,6 +135,5 @@ describe CabRequest do
       @cab_request.errors[:comments].first.should == "is too long (maximum is 25 characters)"
     end
   end
-
 
 end
