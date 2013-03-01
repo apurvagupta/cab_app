@@ -5,7 +5,7 @@ class Requester
 
   def self.gab_link(user_id)
     api = "https://my.thoughtworks.com/api/core/v2/users/username/" + user_id rescue nil
-    @source_code = open(api, http_basic_authentication: ["ppathak", "Maa_papa143"]).read rescue nil
+    @source_code = open(api, http_basic_authentication: ["ppathak", "boogaBooga"]).read rescue nil
   end
 
 
