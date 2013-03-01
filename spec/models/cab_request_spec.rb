@@ -37,7 +37,7 @@ describe CabRequest do
     end
   end
 
-  context "pick up for" do
+  context "traveler name" do
     it "should not be blank" do
       @cab_request.traveler_name = nil
       @cab_request.save.should be_false
@@ -45,7 +45,7 @@ describe CabRequest do
     end
 
 
-    it "should not contain anything other than alphabets" do
+    it "should not contain anything other than alphabets and symbol dot" do
       @cab_request.traveler_name = "apurva0"
       @cab_request.save.should be_false
       @cab_request.errors[:traveler_name].first.should == "is invalid"
@@ -89,6 +89,12 @@ describe CabRequest do
       @cab_request.errors[:pick_up_date_time].first.should == "can't be blank"
     end
 
+    it "should be in future only" do
+      @cab_request.pick_up_date_time = Time.new(1991,02,07,4,0,0,"+05:30")
+      @cab_request.save.should be_false
+      @cab_request.errors[:pick_up_date_time].first.should == " and pick_up_date should not be less than current date-time"
+    end
+
   end
 
   context "Source" do
@@ -99,7 +105,7 @@ describe CabRequest do
       @cab_request.errors[:source].first.should == "can't be blank"
     end
 
-    it "Should not be same" do
+    it "Should not be same as Destination" do
       @cab_request.destination=@cab_request.source
       @cab_request.save.should be_false
       @cab_request.errors[:source].first.should== " and Destination can't be same"

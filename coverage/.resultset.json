@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/vishal/cab_app/cab_app/app/controllers/admins_controller.rb": [
+      "/home/pulkit/project/cab_app/app/controllers/admins_controller.rb": [
         1,
         null,
         1,
@@ -50,13 +50,13 @@
         null,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/controllers/application_controller.rb": [
+      "/home/pulkit/project/cab_app/app/controllers/application_controller.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/helpers/application_helper.rb": [
+      "/home/pulkit/project/cab_app/app/helpers/application_helper.rb": [
         1,
         null,
         1,
@@ -66,7 +66,7 @@
         null,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/models/admin.rb": [
+      "/home/pulkit/project/cab_app/app/models/admin.rb": [
         1,
         1,
         null,
@@ -78,7 +78,7 @@
         null,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/controllers/cab_requests_controller.rb": [
+      "/home/pulkit/project/cab_app/app/controllers/cab_requests_controller.rb": [
         1,
         1,
         null,
@@ -93,18 +93,16 @@
         null,
         1,
         2,
+        2,
+        2,
         1,
         1,
-        0,
-        0,
         null,
         1,
         null,
         null,
         null,
         1,
-        0,
-        0,
         0,
         0,
         0,
@@ -115,7 +113,7 @@
         null,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/models/cab_request.rb": [
+      "/home/pulkit/project/cab_app/app/models/cab_request.rb": [
         1,
         null,
         1,
@@ -129,32 +127,29 @@
         1,
         null,
         1,
+        1,
+        null,
+        1,
+        17,
         null,
         null,
         1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        17,
+        19,
         null,
         null,
         null,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/controllers/requesters_controller.rb": [
+      "/home/pulkit/project/cab_app/app/controllers/requesters_controller.rb": [
         1,
         null,
         1,
-        1,
+        2,
         null,
         null,
         1,
-        1,
+        2,
         null,
         null,
         1,
@@ -165,7 +160,7 @@
         null,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/models/requester.rb": [
+      "/home/pulkit/project/cab_app/app/models/requester.rb": [
         1,
         null,
         1,
@@ -201,7 +196,7 @@
         null,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/controllers/support_center_controller.rb": [
+      "/home/pulkit/project/cab_app/app/controllers/support_center_controller.rb": [
         1,
         1,
         null,
@@ -218,7 +213,6 @@
         null,
         null,
         null,
-        null,
         1,
         0,
         0,
@@ -232,8 +226,6 @@
         0,
         0,
         null,
-        0,
-        0,
         null,
         null,
         1,
@@ -256,7 +248,7 @@
         null,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/controllers/vendors_controller.rb": [
+      "/home/pulkit/project/cab_app/app/controllers/vendors_controller.rb": [
         1,
         null,
         1,
@@ -301,7 +293,7 @@
         null,
         null
       ],
-      "/home/vishal/cab_app/cab_app/app/models/vendor.rb": [
+      "/home/pulkit/project/cab_app/app/models/vendor.rb": [
         1,
         1,
         null,
@@ -316,6 +308,6 @@
         null
       ]
     },
-    "timestamp": 1362118380
+    "timestamp": 1362131169
   }
 }

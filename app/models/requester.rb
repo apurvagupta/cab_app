@@ -27,7 +27,7 @@ class Requester
   end
 
   def self.is_admin(user_id)
-    $is_admin = Admin.all.collect(&:name).include?(user_id)
+    $is_admin = Admin.pluck(:name).include?(user_id)
   end
 
 end
