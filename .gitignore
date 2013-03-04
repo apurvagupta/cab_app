@@ -23,3 +23,4 @@ coverage/**
 .idea
 tags
 spec/reports/*
+**.un~
