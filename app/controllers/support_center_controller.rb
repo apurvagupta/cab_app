@@ -24,8 +24,8 @@ class SupportCenterController < ApplicationController
   end
 
   def edit
-    @admin_names  = Admin.pluck(:name)
-    @vendor_names = Vendor.pluck(:name)
+    @admin_array  = Admin.all
+    @vendor_array = Vendor.all
   end
 
 
@@ -44,5 +44,8 @@ class SupportCenterController < ApplicationController
     end
   end
 
+  def view
+
+  end
 
 end

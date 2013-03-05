@@ -11,7 +11,7 @@ class CabRequestsController < ApplicationController
   end
 
   def create
-    @cab_request = CabRequest.new(params[:cab_request])
+    @cab_request                   = CabRequest.new(params[:cab_request])
     @cab_request.pick_up_date_time = Time.new(params[:pick_up_date].to_date.year, params[:pick_up_date].to_date.month, params[:pick_up_date].to_date.day, @cab_request.pick_up_date_time.hour, @cab_request.pick_up_date_time.min, @cab_request.pick_up_date_time.sec, "+05:30") rescue nil
     if @cab_request.save
       @notice = "YOUR REQUEST HAS BEEN SEND"

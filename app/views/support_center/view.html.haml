@@ -1,0 +1,15 @@
+= render '/permissions'
+
+-if $is_admin
+  -@ad = "true"
+  = render '/header'
+  -@ad = "false"
+
+  %br
+  %br
+  %br
+  %h5 PAGE UNDER CONSTRUCTION
+  %br
+  %br
+  %br
+  = link_to 'back', support_center_index_path

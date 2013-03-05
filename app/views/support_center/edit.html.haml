@@ -13,16 +13,16 @@
 
     %b ACTIVE _ ADMIN :
     %select{:name => "admin"}
-      -@admin_names.each do|admin_name|
-        %option= admin_name
+      -@admin_array.each do|admin|
+        %option{ :selected => admin.status }= admin.name
       %end
     %br
     %br
     %br
     %b ACTIVE _ VENDOR :
     %select{:name => "vendor"}
-      -@vendor_names.each do|vendor_name|
-        %option= vendor_name
+      -@vendor_array.each do|vendor|
+        %option{ :selected => admin.status }= vendor.name
       %end
     %br
     %br
