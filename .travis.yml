@@ -1,6 +1,6 @@
 before_script:
   - rake db:test:load
-  - rake db:mnigrate
+  - rake db:migrate
 
 language: ruby
 rvm:
