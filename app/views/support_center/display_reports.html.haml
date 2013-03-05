@@ -1,0 +1,12 @@
+=form_tag :action => :display_reports do
+
+  .display
+    from:
+    %input{:id => "from_date" ,:name =>"from",:class => "date_picker"}
+    &nbsp
+    to:
+    %input{:id =>"to_date",:name=>"to" ,:class => "date_picker"}
+    &nbsp;&nbsp;
+    =submit_tag 'Display_reports'
+
+%end

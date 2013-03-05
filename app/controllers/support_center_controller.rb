@@ -44,8 +44,17 @@ class SupportCenterController < ApplicationController
     end
   end
 
+
   def view
 
+  end
+  def display_reports
+    if params[:from]
+     from_date = Time.new(params[:from].to_date.year,params[:from].to_date.month,params[:from].to_date.day,00,00,00)
+     to_date = Time.new(params[:to].to_date.year,params[:to].to_date.month,params[:to].to_date.day,00,00,00).tomorrow()
+     @reports = CabRequest.where(:pick_up_date_time => (from_date..to_date))
+     redirect_to support_center_display_reports_path
+    end
   end
 
 end
