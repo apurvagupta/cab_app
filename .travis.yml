@@ -1,0 +1,13 @@
+
+before_script:
+  - rake db:test:prepare
+  - rake db:migrate
+language: ruby
+rvm:
+  - "1.9.2"
+  - "1.9.3"
+
+script:
+  - rspec
+# uncomment this line if your project needs to run something other than `rake`:
+# script: bundle exec rspec spec
