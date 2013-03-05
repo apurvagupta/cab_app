@@ -22,7 +22,7 @@
     %b ACTIVE _ VENDOR :
     %select{:name => "vendor"}
       -@vendor_array.each do|vendor|
-        %option{ :selected => admin.status }= vendor.name
+        %option{ :selected => vendor.status }= vendor.name
       %end
     %br
     %br
