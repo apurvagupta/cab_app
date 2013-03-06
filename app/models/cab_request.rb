@@ -13,6 +13,15 @@ class CabRequest < ActiveRecord::Base
   validate :check_source_and_destination
   validate :date_and_time_validation
 
+  #def self.to_csv(options = {})
+  #  CSV.generate(options) do |csv|
+  #    csv << column_names
+  #    all.each do |cab_request|
+  #      csv << cab_request.attributes.values_at(*column_names)
+  #    end
+  #  end
+  #end
+
   def check_source_and_destination
     errors.add(:source, " and Destination can't be same") if source == destination
   end

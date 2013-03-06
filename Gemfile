@@ -34,6 +34,7 @@ gem 'pry'
 gem 'simplecov', require: false, group: :test
 gem 'fuubar'
 gem 'rspec_junit_formatter'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
