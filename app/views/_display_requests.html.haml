@@ -1,0 +1,23 @@
+
+%hr
+%table{:cellspacing => 50 }
+  %th ID
+  %th traveler_name
+  %th CONTACT_NO
+  %th DATE
+  %th PICK_UP_TIME
+  %th SOURCE
+  %th DESTINATION
+  %th NO_OF_PASSENGERS
+  %hr
+  - @cab_requests.zip(@dates).each do |each_request,date|
+    %tr
+      %td= each_request.id
+      %td= each_request.traveler_name
+      %td= each_request.contact_no
+      %td= date
+      %td= ist(each_request.pick_up_date_time)
+      %td= each_request.source
+      %td= each_request.destination
+      %td= each_request.no_of_passengers
+  %end

@@ -1,12 +1,26 @@
-=form_tag :action => :display_reports do
+= render '/permissions'
 
-  .display
-    from:
-    %input{:id => "from_date" ,:name =>"from",:class => "date_picker"}
-    &nbsp
-    to:
-    %input{:id =>"to_date",:name=>"to" ,:class => "date_picker"}
-    &nbsp;&nbsp;
-    =submit_tag 'Display_reports'
+-if $is_admin
+  -@ad = "true"
+  = render '/header'
+  -@ad = "false"
 
+  =form_tag :action => :display_reports do
+    .display
+      from:
+      %input{:id => "from_date" ,:name =>"from",:class => "date_picker"}
+      &nbsp
+      to:
+      %input{:id =>"to_date",:name=>"to" ,:class => "date_picker"}
+      &nbsp;&nbsp;
+      =submit_tag 'Display Reports',:id => "display_reports", :class =>"button"
+
+  %end
+
+  -if @cab_requests != nil && @cab_requests != []
+    = render '/display_requests'
+  -elsif @cab_requests == []
+    %h2 No record found
+  %end
+  =link_to 'back', support_center_index_path
 %end
