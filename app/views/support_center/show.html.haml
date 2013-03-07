@@ -14,7 +14,7 @@
       %input{:id =>"to_date",:name=>"to" ,:class => "date_picker", :value => @to}
       &nbsp;&nbsp;
       =submit_tag 'display',:id => "display_reports", :class =>"button"
-      = link_to 'Download EXCEL Sheet', '/support_center/show.xls?from=@from'
+
   %end
 
   -if @cab_requests != nil && @cab_requests != []
@@ -23,7 +23,7 @@
     %br
     %br
     %br
-    = link_to 'Download EXCEL Sheet', '/support_center/show.xls'
+    = link_to 'Download EXCEL Sheet', cab_requests_path(:format => :xls, :from => @from, :to => @to)
   -elsif @cab_requests == []
     %h2 No record found
   %end

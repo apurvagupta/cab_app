@@ -1,10 +1,10 @@
 CabApp::Application.routes.draw do
 
-  match "/requesters/logout" , :controller => "requesters" , :action => "logout"
-  match "/support_center/update" , :controller => "support_center" , :action => "update"
-  match "/support_center/edit" , :controller => "support_center" , :action => "edit"
-  match "/cab_requests/show" , :controller => "cab_requests" , :action => "show"
-  match "/support_center/show" , :controller => "support_center" , :action => "show"
+  match "/requesters/logout" , :controller => "requesters#logout"
+  match "/support_center/update" , :controller => "support_center#update"
+  match "/support_center/edit" , :controller => "support_center#edit"
+  match "/cab_requests/show" , :controller => "cab_requests#show"
+  match "/support_center/show" , :controller => "support_center#show", :as => :cab_requests
   resources :cab_requests
   resources :admin_details
   resources :admins

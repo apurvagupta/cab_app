@@ -6,8 +6,8 @@
   .menu_bar
     %ui{:id => 'nav'}
       %li
-        -if !$is_admin & !@cr_show
 
+        -if ((!$is_admin || @cr) && !@cr_show)
           %h4= link_to "View My Reports", '/cab_requests/show'
       %li
         -if @ad || @cr_show
@@ -21,6 +21,6 @@
           -if @cr
             %h4= link_to "Manage App",support_center_index_path
           -if @ad
-            %h4= link_to "View All Reports", support_center_show_path
+            %h4= link_to "View All Reports", cab_requests_path
       %li
         %h4= link_to "logout",requesters_logout_path, :id => 'logout_link'
