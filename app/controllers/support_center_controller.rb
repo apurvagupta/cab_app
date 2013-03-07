@@ -1,6 +1,7 @@
 class SupportCenterController < ApplicationController
   def index
 
+    Requester.is_admin(session[:cas_user])
     admin                 = Admin.where(status: true).first                rescue nil
     @admin_name           = admin.name                                     rescue nil
     @admin_contact_number = admin.contact_no                               rescue nil
@@ -24,6 +25,7 @@ class SupportCenterController < ApplicationController
   end
 
   def edit
+    Requester.is_admin(session[:cas_user])
     @admin_array  = Admin.all
     @vendor_array = Vendor.all
   end
@@ -45,6 +47,7 @@ class SupportCenterController < ApplicationController
   end
 
   def show
+    Requester.is_admin(session[:cas_user])
     if params[:from]
      from_date  = Time.new(params[:from].to_date.year,params[:from].to_date.month,params[:from].to_date.day,00,00,00)
      to_date    = Time.new(params[:to].to_date.year,params[:to].to_date.month,params[:to].to_date.day,00,00,00).tomorrow()
