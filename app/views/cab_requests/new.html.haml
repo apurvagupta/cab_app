@@ -24,23 +24,24 @@
       = f.text_field :requester ,:Readonly => true
 
     .field
-      = f.label "traveler_name:"
+      = f.label "For Whom:"
       = f.text_field :traveler_name ,:id => "traveler_name", :onblur => "my_func('traveler_name','label')"
 
     .field
-      = f.label "Contact_no:"
+      = f.label "Contact No:"
       = f.text_field :contact_no
 
-    .field
-      %label Date:
+    = form_tag do
+      %label When:
+
       %input{:id => "pick_up_date", :name => "pick_up_date"}
 
     .field
-      = f.label "Time:"
+      = f.label "At What Time:"
       = f.text_field :pick_up_date_time , :id => 'pick_up_time'
 
     .field
-      =f.label "Source:"
+      =f.label "From:"
       %select{ :id => "ddl_source" , :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('ddl_source','txt_source');" }
         -@sources.each do|source|
           %option= source
@@ -49,7 +50,7 @@
       =f.hidden_field :source, :id =>"txt_source" , :disabled => true
 
     .field
-      =f.label "Destination:"
+      =f.label "To:"
       %select{:name => "cab_request[destination]", :id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
         -@destinations.each do|destination|
           %option= destination
@@ -64,7 +65,7 @@
         %end
 
     .field
-      =f.label "Comments:"
+      =f.label "Any Message:"
       =f.text_field :comments
 
     .field

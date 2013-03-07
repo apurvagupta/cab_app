@@ -1,15 +1,15 @@
 class SupportCenterController < ApplicationController
   def index
 
-    admin                 = Admin.where(status: true).first
-    @admin_name           = admin.name
-    @admin_contact_number = admin.contact_no
+    admin                 = Admin.where(status: true).first                rescue nil
+    @admin_name           = admin.name                                     rescue nil
+    @admin_contact_number = admin.contact_no                               rescue nil
 
-    vendor                 = Vendor.where(status: true).first
-    @vendor_name           = vendor.name
-    @vendor_contact_number = vendor.contact_no
+    vendor                 = Vendor.where(status: true).first              rescue nil
+    @vendor_name           = vendor.name                                   rescue nil
+    @vendor_contact_number = vendor.contact_no                             rescue nil
 
-    if !@admin_name || !@vendor_name
+    if !admin || !vendor
       redirect_to '/support_center/edit'
     end
   end

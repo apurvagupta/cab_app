@@ -6,7 +6,8 @@
   .menu_bar
     %ui{:id => 'nav'}
       %li
-        -if !$is_adming & !@cr_show
+        -if !$is_admin & !@cr_show
+
           %h4= link_to "View My Reports", '/cab_requests/show'
       %li
         -if @ad || @cr_show
