@@ -24,7 +24,6 @@ gem 'jquery-rails'
 gem 'rspec-rails'
 gem 'rubycas-client'
 #gem 'rubycas-client-rails'
-#gem 'therubyracer'
 gem 'haml-rails'
 gem 'jquery_datepicker'
 gem 'jquery-rails'
@@ -34,6 +33,12 @@ gem 'pry'
 gem 'simplecov', require: false, group: :test
 gem 'fuubar'
 gem 'rspec_junit_formatter'
+
+if ENV['RAILS_ENV'] == 'ci'
+  group :ci do
+    gem 'therubyracer'
+  end
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
