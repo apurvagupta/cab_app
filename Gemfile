@@ -34,11 +34,7 @@ gem 'simplecov', require: false, group: :test
 gem 'fuubar'
 gem 'rspec_junit_formatter'
 
-if ENV['RAILS_ENV'] == 'ci'
-  group :ci do
-    gem 'therubyracer'
-  end
-end
+gem 'therubyracer'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
