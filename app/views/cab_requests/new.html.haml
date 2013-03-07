@@ -32,8 +32,8 @@
       = f.text_field :contact_no
 
     .field
-      %label When:
-      %input{:id => "pick_up_date", :name => "pick_up_date"}
+      =f.label "When"
+      =f.text_field :pick_up_date ,:id => "pick_up_date"
 
     .field
       = f.label "At What Time:"

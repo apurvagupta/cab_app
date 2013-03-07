@@ -11,13 +11,18 @@ class CabRequestsController < ApplicationController
 
   def create
     @cab_request                   = CabRequest.new(params[:cab_request])
-    @cab_request.pick_up_date_time = Time.new(params[:pick_up_date].to_date.year, params[:pick_up_date].to_date.month, params[:pick_up_date].to_date.day, @cab_request.pick_up_date_time.hour, @cab_request.pick_up_date_time.min, @cab_request.pick_up_date_time.sec, "+05:30") rescue nil
+    @cab_request.pick_up_date_time = Time.new(params[:cab_request][:pick_up_date].to_date.year,
+                                              params[:cab_request][:pick_up_date].to_date.month,
+                                              params[:cab_request][:pick_up_date].to_date.day,
+                                              @cab_request.pick_up_date_time.hour,
+                                              @cab_request.pick_up_date_time.min,
+                                              @cab_request.pick_up_date_time.sec,
+                                              "+05:30") rescue nil
     if @cab_request.save
       @notice = "YOUR REQUEST HAS BEEN SEND"
       redirect_to '/cab_requests/show'
     else
-      @cabreq = params
-      render template: "cab_requests/new" ,locals: { cabreq: @cabreq }
+      render template: "cab_requests/new"
     end
   end
 

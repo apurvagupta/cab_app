@@ -1,6 +1,7 @@
 class CabRequest < ActiveRecord::Base
+  attr_accessor :pick_up_date
 
-  attr_accessible :requester, :traveler_name, :contact_no, :pick_up_date_time, :source, :destination, :no_of_passengers, :comments
+  attr_accessible :pick_up_date,:requester, :traveler_name, :contact_no, :pick_up_date_time, :source, :destination, :no_of_passengers, :comments
 
   validates_presence_of :traveler_name, :contact_no, :destination, :pick_up_date_time, :source, :no_of_passengers, :requester
   validates_format_of :traveler_name, with: /^[a-z.A-Z\s]*$/
