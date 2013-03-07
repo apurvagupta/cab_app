@@ -1,0 +1,31 @@
+= render '/permissions'
+
+-if $is_admin
+  -@ad = "true"
+  = render '/header'
+  -@ad = "false"
+
+  =form_tag :action => :show do
+    .display
+      from:
+      %input{:id => "from_date" ,:name =>"from",:class => "date_picker", :value => @from}
+      &nbsp
+      to:
+      %input{:id =>"to_date",:name=>"to" ,:class => "date_picker", :value => @to}
+      &nbsp;&nbsp;
+      =submit_tag 'display',:id => "display_reports", :class =>"button"
+      = link_to 'Download EXCEL Sheet', '/support_center/show.xls?from=@from'
+  %end
+
+  -if @cab_requests != nil && @cab_requests != []
+    %hr
+    = render '/cab_requests'
+    %br
+    %br
+    %br
+    = link_to 'Download EXCEL Sheet', '/support_center/show.xls'
+  -elsif @cab_requests == []
+    %h2 No record found
+  %end
+  =link_to 'back', support_center_index_path
+%end

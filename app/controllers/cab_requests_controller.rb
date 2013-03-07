@@ -23,7 +23,7 @@ class CabRequestsController < ApplicationController
 
   def show
     @req          = Requester.fetch_requester_info(session[:cas_user])
-    @cab_requests = CabRequest.all(conditions: { requester: @req.requester_name })
+    @cab_requests = CabRequest.where(:requester => @req.requester_name)
     @dates        = []
     @cab_requests.each do |cr|
       @dates.push cr.pick_up_date_time.to_date

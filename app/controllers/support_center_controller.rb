@@ -43,15 +43,26 @@ class SupportCenterController < ApplicationController
       end
     end
   end
-  def display_reports
+
+  def show
+    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@1111"
+    p params
+
+
     if params[:from]
-     from_date  = Time.new(params[:from].to_date.year,params[:from].to_date.month,params[:from].to_date.day,00,00,00)    rescue nil
-     to_date    = Time.new(params[:to].to_date.year,params[:to].to_date.month,params[:to].to_date.day,00,00,00).tomorrow()   rescue nil
-     @cab_requests   = CabRequest.where(:pick_up_date_time => (from_date..to_date))
-     @dates     = []
+     from_date  = Time.new(params[:from].to_date.year,params[:from].to_date.month,params[:from].to_date.day,00,00,00)
+     to_date    = Time.new(params[:to].to_date.year,params[:to].to_date.month,params[:to].to_date.day,00,00,00).tomorrow()
+     @cab_requests = CabRequest.where(:pick_up_date_time => (from_date..to_date))
+     @dates        = []
      @cab_requests.each do |cab_request|
        @dates.push cab_request.pick_up_date_time.to_date
      end
+    @from = params[:from]
+    @to   = params[:to]
+    end
+    respond_to do |format|
+      format.html
+      format.xls
     end
   end
 

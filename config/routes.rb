@@ -4,7 +4,7 @@ CabApp::Application.routes.draw do
   match "/support_center/update" , :controller => "support_center" , :action => "update"
   match "/support_center/edit" , :controller => "support_center" , :action => "edit"
   match "/cab_requests/show" , :controller => "cab_requests" , :action => "show"
-  match "/support_center/display_reports" , :controller => "support_center" , :action => "display_reports"
+  match "/support_center/show" , :controller => "support_center" , :action => "show"
   resources :cab_requests
   resources :admin_details
   resources :admins
