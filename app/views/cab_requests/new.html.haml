@@ -31,9 +31,8 @@
       = f.label "Contact No:"
       = f.text_field :contact_no
 
-    = form_tag do
+    .field
       %label When:
-
       %input{:id => "pick_up_date", :name => "pick_up_date"}
 
     .field
@@ -44,7 +43,7 @@
       =f.label "From:"
       %select{ :id => "ddl_source" , :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('ddl_source','txt_source');" }
         -@sources.each do|source|
-          %option= source
+          %option{:selected => (source == @cab_request.source)}= source
         %end
 
       =f.hidden_field :source, :id =>"txt_source" , :disabled => true
@@ -53,7 +52,7 @@
       =f.label "To:"
       %select{:name => "cab_request[destination]", :id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
         -@destinations.each do|destination|
-          %option= destination
+          %option{:selected => (destination == @cab_request.destination)}= destination
         %end
       =f.hidden_field :destination, :id =>"txt_destination" , :disabled => true
 
@@ -61,7 +60,7 @@
       =f.label "No of passengers:"
       %select{:name => "cab_request[no_of_passengers]" }
         -@num.each do|i|
-          %option= i
+          %option{:selected => (i == @cab_request.no_of_passengers)}= i
         %end
 
     .field

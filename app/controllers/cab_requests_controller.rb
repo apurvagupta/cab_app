@@ -1,6 +1,5 @@
 class CabRequestsController < ApplicationController
   require 'time'
-
   def index
     redirect_to new_cab_request_path
   end
@@ -17,7 +16,8 @@ class CabRequestsController < ApplicationController
       @notice = "YOUR REQUEST HAS BEEN SEND"
       redirect_to '/cab_requests/show'
     else
-      render template: "cab_requests/new"
+      @cabreq = params
+      render template: "cab_requests/new" ,locals: { cabreq: @cabreq }
     end
   end
 
