@@ -37,7 +37,7 @@
 
     .field
       = f.label "At What Time:"
-      = f.text_field :pick_up_date_time , :id => 'pick_up_time', :value => ist(@cab_request.pick_up_date_time)
+      = f.text_field :pick_up_date_time , :id => 'pick_up_time', :value => @cab_request.pick_up_date_time
 
     .field
       =f.label "From:"
@@ -46,7 +46,7 @@
           %option{:selected => (source == @cab_request.source)}= source
         %end
 
-      =f.hidden_field :source, :id =>"txt_source" , :disabled => true
+      %input{:type => "hidden", :name => "source", :id => "txt_source" , :value => @other_source , :disabled => false}
 
     .field
       =f.label "To:"
@@ -54,7 +54,8 @@
         -@destinations.each do|destination|
           %option{:selected => (destination == @cab_request.destination)}= destination
         %end
-      =f.hidden_field :destination, :id =>"txt_destination" , :disabled => true
+
+      %input{:type => 'hidden', :name=> "destination", :id => "txt_destination" , :disabled => true ,:value => @other_destination}
 
     .field
       =f.label "No of passengers:"

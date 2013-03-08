@@ -7,6 +7,7 @@ class CabRequestsController < ApplicationController
   end
 
   def create
+
     @cab_request                   = CabRequest.new(params[:cab_request])
     @cab_request.pick_up_date_time = Time.new(params[:cab_request][:pick_up_date].to_date.year,
                                               params[:cab_request][:pick_up_date].to_date.month,
@@ -15,6 +16,14 @@ class CabRequestsController < ApplicationController
                                               @cab_request.pick_up_date_time.min,
                                               @cab_request.pick_up_date_time.sec,
                                               "+05:30") rescue nil
+    if (@cab_request.source=='other')
+      @cab_request.source=params[:source];
+    end
+    if (@cab_request.destination=='other')
+      @cab_request.destination=params[:destination];
+    end
+    @other_source=params[:source]
+    @other_destination=params[:destination]
     if @cab_request.save
       @notice = "YOUR REQUEST HAS BEEN SEND"
       redirect_to '/cab_requests/show'
@@ -24,6 +33,7 @@ class CabRequestsController < ApplicationController
   end
 
   def show
+
     Requester.is_admin(session[:cas_user])
     @req          = Requester.fetch_requester_info(session[:cas_user])
     @cab_requests = CabRequest.where(:requester => @req.requester_name)

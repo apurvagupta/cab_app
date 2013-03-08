@@ -18,6 +18,17 @@ function onSelectedValueChange(ddl_id,txt_id)
 
 $(document).ready(function() {
 
+    if ($('#ddl_source').val() == 'other')
+    {
+        $('#txt_source').attr('type',"text");
+       $('#txt_source').attr('disabled',false);
+    }
+    if ($('#ddl_destination').val() == 'other')
+    {
+        $('#txt_destination').attr('type',"text");
+        $('#txt_destination').attr('disabled',false);
+    }
+
     $('#pick_up_time').timepicker({ 'scrollDefaultNow': true });
 
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy" , minDate: 0});
