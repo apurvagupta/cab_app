@@ -1,11 +1,11 @@
 = render '/permissions'
 
 -if $is_admin
-  -@ad = "true"
+  -@admin_scope = "true"
   = render '/header'
-  -@ad = "false"
+  -@admin_scope = "false"
 
-  =form_tag :action => :show do
+  =form_tag :action => :show ,:method => :get do
     .display
       from:
       %input{:id => "from_date" ,:name =>"from",:class => "date_picker", :value => @from}
@@ -13,7 +13,7 @@
       to:
       %input{:id =>"to_date",:name=>"to" ,:class => "date_picker", :value => @to}
       &nbsp;&nbsp;
-      =submit_tag 'display',:id => "display_reports", :class =>"button"
+      =button_tag 'display',:id => "display_reports", :class =>"button"
 
   %end
 

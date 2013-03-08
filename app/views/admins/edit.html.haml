@@ -1,9 +1,9 @@
 = render '/permissions'
 
 -if $is_admin
-  -@ad = "true"
+  -@admin_scope = "true"
   = render '/header'
-  -@ad = "false"
+  -@admin_scope = "false"
   %h1 Editing Admin
 
   %hr

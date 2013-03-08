@@ -1,9 +1,9 @@
 = render '/permissions'
 
 -if $is_admin
-  -@ad = "true"
+  -@admin_scope = "true"
   = render '/header'
-  -@ad = "false"
+  -@admin_scope = "false"
 
   %br
   %br
@@ -28,3 +28,6 @@
     %br
     =submit_tag "Update"
   %end
+  %br
+  %br
+  = link_to 'back', support_center_index_path

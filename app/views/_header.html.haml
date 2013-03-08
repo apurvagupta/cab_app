@@ -7,20 +7,20 @@
     %ui{:id => 'nav'}
       %li
 
-        -if ((@cr || @ad) && !@cr_show)
+        -if !@cab_request_show_scope
           %h4= link_to "View My Reports", '/cab_requests/show'
       %li
-        -if @ad || @cr_show
+        -if !@cab_request_scope
           %h4= link_to "Book A CAB",new_cab_request_path
       %li
-        -if !$is_admin & @cr
+        -if !$is_admin & @cab_request_scope
           %h4= link_to "Contact Us",support_center_index_path
 
       %li
         -if $is_admin
-          -if @cr
+          -if @cab_request_scope || @cab_request_show_scope
             %h4= link_to "Manage App",support_center_index_path
-          -if @ad
+          -if @admin_scope
             %h4= link_to "View All Reports", '/support_center/show'
       %li
         %h4= link_to "logout",requesters_logout_path, :id => 'logout_link'

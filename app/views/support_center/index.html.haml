@@ -1,11 +1,11 @@
--@ad = "true"
+-@admin_scope = "true"
 -if !$is_admin
   = render '/header'
   = render '/contact_us'
 
 -if $is_admin
   = render '/header'
-  -@ad = "false"
+  -@admin_scope = "false"
   = render '/contact_us'
   %br
   %br

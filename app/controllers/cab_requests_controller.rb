@@ -1,8 +1,5 @@
 class CabRequestsController < ApplicationController
   require 'time'
-  def index
-    redirect_to new_cab_request_path
-  end
 
   def new
     @req         = Requester.fetch_requester_info(session[:cas_user])
@@ -38,7 +35,7 @@ class CabRequestsController < ApplicationController
     respond_to do |format|
       format.html
       format.xls
-    end
+  end
   end
 
 end
