@@ -7,7 +7,7 @@
     %ui{:id => 'nav'}
       %li
 
-        -if ((!$is_admin || @cr) && !@cr_show)
+        -if ((@cr || @ad) && !@cr_show)
           %h4= link_to "View My Reports", '/cab_requests/show'
       %li
         -if @ad || @cr_show
