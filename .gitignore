@@ -25,3 +25,6 @@ coverage/**
 tags
 spec/reports/*
 **.un~
+
+# Ignore MAC specific data
+.DS.*
