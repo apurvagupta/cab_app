@@ -28,7 +28,7 @@ class CabRequestsController < ApplicationController
     end
 
     if @cab_request.save
-      @notice = "YOUR REQUEST HAS BEEN SEND"
+      @notice = 'YOUR REQUEST HAS BEEN SENT'
       redirect_to '/cab_requests/show'
     else
       render template: "cab_requests/new"
