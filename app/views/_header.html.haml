@@ -7,7 +7,7 @@
     %ui{:id => 'nav'}
       %li
 
-        -if !@cab_request_show_scope
+        -if !@cab_request_show_scope || @admin_scope
           %h4= link_to "View My Reports", '/cab_requests/show'
       %li
         -if !@cab_request_scope
