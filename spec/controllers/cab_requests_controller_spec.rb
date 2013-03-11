@@ -2,14 +2,21 @@ require 'spec_helper'
 
 describe CabRequestsController do
 
-
-
   before :each do
     @pick_up_date_time = Time.now + 2.days
     @cab_request  = { requester: "Priyanka Pathak", traveler_name: "self",pick_up_date: @pick_up_date_time.to_date,
                       pick_up_date_time: @pick_up_date_time, contact_no: "9039409828",
                       source: "Guest House", destination: "ThoughtWorks", no_of_passengers: 1, comments: "something" }
   end
+
+  context 'new' do
+    it 'should create a valid cab request' do
+      CASClient::Frameworks::Rails::Filter.fake("homer")
+      get :new, cab_request: @cab_request
+      response.should render_template("cab_requests/new")
+    end
+  end
+
   context 'create' do
     it 'should redirect to show path if saved' do
 
