@@ -7,7 +7,6 @@ class CabRequestsController < ApplicationController
   end
 
   def create
-
     @cab_request                   = CabRequest.new(params[:cab_request])
     @cab_request.pick_up_date_time = Time.new(params[:cab_request][:pick_up_date].to_date.year,
                                               params[:cab_request][:pick_up_date].to_date.month,
@@ -36,8 +35,6 @@ class CabRequestsController < ApplicationController
   end
 
   def show
-
-    Requester.is_admin(session[:cas_user])
     @req          = Requester.fetch_requester_info(session[:cas_user])
     @cab_requests = CabRequest.where(:requester => @req.requester_name)
     @dates        = []

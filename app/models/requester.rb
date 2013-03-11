@@ -22,12 +22,7 @@ class Requester
     @req                      = Requester.new
     @req.requester_name       = self.extract("name") || user_id
     @req.requester_contact_no = self.extract("mobile")
-    self.is_admin(user_id)
     return @req
-  end
-
-  def self.is_admin(user_id)
-    $is_admin = Admin.pluck(:name).include?(user_id)
   end
 
 end

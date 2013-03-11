@@ -10,18 +10,18 @@
   %br
 
   =form_tag :action => :update do
-
-    %b ACTIVE _ ADMIN :
+    %h2 CAB REQUEST MESSAGE WILL BE SENT TO:
+    %b ADMIN :
     %select{:name => "admin"}
-      -@admin_array.each do|admin|
+      -@admins.each do|admin|
         %option{ :selected => admin.status }= admin.name
       %end
     %br
     %br
     %br
-    %b ACTIVE _ VENDOR :
+    %b VENDOR :
     %select{:name => "vendor"}
-      -@vendor_array.each do|vendor|
+      -@vendors.each do|vendor|
         %option{ :selected => vendor.status }= vendor.name
       %end
     %br

@@ -1,17 +1,14 @@
 class VendorsController < ApplicationController
 
   def index
-    Requester.is_admin(session[:cas_user])
     @vendors = Vendor.all
   end
 
   def new
-    Requester.is_admin(session[:cas_user])
     @info = Vendor.new
   end
 
   def edit
-    Requester.is_admin(session[:cas_user])
     @info = Vendor.find(params[:id])
   end
 

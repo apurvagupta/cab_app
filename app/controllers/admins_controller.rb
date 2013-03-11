@@ -1,18 +1,15 @@
 class AdminsController < ApplicationController
 
   def index
-    Requester.is_admin(session[:cas_user])
     @user_id = session[:cas_user]
     @admins  = Admin.all
   end
 
   def new
-    Requester.is_admin(session[:cas_user])
     @info = Admin.new
   end
 
   def edit
-    Requester.is_admin(session[:cas_user])
     @info = Admin.find(params[:id])
   end
 

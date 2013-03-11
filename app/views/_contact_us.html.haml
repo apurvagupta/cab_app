@@ -1,19 +1,19 @@
 %hr
-%h2 REQUEST MESSAGE WILL BE SENT TO:
+%h2 CAB REQUEST MESSAGE WILL BE SENT TO:
 %br
 %br
 %b Admin:&nbsp&nbsp
-%input{:value => @admin.name, :readonly => true}
+%input{:value => @admin.try(:name), :readonly => true}
 &nbsp
 &nbsp
 Contact Number:&nbsp
-%input{:value => @admin.contact_no, :readonly => true}
+%input{:value => @admin.try(:contact_no), :readonly => true}
 %br
 %br
 %br
 %b Vendor:&nbsp
-%input{:value => @vendor.name, :readonly => true}
+%input{:value => @vendor.try(:name), :readonly => true}
 &nbsp
 &nbsp
 Contact Number:&nbsp
-%input{:value => @vendor.contact_no, :readonly => true}
+%input{:value => @vendor.try(:contact_no), :readonly => true}

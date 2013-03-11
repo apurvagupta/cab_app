@@ -1,28 +1,22 @@
 class SupportCentersController < ApplicationController
 
   def index
-    Requester.is_admin(session[:cas_user])
     @admin                 = Admin.where(status: true).first
     @vendor                = Vendor.where(status: true).first
-
-    if (!@admin || !@vendor) && $is_admin
-      redirect_to '/support_centers/edit'
-    end
   end
 
   def update
-    admin = Admin.where(name: params[:admin]).first
-    update_status(admin)
+    @admin = Admin.where(name: params[:admin]).first
+    update_status(@admin)
 
-    vendor = Vendor.where(name: params[:vendor]).first
-    update_status(vendor)
+    @vendor = Vendor.where(name: params[:vendor]).first
+    update_status(@vendor)
     redirect_to support_centers_path
   end
 
   def edit
-    Requester.is_admin(session[:cas_user])
-    @admin_array  = Admin.all
-    @vendor_array = Vendor.all
+    @admins  = Admin.all
+    @vendors = Vendor.all
   end
 
 
@@ -42,7 +36,6 @@ class SupportCentersController < ApplicationController
   end
 
   def show
-    Requester.is_admin(session[:cas_user])
     if params[:from]
      from_date  = Time.new(params[:from].to_date.year,params[:from].to_date.month,params[:from].to_date.day,00,00,00)
      to_date    = Time.new(params[:to].to_date.year,params[:to].to_date.month,params[:to].to_date.day,00,00,00).tomorrow()
