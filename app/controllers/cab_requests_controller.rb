@@ -16,14 +16,17 @@ class CabRequestsController < ApplicationController
                                               @cab_request.pick_up_date_time.min,
                                               @cab_request.pick_up_date_time.sec,
                                               "+05:30") rescue nil
-    if (@cab_request.source=='other')
-      @cab_request.source=params[:source];
-    end
-    if (@cab_request.destination=='other')
-      @cab_request.destination=params[:destination];
-    end
+
     @other_source=params[:source]
     @other_destination=params[:destination]
+
+    if @cab_request.source=='other'
+      @cab_request.source=@other_source
+    end
+    if @cab_request.destination=='other'
+      @cab_request.destination=@other_destination
+    end
+
     if @cab_request.save
       @notice = "YOUR REQUEST HAS BEEN SEND"
       redirect_to '/cab_requests/show'
