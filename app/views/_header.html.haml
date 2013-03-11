@@ -20,7 +20,7 @@
         -if $is_admin
           -if @cab_request_scope || @cab_request_show_scope
             %h4= link_to "Manage App",support_center_index_path
-          -if @admin_scope
+          -if @admin_scope && !@cab_request_show_scope
             %h4= link_to "View All Reports", '/support_center/show'
       %li
-        %h4= link_to "logout",requesters_logout_path, :id => 'logout_link'
+        %h4= link_to "logout",requesters_logout_path

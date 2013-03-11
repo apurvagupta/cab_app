@@ -10,7 +10,7 @@ class SupportCenterController < ApplicationController
     @vendor_name           = vendor.name                                   rescue nil
     @vendor_contact_number = vendor.contact_no                             rescue nil
 
-    if !admin || !vendor
+    if (!admin || !vendor) && $is_admin
       redirect_to '/support_center/edit'
     end
   end
