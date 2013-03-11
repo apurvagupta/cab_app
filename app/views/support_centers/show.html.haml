@@ -25,9 +25,9 @@
     %br
     %br
     %br
-    = link_to 'Download EXCEL Sheet', support_center_show_path(:format => :xls, :from => @from, :to => @to)
+    = link_to 'Download EXCEL Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to)
   -elsif @cab_requests == []
     %h2 No record found
   %end
-  =link_to 'back', support_center_index_path
+  =link_to 'back', support_centers_path
 %end

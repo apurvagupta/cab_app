@@ -1,17 +1,12 @@
-class SupportCenterController < ApplicationController
+class SupportCentersController < ApplicationController
+
   def index
-
     Requester.is_admin(session[:cas_user])
-    admin                 = Admin.where(status: true).first                rescue nil
-    @admin_name           = admin.name                                     rescue nil
-    @admin_contact_number = admin.contact_no                               rescue nil
+    @admin                 = Admin.where(status: true).first
+    @vendor                = Vendor.where(status: true).first
 
-    vendor                 = Vendor.where(status: true).first              rescue nil
-    @vendor_name           = vendor.name                                   rescue nil
-    @vendor_contact_number = vendor.contact_no                             rescue nil
-
-    if (!admin || !vendor) && $is_admin
-      redirect_to '/support_center/edit'
+    if (!@admin || !@vendor) && $is_admin
+      redirect_to '/support_centers/edit'
     end
   end
 
@@ -21,7 +16,7 @@ class SupportCenterController < ApplicationController
 
     vendor = Vendor.where(name: params[:vendor]).first
     update_status(vendor)
-    redirect_to support_center_index_path
+    redirect_to support_centers_path
   end
 
   def edit

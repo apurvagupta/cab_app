@@ -1,16 +1,16 @@
 CabApp::Application.routes.draw do
 
   match "/requesters/logout" , :controller => "requesters#logout"
-  match "/support_center/update" , :controller => "support_center#update"
-  match "/support_center/edit" , :controller => "support_center#edit"
+  match "/support_centers/update" , :controller => "support_centers#update"
+  match "/support_centers/edit" , :controller => "support_centers#edit"
   match "/cab_requests/show" , :controller => "cab_requests#show"
-  match "/support_center/show" , :controller => "support_center#show"
+  match "/support_centers/show" , :controller => "support_centers#show"
   resources :cab_requests
   resources :admin_details
   resources :admins
   resources :requesters
   resources :vendors
-  resources :support_center
+  resources :support_centers
 
 
   # The priority is based upon order of creation:
