@@ -10,7 +10,9 @@ describe CabRequestsController do
     @cab_request  = { requester: "homer", traveler_name: "self",pick_up_date: @pick_up_date_time.to_date,
                       pick_up_date_time: @pick_up_date_time, contact_no: "9039409828",
                       source: "Guest House", destination: "ThoughtWorks", no_of_passengers: 1, comments: "something" }
-
+    CabRequest.create!(requester: "homer", traveler_name: "self",pick_up_date_time: Time.now + 2.days,
+                       contact_no: "9039409828",source: "Guest House", destination: "ThoughtWorks",
+                       no_of_passengers: 1, comments: "something", pick_up_date: (Time.now + 2.days).to_date )
   end
 
   context 'new' do
@@ -45,7 +47,6 @@ describe CabRequestsController do
   end
 
   context 'show' do
-    load "#{Rails.root}/db/seeds.rb"
 
     it 'should render html page' do
        @cab_requests = [@cab_request]
