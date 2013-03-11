@@ -32,8 +32,6 @@ describe CabRequestsController do
       @cab_request.merge!(source: 'other')
       post :create, cab_request: @cab_request, source: 'Dilshad Garden'
       controller.instance_variable_get(:@cab_request)[:source]== @cab_request[:source]
-      puts controller.instance_variable_get(:@cab_request).class
-      puts @cab_request.class
     end
 
     it 'should pick other_destination when destination == others' do
