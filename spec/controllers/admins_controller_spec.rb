@@ -10,21 +10,21 @@ describe AdminsController do
   context 'index' do
     it 'should get list of admins' do
       get :index
-      controller.instance_variable_get(:@admins).should == @sample_admins
+      assigns(:admins).should == @sample_admins
     end
   end
 
   context 'new' do
     it 'should create empty Admin object' do
       post :new
-      controller.instance_variable_get(:@info)[:name] == nil
+      assigns(:info)[:name] == nil
     end
   end
 
   context 'edit' do
     it 'should get the correct admin' do
       get :edit, id: @sample_admin.id
-      controller.instance_variable_get(:@info).should == @sample_admin
+      assigns(:info).should == @sample_admin
     end
   end
 
@@ -41,4 +41,36 @@ describe AdminsController do
       response.should render_template('admins/new')
    end 
   end
+
+  context 'update' do
+    it 'should successfully update admin' do
+      updated_admin = {name: 'pulkitko', contact_no: "8765432199", status: false}
+      put :update, id: @sample_admin.id, admin: updated_admin
+      assigns(:info)[:contact_no].should == updated_admin[:contact_no]
+    end
+
+    it 'should redirect to admins_path on successful update' do
+      updated_admin = {name: 'pulkitko', contact_no: "8765432199", status: false}
+      put :update, id: @sample_admin.id, admin: updated_admin
+      response.should redirect_to(admins_path)
+    end
+
+    it 'should render edit update failure' do
+      updated_admin = {name: 'pulkitko', contact_no: "87654321", status: false}
+      put :update, id: @sample_admin.id, admin: updated_admin
+      response.should render_template('admins/edit')
+    end
+  end
+
+  context 'destroy' do
+    it 'should delete given admin' do
+      delete :destroy, id:@sample_admin.id
+      Admin.all.should_not == @sample_admins
+    end
+    it 'should redirect to admins_path on successful delete.' do
+      delete :destroy, id:@sample_admin.id
+      response.should redirect_to(admins_path)
+    end 
+  end
+
 end
