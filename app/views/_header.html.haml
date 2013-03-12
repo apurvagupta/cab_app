@@ -13,7 +13,7 @@
         -if !@cab_request_scope
           %h4= link_to "Book A CAB",new_cab_request_path
       %li
-        -if !@is_admin & @cab_request_scope
+        -if !@is_admin
           %h4= link_to "Contact Us",support_centers_path
 
       %li
