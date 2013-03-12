@@ -20,4 +20,11 @@ describe AdminsController do
       controller.instance_variable_get(:@info)[:name] == nil
     end
   end
+
+  context 'edit' do
+    it 'should get the correct admin' do
+      get :edit, id: @sample_admin.id
+      controller.instance_variable_get(:@info).should == @sample_admin
+    end
+  end
 end
