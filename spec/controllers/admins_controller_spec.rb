@@ -27,4 +27,18 @@ describe AdminsController do
       controller.instance_variable_get(:@info).should == @sample_admin
     end
   end
+
+  context 'create' do
+    it 'should redirect to admins_path on successful save' do
+      new_admin = {name: 'pulkitko', contact_no: "8765432100", status: false}
+      post :create, admin: new_admin
+      response.should redirect_to(admins_path)
+    end
+
+   it 'should render new on failed save' do
+      new_admin = {name: 'pulkitko', contact_no: "876543210", status: false}
+      post :create, admin: new_admin
+      response.should render_template('admins/new')
+   end 
+  end
 end
