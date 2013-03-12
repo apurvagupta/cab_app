@@ -10,7 +10,14 @@ describe AdminsController do
   context 'index' do
     it 'should get list of admins' do
       get :index
-      puts controller.instance_variable_get(:@admins).should == @sample_admins
+      controller.instance_variable_get(:@admins).should == @sample_admins
+    end
+  end
+
+  context 'new' do
+    it 'should create empty Admin object' do
+      post :new
+      controller.instance_variable_get(:@info)[:name] == nil
     end
   end
 end
