@@ -16,8 +16,10 @@ describe AdminsController do
 
   context 'new' do
     it 'should create empty Admin object' do
-      post :new
-      assigns(:info)[:name] == nil
+      admin2=Admin.new
+      Admin.should_receive(:new).and_return(admin2)
+      get :new
+      assigns(:info).should == admin2
     end
   end
 
