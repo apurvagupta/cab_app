@@ -1,6 +1,6 @@
 = render '/permissions'
 
--if $is_admin
+-if @is_admin
   -@admin_scope = "true"
   -@cab_request_show_scope = "true"
   = render '/header'
