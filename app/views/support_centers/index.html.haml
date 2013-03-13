@@ -1,11 +1,7 @@
--@admin_scope = "true"
 -if !@is_admin
-  = render '/header'
   = render '/contact_us'
 
 -if @is_admin
-  = render '/header'
-  -@admin_scope = "false"
   = render '/contact_us'
   %h3= link_to 'Update', '/support_centers/edit'
   %br

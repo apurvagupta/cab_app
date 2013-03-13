@@ -1,10 +1,6 @@
 = render '/permissions'
 
 -if $is_admin
-  -@admin_scope = "true"
-  = render '/header'
-  -@admin_scope = "false"
-
   %table{:cellspacing => 50}
     %th Name
     %th Contact No

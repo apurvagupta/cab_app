@@ -1,5 +1,4 @@
 %table{:cellspacing => 50 }
-  %th ID
   %th traveler_name
   %th CONTACT_NO
   %th DATE
@@ -10,7 +9,6 @@
   %hr
   - @cab_requests.zip(@dates).each do |each_request,date|
     %tr
-      %td= each_request.id
       %td= each_request.traveler_name
       %td= each_request.contact_no
       %td= date
