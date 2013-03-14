@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CabApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+      <title>CabApp</title>
+      <%= stylesheet_link_tag    "application", :media => "all" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+    </head>
+    <body>
 
-<div class="header" style="background-image: url('black_back_1.jpg');" >
-  <div float="left"><a class="brand" href="http://www.thoughtworks.com"><h1>ThoughtWorks</h1></a></div>
-  <div float="none" class="pull-right" href="#"><h1>Cab Requisition System</h1></div>
-</div>
-<div class="navbar navbar-inverse" style="margin-bottom: 60px; background-color: #000033;">
-  <div class="navbar-inner">
-    <ul class="nav">
-      <li><a href="/cab_requests/new">Book A Cab</a></li>
-      <li><a href="/cab_requests/show">View My Requests</a></li>
-      <% if @is_admin %>
-          <li>
-            <a href="/support_centers/index">Manage App</a>
-          </li>
-          <li>
-            <a href="/support_centers/show">View All Reports</a>
-          </li>
-      <% else %>
-          <li>
-            <a href="/support_centers">Contact Us</a>
-          </li>
-      <% end %>
-    </ul>
-    <ul class="nav pull-right">
-      <li><a href="/requesters/logout">Log Out</a></li>
-    </ul>
-  </div>
-</div>
-<%= yield %>
+        <div class="header">
+          <h1>Cab Requisition System</h1>
+        </div>
 
-</body>
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <a class="brand" href="http://www.thoughtworks.com">ThoughtWorks</a>
+            <ul class="nav">
+              <li><a href="/cab_requests/new">Book A Cab</a></li>
+              <li><a href="/cab_requests/show">View My Requests</a></li>
+              <% if @is_admin %>
+                  <li>
+                    <a href="/support_centers/index">Manage App</a>
+                  </li>
+                  <li>
+                    <a href="/support_centers/show">View All Reports</a>
+                  </li>
+              <% else %>
+                  <li>
+                    <a href="/support_centers">Contact Us</a>
+                  </li>
+              <% end %>
+            </ul>
+            <ul class="nav pull-right">
+              <li><a href="/requesters/logout">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+            <%= yield %>
+        </div>
+    </body>
 </html>

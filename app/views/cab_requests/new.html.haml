@@ -1,71 +1,72 @@
 -@num = Array(1..50)
 -@sources = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
 -@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
+.span3
+.span6
+  = form_for(@cab_request) do |f|
+    .right_container
+      -if @cab_request.errors.any?
+        #error_explanation
+          %h2= pluralize(@cab_request.errors.count, "error")
+          %ul
+            -@cab_request.errors.full_messages.each do |msg|
+              %li=  msg
+            %end
+      %h2 BOOK A CAB :
+      %br
+      %br
+      .field
+        = f.label "Requester:"
+        = f.text_field :requester ,:Readonly => true
 
-= form_for(@cab_request) do |f|
-  .right_container 
-    -if @cab_request.errors.any?
-      #error_explanation
-        %h2= pluralize(@cab_request.errors.count, "error")
-        %ul
-          -@cab_request.errors.full_messages.each do |msg|
-            %li=  msg
+      .field
+        = f.label "For Whom:"
+        = f.text_field :traveler_name ,:id => "traveler_name"
+
+      .field
+        = f.label "Contact No:"
+        = f.text_field :contact_no
+
+      .field
+        =f.label "When"
+        =f.text_field :pick_up_date ,:id => "pick_up_date"
+
+      .field
+        = f.label "At What Time:"
+        = f.text_field :pick_up_date_time , :id => 'pick_up_time', :value => @cab_request.pick_up_date_time
+
+      .field
+        =f.label "From:"
+        %select{ :id => "ddl_source" , :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('ddl_source','txt_source');" }
+          -@sources.each do|source|
+            %option{:selected => (source == @cab_request.source)}= source
           %end
-    %h2 BOOK A CAB :
-    %br
-    %br
-    .field
-      = f.label "Requester:"
-      = f.text_field :requester ,:Readonly => true
 
-    .field
-      = f.label "For Whom:"
-      = f.text_field :traveler_name ,:id => "traveler_name"
+        %input{:type => "hidden", :name => "source", :id => "txt_source" , :value => @other_source , :disabled => false}
 
-    .field
-      = f.label "Contact No:"
-      = f.text_field :contact_no
+      .field
+        =f.label "To:"
+        %select{:name => "cab_request[destination]", :id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
+          -@destinations.each do|destination|
+            %option{:selected => (destination == @cab_request.destination)}= destination
+          %end
 
-    .field
-      =f.label "When"
-      =f.text_field :pick_up_date ,:id => "pick_up_date"
+        %input{:type => 'hidden', :name=> "destination", :id => "txt_destination" , :disabled => true ,:value => @other_destination}
 
-    .field
-      = f.label "At What Time:"
-      = f.text_field :pick_up_date_time , :id => 'pick_up_time', :value => @cab_request.pick_up_date_time
+      .field
+        =f.label "No of passengers:"
+        %select{:name => "cab_request[no_of_passengers]" }
+          -@num.each do|i|
+            %option{:selected => (i == @cab_request.no_of_passengers)}= i
+          %end
 
-    .field
-      =f.label "From:"
-      %select{ :id => "ddl_source" , :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('ddl_source','txt_source');" }
-        -@sources.each do|source|
-          %option{:selected => (source == @cab_request.source)}= source
-        %end
+      .field
+        =f.label "Any Message:"
+        =f.text_field :comments
 
-      %input{:type => "hidden", :name => "source", :id => "txt_source" , :value => @other_source , :disabled => false}
+      .field
+        =f.submit "MAKE A BOOKING" ,:class => 'button'
+        %h3= link_to 'cancel', cab_requests_path
 
-    .field
-      =f.label "To:"
-      %select{:name => "cab_request[destination]", :id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
-        -@destinations.each do|destination|
-          %option{:selected => (destination == @cab_request.destination)}= destination
-        %end
-
-      %input{:type => 'hidden', :name=> "destination", :id => "txt_destination" , :disabled => true ,:value => @other_destination}
-
-    .field
-      =f.label "No of passengers:"
-      %select{:name => "cab_request[no_of_passengers]" }
-        -@num.each do|i|
-          %option{:selected => (i == @cab_request.no_of_passengers)}= i
-        %end
-
-    .field
-      =f.label "Any Message:"
-      =f.text_field :comments
-
-    .field
-      =f.submit "MAKE A BOOKING" ,:class => 'button'
-      %h3= link_to 'cancel', cab_requests_path
-
-  .left_container
-    %img{:src => "/assets/Twi_new.gif"}
+.span3
+  %img{:src => "/assets/Twi_new.gif"}
