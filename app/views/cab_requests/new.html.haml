@@ -1,82 +1,80 @@
 -@num = Array(1..50)
 -@sources = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
 -@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
-.span1
-.span6
-  .form-horizontal
-    = form_for(@cab_request) do |f|
+.form-horizontal
+  = form_for(@cab_request) do |f|
 
-      -if @cab_request.errors.any?
-        #error_explanation
-          %h2= pluralize(@cab_request.errors.count, "error")
-          %ul
-            -@cab_request.errors.full_messages.each do |msg|
-              %li=  msg
-            %end
+    -if @cab_request.errors.any?
+      #error_explanation
+        %h2= pluralize(@cab_request.errors.count, "error")
+        %ul
+          -@cab_request.errors.full_messages.each do |msg|
+            %li=  msg
+          %end
+    .controls
+      %h2 BOOK A CAB
+    %br
+    %br
+    .control-group
+      = f.label "Requester:", class: 'control-label'
       .controls
-        %h2 BOOK A CAB
-      %br
-      %br
-      .control-group
-        = f.label "Requester:", class: 'control-label'
-        .controls
-          = f.text_field :requester ,:Readonly => true
+        = f.text_field :requester ,:Readonly => true
 
-      .control-group
-        = f.label "For Whom:", class: 'control-label'
-        .controls
-          = f.text_field :traveler_name ,:id => "traveler_name"
+    .control-group
+      = f.label "For Whom:", class: 'control-label'
+      .controls
+        = f.text_field :traveler_name ,:id => "traveler_name"
 
-      .control-group
-        = f.label "Contact No:", class: 'control-label'
-        .controls
-          = f.text_field :contact_no
+    .control-group
+      = f.label "Contact No:", class: 'control-label'
+      .controls
+        = f.text_field :contact_no
 
-      .control-group
-        =f.label "When", class: 'control-label'
-        .controls
-          =f.text_field :pick_up_date ,:id => "pick_up_date"
+    .control-group
+      =f.label "When", class: 'control-label'
+      .controls
+        =f.text_field :pick_up_date ,:id => "pick_up_date"
 
-      .control-group
-        = f.label "At What Time:", class: 'control-label'
-        .controls
-          = f.text_field :pick_up_date_time , :id => 'pick_up_time', :value => @cab_request.pick_up_date_time
+    .control-group
+      = f.label "At What Time:", class: 'control-label'
+      .controls
+        = f.text_field :pick_up_date_time , :id => 'pick_up_time', :value => @cab_request.pick_up_date_time
 
-      .control-group
-        =f.label "From:", class: 'control-label'
-        .controls
-          %select{ :id => "ddl_source" , :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('ddl_source','txt_source');" }
-            -@sources.each do|source|
-              %option{:selected => (source == @cab_request.source)}= source
-            %end
+    .control-group
+      =f.label "From:", class: 'control-label'
+      .controls
+        %select{ :id => "ddl_source" , :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('ddl_source','txt_source');" }
+          -@sources.each do|source|
+            %option{:selected => (source == @cab_request.source)}= source
+          %end
 
-          %input{:type => "hidden", :name => "source", :id => "txt_source" , :value => @other_source , :disabled => false}
+        %input{:type => "hidden", :name => "source", :id => "txt_source" , :value => @other_source , :disabled => false}
 
-      .control-group
-        =f.label "To:", class: 'control-label'
-        .controls
-          %select{:name => "cab_request[destination]", :id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
-            -@destinations.each do|destination|
-              %option{:selected => (destination == @cab_request.destination)}= destination
-            %end
+    .control-group
+      =f.label "To:", class: 'control-label'
+      .controls
+        %select{:name => "cab_request[destination]", :id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
+          -@destinations.each do|destination|
+            %option{:selected => (destination == @cab_request.destination)}= destination
+          %end
 
-          %input{:type => 'hidden', :name=> "destination", :id => "txt_destination" , :disabled => true ,:value => @other_destination}
+        %input{:type => 'hidden', :name=> "destination", :id => "txt_destination" , :disabled => true ,:value => @other_destination}
 
-      .control-group
-        =f.label "No of passengers:", class: 'control-label'
-        .controls
-          %select{:name => "cab_request[no_of_passengers]" }
-            -@num.each do|i|
-              %option{:selected => (i == @cab_request.no_of_passengers)}= i
-            %end
+    .control-group
+      =f.label "No of passengers:", class: 'control-label'
+      .controls
+        %select{:name => "cab_request[no_of_passengers]" }
+          -@num.each do|i|
+            %option{:selected => (i == @cab_request.no_of_passengers)}= i
+          %end
 
-      .control-group
-        =f.label "Any Message:", class: 'control-label'
-        .controls
-          =f.text_field :comments
+    .control-group
+      =f.label "Any Message:", class: 'control-label'
+      .controls
+        =f.text_field :comments
 
-      .control-group
-        =f.submit "Confirm Booking" ,class: 'btn controls'
-        =f.button "Cancel", class: 'btn', type: 'reset'
+    .control-group
+      =f.submit "Confirm Booking" ,class: 'btn controls'
+      =f.button "Cancel", class: 'btn', type: 'reset'
 
 .span3
