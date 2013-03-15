@@ -41,25 +41,33 @@ msg{
     color: #500000;
    }
 
+.body{
+
+
+}
+
 .navbar-inverse .brand {
   color: #ffffff;
   font-size: 28px;
   font-weight: 200;
 }
 
-.navbar-inverse .navbar-inner{
-  background-color: lightskyblue;
-  border-radius: 0px;
+.navbar{
+  border: none;
 }
-
-.body {
-  background-color: papayawhip;
+.navbar-inverse .navbar-inner{
+  border: none;
+  background-color: none;
+  background-image: url('navbar.jpg');
+  background-repeat: repeat-x;
+  background-repeat: no-repeat;
+  filter: none;
+  border-radius: 0px;
 }
 
 .header{
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #6495ee;
   background-image: url('header.jpg');
   color: #ffffff;
 }
