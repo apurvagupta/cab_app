@@ -41,9 +41,16 @@ msg{
     color: #500000;
    }
 
-.body{
+.form-horizontal{
+  color: white;
+  background-color: grey;
+  padding:10px 70px 20px 10px;
+  border:1px solid black;
+  border-radius: 10px;
+}
 
-
+body{
+  background-image: url('navbar.jpg');
 }
 
 .navbar-inverse .brand {
