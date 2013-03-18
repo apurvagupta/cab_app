@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'sqlite3'
-
+gem 'rubycas-client'
+gem 'haml-rails'
+gem 'pry'
+gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -14,31 +13,25 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'bootstrap-sass', '~> 2.3.0.1'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  gem 'jquery_datepicker'
+  gem 'jquery-rails'
+  gem 'jquery-timepicker-rails'
+  gem 'jquery-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-gem 'rspec-rails'
-gem 'rubycas-client'
-#gem 'rubycas-client-rails'
-gem 'haml-rails'
-gem 'jquery_datepicker'
-gem 'jquery-rails'
-#gem 'sass-twitter-bootstrap-rails'
-gem 'jquery-timepicker-rails'
-gem 'pry'
-gem 'simplecov', require: false, group: :test
-gem 'fuubar'
-gem 'rspec_junit_formatter'
+
+
 group :test do
-  gem 'cucumber-rails', :require => false
-  # database_cleaner is not required, but highly recommended
-  gem 'database_cleaner'
+  gem 'cucumber-rails', require: false
+  gem 'simplecov', require: false
+  gem 'rspec-rails', require: false
+  gem 'rspec_junit_formatter'
+  gem 'fuubar'
+  gem 'database_cleaner'    # database_cleaner is not required, but highly recommended
 end
-gem 'therubyracer'
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
