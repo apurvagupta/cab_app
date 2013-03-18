@@ -33,7 +33,11 @@ gem 'pry'
 gem 'simplecov', require: false, group: :test
 gem 'fuubar'
 gem 'rspec_junit_formatter'
-
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+end
 gem 'therubyracer'
 
 # To use ActiveModel has_secure_password

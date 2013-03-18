@@ -17,7 +17,7 @@ describe SupportCentersController do
   end
 
   context "index" do
-    it "should assign requested Admin data to @admin" do
+    it "should assign requested User data to @admin" do
       get :index
       response.should be_success
       assigns(:admin).should == @admin
@@ -61,7 +61,7 @@ describe SupportCentersController do
   end
 
   context "edit" do
-    it "should assign requested Admin data to @admins" do
+    it "should assign requested User data to @admins" do
       get :edit
       assigns(:admins).should == [@admin]
     end

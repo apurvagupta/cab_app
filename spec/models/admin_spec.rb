@@ -38,7 +38,7 @@ describe Admin do
 
   end
 
-  context "Admin contact number " do
+  context "User contact number " do
 
     it "should not be blank" do
       @admin.contact_no = nil
@@ -59,7 +59,7 @@ describe Admin do
     end
 
   end
-  context "Admin Status " do
+  context "User Status " do
     it "should not contain other than a boolean value " do
       @admin.status = nil
       @admin.save.should be_false
