@@ -50,6 +50,22 @@ msg{
   border-radius: 0px;
 }
 
+
+#dropdown{
+  background-color: orangered;
+  color: #ffffff;
+}
+
+//#logout:hover:focus{
+//  background-color: none;
+//  color: #000000;
+//}
+
+.dropdown-menu>li>hover{
+  background: transparent;
+  color: black;
+}
+
 .navbar-inverse .brand {
   border-right: 1px #ffffff solid;
   color: #ffffff;
@@ -63,18 +79,18 @@ msg{
 
 }
 
-.navbar .nav {
-  margin-right: 0px;
-  color: #ffffff;
-
-  li{
-    a{
-      border-right: 1px #ffffff solid;
-      color: #ffffff;
-    }
+li.dropdown.open{
+  a{
+    border: none;
+    background-color: #ffffff;
+    color: #000000;
   }
 }
 
+ul.dropdown-menu>li>a{
+  background-color: #ffffff;
+  color:  black;
+}
 .navbar-inverse .navbar-inner{
   color: #ffffff;
   border: none;
@@ -106,8 +122,11 @@ body{
 }
 
 .content-main{
+  min-height: 680px;
   background-image: none;
   background-color: #ffffff;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
