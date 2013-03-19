@@ -14,6 +14,9 @@ class Requester
     extracted_source_code = @source_code[start_index, start_index+50] rescue nil
     end_index = extracted_source_code.index('"') rescue nil
     extracted_source_code = extracted_source_code[0, end_index] rescue nil
+    if extracted_source_code
+      return extracted_source_code.strip
+    end
     return extracted_source_code
   end
 

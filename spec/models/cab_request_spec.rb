@@ -117,8 +117,14 @@ describe CabRequest do
       @cab_request.errors[:source].first.should== " and Destination can't be same"
     end
 
-  end
+    it "should not be more than 20 characters" do
+      @cab_request.source = "Hello"*50
+      @cab_request.save.should be_false
+      @cab_request.errors[:source].first.should == "is too long (maximum is 20 characters)"
+    end
 
+  end
+    
   context "Destination" do
 
     it "should not be blank" do
@@ -127,6 +133,11 @@ describe CabRequest do
       @cab_request.errors[:destination].first.should == "can't be blank"
     end
 
+    it "should not be more than 20 characters" do
+      @cab_request.destination = "Hello"*50
+      @cab_request.save.should be_false
+      @cab_request.errors[:destination].first.should == "is too long (maximum is 20 characters)"
+    end
   end
 
   context "No of Passengers" do
@@ -137,6 +148,17 @@ describe CabRequest do
       @cab_request.errors[:no_of_passengers].first.should == "can't be blank"
     end
 
+    it "should be numeric" do
+      @cab_request.no_of_passengers="fdds"
+      @cab_request.save.should be_false
+      @cab_request.errors[:no_of_passengers].first.should =="is not a number"
+    end
+
+    it "should not be more than 50" do
+      @cab_request.no_of_passengers=80
+      @cab_request.save.should be_false
+      @cab_request.errors[:no_of_passengers].first.should=="should not be more than 50" 
+    end
   end
 
   context "Comments" do

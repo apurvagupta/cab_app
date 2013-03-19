@@ -15,7 +15,6 @@ class CabRequestsController < ApplicationController
                                               @cab_request.pick_up_date_time.min,
                                               @cab_request.pick_up_date_time.sec,
                                               "+05:30") rescue nil
-
     @other_source=params[:source]
     @other_destination=params[:destination]
 

@@ -23,15 +23,21 @@ $(document).ready(function() {
         $('#txt_source').attr('type',"text");
        $('#txt_source').attr('disabled',false);
     }
+
     if ($('#ddl_destination').val() == 'other')
     {
         $('#txt_destination').attr('type',"text");
         $('#txt_destination').attr('disabled',false);
     }
 
-    $('#pick_up_time').timepicker({ 'scrollDefaultNow': true });
+    $('#pick_up_time').timepicker({
+        controlType: 'select',
+        timeFormat: 'hh:mm tt',
+        stepMinute: 30
+    });
 
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy" , minDate: 0});
+
     $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
     $('#dropdown').click(function(){
         $("#dropdown").backgroundColor='orangered';

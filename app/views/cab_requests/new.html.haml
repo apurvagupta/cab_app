@@ -32,15 +32,16 @@
           .controls
             = f.text_field :contact_no
 
+
         .control-group
           =f.label "When", class: 'control-label'
           .controls
-            =f.text_field :pick_up_date ,:id => "pick_up_date"
+            =f.text_field :pick_up_date ,:id => "pick_up_date", autocomplete: "off", readonly: 'true'
 
         .control-group
           = f.label "At What Time:", class: 'control-label'
           .controls
-            = f.text_field :pick_up_date_time , :id => 'pick_up_time', :value => @cab_request.pick_up_date_time
+            = f.text_field :pick_up_date_time , :id => 'pick_up_time', :value => @cab_request.pick_up_date_time, autocomplete: "off",readonly: 'true'
 
         .control-group
           =f.label "From:", class: 'control-label'
@@ -62,13 +63,11 @@
 
             %input{:type => 'hidden', :name=> "destination", :id => "txt_destination" , :disabled => true ,:value => @other_destination}
 
+
         .control-group
           =f.label "No of passengers:", class: 'control-label'
           .controls
-            %select{:name => "cab_request[no_of_passengers]" }
-              -@num.each do|i|
-                %option{:selected => (i == @cab_request.no_of_passengers)}= i
-              %end
+            =f.text_field :no_of_passengers, id:"no_of_passengers"
 
         .control-group
           =f.label "Any Message:", class: 'control-label'

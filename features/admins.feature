@@ -18,6 +18,7 @@ Feature: Creating a new Admin
     And   Admin is on 'edit admin' page
     And   Admin changes a admin information
     When  Admin updates admin information
+    Then  Admin should be able to view all admins including this one
     And   Admin should be able to view 'edit' link for each admin
     And   Admin should be able to view 'new' link
     And   Admin should be able to view 'back' link

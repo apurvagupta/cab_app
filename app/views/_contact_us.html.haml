@@ -3,17 +3,18 @@
 %br
 %br
 %b Admin:&nbsp&nbsp
-%input{:value => @admin.try(:name), :readonly => true}
+
+=@admin.try(:name)
 &nbsp
 &nbsp
-%b Contact Number:&nbsp
-%input{:value => @admin.try(:contact_no), :readonly => true}
+Contact Number:&nbsp
+=@admin.try(:contact_no)
 %br
 %br
 %br
 %b Vendor:&nbsp
-%input{:value => @vendor.try(:name), :readonly => true}
+=@vendor.try(:name)
 &nbsp
 &nbsp
 Contact Number:&nbsp
-%input{:value => @vendor.try(:contact_no), :readonly => true}
+=@vendor.try(:contact_no)
