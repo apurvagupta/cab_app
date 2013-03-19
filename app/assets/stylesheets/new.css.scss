@@ -43,14 +43,15 @@ msg{
    }
 
 .form-horizontal{
-  color: white;
-  background-color: grey;
-  padding:10px 70px 20px 10px;
-  border:1px solid black;
-  border-radius: 10px;
+  color: black;
+  background-color: #ffffff;
+  padding:0px 70px 20px 10px;
+  border:0px solid black;
+  border-radius: 0px;
 }
 
 .navbar-inverse .brand {
+  border-right: 1px #ffffff solid;
   color: #ffffff;
   font-size: 28px;
   font-weight: 200;
@@ -58,22 +59,55 @@ msg{
 
 .navbar{
   border: none;
-}
-.navbar-inverse .navbar-inner{
-  border: none;
-  background-color: none;
-  background-image: url('navbar.jpg');
-  background-repeat: repeat-x;
-  background-repeat: no-repeat;
-  filter: none;
-  border-radius: 0px;
+  margin-bottom: 0px;
+
 }
 
-.header{
+.navbar .nav {
+  margin-right: 0px;
+  color: #ffffff;
+
+  li{
+    a{
+      border-right: 1px #ffffff solid;
+      color: #ffffff;
+    }
+  }
+}
+
+.navbar-inverse .navbar-inner{
+  color: #ffffff;
+  border: none;
+  background-color: orangered;
+  background-image: none;
+  //background-image: url('navbar.jpg');
+  //background-repeat: repeat-x;
+  //background-repeat: no-repeat;
+  filter: none;
+  border-radius: 0px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.page-title{
   padding-top: 15px;
   padding-bottom: 15px;
   background-image: url('header.jpg');
   color: #ffffff;
 }
 
+body{
+  color: #ffffff;
+  background-image: url('header.jpg');
+  border-top-width: 5px;
+  border-top: solid;
+  border-top-color: orangered;
+  //background-color: seagreen;
+}
 
+.content-main{
+  background-image: none;
+  background-color: #ffffff;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
