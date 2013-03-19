@@ -5,13 +5,17 @@ Feature: Managing admin/vendor
 
   Background:
     Given User is logged in
+
+
+  Scenario: Requester views active admin/vendor
     And   User is on support centers page
-
-  Scenario: Requester logs in
     Then  User should be able to view active admin & active vendor
 
-  Scenario: Admin logs in
-    Then  User should be able to view active admin & active vendor
-    And   User should be able to view admins link
-    And   User should be able to view vendors link
-    And   User should be able to view update link
+  Scenario: Admin updates current admin and vendor
+    And    User in on 'update support center' page
+    And    User changes current admin/vendor
+    When   User updates current admin/vendor
+    Then   User should be able to view active admin & active vendor
+    And    User should be able to view 'admins' link
+    And    User should be able to view 'vendors' link
+    And    User should be able to view 'update' link

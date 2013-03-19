@@ -1,7 +1,7 @@
 Feature: Viewing cab requests
-  In order to view cab requests
+  In order to keep track of all cab requests
   An Admin
-  should be able to display cab requests
+  should be able to view cab requests
 
   Scenario: View all cab requests
     Given Admin is logged in
