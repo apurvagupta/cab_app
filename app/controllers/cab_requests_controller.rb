@@ -8,6 +8,7 @@ class CabRequestsController < ApplicationController
 
   def create
     @cab_request                   = CabRequest.new(params[:cab_request])
+    @cab_request.requester         = session[:cas_user]
     @cab_request.pick_up_date_time = Time.new(params[:cab_request][:pick_up_date].to_date.year,
                                               params[:cab_request][:pick_up_date].to_date.month,
                                               params[:cab_request][:pick_up_date].to_date.day,
