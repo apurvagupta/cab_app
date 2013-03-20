@@ -4,6 +4,11 @@ module NavigationHelpers
 
       when /the home\s?page/
         '/'
+      #when /the edit ([^"]*)$/
+      #  id = Admin.pluck(:id).first.to_s
+      #  page_name =~ /the (.*) page/
+      #  path_components = $1.split(/\s+/)
+      #  self.send(path_components.push('path[' + id + ']').join('_').to_sym)
       else
         begin
           page_name =~ /the (.*) page/

@@ -19,7 +19,7 @@ Feature: Requesting a cab
     And    User fills in no_of_passengers as 1
     And    User has its previous requests
     When   User creates cab_request
-    Then   User should be able to view its all requests including this one
+    Then   User should be able to view all his CabRequests including this one
     And    User should be able to view 'Download XLS Sheet' link
 
 

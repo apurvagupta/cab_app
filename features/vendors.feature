@@ -18,10 +18,10 @@ Feature: Configuring Vendors
     And   User should be able to view 'back' link
 
   Scenario: Admin updates an existing Vendor
-    And   User is on the edit vendor page
-    And   User changes vendor's information
+    And   User is on the edit vendors page
+    And   User fills in vendor_name as rabbit
     When  User updates a vendor
-    Then  User should be able to view all vendors including the updated one
+    Then  User should be able to view all Vendors including the updated one
     And   User should be able to view 'edit' link
     And   User should be able to view 'new' link
     And   User should be able to view 'back' link

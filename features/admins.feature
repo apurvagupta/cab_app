@@ -18,8 +18,11 @@ Feature: Creating a new Admin
     And   User should be able to view 'back' link
 
   Scenario: Admin edits an existing admin
-    And   User is on the edit admin page
-    Then  User should be able to view 'update' button
-
-
+    And   User is on the edit admins page
+    And   User fills in admin_name as rabbit
+    When  User updates an admin
+    Then  User should be able to view all Admins including the updated one
+    And   User should be able to view 'edit' link
+    And   User should be able to view 'new' link
+    And   User should be able to view 'back' link
 

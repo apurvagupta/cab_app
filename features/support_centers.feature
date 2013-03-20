@@ -15,7 +15,7 @@ Feature: Managing admin/vendor
   Scenario: Admin updates current admin and vendor
     And    Current User is Admin
     And    User is on the support centers edit page
-    And    User changes current admin/vendor
+    And    User selects
     When   User updates current admin/vendor
     Then   User should be able to view active admin & active vendor
     And    User should be able to view 'admins' link
