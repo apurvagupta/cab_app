@@ -9,7 +9,6 @@ Feature: Requesting a cab
     And    User is on the home page
 
   Scenario: Sends a Cab Request
-    And    User fills in requester as dog
     And    User fills in traveler_name as cat
     And    User fills in contact_no as 1234567890
     And    User fills in pick_up_date as 07/02/9999
@@ -19,9 +18,10 @@ Feature: Requesting a cab
 #    And    User fills in other_destination as India Gate
     And    User fills in no_of_passengers as 1
     And    User has its previous requests
-    When   User Makes a booking
+    When   User creates cab_request
     Then   User should be able to view its all requests including this one
-    And    User should be able to view Download XLS sheet link
+    And    User should be able to view 'Download XLS Sheet' link
+
 
   Scenario: Cancels the Cab Request form
     When   User cancels the form

@@ -25,18 +25,18 @@
             <div class="navbar-inner">
               <a class="brand" href="http://www.thoughtworks.com">ThoughtWorks</a>
               <ul class="nav">
-                <li><a href="/cab_requests/new">BookACab</a></li>
-                <li><a href="/cab_requests/show">ViewMyRequests</a></li>
+                <li><a href="/cab_requests/new" id="Book A Cab">BookACab</a></li>
+                <li><a href="/cab_requests/show" id="View My Requests">ViewMyRequests</a></li>
                 <% if @is_admin %>
                     <li>
-                      <a href="/support_centers">ManageApp</a>
+                      <a href="/support_centers" id="Manage App" >ManageApp</a>
                     </li>
                     <li>
-                      <a href="/support_centers/show">ViewAllReports</a>
+                      <a href="/support_centers/show" id="View All Reports" >ViewAllReports</a>
                     </li>
                 <% else %>
                     <li>
-                      <a href="/support_centers">ContactUs</a>
+                      <a href="/support_centers" id="Contact Us" >ContactUs</a>
                     </li>
                 <% end %>
               </ul>

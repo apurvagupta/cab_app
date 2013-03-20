@@ -1,25 +1,27 @@
-Feature: Authenticating a User
+Feature: User visits the home page
   In order to access the home page
   A user
-  Should be able to login
+  Should be able to see the home page of cab_app
 
 Background:
-  Given  User fills in username as pataka
-  And    User fills in password as full-jhhadi
+  Given  User is logged in
+
 
 Scenario: Requester logs in
   And    Current User is not an Admin
-  When   User logs in
-  Then   User should be able to view the home page with cab request form
-  And    User should be able to view view my report link
-  And    User should be able to view contact us link
-  And    User should be able to view logout link
+  And    User is on the home page
+  Then   User should be able to view 'cab request' form
+  And    User should be able to view 'View My Requests' link
+  And    User should be able to view 'Contact Us' link
+  And    User should be able to view 'Log Out' link
 
 
 Scenario: Admin logs in
   And    Current User is Admin
-  When   User logs in
-  Then   User should be able to view the home page with cab request form
-  And    User should be able to view view my report link
-  And    User should be able to view manage app link
-  And    User should be able to view logout link
+  And    User is on the home page
+  Then   User should be able to view 'cab request' form
+  And    User should be able to view 'View My Requests' link
+  And    User should be able to view 'Manage App' link
+  And    User should be able to view 'View All Reports' link
+  And    User should be able to view 'Log Out' link
+

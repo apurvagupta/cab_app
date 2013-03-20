@@ -18,6 +18,6 @@ Feature: Managing admin/vendor
     And    User changes current admin/vendor
     When   User updates current admin/vendor
     Then   User should be able to view active admin & active vendor
-    And    User should be able to view admins link
-    And    User should be able to view vendors link
-    And    User should be able to view update link
+    And    User should be able to view 'admins' link
+    And    User should be able to view 'vendors' link
+    And    User should be able to view 'update' link

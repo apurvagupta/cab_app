@@ -11,5 +11,5 @@ Feature: Viewing cab requests
     And   User fills in to_date as 23/12/9999
     When  User display reports
     Then  User should be able to view all cab requests
-    And   User should be able to view "Download Excel Sheet" link
-    And   User should be able to view "back" link
+    And   User should be able to view 'Download XLS Sheet' link
+    And   User should be able to view 'back' link
