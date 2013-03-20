@@ -53,6 +53,8 @@ msg{
 
 #dropdown{
   background-color: orangered;
+  padding-top: 13px;
+  max-height: 10px;
 }
 
 //.dropdown-menu>li>hover{
@@ -88,19 +90,24 @@ ul.dropdown-menu>li>a{
 }
 
 .navbar ul.nav>li>a{
-  padding-left: 3px;
-  padding-right: 6px;
+  padding-left: 5px;
+  padding-right: 10px;
   font-size: 15px;
+  color: #ffffff;
 
 }
 
-.navbar ul.nav.pull-right>li#welcome_text{
+.navbar ul>li#welcome_text{
+
   padding-top: 10px;
+  list-style-type: none;
+  padding-right: 0px;
   //padding-right: 10px;
 }
 
 .navbar ul.nav.pull-right{
   padding-left: -5px;
+
 }
 
 .navbar-inverse .navbar-inner{
@@ -146,9 +153,23 @@ body{
   border-bottom:  1px lightgrey inset;
   margin-bottom: 10px;
 }
-.span4{
+.span6{
   h4{
    text-align: center;
    color: grey;
   }
+
+  .span6.btn_controls{
+      padding-right: -30px;
+  }
+
+  .span6.btn{
+    padding-right: -30px;
+  }
+
+.control-group{
+  h3{
+    font-weight: normal;
+  }
+}
 }
