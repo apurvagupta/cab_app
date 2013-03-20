@@ -15,7 +15,7 @@ describe AdminsController do
   end
 
   context 'new' do
-    it 'should create empty User object' do
+    it 'should create empty Admin object' do
       admin2=Admin.new
       Admin.should_receive(:new).and_return(admin2)
       get :new

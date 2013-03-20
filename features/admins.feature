@@ -3,25 +3,27 @@ Feature: Creating a new Admin
   An Admin
   should be able to submit a new admin
 
-  Background: Admin is logged in
+  Background:
+    Given User is logged in
+    And   Current User is Admin
 
-  Scenario: Create New Admin
-    And   Admin is on "new admin" page
-    And   Admin fills admin information
-    When  Admin creates a new admin
-    Then  Admin should be able to view all admins including this one
-    And   Admin should be able to view 'edit' link for each admin
-    And   Admin should be able to view 'new' link
-    And   Admin should be able to view 'back' link
+  Scenario: Admin creates a New Admin
+    And   User is on the new admin page
+    And   User fills in admin_name as donkey
+    And   User fills in admin_contact_no as 1234567890
+    When  User creates a new admin
+    Then  User should be able to view all admins including this one
+    And   User should be able to view edit link for each admin
+    And   User should be able to view new link
+    And   User should be able to view back link
 
-  Scenario: Edit an existing admin
-    And   Admin is on 'edit admin' page
-    And   Admin changes a admin information
-    When  Admin updates admin information
-    Then  Admin should be able to view all admins including this one
-    And   Admin should be able to view 'edit' link for each admin
-    And   Admin should be able to view 'new' link
-    And   Admin should be able to view 'back' link
+  Scenario: Admin edits an existing admin
+    And   User is on the edit admin page
+    And   User changes an admin information
+    When  User updates admin information
+    And   User should be able to view edit link for each admin
+    And   User should be able to view new link
+    And   User should be able to view back link
 
 
 

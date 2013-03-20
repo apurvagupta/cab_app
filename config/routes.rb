@@ -7,7 +7,6 @@ CabApp::Application.routes.draw do
   match "/support_centers/show" , :controller => "support_centers#show"
   match "/anonymous/new" , :controller => "anonymous#new"
   resources :cab_requests
-  resources :admin_details
   resources :admins
   resources :requesters
   resources :vendors

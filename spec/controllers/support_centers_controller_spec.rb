@@ -17,7 +17,7 @@ describe SupportCentersController do
   end
 
   context "index" do
-    it "should assign requested User data to @admin" do
+    it "should assign requested Admin data to @admin" do
       get :index
       response.should be_success
       assigns(:admin).should == @admin

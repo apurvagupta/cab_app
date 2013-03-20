@@ -1,7 +1,7 @@
 = render '/permissions'
 
--if $is_admin
+-if @is_admin
   %h1 New Vendor
 
   %hr
-  = render '/form',:class => 'button'
+  = render '/form'

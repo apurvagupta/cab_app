@@ -8,13 +8,13 @@
 
         -if @cab_request.errors.any?
           #error_explanation
-            %h4= pluralize(@cab_request.errors.count, "error")
+            %h2= pluralize(@cab_request.errors.count, "error")
             %ul
               -@cab_request.errors.full_messages.each do |msg|
                 %li=  msg
               %end
         .controls
-          %h4 BOOK A CAB
+          %h2 BOOK A CAB
         %br
         %br
 
@@ -30,7 +30,7 @@
             .control-group
               -#= f.label "Contact No:", class: 'control-label'
               .controls
-                = f.text_field :contact_no, :placeholder => "contact no"
+                = f.text_field :contact_no, :placeholder => "contact no" , :id => "contact_no"
         .row-fluid.form-main
           .span4
             %h4 When?
@@ -51,12 +51,12 @@
           .span8
             .control-group
               .controls
-                %select{ :id => "ddl_source" , :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('ddl_source','txt_source');" }
+                %select{ :id => "source" , :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('source','other_source');" }
                   -@sources.each do|source|
                     %option{:selected => (source == @cab_request.source)}= source
                   %end
 
-                %input{:type => "hidden", :name => "source", :id => "txt_source" , :value => @other_source , :disabled => false}
+                %input{:type => "hidden", :name => "source", :id => "other_source" , :value => @other_source , :disabled => false}
 
         .row-fluid.form-main
           .span4
@@ -64,13 +64,13 @@
           .span8
             .control-group
               .controls
-                %select{:name => "cab_request[destination]", :id =>"ddl_destination", :onchange => "onSelectedValueChange('ddl_destination','txt_destination');" }
+                %select{:name => "cab_request[destination]", :id =>"destination", :onchange => "onSelectedValueChange('destination','other_destination');" }
                   -@destinations.each do|destination|
                     %option{:selected => (destination == @cab_request.destination)}= destination
                   %end
 
 
-                %input{:type => 'hidden', :name=> "destination", :id => "txt_destination" , :disabled => true ,:value => @other_destination}
+                %input{:type => 'hidden', :name=> "destination", :id => "other_destination" , :disabled => true ,:value => @other_destination}
         .row-fluid.form-main
           .span4
             %h4 Passengers?
@@ -78,7 +78,7 @@
             .control-group
               -#=f.label "No of passengers:", class: 'control-label'
               .controls
-                = f.text_field :no_of_passengers ,:value => @cab_request.no_of_passengers, :placeholder => "No of passengers"
+                = f.text_field :no_of_passengers ,:value => @cab_request.no_of_passengers, :placeholder => "No of passengers", :id => "no_of_passengers"
         .row-fluid.form-main
           .span4
             %h4 Comments?
@@ -91,7 +91,6 @@
         .control-group
           =f.submit "Confirm Booking" ,class: 'btn controls'
           =f.button "Cancel", class: 'btn', type: 'reset'
-
 
   .span6
     %h1 Add iFrame Here

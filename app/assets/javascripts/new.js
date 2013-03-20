@@ -18,16 +18,15 @@ function onSelectedValueChange(ddl_id,txt_id)
 
 $(document).ready(function() {
 
-    if ($('#ddl_source').val() == 'other')
+    if ($('#source').val() == 'other')
     {
-        $('#txt_source').attr('type',"text");
-       $('#txt_source').attr('disabled',false);
+        $('#other_source').attr('type',"text");
+       $('#other_source').attr('disabled',false);
     }
-
-    if ($('#ddl_destination').val() == 'other')
+    if ($('#destination').val() == 'other')
     {
-        $('#txt_destination').attr('type',"text");
-        $('#txt_destination').attr('disabled',false);
+        $('#other_destination').attr('type',"text");
+        $('#other_destination').attr('disabled',false);
     }
 
     $('#pick_up_time').timepicker({
