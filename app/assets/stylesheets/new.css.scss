@@ -30,9 +30,10 @@ div {
   }
 
   ul li {
-    font-size: 12px;
+    font-size: 10px;
     list-style: square;
-    color: black
+    color: black;
+
   }
 
 }
@@ -52,24 +53,19 @@ msg{
 
 #dropdown{
   background-color: orangered;
-  color: #ffffff;
 }
 
-//#logout:hover:focus{
-//  background-color: none;
-//  color: #000000;
+//.dropdown-menu>li>hover{
+//  background: transparent;
+//  color: black;
 //}
 
-.dropdown-menu>li>hover{
-  background: transparent;
-  color: black;
-}
-
 .navbar-inverse .brand {
-  border-right: 1px #ffffff solid;
+  //border-right: 1px #ffffff solid;
   color: #ffffff;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 200;
+  margin: 0px 0px 0px -27px;
 }
 
 .navbar{
@@ -90,15 +86,30 @@ ul.dropdown-menu>li>a{
   background-color: #ffffff;
   color:  black;
 }
+
+.navbar ul.nav>li>a{
+  padding-left: 3px;
+  padding-right: 6px;
+  font-size: 15px;
+
+}
+
+.navbar ul.nav.pull-right>li#welcome_text{
+  padding-top: 10px;
+  //padding-right: 10px;
+}
+
+.navbar ul.nav.pull-right{
+  padding-left: -5px;
+}
+
 .navbar-inverse .navbar-inner{
   color: #ffffff;
   border: none;
   background-color: orangered;
   background-image: none;
-  //background-image: url('navbar.jpg');
-  //background-repeat: repeat-x;
-  //background-repeat: no-repeat;
   filter: none;
+  max-height: 30px;
   border-radius: 0px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;

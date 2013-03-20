@@ -11,9 +11,9 @@
 
     <div class= "row-fluid">
 
-      <div class="span2"></div>
+      <div class="span1"></div>
 
-      <div class="span8">
+      <div class="span10">
 
         <div class="page-title">
           <h1>Cab Requisition System</h1>
@@ -25,25 +25,27 @@
             <div class="navbar-inner">
               <a class="brand" href="http://www.thoughtworks.com">ThoughtWorks</a>
               <ul class="nav">
-                <li><a href="/cab_requests/new">Book A Cab</a></li>
-                <li><a href="/cab_requests/show">View My Requests</a></li>
+                <li><a href="/cab_requests/new">BookACab</a></li>
+                <li><a href="/cab_requests/show">ViewMyRequests</a></li>
                 <% if @is_admin %>
                     <li>
-                      <a href="/support_centers">Manage App</a>
+                      <a href="/support_centers">ManageApp</a>
                     </li>
                     <li>
-                      <a href="/support_centers/show">View All Reports</a>
+                      <a href="/support_centers/show">ViewAllReports</a>
                     </li>
                 <% else %>
                     <li>
-                      <a href="/support_centers">Contact Us</a>
+                      <a href="/support_centers">ContactUs</a>
                     </li>
                 <% end %>
               </ul>
               <ul class="nav pull-right">
+                <li id="welcome_text">Welcome, <%= session[:cas_user] %>
+                </li>
                 <li class="dropdown">
                   <a id="dropdown"  class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Welcome, <%= session[:cas_user] %>
+                    <i class="icon-user"></i>
                   </a>
 
                   <ul class="dropdown-menu">
@@ -63,7 +65,7 @@
         </div>
       </div>
 
-      <div class="span2"></div>
+      <div class="span1"></div>
     </div>
 
   </body>
