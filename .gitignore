@@ -27,4 +27,5 @@ spec/reports/*
 **.un~
 
 # Ignore MAC specific data
-.DS.*
+.DS*
+._*
