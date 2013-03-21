@@ -45,7 +45,7 @@ msg{
 .form-horizontal{
   color: black;
   background-color: #ffffff;
-  padding:0px 70px 20px 10px;
+  //padding:0px 70px 20px 10px;
   border:0px solid black;
   border-radius: 0px;
 }
@@ -55,6 +55,9 @@ msg{
   background-color: orangered;
   padding-top: 13px;
   max-height: 10px;
+  padding-right: 0px;
+  padding-left: 4px;
+
 }
 
 //.dropdown-menu>li>hover{
@@ -90,11 +93,11 @@ ul.dropdown-menu>li>a{
 }
 
 .navbar ul.nav>li>a{
-  padding-left: 5px;
-  padding-right: 10px;
+  //padding-left: 5px;
+  //padding-right: 10px;
   font-size: 15px;
   color: #ffffff;
-
+  border-right: 1px solid white;
 }
 
 .navbar ul>li#welcome_text{
@@ -105,9 +108,8 @@ ul.dropdown-menu>li>a{
   //padding-right: 10px;
 }
 
-.navbar ul.nav.pull-right{
-  padding-left: -5px;
-
+.navbar ul.nav.pull-right>li>a{
+  border-right: none;
 }
 
 .navbar-inverse .navbar-inner{
@@ -130,7 +132,7 @@ ul.dropdown-menu>li>a{
 }
 
 body{
-  color: #ffffff;
+  color: black;
   background-image: url('header.jpg');
   border-top-width: 5px;
   border-top: solid;
@@ -138,8 +140,17 @@ body{
   //background-color: seagreen;
 }
 
+.span6>h1{
+  color:white;
+}
+
+.footer{
+  color: white;
+  text-align: right;
+}
+
 .content-main{
-  min-height: 680px;
+  //min-height: 980px;
   background-image: none;
   background-color: #ffffff;
   border-top-right-radius: 10px;
@@ -158,18 +169,24 @@ body{
    text-align: center;
    color: grey;
   }
+.footer>a>img{
+   vertical-align: bottom;
+}
 
-  .span6.btn_controls{
-      padding-right: -30px;
-  }
+.span6.span4#cancel_button{
+  width: 140%;
+}
 
-  .span6.btn{
-    padding-right: -30px;
-  }
 
 .control-group{
   h3{
     font-weight: normal;
   }
+}
+#other_source{
+  margin-top: 10px;
+}
+#other_destination{
+  margin-top: 10px;
 }
 }

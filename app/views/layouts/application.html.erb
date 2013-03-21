@@ -14,53 +14,64 @@
       <div class="span1"></div>
 
       <div class="span10">
-
-        <div class="page-title">
-          <h1>Cab Requisition System</h1>
+        <div class= "row-fluid">
+            <div class="page-title">
+              <h1>Cab Requisition System</h1>
+            </div>
         </div>
 
-        <div class="content-main">
+        <div class= "row-fluid">
+            <div class="content-main">
 
-          <div class="navbar navbar-inverse">
-            <div class="navbar-inner">
-              <a class="brand" href="http://www.thoughtworks.com">ThoughtWorks</a>
-              <ul class="nav">
-                <li><a href="/cab_requests/new" id="Book A Cab">BookACab</a></li>
-                <li><a href="/cab_requests/show" id="View My Requests">ViewMyRequests</a></li>
-                <% if is_admin? %>
-                    <li>
-                      <a href="/support_centers" id="Manage App" >ManageApp</a>
-                    </li>
-                    <li>
-                      <a href="/support_centers/show" id="View All Reports" >ViewAllReports</a>
-                    </li>
-                <% else %>
-                    <li>
-                      <a href="/support_centers" id="Contact Us" >ContactUs</a>
-                    </li>
-                <% end %>
-              </ul>
-              <ul class="nav pull-right">
-                <li id="welcome_text">Welcome, <%= session[:cas_user] %>
-                </li>
-                <li class="dropdown">
-                  <a id="dropdown"  class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="icon-user"></i>
-                  </a>
 
-                  <ul class="dropdown-menu">
-                    <li id="logout" ><a href="/requesters/logout">Log Out</a></li>
+              <div class="navbar navbar-inverse">
+                <div class="navbar-inner">
+                   <ul class="nav">
+                    <li><a href="/cab_requests/new" id="Book A Cab">Book A Cab</a></li>
+                    <li><a href="/cab_requests/show" id="View My Requests">View My Requests</a></li>
+                    <% if is_admin? %>
+                        <li>
+                          <a href="/support_centers" id="Manage App" >Manage App</a>
+                        </li>
+                        <li>
+                          <a href="/support_centers/show" id="View All Reports" >View All Reports</a>
+                        </li>
+                    <% else %>
+                        <li>
+                          <a href="/support_centers" id="Contact Us" >Contact Us</a>
+                        </li>
+                    <% end %>
                   </ul>
-                </li>
-              </ul>
+                  <ul class="nav pull-right">
+                    <li id="welcome_text">Welcome, <%= session[:cas_user] %>
+                    </li>
+                    <li class="dropdown">
+                      <a id="dropdown"  class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="icon-user" ></i>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                        <li id="logout" ><a href="/requesters/logout">Log Out</a></li>
+                      </ul>
+                    </li>
+                  </ul>
 
 
+                </div>
+              </div>
+
+              <%= yield%>
+              <!--<div class="footer">-->
+                  <!--Copyright ThoughtWorks Inc. 1992-2013-->
+              <!--</div>-->
             </div>
           </div>
-
-          <%= yield%>
+        <div class= "row-fluid">
           <div class="footer">
-              Copyright ThoughtWorks Inc. 1992-2013
+            Copyright (c) 2013, The ThoughtWorks, Inc. All rights reserved
+            <a href="http://www.thoughtworks.com">
+              <img src="/assets/thoughtworks.gif">
+            </a>
           </div>
         </div>
       </div>

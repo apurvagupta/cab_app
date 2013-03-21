@@ -1,12 +1,12 @@
-%table{:cellspacing => 50 ,id: 'table'}
-  %th REQUESTER
-  %th TRAVELER_NAME
-  %th CONTACT_NO
-  %th DATE
-  %th PICK_UP_TIME
-  %th SOURCE
-  %th DESTINATION
-  %th NO_OF_PASSENGERS
+%table{:cellspacing => 50 ,id: "table", :class=>"table table-striped table-hover "}
+  %th Requester
+  %th Traveller
+  %th Mobile No.
+  %th Date
+  %th Time
+  %th Pick up area
+  %th Drop area
+  %th No. of passengers
   %hr
   - @cab_requests.zip(@dates).each do |each_request,date|
     %tr

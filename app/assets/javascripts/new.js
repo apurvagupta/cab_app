@@ -44,7 +44,10 @@ $(document).ready(function() {
     $('#logout').hover(function(){
         $("#logout").backgroundColor='none';
     });
-
+    $('.content-main').css('min-height', $(document).height()-220)
+    $(document).on('resize',function(){
+        $('.content-main').css('min-height', $(document).height()-120)
+    })
 
 
 });
