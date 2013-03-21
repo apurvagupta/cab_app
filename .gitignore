@@ -23,9 +23,14 @@ coverage/**
 .idea
 .idea/*
 tags
+
+#Ignoring spec reports
 spec/reports/*
-**.un~
 
 # Ignore MAC specific data
 .DS*
 ._*
+
+#Ignoring swap files
+*.swp
+**.un~
