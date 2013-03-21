@@ -27,7 +27,7 @@
               <ul class="nav">
                 <li><a href="/cab_requests/new" id="Book A Cab">BookACab</a></li>
                 <li><a href="/cab_requests/show" id="View My Requests">ViewMyRequests</a></li>
-                <% if @is_admin %>
+                <% if is_admin? %>
                     <li>
                       <a href="/support_centers" id="Manage App" >ManageApp</a>
                     </li>

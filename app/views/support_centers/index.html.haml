@@ -1,7 +1,7 @@
--if !@is_admin
+-if !is_admin?
   = render '/contact_us'
 
--if @is_admin
+-if is_admin?
   = render '/contact_us'
   %h3= link_to 'Update', '/support_centers/edit'
   %br

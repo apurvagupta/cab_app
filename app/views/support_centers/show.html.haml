@@ -1,6 +1,6 @@
 = render '/permissions'
 
--if @is_admin
+-if is_admin?
   =form_tag :action => :show ,:method => :get do
     .display
       from:

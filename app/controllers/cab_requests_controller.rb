@@ -10,7 +10,6 @@ class CabRequestsController < ApplicationController
     unless date.nil? || time.nil?
       DateTime.parse(date + ' ' + time + ' +05:30').strftime('%F %T %z')
     end
-
   end
 
   def create

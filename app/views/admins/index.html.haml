@@ -1,7 +1,7 @@
 = render '/permissions'
 
--if @is_admin
-  %table{:cellspacing => 50 , id:  "table"}
+-if is_admin?
+  %table{:cellspacing => 50}
     %th Name
     %th Contact No
     %th
