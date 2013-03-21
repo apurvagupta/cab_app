@@ -1,15 +1,13 @@
 class CabRequestsController < ApplicationController
   require 'time'
 
+  def index
+    redirect_to '/cab_requests/new'
+  end
+
   def new
     @req         = Requester.fetch_requester_info(session[:cas_user])
     @cab_request = CabRequest.new(requester: @req.requester_name, contact_no: @req.requester_contact_no)
-  end
-
-  def date_time_parser(date,time)
-    unless date.nil? || time.nil?
-      DateTime.parse(date + ' ' + time + ' +05:30').strftime('%F %T %z')
-    end
   end
 
   def create

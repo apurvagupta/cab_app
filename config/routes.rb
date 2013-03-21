@@ -1,11 +1,11 @@
 CabApp::Application.routes.draw do
 
-  match "/requesters/logout" , :controller => "requesters#logout"
-  match "/support_centers/update" , :controller => "support_centers#update"
-  match "/support_centers/edit" , :controller => "support_centers#edit"
-  match "/cab_requests/show" , :controller => "cab_requests#show"
-  match "/support_centers/show" , :controller => "support_centers#show"
-  match "/anonymous/new" , :controller => "anonymous#new"
+  match '/requesters/logout' , controller: 'requesters#logout'
+  match '/support_centers/update' , controller: 'support_centers#update'
+  match '/support_centers/edit' , controller: 'support_centers#edit'
+  match '/cab_requests/show' , controller: 'cab_requests#show'
+  match '/support_centers/show' , controller: 'support_centers#show'
+  match '/anonymous/new' , controller: 'anonymous#new'
   resources :cab_requests
   resources :admins
   resources :requesters
@@ -60,11 +60,11 @@ CabApp::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
+  # You can have the root of your site routed with 'root'
   # just remember to delete public/index.html.
    root :to => 'cab_requests#new'
 
-  # See how all your routes lay out with "rake routes"
+  # See how all your routes lay out with 'rake routes'
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.

@@ -21,15 +21,15 @@ class SupportCentersController < ApplicationController
 
   def show
     if params[:from]
-     from_date  = Time.new(params[:from].to_date.year,params[:from].to_date.month,params[:from].to_date.day,00,00,00)
-     to_date    = Time.new(params[:to].to_date.year,params[:to].to_date.month,params[:to].to_date.day,00,00,00).tomorrow()
-     @cab_requests = CabRequest.where(:pick_up_date_time => (from_date..to_date))
+      from_date  = Time.parse(date_time_parser(params[:from],'00:00:00'))
+      to_date    = Time.parse(date_time_parser(params[:to],'00:00:00')).tomorrow()
+      @cab_requests = CabRequest.where(pick_up_date_time: (from_date..to_date))
      @dates        = []
      @cab_requests.each do |cab_request|
        @dates.push cab_request.pick_up_date_time.to_date
      end
-    @from = params[:from]
-    @to   = params[:to]
+     @from = params[:from]
+     @to   = params[:to]
     end
     respond_to do |format|
       format.html
