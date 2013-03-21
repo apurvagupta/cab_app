@@ -19,7 +19,7 @@
     %br
     %br
     %br
-    = link_to 'Download XLS Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to)
+    = link_to 'Download XLS Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to),id:"Download XLS Sheet"
   -elsif @cab_requests == []
     %h2 No record found
   %end

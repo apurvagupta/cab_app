@@ -17,7 +17,7 @@ Feature: Requesting a cab
     And    User selects Airport from drop down list destination
 #    And    User fills in other_destination as India Gate
     And    User fills in no_of_passengers as 1
-    And    User has its previous requests
+    And    Users have some previous requests
     When   User creates cab_request
     Then   User should be able to view all his CabRequests including this one
     And    User should be able to view 'Download XLS Sheet' link

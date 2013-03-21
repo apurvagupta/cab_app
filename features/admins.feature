@@ -19,7 +19,7 @@ Feature: Creating a new Admin
 
   Scenario: Admin edits an existing admin
     And   User is on the edit admins page
-    And   User fills in admin_name as rabbit
+    And   User fills in admin_contact_no as 9876543210
     When  User updates an admin
     Then  User should be able to view all Admins including the updated one
     And   User should be able to view 'edit' link

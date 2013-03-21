@@ -1,8 +1,3 @@
-
-Given /^User logs in/ do
-   click_on "LOGIN"
-end
-
 Given /^User is logged in/ do
   CASClient::Frameworks::Rails::Filter.fake("homer")
 end
@@ -43,8 +38,11 @@ Given /^User selects ([^"]*) from drop down list ([^"]*)$/ do |option, ddl|
 end
 
 
-Given /^User has its previous requests/ do
+Given /^Users have some previous requests/ do
   CabRequest.create!( requester: "homer", traveler_name: "self",pick_up_date: "07/02/9999",
+                      pick_up_date_time: "11:15pm", contact_no: "9039409828",
+                      source: "Guest House", destination: "ThoughtWorks", no_of_passengers: 1, comments: "something" )
+  CabRequest.create!( requester: "owl", traveler_name: "self",pick_up_date: "07/02/9999",
                       pick_up_date_time: "11:15pm", contact_no: "9039409828",
                       source: "Guest House", destination: "ThoughtWorks", no_of_passengers: 1, comments: "something" )
 end
@@ -75,12 +73,16 @@ end
 
 Then /^User should be able to view all ([^"]*) including ([^"]*)/ do |category,type|
   if category.include? "CabRequests"
-    cab_requests = CabRequest.all
+    if category == "his CabRequests"
+      cab_requests = CabRequest.where(:requester => "homer")
+    else
+      cab_requests = CabRequest.all
+    end
     cab_requests.each do |cab_request|
       page.should have_content(cab_request.requester)
       page.should have_content(cab_request.traveler_name)
       page.should have_content(cab_request.pick_up_date)
-      page.should have_content(cab_request.pick_up_date_time)
+      page.should have_content(cab_request.pick_up_date_time.in_time_zone(TZInfo::Timezone.get('Asia/Kolkata')).strftime("%I:%M %P"))
       page.should have_content(cab_request.contact_no)
       page.should have_content(cab_request.source)
       page.should have_content(cab_request.destination)
@@ -99,5 +101,5 @@ Then /^User should be able to view all ([^"]*) including ([^"]*)/ do |category,t
       page.should have_content(vendor.contact_no)
     end
    end
-  #page.should have_xpath('//table[@id="table"]')
+  page.should have_xpath('//table[@id="table"]')
 end
