@@ -26,7 +26,9 @@
 
               <div class="navbar navbar-inverse">
                 <div class="navbar-inner">
-                   <ul class="nav">
+                  <div class="tabbable">
+                   <ul class="nav nav-tabs">
+                     <li><img src="/assets/cab_logo.gif"></li>
                     <li><a href="/cab_requests/new" id="Book A Cab">Book A Cab</a></li>
                     <li><a href="/cab_requests/show" id="View My Requests">View My Requests</a></li>
                     <% if is_admin? %>
@@ -55,23 +57,22 @@
                       </ul>
                     </li>
                   </ul>
-
+                 </div>
 
                 </div>
               </div>
-
               <%= yield%>
-              <!--<div class="footer">-->
-                  <!--Copyright ThoughtWorks Inc. 1992-2013-->
-              <!--</div>-->
+
             </div>
           </div>
         <div class= "row-fluid">
+
           <div class="footer">
-            Copyright (c) 2013, The ThoughtWorks, Inc. All rights reserved
-            <a href="http://www.thoughtworks.com">
-              <img src="/assets/thoughtworks.gif">
-            </a>
+            <span>Copyright &copy 2013, The ThoughtWorks, Inc. All rights reserved
+             <a href="http://www.thoughtworks.com">
+               <img src="/assets/thoughtworks.gif">
+             </a>
+            </span>
           </div>
         </div>
       </div>

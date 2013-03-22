@@ -18,6 +18,7 @@ function onSelectedValueChange(ddl_id,txt_id)
 
 $(document).ready(function() {
 
+
     if ($('#source').val() == 'other')
     {
         $('#other_source').attr('type',"text");
@@ -45,6 +46,7 @@ $(document).ready(function() {
         $("#logout").backgroundColor='none';
     });
     $('.content-main').css('min-height', $(document).height()-220)
+//    $('#new_cab_request').css('height', $(document).height()-230)
     $(document).on('resize',function(){
         $('.content-main').css('min-height', $(document).height()-120)
     })
