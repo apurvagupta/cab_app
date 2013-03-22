@@ -8,8 +8,9 @@ describe CabRequestsController do
     CASClient::Frameworks::Rails::Filter.fake('homer')
     pick_up_date_time = Time.now + 2.days
     @valid_request_hash  = { requester: 'homer', traveler_name: 'self',pick_up_date: pick_up_date_time.to_date,
-                      pick_up_date_time: pick_up_date_time, contact_no: '9039409828',
-                      source: 'Guest House', destination: 'ThoughtWorks', no_of_passengers: 1, comments: 'something' }
+                              pick_up_date_time: pick_up_date_time, contact_no: '9039409828',
+                              source: 'Guest House', destination: 'ThoughtWorks', no_of_passengers: 1,
+                              comments: 'something' }
     @valid_request = CabRequest.create!( @valid_request_hash )
   end
 

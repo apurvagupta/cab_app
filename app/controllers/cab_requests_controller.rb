@@ -6,7 +6,7 @@ class CabRequestsController < ApplicationController
   end
 
   def new
-    @req         = Requester.fetch_requester_info(session[:cas_user])
+    call_api
     @cab_request = CabRequest.new(requester: @req.requester_name, contact_no: @req.requester_contact_no)
   end
 
@@ -35,7 +35,6 @@ class CabRequestsController < ApplicationController
   end
 
   def show
-    @req          = Requester.fetch_requester_info(session[:cas_user])
     @cab_requests = CabRequest.where(:requester => @req.requester_name)
     @dates        = []
     @cab_requests.each do |cr|

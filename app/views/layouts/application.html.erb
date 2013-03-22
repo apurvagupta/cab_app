@@ -44,13 +44,13 @@
                         </li>
                     <% end %>
                   </ul>
-                  <ul class="nav pull-right">
-                    <li id="welcome_text">Welcome, <%= session[:cas_user] %>
-                    </li>
-                    <li class="dropdown">
-                      <a id="dropdown"  class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="icon-user" ></i>
-                      </a>
+              <ul class="nav pull-right">
+                <li id="welcome_text">Welcome, <%= @req.requester_name %>
+                </li>
+                <li class="dropdown">
+                  <a id="dropdown"  class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="icon-user"></i>
+                  </a>
 
                       <ul class="dropdown-menu">
                         <li id="logout" ><a href="/requesters/logout">Log Out</a></li>
