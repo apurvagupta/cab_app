@@ -198,6 +198,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   jquery_datepicker
+  json
   pry
   rails (= 3.2.11)
   rspec-rails
