@@ -1,20 +1,25 @@
 %hr
 %h2 CAB REQUEST MESSAGE WILL BE SENT TO:
 %br
-%br
-%b Admin:&nbsp&nbsp
 
-=@admin.try(:name)
-&nbsp
-&nbsp
-Contact Number:&nbsp
-=@admin.try(:contact_no)
-%br
-%br
-%br
-%b Vendor:&nbsp
-=@vendor.try(:name)
-&nbsp
-&nbsp
-Contact Number:&nbsp
-=@vendor.try(:contact_no)
+%table{:cellspacing => 50 ,id: "table"}
+  %tr
+    %td Admin
+    %td
+      =@admin.try(:name)
+  %tr
+    %td Contact Number
+    %td
+      =@admin.try(:contact_no)
+
+  %tr
+
+  %tr
+    %td Vendor
+    %td
+      =@vendor.try(:name)
+  %tr
+    %td Contact Number
+    %td
+      =@vendor.try(:contact_no)
+

@@ -1,3 +1,5 @@
+
+
 Given /^User is logged in/ do
   CASClient::Frameworks::Rails::Filter.fake('homer')
 end
@@ -9,6 +11,7 @@ Given /^Current User is ([^"]*)$/ do |category|
     Admin.delete_all
   end
 end
+
 
 Given /^User is on (.+)$/ do |page_name|
 
@@ -27,14 +30,17 @@ Given /^User is on (.+)$/ do |page_name|
   end
 end
 
+Given /^There is a vendor/ do
+  Vendor.create!(name:"deer",contact_no:"1234567890",status:false)
+end
 
 Given /^User fills in ([^"]*) as ([^"]*)$/ do |element, text|
   fill_in element, with: text
 end
 
-
 Given /^User selects ([^"]*) from drop down list ([^"]*)$/ do |option, ddl|
   select option, :from => ddl
+
 end
 
 
@@ -62,11 +68,16 @@ When /^User display reports/ do
   click_on 'display_reports'
 end
 
+Then /^User should be able to view active admin & active vendor/ do
+      page.should have_xpath('//table[@id="table"]')
+end
+
 Then /^User should be able to view '([^"]*)' ([^"]*)$/ do |content,type|
   if type == 'link'
     page.should have_link content
   elsif type == 'form'
     page.should have_xpath('//form[@id="new_cab_request"]')
+
   end
 end
 

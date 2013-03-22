@@ -39,12 +39,15 @@
             .control-group
               -#-#=f.label "When", class: 'control-label'
               -#.controls
-              =f.text_field :pick_up_date , :class=>"input-block-level uneditable-input",:id => "pick_up_date", autocomplete: "off", placeholder: "Date"
+
+              =f.text_field :pick_up_date ,:id => "pick_up_date", autocomplete: "off", placeholder: "Date"
 
             .control-group
               -#-#= f.label "At What Time:", class: 'control-label'
               -#.controls
-              = f.text_field :pick_up_date_time , :class=>"input-block-level uneditable-input", :id => 'pick_up_time', :value => @cab_request.pick_up_date_time, autocomplete: "off",readonly: 'true' , placeholder: "Time"
+
+              = f.text_field :pick_up_date_time , :id => 'pick_up_time', :value => @cab_request.pick_up_date_time, autocomplete: "off", placeholder: "Time"
+
 
         .row-fluid.form-main
           .span6
@@ -92,10 +95,12 @@
         .row-fluid.form-main
           .span6
           .span6
+
             .span8
               =f.submit "Confirm Booking" ,class: 'btn btn-block', id: "Create cab_request"
             .span4
               =f.button "Reset", class: 'btn btn-block', type: 'reset'
+
 
   .span6
     %h1 Add iFrame Here
