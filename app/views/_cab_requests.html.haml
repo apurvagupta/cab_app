@@ -1,3 +1,4 @@
+%br
 %table{:cellspacing => 50 ,id: "table", :class=>"table table-striped table-hover "}
   %th Requester
   %th Traveller
@@ -7,7 +8,7 @@
   %th Pick up area
   %th Drop area
   %th No. of passengers
-  %br
+
   - @cab_requests.zip(@dates).each do |each_request,date|
     %tr
       %td= each_request.requester

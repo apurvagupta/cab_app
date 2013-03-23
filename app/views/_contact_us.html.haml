@@ -1,24 +1,36 @@
-%h2 CAB REQUEST MESSAGE WILL BE SENT TO:
 %br
+%br
+.row-fluid
+  .span3
+    %br
+    %br
+    %img{src: '/assets/contact_us.jpeg'}
 
-%table{:cellspacing => 50 ,id: "table"}
-  %tr
-    %td Admin
-    %td
-      =@admin.try(:name)
-  %tr
-    %td Contact Number
-    %td
-      =@admin.try(:contact_no)
+  .span8
+    %br
+    %h5 CAB REQUEST MESSAGE WILL BE SENT TO:
+    %br
+    %table{:cellspacing => 50 ,id: 'table',class:'table table-striped table-hover'}
+      %tr
+        %td
+          %b Admin:
+        %td
+          =@admin.try(:name)
+      %tr
+        %td
+          %b Contact Number:
+        %td
+          =@admin.try(:contact_no)
 
-  %tr
+      %tr
+        %td
+          %b Vendor:
+        %td
+          =@vendor.try(:name)
+      %tr
+        %td
+          %b Contact Number:
+        %td
+          =@vendor.try(:contact_no)
 
-  %tr
-    %td Vendor
-    %td
-      =@vendor.try(:name)
-  %tr
-    %td Contact Number
-    %td
-      =@vendor.try(:contact_no)
-
+  .span1

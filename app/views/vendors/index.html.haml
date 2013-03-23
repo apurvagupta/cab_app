@@ -1,22 +1,25 @@
 = render '/permissions'
 
 -if is_admin?
-  %table{cellspacing: 50, id: 'table'}
-    %th Name
-    %th Contact No
-    %th
-    %th
-    %hr
-    - @vendors.each do |vendor|
-      %tr
-        %td= vendor.name
-        %td= vendor.contact_no
-        %td= link_to 'edit', edit_vendor_path(vendor)
-        %td= link_to 'delete', vendor_path(vendor), :method => :delete, :confirm => 'Are you sure?', :hidden => vendor.status
-    %end
+  %br
+  %br
+  .row-fluid
+    .span1
+    .span10
+      %table{cellspacing: 50, id: 'table',class: 'table table-striped table-hover'}
+        %th Name
+        %th Contact No
+        %th
+        %th
+        - @vendors.each do |vendor|
+          %tr
+            %td= vendor.name
+            %td= vendor.contact_no
+            %td= link_to 'edit', edit_vendor_path(vendor)
+            %td= link_to 'delete', vendor_path(vendor), :method => :delete, :confirm => 'Are you sure?', :hidden => vendor.status
+        %end
 
-  = link_to 'new', new_vendor_path
-  %br
-  %br
-  %br
-  = link_to 'back', support_centers_path
+      = link_to 'new', new_vendor_path
+      = link_to 'back', support_centers_path
+
+    .span1

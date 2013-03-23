@@ -3,13 +3,10 @@
 
 -if is_admin?
   = render '/contact_us'
-  %h3= link_to 'Update', '/support_centers/edit'
-  %br
-  %br
-  %hr
-  %br
-  %br
-  %h3= link_to 'Admins', admins_path
-  %br
-  %h3= link_to 'Vendors', vendors_path
-
+  .row-fluid
+    .span3
+    .span8
+      %a{href:"/support_centers/edit"}Update
+      %a{href:"/admins"}Admins
+      %a{href:"vendors"}Vendors
+    .span1
