@@ -49,7 +49,7 @@ describe CabRequestsController do
   context 'show' do
     it 'should assign CabRequest data to @cab_requests' do
       get :show, requester: @valid_request.requester
-      assigns(:cab_requests).should == [@valid_request]
+      controller.instance_variable_get(:@cab_requests).should == [@valid_request]
     end
 
     it 'should render html page' do
