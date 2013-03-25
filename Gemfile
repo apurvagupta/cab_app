@@ -27,7 +27,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'fuubar'
-  gem 'database_cleaner' # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem 'factory_girl'
 end
 
 
