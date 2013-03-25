@@ -6,12 +6,12 @@ gem 'rubycas-client'
 gem 'haml-rails'
 gem 'pry'
 gem 'therubyracer'
-gem 'json', require: false
+gem 'json'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'bootstrap-sass', '~> 2.3.0.1'
   gem 'jquery_datepicker'
@@ -21,16 +21,14 @@ group :assets do
 end
 
 
-
-group :test do
-  gem 'cucumber-rails', require: false
-  gem 'simplecov', require: false
-  gem 'rspec-rails', require: false
+group :development, :test do
+  gem 'cucumber-rails'
+  gem 'simplecov'
+  gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'fuubar'
-  gem 'database_cleaner'    # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner' # database_cleaner is not required, but highly recommended
 end
-
 
 
 # To use ActiveModel has_secure_password
