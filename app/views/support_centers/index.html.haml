@@ -1,12 +1,10 @@
--if !is_admin?
-  = render '/contact_us'
+= render '/contact_us'
 
 -if is_admin?
-  = render '/contact_us'
   .row-fluid
-    .span3
-    .span8
-      %a{href:"/support_centers/edit"}Update
-      %a{href:"/admins"}Admins
-      %a{href:"vendors"}Vendors
-    .span1
+  .span3
+  .span8
+    %a{href:"/support_centers/edit"}Update
+    %a{href:"/admins"}Admins
+    %a{href:"vendors"}Vendors
+  .span1
