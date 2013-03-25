@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def call_api
     unless session[:cas_user].nil?
       api = 'https://my.thoughtworks.com/api/core/v2/users/username/' + session[:cas_user] rescue nil
-      $response = open(api, http_basic_authentication: ['ppathak', 'Maa_papa_me143']).read rescue nil
+      $response = open(api, http_basic_authentication: ['booga', 'ooga']).read rescue nil
     end
   end
 
