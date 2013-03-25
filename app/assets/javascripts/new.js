@@ -31,9 +31,9 @@ $(document).ready(function() {
     }
 
     $('#pick_up_time').timepicker({
-        controlType: 'select',
-        timeFormat: 'hh:mm tt',
-        stepMinute: 30
+        minuteStep: 30,
+        showInputs: false,
+        disableFocus: true
     });
 
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy" , minDate: 0});

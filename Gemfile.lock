@@ -31,6 +31,8 @@ GEM
     arel (3.0.2)
     bootstrap-sass (2.3.0.1)
       sass (~> 3.2)
+    bootstrap-timepicker-rails (0.1.2)
+      railties (>= 3.0)
     builder (3.0.4)
     capybara (2.0.2)
       mime-types (>= 1.16)
@@ -191,6 +193,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 2.3.0.1)
+  bootstrap-timepicker-rails
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
