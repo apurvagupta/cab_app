@@ -11,7 +11,7 @@ Feature: Requesting a cab
     And    User is on the home page
 
 
-
+@pending
     Scenario: Sends a Cab Request
     And    User fills in traveler_name as cat
     And    User fills in contact_no as 1234567890
@@ -25,5 +25,4 @@ Feature: Requesting a cab
     When   User creates cab_request
     Then   User should be able to view all his CabRequests including this one
     And    User should be able to view 'Download XLS Sheet' link
-
 
