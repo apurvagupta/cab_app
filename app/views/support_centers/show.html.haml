@@ -1,27 +1,33 @@
 = render '/permissions'
 
--if is_admin?
-  =form_tag :action => :show ,:method => :get do
-    .display
-      from:
-      %input{:id => "from_date" ,:name =>"from",:class => "date_picker", :value => @from}
-      &nbsp
-      to:
-      %input{:id =>"to_date",:name=>"to" ,:class => "date_picker", :value => @to}
-      &nbsp;&nbsp;
-      =button_tag 'display',:id => "display_reports", :class =>"button"
+.form-horizontal
+  %br
+  %br
+  -if is_admin?
+    .span1
+    .span10
+      =form_tag :action => :show ,:method => :get do
+        .display
+          from:
+          %input{:id => "from_date" ,:name =>"from",:class => "date_picker", :value => @from}
+          &nbsp
+          to:
+          %input{:id =>"to_date",:name=>"to" ,:class => "date_picker", :value => @to}
+          &nbsp;&nbsp;
+          =button_tag 'display',:id => "display_reports", :class =>"button"
 
-  %end
+      %end
 
-  -if @cab_requests != nil && @cab_requests != []
-    %hr
-    = render '/cab_requests'
-    %br
-    %br
-    %br
-    = link_to 'Download XLS Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to),id:"Download XLS Sheet"
-  -elsif @cab_requests == []
-    %h2 No record found
+      -if @cab_requests != nil && @cab_requests != []
+        %hr
+        = render '/cab_requests'
+        %br
+        %br
+        %br
+        = link_to 'Download XLS Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to),id:"Download XLS Sheet"
+      -elsif @cab_requests == []
+        %h2 No record found
+      %end
+      =link_to 'back', support_centers_path
+    .span1
   %end
-  =link_to 'back', support_centers_path
-%end
