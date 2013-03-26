@@ -11,6 +11,5 @@ class CreateDetails < ActiveRecord::Migration
 
   def down
     drop_table :details
-
   end
 end
