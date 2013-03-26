@@ -14,19 +14,18 @@ class CabRequestsController < ApplicationController
   def create
     @cab_request                   = CabRequest.new(params[:cab_request])
     @cab_request.requester         = session[:cas_user]
-
     @cab_request.pick_up_date_time = date_time_parser(params[:cab_request][:pick_up_date],params[:cab_request][:pick_up_date_time])
-
     @other_source=params[:source]
     @other_destination=params[:destination]
 
     if @cab_request.source == 'other'
       @cab_request.source = @other_source
+      @source             = "other"
     end
     if @cab_request.destination == 'other'
       @cab_request.destination = @other_destination
+      @destination             = "other"
     end
-
     if @cab_request.save
       @notice = 'YOUR REQUEST HAS BEEN SENT'
       redirect_to '/cab_requests/show'

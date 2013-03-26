@@ -26,12 +26,12 @@
             .control-group
               -#= f.label "Name:", class: 'control-label'
               -#.controls
-              = f.text_field :traveler_name , :class=>"input-block-level", :id => "traveler_name", :placeholder => "name"
+              = f.text_field :traveler_name , :class => "input-block-level", :id => "traveler_name", :placeholder => "name"
 
             .control-group
               -#-#= f.label "Contact No:", class: 'control-label'
               -#.controls
-              = f.text_field :contact_no, :class=>"input-block-level", :placeholder => "contact no" , :id => "contact_no"
+              = f.text_field :contact_no, :class => "input-block-level", :placeholder => "contact no" , :id => "contact_no"
         .row-fluid.form-main
           .span6
             %h4 When
@@ -40,13 +40,13 @@
               -#-#=f.label "When", class: 'control-label'
               -#.controls
 
-              =f.text_field :pick_up_date, :class=>"input-block-level uneditable-input", :id => "pick_up_date", autocomplete: "off", placeholder: "Date"
+              =f.text_field :pick_up_date, :class => "input-block-level uneditable-input", :id => "pick_up_date", autocomplete: "off", placeholder: "Date"
 
             .control-group
               -#-#= f.label "At What Time:", class: 'control-label'
               -#.controls
 
-              = f.text_field :pick_up_date_time  , :class=>"input-block-level uneditable-input", :id => 'pick_up_time', :value => @cab_request.pick_up_date_time, autocomplete: "off", placeholder: "Time"
+              = f.text_field :pick_up_date_time  , :class => "input-block-level uneditable-input", :id => 'pick_up_time', :value => @cab_request.pick_up_date_time, autocomplete: "off", placeholder: "Time"
 
 
         .row-fluid.form-main
@@ -55,12 +55,12 @@
           .span6
             .control-group
               -#.controls
-              %select{ :id => "source" , :class=>"input-block-level", :name => "cab_request[source]" ,:onchange => "onSelectedValueChange('source','other_source');" }
+              %select{ :id => "source" , :class => "input-block-level", :name => "cab_request[source]" , :onchange => "onSelectedValueChange('source','other_source');" }
                 -@sources.each do|source|
-                  %option{:selected => (source == @cab_request.source)}= source
+                  %option{:selected => (source == @cab_request.source)||(source == @source)}= source
                 %end
 
-              %input{:type => "hidden", :class=>"input-block-level", :name => "source", :id => "other_source" , :value => @other_source , :disabled => false}
+              %input{:type => "hidden", :class => "input-block-level", :name => "source", :id => "other_source" , :value => @other_source , :disabled => false}
 
         .row-fluid.form-main
           .span6
@@ -68,9 +68,9 @@
           .span6
             .control-group
               -#.controls
-              %select{:name => "cab_request[destination]", :class=>"input-block-level", :id =>"destination", :onchange => "onSelectedValueChange('destination','other_destination');" }
+              %select{:name => "cab_request[destination]", :class => "input-block-level", :id => "destination", :onchange => "onSelectedValueChange('destination','other_destination');" }
                 -@destinations.each do|destination|
-                  %option{:selected => (destination == @cab_request.destination)}= destination
+                  %option{:selected => (destination == @cab_request.destination)||(destination == @destination)}= destination
                 %end
 
 
