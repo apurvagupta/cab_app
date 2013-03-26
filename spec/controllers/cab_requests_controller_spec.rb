@@ -14,6 +14,13 @@ describe CabRequestsController do
     @valid_request = CabRequest.create!( @valid_request_hash )
   end
 
+  context 'index' do
+    it 'should redirect to new cab request page' do
+      get :index
+      response.should redirect_to '/cab_requests/new'
+    end
+  end
+
   context 'new' do
     it 'should create a valid cab request' do
       get :new, cab_request: @valid_request_hash
