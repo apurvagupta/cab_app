@@ -4,10 +4,10 @@ class CreateVendors < ActiveRecord::Migration
   	create_table :vendors do |t|
     	t.string :vendor_name
     	t.string :vendor_contact_no
-  	end	
+  	end
   end
 
   def down
-  	drop_table :vendors  	
+  	drop_table :vendors
   end
 end

@@ -4,6 +4,6 @@ class AddNewColumnToAdmins < ActiveRecord::Migration
   	add_column :admins, :status, :boolean
   end
   def down
-  	remove_column :admins, :status     
+  	remove_column :admins, :status
   end
 end

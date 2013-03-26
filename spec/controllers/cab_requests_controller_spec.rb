@@ -60,7 +60,7 @@ describe CabRequestsController do
       @cab_requests = [attributes_for(:cab_request)]
       get(:show,format: 'xls').should render_template('cab_requests/show')
       controller.instance_variable_get(:@dates).should include @valid_request_hash[:pick_up_date_time].to_date
-      
+
     end
   end
 end

@@ -125,7 +125,7 @@ describe CabRequest do
     end
 
   end
-    
+
   context 'Destination' do
 
     it 'should not be blank' do
@@ -158,7 +158,7 @@ describe CabRequest do
     it 'should not be more than 50' do
       @cab_request.no_of_passengers=80
       @cab_request.save.should be_false
-      @cab_request.errors[:no_of_passengers].first.should=='should not be more than 50' 
+      @cab_request.errors[:no_of_passengers].first.should=='should not be more than 50'
     end
   end
 

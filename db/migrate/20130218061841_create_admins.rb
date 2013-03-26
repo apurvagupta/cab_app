@@ -6,7 +6,7 @@ class CreateAdmins < ActiveRecord::Migration
   		t.string :admin_contact_no
     end
   end
-  
+
   def down
   	drop_table :admins
   end
