@@ -1,21 +1,15 @@
 FactoryGirl.define do
-  factory :admin do
-    factory :valid_admin_active do
-      name 'ooga'
-      contact_no '8765432100'
-      status true
-    end
+  factory :admin, class: Admin do
+    name 'ooga'
+    contact_no '8765432100'
+    status true
+  end
 
-    factory :valid_admin_inactive do
-      name 'booga'
-      contact_no '8765432100'
-      status false
-    end
+  factory :inactive_valid_admin, parent: :admin do
+    status false
+  end
 
-    factory :invalid_admin do
-      name 'cooga'
-      contact_no '9876543'
-      status false
-    end
+  factory :invalid_admin, parent: :admin do
+    contact_no '9876543'
   end
 end

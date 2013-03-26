@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin do
 
   before :each do
-    @admin = build(:valid_admin_active)
+    @admin = build(:admin)
   end
 
   context 'Class structure validations' do

@@ -3,8 +3,8 @@ require 'spec_helper'
 describe AdminsController do
   before :each do
     CASClient::Frameworks::Rails::Filter.fake('homer')
-    @sample_admin = create(:valid_admin_active)
-    @sample_admin2 = create(:valid_admin_inactive)
+    @sample_admin = create(:admin)
+    @sample_admin2 = create(:inactive_valid_admin)
     @sample_admins = [@sample_admin, @sample_admin2]
   end
   context 'index' do
@@ -32,7 +32,7 @@ describe AdminsController do
 
   context 'create' do
     it 'should redirect to admins_path on successful save' do
-      new_admin = attributes_for(:valid_admin_inactive)
+      new_admin = attributes_for(:inactive_valid_admin)
       post :create, admin: new_admin
       response.should redirect_to(admins_path)
     end
@@ -46,19 +46,19 @@ describe AdminsController do
 
   context 'update' do
     it 'should successfully update admin' do
-      updated_admin = attributes_for(:valid_admin_inactive, name: 'cooga')
+      updated_admin = attributes_for(:inactive_valid_admin, name: 'cooga')
       put :update, id: @sample_admin.id, admin: updated_admin
       controller.instance_variable_get(:@info)[:contact_no].should == updated_admin[:contact_no]
     end
 
     it 'should redirect to admins_path on successful update' do
-      updated_admin = attributes_for(:valid_admin_inactive, name: 'cooga')
+      updated_admin = attributes_for(:inactive_valid_admin, name: 'cooga')
       put :update, id: @sample_admin.id, admin: updated_admin
       response.should redirect_to(admins_path)
     end
 
     it 'should render edit update failure' do
-      updated_invalid_admin = attributes_for(:valid_admin_active, contact_no: '8765432')
+      updated_invalid_admin = attributes_for(:admin, contact_no: '8765432')
       put :update, id: @sample_admin.id, admin: updated_invalid_admin
       response.should render_template('admins/edit')
     end
