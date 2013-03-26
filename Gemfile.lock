@@ -90,6 +90,7 @@ GEM
     jquery_datepicker (0.4)
     json (1.7.7)
     libv8 (3.11.8.13)
+    magic_encoding (0.0.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -205,6 +206,7 @@ DEPENDENCIES
   jquery-rails
   jquery_datepicker
   json
+  magic_encoding
   pry
   rails (= 3.2.11)
   rspec-rails

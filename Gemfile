@@ -29,6 +29,7 @@ group :development, :test do
   gem 'fuubar'
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'magic_encoding'
 end
 
 
