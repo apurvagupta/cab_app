@@ -51,16 +51,15 @@ describe CabRequestsController do
     end
 
     it 'should render html page' do
-       get :show,format: 'html'
+       get(:show,format: 'html').should render_template('cab_requests/show')
        controller.instance_variable_get(:@dates).should include @valid_request_hash[:pick_up_date_time].to_date
-       response.should render_template('cab_requests/show')
     end
 
     it 'should download xls file' do
       @cab_requests = [attributes_for(:cab_request)]
-      get :show,format: 'xls'
+      get(:show,format: 'xls').should render_template('cab_requests/show')
       controller.instance_variable_get(:@dates).should include @valid_request_hash[:pick_up_date_time].to_date
-      response.should render_template('cab_requests/show')
+      
     end
   end
 end

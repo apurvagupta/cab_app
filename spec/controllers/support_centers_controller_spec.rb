@@ -12,14 +12,12 @@ describe SupportCentersController do
 
   context 'index' do
     it 'should assign requested Admin data to @admin' do
-      get :index
-      response.should be_success
+      get(:index).should be_success
       assigns(:admin).should == @admin
     end
 
     it 'should assign requested Vendor data to @vendor' do
-      get :index
-      response.should be_success
+      get(:index).should be_success
       assigns(:vendor).should == @vendor
     end
 
@@ -27,8 +25,7 @@ describe SupportCentersController do
 
   context 'update' do
     it 'should redirect to index path' do
-      put :update, admin: @admin.name, vendor: @vendor.name
-      response.should redirect_to('/support_centers')
+      put(:update, admin: @admin.name, vendor: @vendor.name).should redirect_to('/support_centers')
     end
 
     it 'should update status of required admin' do
@@ -82,13 +79,11 @@ describe SupportCentersController do
     end
 
     it 'should render html page' do
-      get :show,format: 'html', from: @from, to: @to
-      response.should render_template('support_centers/show')
+      get(:show,format: 'html', from: @from, to: @to).should render_template('support_centers/show')
     end
 
     it 'should render xls page' do
-      get :show,format: 'xls', from: @from, to: @to
-      response.should render_template('support_centers/show')
+      get(:show,format: 'xls', from: @from, to: @to).should render_template('support_centers/show')
     end
   end
 end

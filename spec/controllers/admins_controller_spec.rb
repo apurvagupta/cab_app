@@ -33,14 +33,12 @@ describe AdminsController do
   context 'create' do
     it 'should redirect to admins_path on successful save' do
       new_admin = attributes_for(:inactive_valid_admin)
-      post :create, admin: new_admin
-      response.should redirect_to(admins_path)
+      post(:create, admin: new_admin).should redirect_to(admins_path)
     end
 
     it 'should render new on failed save' do
       new_admin = attributes_for(:invalid_admin)
-      post :create, admin: new_admin
-      response.should render_template('admins/new')
+      post(:create, admin: new_admin).should render_template('admins/new')
     end
   end
 
@@ -53,14 +51,12 @@ describe AdminsController do
 
     it 'should redirect to admins_path on successful update' do
       updated_admin = attributes_for(:inactive_valid_admin, name: 'cooga')
-      put :update, id: @sample_admin.id, admin: updated_admin
-      response.should redirect_to(admins_path)
+      put(:update, id: @sample_admin.id, admin: updated_admin).should redirect_to(admins_path)
     end
 
     it 'should render edit update failure' do
       updated_invalid_admin = attributes_for(:admin, contact_no: '8765432')
-      put :update, id: @sample_admin.id, admin: updated_invalid_admin
-      response.should render_template('admins/edit')
+      put(:update, id: @sample_admin.id, admin: updated_invalid_admin).should render_template('admins/edit')
     end
   end
 
@@ -70,8 +66,7 @@ describe AdminsController do
       Admin.all.should_not == @sample_admins
     end
     it 'should redirect to admins_path on successful delete.' do
-      delete :destroy, id: @sample_admin.id
-      response.should redirect_to(admins_path)
+      delete(:destroy, id: @sample_admin.id).should redirect_to(admins_path)
     end
   end
 
