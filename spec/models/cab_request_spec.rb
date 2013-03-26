@@ -3,12 +3,12 @@
 describe CabRequest do
 
   before :each do
-    @cab_request = CabRequest.new requester: "Apurva", traveler_name: "Vishal", pick_up_date: "07/03/2913" ,contact_no: "8527644166", pick_up_date_time: Time.new(2913, 02, 07, 4, 0, 0, "+05:30"), source: "dilshad garden", destination: "office", no_of_passengers: 3, comments: "Please"
+    @cab_request = build(:cab_request)
   end
 
-  context "Class structure validations" do
+  context 'Class structure validations' do
 
-    it "should have all required fields  " do
+    it 'should have all required fields  ' do
       (@cab_request.has_attribute? :requester).should be_true
       (@cab_request.has_attribute? :traveler_name).should be_true
       (@cab_request.has_attribute? :contact_no).should be_true
@@ -21,152 +21,152 @@ describe CabRequest do
 
   end
 
-  context "all mandatory fields" do
+  context 'all mandatory fields' do
 
-    it "should contain a value" do
+    it 'should contain a value' do
       @cab_request.save.should be_true
     end
 
   end
 
-  context "requester" do
-    it "should not be blank" do
+  context 'requester' do
+    it 'should not be blank' do
       @cab_request.requester = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:requester].first.should == "can't be blank"
+      @cab_request.errors[:requester].first.should == 'can\'t be blank'
     end
   end
 
-  context "traveler name" do
-    it "should not be blank" do
+  context 'traveler name' do
+    it 'should not be blank' do
       @cab_request.traveler_name = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:traveler_name].first.should == "can't be blank"
+      @cab_request.errors[:traveler_name].first.should == 'can\'t be blank'
     end
 
 
-    it "should not contain anything other than alphabets and symbol dot" do
-      @cab_request.traveler_name = "apurva0"
+    it 'should not contain anything other than alphabets and symbol dot' do
+      @cab_request.traveler_name = 'apurva0'
       @cab_request.save.should be_false
-      @cab_request.errors[:traveler_name].first.should == "is invalid"
+      @cab_request.errors[:traveler_name].first.should == 'is invalid'
     end
 
-    it "should not contain more than 10 alphabets" do
-      @cab_request.traveler_name = "hello"*3
+    it 'should not contain more than 10 alphabets' do
+      @cab_request.traveler_name = 'hello'*3
       @cab_request.save.should be_false
-      @cab_request.errors[:traveler_name].first.should == "is too long (maximum is 10 characters)"
+      @cab_request.errors[:traveler_name].first.should == 'is too long (maximum is 10 characters)'
     end
   end
 
 
-  context "Contact number " do
+  context 'Contact number ' do
 
-    it "should not be blank" do
+    it 'should not be blank' do
       @cab_request.contact_no = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:contact_no].first.should == "can't be blank"
+      @cab_request.errors[:contact_no].first.should == 'can\'t be blank'
     end
 
-    it "should not contain non-numeric data" do
-      @cab_request.contact_no = "a$$@7466748"
+    it 'should not contain non-numeric data' do
+      @cab_request.contact_no = 'a$$@7466748'
       @cab_request.save.should be_false
-      @cab_request.errors[:contact_no].first.should == "is not a number"
+      @cab_request.errors[:contact_no].first.should == 'is not a number'
     end
 
-    it "should not contain more or less than ten digits" do
-      @cab_request.contact_no = "456780"
+    it 'should not contain more or less than ten digits' do
+      @cab_request.contact_no = '456780'
       @cab_request.save.should be_false
-      @cab_request.errors[:contact_no].first.should == "is the wrong length (should be 10 characters)"
+      @cab_request.errors[:contact_no].first.should == 'is the wrong length (should be 10 characters)'
     end
 
   end
 
-  context "pick_up_date_time" do
-    it "should not be blank" do
+  context 'pick_up_date_time' do
+    it 'should not be blank' do
       @cab_request.pick_up_date_time = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:pick_up_date_time].first.should == "can't be blank"
+      @cab_request.errors[:pick_up_date_time].first.should == 'can\'t be blank'
     end
 
-    it "should be in future only" do
-      @cab_request.pick_up_date_time = Time.new(1991, 02, 07, 4, 0, 0, "+05:30")
+    it 'should be in future only' do
+      @cab_request.pick_up_date_time = Time.new(1991, 02, 07, 4, 0, 0, '+05:30')
       @cab_request.save.should be_false
-      @cab_request.errors[:pick_up_date_time].first.should == "should not be less than current time"
+      @cab_request.errors[:pick_up_date_time].first.should == 'should not be less than current time'
     end
 
   end
-  context "pick_up_date" do
-    it "should not be blank" do
+  context 'pick_up_date' do
+    it 'should not be blank' do
       @cab_request.pick_up_date = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:pick_up_date].first.should == "can't be blank"
+      @cab_request.errors[:pick_up_date].first.should == 'can\'t be blank'
     end
   end
 
-  context "Source" do
+  context 'Source' do
 
-    it "should not be blank" do
+    it 'should not be blank' do
       @cab_request.source = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:source].first.should == "can't be blank"
+      @cab_request.errors[:source].first.should == 'can\'t be blank'
     end
 
-    it "Should not be same as Destination" do
+    it 'Should not be same as Destination' do
       @cab_request.destination=@cab_request.source
       @cab_request.save.should be_false
-      @cab_request.errors[:source].first.should== " and Destination can't be same"
+      @cab_request.errors[:source].first.should== ' and Destination can\'t be same'
     end
 
-    it "should not be more than 20 characters" do
-      @cab_request.source = "Hello"*50
+    it 'should not be more than 20 characters' do
+      @cab_request.source = 'Hello'*50
       @cab_request.save.should be_false
-      @cab_request.errors[:source].first.should == "is too long (maximum is 20 characters)"
+      @cab_request.errors[:source].first.should == 'is too long (maximum is 20 characters)'
     end
 
   end
     
-  context "Destination" do
+  context 'Destination' do
 
-    it "should not be blank" do
+    it 'should not be blank' do
       @cab_request.destination = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:destination].first.should == "can't be blank"
+      @cab_request.errors[:destination].first.should == 'can\'t be blank'
     end
 
-    it "should not be more than 20 characters" do
-      @cab_request.destination = "Hello"*50
+    it 'should not be more than 20 characters' do
+      @cab_request.destination = 'Hello'*50
       @cab_request.save.should be_false
-      @cab_request.errors[:destination].first.should == "is too long (maximum is 20 characters)"
+      @cab_request.errors[:destination].first.should == 'is too long (maximum is 20 characters)'
     end
   end
 
-  context "No of Passengers" do
+  context 'No of Passengers' do
 
-    it "should not be blank" do
+    it 'should not be blank' do
       @cab_request.no_of_passengers = nil
       @cab_request.save.should be_false
-      @cab_request.errors[:no_of_passengers].first.should == "can't be blank"
+      @cab_request.errors[:no_of_passengers].first.should == 'can\'t be blank'
     end
 
-    it "should be numeric" do
-      @cab_request.no_of_passengers="fdds"
+    it 'should be numeric' do
+      @cab_request.no_of_passengers='fdds'
       @cab_request.save.should be_false
-      @cab_request.errors[:no_of_passengers].first.should =="is not a number"
+      @cab_request.errors[:no_of_passengers].first.should =='is not a number'
     end
 
-    it "should not be more than 50" do
+    it 'should not be more than 50' do
       @cab_request.no_of_passengers=80
       @cab_request.save.should be_false
-      @cab_request.errors[:no_of_passengers].first.should=="should not be more than 50" 
+      @cab_request.errors[:no_of_passengers].first.should=='should not be more than 50' 
     end
   end
 
-  context "Comments" do
+  context 'Comments' do
 
-    it "should not contain more than 100 characters" do
-      @cab_request.comments = "hello"*7
+    it 'should not contain more than 100 characters' do
+      @cab_request.comments = 'hello'*7
       @cab_request.save.should be_false
-      @cab_request.errors[:comments].first.should == "is too long (maximum is 25 characters)"
+      @cab_request.errors[:comments].first.should == 'is too long (maximum is 25 characters)'
     end
   end
 

@@ -35,7 +35,7 @@ class CabRequestsController < ApplicationController
   end
 
   def show
-    @cab_requests = CabRequest.where(:requester => @req.requester_name)
+    @cab_requests = CabRequest.where(requester: @req.requester_name)
     @dates        = []
     @cab_requests.each do |cr|
       @dates.push cr.pick_up_date_time.to_date
