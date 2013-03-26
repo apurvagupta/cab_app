@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CabRequest < ActiveRecord::Base
   attr_accessor :pick_up_date
 

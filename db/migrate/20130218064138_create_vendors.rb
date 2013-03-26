@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateVendors < ActiveRecord::Migration
   def up
   	create_table :vendors do |t|

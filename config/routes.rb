@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 CabApp::Application.routes.draw do
 
   match '/requesters/logout' , controller: 'requesters#logout'

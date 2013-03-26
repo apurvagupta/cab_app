@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddingFieldsToCabRequests < ActiveRecord::Migration
   def up
     add_column :cab_requests, :requester, :string

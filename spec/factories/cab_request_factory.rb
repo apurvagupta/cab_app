@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 FactoryGirl.define do
   factory :cab_request, class: CabRequest do |r|
     r.requester 'obama'

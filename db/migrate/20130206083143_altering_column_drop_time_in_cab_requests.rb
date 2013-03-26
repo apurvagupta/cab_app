@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlteringColumnDropTimeInCabRequests < ActiveRecord::Migration
   def up
     rename_column(:cab_requests,:drop_time,:time)

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin < ActiveRecord::Base
   attr_accessible :name, :contact_no, :status
 

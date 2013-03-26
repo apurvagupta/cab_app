@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 FactoryGirl.define do
   factory :vendor, class: Vendor do
     name 'bhidu'

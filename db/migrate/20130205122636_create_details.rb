@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDetails < ActiveRecord::Migration
   def up
     create_table :details do |t|

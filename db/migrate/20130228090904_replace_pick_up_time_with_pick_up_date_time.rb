@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ReplacePickUpTimeWithPickUpDateTime < ActiveRecord::Migration
   def up
     remove_column :cab_requests, :pick_up_date

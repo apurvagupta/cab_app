@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddNewColumnToVendorStatusAndDefaultvalue < ActiveRecord::Migration
   def up
     change_column :admins, :status, :boolean, :default => false

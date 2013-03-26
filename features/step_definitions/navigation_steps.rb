@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 
 Given /^User is logged in/ do

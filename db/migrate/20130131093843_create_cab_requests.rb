@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCabRequests < ActiveRecord::Migration
   def up
     create_table :cab_requests do |t|

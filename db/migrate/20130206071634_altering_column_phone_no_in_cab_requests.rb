@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlteringColumnPhoneNoInCabRequests < ActiveRecord::Migration
   def up
     change_column(:cab_requests,:phone_no,:string)

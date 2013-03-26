@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddNewColumnToAdmins < ActiveRecord::Migration
   def up
   	add_column :admins, :status, :boolean

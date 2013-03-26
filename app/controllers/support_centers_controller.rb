@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SupportCentersController < ApplicationController
 
   def index
