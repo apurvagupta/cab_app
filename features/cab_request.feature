@@ -11,7 +11,7 @@ Feature: Requesting a cab
     And    User is on the home page
 
 
-@pending
+@javascript
     Scenario: Sends a Cab Request
     And    User fills in traveler_name as cat
     And    User fills in contact_no as 1234567890
