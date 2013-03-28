@@ -6,6 +6,4 @@ language: ruby
 rvm:
   - "1.9.3"
 # uncomment this line if your project needs to run something other than `rake`:
-script:
-  - bundle exec rspec
-  - bundle exec cucumber --tags ~@pending
+#script: bundle exec rspec spec
