@@ -3,7 +3,7 @@ module ApplicationHelper
 
   def ist(time)
     unless time.nil?
-      time.in_time_zone(TZInfo::Timezone.get('Asia/Kolkata')).strftime('%I:%M %P')
+      time.in_time_zone(TZInfo::Timezone.get('Asia/Kolkata')).strftime('%I:%M %p')
     end
   end
 

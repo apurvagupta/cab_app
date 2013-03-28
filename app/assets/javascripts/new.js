@@ -29,12 +29,30 @@ $(document).ready(function() {
         $('#other_destination').attr('type',"text");
         $('#other_destination').attr('disabled',false);
     }
+    console.log($('#pick_up_time').val()+"outside focus");
 
-    $('#pick_up_time').timepicker({
-        minuteStep: 30,
-        showInputs: false,
-        disableFocus: true
+
+    $('#pick_up_time').focus(function(){
+        if($('#pick_up_time').val() != "")
+        {
+            $('#pick_up_time').timepicker({
+                minuteStep: 30,
+                defaultTime: $('#pick_up_time').val(),
+                showInputs: false,
+                disableFocus: true
+            });
+        }
+        else if($('#pick_up_time').val() == "")
+        {
+            $('#pick_up_time').timepicker({
+                minuteStep: 30,
+                defaultTime: 'current',
+                showInputs: false,
+                disableFocus: true
+        });
+        }
     });
+
 
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy" , minDate: 0});
     $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
