@@ -11,4 +11,8 @@ module ApplicationHelper
     Admin.pluck(:name).include? session[:cas_user]
   end
 
+  def current_user
+    session[:cas_user]
+  end
+
 end
