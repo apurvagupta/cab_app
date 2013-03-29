@@ -15,12 +15,12 @@
           %tr
             %td= admin.name
             %td= admin.contact_no
-            %td= link_to 'edit', edit_admin_path(admin)
-            %td= link_to 'delete', admin_path(admin), :method => :delete, :confirm => 'Are you sure?', :hidden => admin.status || admin.name == @user_id
+            %td= link_to 'Edit', edit_admin_path(admin)
+            %td= link_to 'Delete', admin_path(admin), :method => :delete, :confirm => 'Are you sure?', :hidden => admin.status || admin.name == @user_id
         %end
 
 
-      = link_to 'new', new_admin_path
-      = link_to 'back', support_centers_path
+      = link_to 'New', new_admin_path
+      = link_to 'Back', support_centers_path
 
     .span1

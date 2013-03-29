@@ -15,11 +15,11 @@
           %tr
             %td= vendor.name
             %td= vendor.contact_no
-            %td= link_to 'edit', edit_vendor_path(vendor)
-            %td= link_to 'delete', vendor_path(vendor), :method => :delete, :confirm => 'Are you sure?', :hidden => vendor.status
+            %td= link_to 'Edit', edit_vendor_path(vendor)
+            %td= link_to 'Delete', vendor_path(vendor), :method => :delete, :confirm => 'Are you sure?', :hidden => vendor.status
         %end
 
-      = link_to 'new', new_vendor_path
-      = link_to 'back', support_centers_path
+      = link_to 'New', new_vendor_path
+      = link_to 'Back', support_centers_path
 
     .span1

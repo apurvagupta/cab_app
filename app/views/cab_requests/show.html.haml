@@ -1,7 +1,13 @@
 %h2= @notice
-= render '/cab_requests'
-
 %br
 %br
+.row-fluid
+  .span1
 
-%a{href: "/cab_requests/show.xls", id: 'xls_link'} Download XLS Sheet
+  .span10
+    =render '/cab_requests'
+    %br
+    %br
+    %a{href: "/cab_requests/show.xls", id: 'xls_link'} Download XLS Sheet
+
+  .span1

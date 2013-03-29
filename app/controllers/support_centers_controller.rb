@@ -41,7 +41,9 @@ class SupportCentersController < ApplicationController
 private
   def update_status(active_support_person)
     active_support_person_class = active_support_person.class
-    support_persons = active_support_person_class .all
+    p '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
+    p active_support_person_class
+    support_persons = active_support_person_class.all
     support_persons.each do |support_person|
       if (support_person.name == active_support_person.name)
         support_person.update_attribute(:status, 'true')

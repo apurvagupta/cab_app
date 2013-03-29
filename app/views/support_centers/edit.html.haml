@@ -6,27 +6,36 @@
     .span1
     .span10
       %h5 CAB REQUEST MESSAGE WILL BE SENT TO:
+      %br
       .form-horizontal
         =form_tag :action => :update do
-          .control-group
-            ADMIN
-            .controls
+          .row-fluid
+            .span2
+              %h5 ADMIN
+            .span10
               %select{:name => "admin" , id: "admins"}
                 -@admins.each do|admin|
                   %option{ :selected => admin.status }= admin.name
                 %end
+          %br
 
-          .control-group
-            VENDOR
-            .controls
+          .row-fluid
+            .span2
+              %h5 VENDOR
+            .span10
               %select{:name => "vendor", id: "vendors"}
                 -@vendors.each do|vendor|
                   %option{ :selected => vendor.status }= vendor.name
                 %end
 
-          =submit_tag "Update", :class => 'button' ,id: "submit"
-          = link_to 'back', support_centers_path
-        %end
-      %br
+          %br
+
+          .row-fluid
+            .span2
+            .span10
+              .span2
+                =submit_tag "Update", class: 'btn btn-block' ,id: "submit"
+              .span10
+                = link_to 'Back', support_centers_path, class: 'btn'
 
     .span1

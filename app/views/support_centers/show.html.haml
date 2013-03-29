@@ -1,21 +1,25 @@
 = render '/permissions'
-
-.form-horizontal
-  %br
-  %br
-  -if is_admin?
+%br
+%br
+-if is_admin?
+  .row-fluid
     .span1
     .span10
       =form_tag :action => :show ,:method => :get do
-        .display
-          from:
-          %input{:id => "from_date" ,:name =>"from",:class => "date_picker", :value => @from}
-          &nbsp
-          to:
-          %input{:id =>"to_date",:name=>"to" ,:class => "date_picker", :value => @to}
-          &nbsp;&nbsp;
-          =button_tag 'display',:id => "display_reports", :class =>"button"
 
+        .row-fluid
+          .span1
+          .span4
+            From:
+            &nbsp
+            %input{type: 'text', id: "from_date" ,name: "from", class: "date_picker", value: @from}
+          .span4
+            To:
+            &nbsp
+            %input{type: 'text', id: "to_date", name: "to" ,class: "date_picker", value: @to}
+          .span2
+            =button_tag 'display',:id => "display_reports", :class =>"btn btn-block"
+          .span1
       %end
 
       -if @cab_requests != nil && @cab_requests != []
@@ -23,11 +27,11 @@
         = render '/cab_requests'
         %br
         %br
-        %br
         = link_to 'Download XLS Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to),id:"Download XLS Sheet"
+        %nbsp
+        %nbsp
       -elsif @cab_requests == []
         %h2 No record found
-      %end
-      =link_to 'back', support_centers_path
+
+      =link_to 'Back', support_centers_path
     .span1
-  %end
