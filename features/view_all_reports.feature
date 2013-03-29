@@ -13,4 +13,4 @@ Feature: Viewing cab requests
     When  User display reports
     Then  User should be able to view all CabRequests including in from-to date
     And   User should be able to view 'Download XLS Sheet' link
-    And   User should be able to view 'back' link
+    And   User should be able to view 'Back' link
