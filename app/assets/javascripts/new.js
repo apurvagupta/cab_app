@@ -50,12 +50,19 @@ $(document).ready(function() {
                 showInputs: false,
                 disableFocus: true
         });
+            $('#pick_up_time').val("");
         }
     });
 
 
-    $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy" , minDate: 0});
-    $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
+    $('#pick_up_date').datepicker({
+        dateFormat: "dd/mm/yy",
+        minDate: 0
+//        showOn: "button",
+//        buttonImage: "/images/calendar.gif",
+//        buttonImageOnly: true
+    });
+//    $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
     $('#dropdown').click(function(){
         $("#dropdown").backgroundColor='orangered';
     });

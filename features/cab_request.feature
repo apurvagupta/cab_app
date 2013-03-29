@@ -1,4 +1,3 @@
-#@javascript
 
 Feature: Requesting a cab
   In order to book a cab
@@ -16,7 +15,7 @@ Feature: Requesting a cab
     And    User fills in traveler_name as cat
     And    User fills in contact_no as 1234567890
     And    User fills in pick_up_date as 07/02/9999
-    And    User fills in pick_up_time as 11:59
+    And    User fills in pick_up_time as 11:59 PM
     And    User selects ThoughtWorks from drop down list source
     And    User selects other from drop down list destination
     And    User fills in other_destination as India Gate
