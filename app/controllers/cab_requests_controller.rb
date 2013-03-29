@@ -19,18 +19,18 @@ class CabRequestsController < ApplicationController
     @other_destination=params[:destination]
 
     if @cab_request.source == 'other'
-      @cab_request.source = @other_source
-      @source             = "other"
+       @cab_request.source = @other_source
+       @source             = "other"
     end
     if @cab_request.destination == 'other'
-      @cab_request.destination = @other_destination
-      @destination             = "other"
+       @cab_request.destination = @other_destination
+       @destination             = "other"
     end
     if @cab_request.save
-      @notice = 'YOUR REQUEST HAS BEEN SENT'
-      redirect_to '/cab_requests/show'
+       @notice = 'YOUR REQUEST HAS BEEN SENT'
+       redirect_to '/cab_requests/show'
     else
-      render template: 'cab_requests/new'
+       render template: 'cab_requests/new'
     end
   end
 

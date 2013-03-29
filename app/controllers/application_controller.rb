@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :fetch_requester_info
 
   def date_time_parser(date, time)
-    unless date.nil? || time.nil?
+    unless date=="" || time==""
       DateTime.parse(date + ' ' + time + ' +05:30').strftime('%F %T %z')
     end
   end

@@ -22,14 +22,13 @@ $(document).ready(function() {
     if ($('#source').val() == 'other')
     {
         $('#other_source').attr('type',"text");
-       $('#other_source').attr('disabled',false);
+        $('#other_source').attr('disabled',false);
     }
     if ($('#destination').val() == 'other')
     {
         $('#other_destination').attr('type',"text");
         $('#other_destination').attr('disabled',false);
     }
-    console.log($('#pick_up_time').val()+"outside focus");
 
 
     $('#pick_up_time').focus(function(){
@@ -55,14 +54,8 @@ $(document).ready(function() {
     });
 
 
-    $('#pick_up_date').datepicker({
-        dateFormat: "dd/mm/yy",
-        minDate: 0
-//        showOn: "button",
-//        buttonImage: "/images/calendar.gif",
-//        buttonImageOnly: true
-    });
-//    $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
+    $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy",minDate: 0});
+    $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
     $('#dropdown').click(function(){
         $("#dropdown").backgroundColor='orangered';
     });
@@ -70,7 +63,6 @@ $(document).ready(function() {
         $("#logout").backgroundColor='none';
     });
     $('.content-main').css('min-height', $(document).height()-220)
-//    $('#new_cab_request').css('height', $(document).height()-230)
     $(document).on('resize',function(){
         $('.content-main').css('min-height', $(document).height()-120)
     })
