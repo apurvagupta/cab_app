@@ -13,11 +13,11 @@
 
       .field
         = f.label "Name:"
-        = f.text_field :name
+        = f.text_field :name, :id => 'name', :value => ""
 
       .field
         = f.label "Contact No:"
-        = f.text_field :contact_no
+        = f.text_field :contact_no, :id => 'contact_no', :value => ""
 
       .action
         .span2

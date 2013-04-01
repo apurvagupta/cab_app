@@ -34,10 +34,10 @@ Feature: Requesting a cab
     And    User fills in other_destination as India Gate
     And    User fills in no_of_passengers as 51
     When   User creates cab_request
-    Then   User should be able to view 'cab request' form with pre-filled fields
+    Then   User should be able to view 'cab_request' form with pre-filled fields
     And    User should be able to view 'an appropriate' error message
 
   Scenario: Sends a blank Cab Request
     When   User creates cab_request
-    Then   User should be able to view 'cab request' form with blank fields
+    Then   User should be able to view 'cab_request' form with blank fields
     And    User should be able to view 'appropriate' error messages

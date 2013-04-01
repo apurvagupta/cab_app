@@ -8,7 +8,7 @@
       %h5 CAB REQUEST MESSAGE WILL BE SENT TO:
       %br
       .form-horizontal
-        =form_tag :action => :update do
+        =form_tag({:action => :update}, :id => 'edit') do
           .row-fluid
             .span2
               %h5 ADMIN

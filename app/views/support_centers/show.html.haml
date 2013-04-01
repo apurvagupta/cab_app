@@ -5,7 +5,7 @@
   .row-fluid
     .span1
     .span10
-      =form_tag :action => :show ,:method => :get do
+      =form_tag({:action => :show, :method => :get}, :id => 'show') do
 
         .row-fluid
           .span1

@@ -28,13 +28,13 @@
             .control-group
               -#= f.label "Name:", class: 'control-label'
               -#.controls
-              = f.text_field :traveler_name , :class => "input-block-level", :id => "traveler_name", :placeholder => "name"
+              = f.text_field :traveler_name , :class => "input-block-level", :id => "traveler_name", :placeholder => "name", :value => ""
 
 
             .control-group
               -#-#= f.label "Contact No:", class: 'control-label'
               -#.controls
-              = f.text_field :contact_no, :class => "input-block-level", :placeholder => "contact no" , :id => "contact_no"
+              = f.text_field :contact_no, :class => "input-block-level", :placeholder => "contact no" , :id => "contact_no", :value => ""
 
 
         .row-fluid.form-main
@@ -45,13 +45,13 @@
               -#-#=f.label "When", class: 'control-label'
               -#.controls
 
-              =f.text_field :pick_up_date, :class => "input-block-level uneditable-input", :id => "pick_up_date", autocomplete: "off", placeholder: "Date"
+              =f.text_field :pick_up_date, :class => "input-block-level uneditable-input", :id => "pick_up_date", autocomplete: "off", placeholder: "Date", :value => ""
 
             .control-group
               -#-#= f.label "At What Time:", class: 'control-label'
               -#.controls
               -#= ist(@cab_request.pick_up_date_time)
-              = f.text_field :pick_up_date_time  , :class => "input-block-level uneditable-input", :id => 'pick_up_time', :value => ist(@cab_request.pick_up_date_time), autocomplete: "off", placeholder: "Time"
+              = f.text_field :pick_up_date_time  , :class => "input-block-level uneditable-input", :id => 'pick_up_time', :value => ist(@cab_request.pick_up_date_time), autocomplete: "off", placeholder: "Time", :value => ""
 
 
         .row-fluid.form-main
@@ -87,7 +87,7 @@
             .control-group
               -#=f.label "No of passengers:", class: 'control-label'
               -#.controls
-              = f.text_field :no_of_passengers , :class=>"input-block-level",:value => @cab_request.no_of_passengers, :placeholder => "No of passengers", :id => "no_of_passengers"
+              = f.text_field :no_of_passengers , :class=>"input-block-level",:value => @cab_request.no_of_passengers, :placeholder => "No of passengers", :id => "no_of_passengers", :value => ""
         .row-fluid
           .span6
             %h4 Comments
@@ -95,7 +95,7 @@
             .control-group
               -#=f.label "Any Message:", class: 'control-label'
               -#.controls
-              =f.text_field :comments, :class=>"input-block-level", :placeholder => "Any message", :id => "comments"
+              =f.text_field :comments, :class=>"input-block-level", :placeholder => "Any message", :id => "comments", :value => ""
 
         .row-fluid
           .span6

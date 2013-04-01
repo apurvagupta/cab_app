@@ -32,7 +32,7 @@ Given /^User is on (.+)$/ do |page_name|
 end
 
 Given /^There are admins and vendors/ do
-  Vendor.create!(name:"deer",contact_no:"9876543210",status:false)
+  Vendor.create!(name:"homer",contact_no:"1234567890",status:false)
   Vendor.create!(name:"bear",contact_no:"1234567890",status:true)
   Admin.create!(name:"spider",contact_no:"9876543210",status:true)
 end
@@ -83,26 +83,49 @@ Then /^User should be able to view '([^"]*)' ([^"]*)$/ do |content,type|
   if type == 'link'
     page.should have_link content
   elsif type == 'form with blank fields'
-    page.should have_xpath('//form[@id="new_cab_request"]')
-    #page.should have_xpath('//input[@id="traveler_name"][@value=""]')
-    #page.should have_xpath('//input[@id="contact_no"][@value=""]')
-    #page.should have_xpath('//input[@id="pick_up_date"][@value=""]')
-    #page.should have_xpath('//input[@id="pick_up_time"][@value=""]')
-    #page.should have_xpath('//select[@id="source"]/option[@value="Airport"][@selected=""]')
-    #page.should have_xpath('//select[@id="destination"]/option[@value="Airport"][@selected=""]')
-    #page.should have_xpath('//input[@id="no_of_passengers"][@value=""]')
-    #page.should have_xpath('//input[@id="comments"][@value=""]')
+    if content == 'cab_request'
+      page.should have_xpath('//form[@id="new_cab_request"]')
+      page.should have_xpath('//input[@id="traveler_name"][@value=""]')
+      page.should have_xpath('//input[@id="contact_no"][@value=""]')
+      page.should have_xpath('//input[@id="pick_up_date"][@value=""]')
+      page.should have_xpath('//input[@id="pick_up_time"][@value=""]')
+      page.should have_xpath('//select[@id="source"]/option[@value="Airport"]')
+      page.should have_xpath('//select[@id="destination"]/option[@value="Airport"]')
+      page.should have_xpath('//input[@id="no_of_passengers"][@value=""]')
+      page.should have_xpath('//input[@id="comments"][@value=""]')
+    elsif content.include? 'new'
+      page.should have_xpath('//form[@id="'+content+'"]')
+      page.should have_xpath('//input[@id="name"][@value=""]')
+      page.should have_xpath('//input[@id="contact_no"][@value=""]')
+    elsif content == 'support_centers_show'
+      page.should have_xpath('//form[@id="show"]')
+      page.should have_xpath('//input[@id="from_date"][@value=""]')
+      page.should have_xpath('//input[@id="to_date"][@value=""]')
+    end
   elsif type == 'form with pre-filled fields'
-    page.should have_xpath('//form[@id="new_cab_request"]')
-    page.should have_xpath('//input[@id="traveler_name"][@value="cat"]')
-    page.should have_xpath('//input[@id="contact_no"][@value="1234567890"]')
-    page.should have_xpath('//input[@id="pick_up_date"][@value="07/02/9999"]')
-    page.should have_xpath('//input[@id="pick_up_time"][@value="11:30 PM"]')
-    page.should have_xpath('//select[@id="source"]/option[@value="ThoughtWorks"][@selected=""]')
-    page.should have_xpath('//select[@id="destination"]/option[@value="other"][@selected=""]')
-    page.should have_xpath('//input[@id="other_destination"][@value="India Gate"]')
-    page.should have_xpath('//input[@id="no_of_passengers"][@value="51"]')
-    page.should have_xpath('//input[@id="comments"][@value=""]')
+    if content == 'cab_request'
+      page.should have_xpath('//form[@id="new_cab_request"]')
+      page.should have_xpath('//input[@id="traveler_name"][@value="cat"]')
+      page.should have_xpath('//input[@id="contact_no"][@value="1234567890"]')
+      page.should have_xpath('//input[@id="pick_up_date"][@value="07/02/9999"]')
+      page.should have_xpath('//input[@id="pick_up_time"][@value="11:30 PM"]')
+      page.should have_xpath('//select[@id="source"]/option[@value="ThoughtWorks"][@selected=""]')
+      page.should have_xpath('//select[@id="destination"]/option[@value="other"][@selected=""]')
+      page.should have_xpath('//input[@id="other_destination"][@value="India Gate"]')
+      page.should have_xpath('//input[@id="no_of_passengers"][@value="51"]')
+      page.should have_xpath('//input[@id="comments"][@value=""]')
+    elsif content.include? 'edit'
+      page.should have_xpath('//form[@id="'+content+'_1"]')
+      binding.pry
+      page.should have_xpath('//input[@id="name"][@value="homer"]')
+      page.should have_xpath('//input[@id="contact_no"][@value="1234567890"]')
+    end
+  elsif type == 'form with drop down lists'
+    page.should have_xpath('//form[@id="edit"]')
+    page.should have_xpath('//select[@id="admins"]/option[@value="spider"][@selected=""]')
+    page.should have_xpath('//select[@id="admins"]/option[@value="homer"]')
+    page.should have_xpath('//select[@id="vendors"]/option[@value="bear"][@selected=""]')
+    page.should have_xpath('//select[@id="vendors"]/option[@value="homer"]')
   elsif type == 'error message'
     page.should have_content("No of passengers should not be more than 50")
   elsif type == 'error messages'
