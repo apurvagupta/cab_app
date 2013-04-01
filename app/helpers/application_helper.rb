@@ -16,7 +16,6 @@ module ApplicationHelper
   end
 
   def fetch_prev_request
-      binding.pry
       @prev_req    = CabRequest.find_all_by_requester(@req.requester_name, limit: 3)
   end
 
