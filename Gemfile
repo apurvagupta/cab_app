@@ -30,7 +30,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'magic_encoding'
-  gem "nyan-cat-formatter"
 end
 
 

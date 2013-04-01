@@ -15,7 +15,6 @@ Feature: Creating a new Admin
     Then  User should be able to view all admins including this one
     And   User should be able to view 'Edit' link
     And   User should be able to view 'New' link
-    And   User should be able to view 'Back' link
 
   Scenario: Admin edits an existing admin
     And   User is on the edit admins page
@@ -24,5 +23,4 @@ Feature: Creating a new Admin
     Then  User should be able to view all Admins including the updated one
     And   User should be able to view 'Edit' link
     And   User should be able to view 'New' link
-    And   User should be able to view 'Back' link
 

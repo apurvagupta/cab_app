@@ -14,9 +14,9 @@ Feature: Managing admin/vendor
 
   Scenario: Admin updates current admin and vendor
     And    Current User is Admin
-    And    There is a vendor
+    And    There are admins and vendors
     And    User is on the support centers edit page
-    And    User selects homer from drop down list admins
+    And    User selects spider from drop down list admins
     And    User selects deer from drop down list vendors
     When   User updates current admin/vendor
     Then   User should be able to view active admin & active vendor

@@ -31,8 +31,10 @@ Given /^User is on (.+)$/ do |page_name|
   end
 end
 
-Given /^There is a vendor/ do
+Given /^There are admins and vendors/ do
   Vendor.create!(name:"deer",contact_no:"1234567890",status:false)
+  Vendor.create!(name:"bear",contact_no:"9876543210",status:true)
+  Admin.create!(name:"spider",contact_no:"9876543210",status:false)
 end
 
 Given /^User fills in ([^"]*) as ([^"]*)$/ do |element, text|
@@ -71,14 +73,49 @@ end
 
 Then /^User should be able to view active admin & active vendor/ do
       page.should have_xpath('//table[@id="table"]')
+      page.should have_content('spider')
+      page.should have_content('9876543210')
+      page.should have_content('deer')
+      page.should have_content('1234567890')
 end
 
 Then /^User should be able to view '([^"]*)' ([^"]*)$/ do |content,type|
   if type == 'link'
     page.should have_link content
-  elsif type == 'form'
+  elsif type == 'form with blank fields'
     page.should have_xpath('//form[@id="new_cab_request"]')
-
+    #page.should have_xpath('//input[@id="traveler_name"][@value=""]')
+    #page.should have_xpath('//input[@id="contact_no"][@value=""]')
+    #page.should have_xpath('//input[@id="pick_up_date"][@value=""]')
+    #page.should have_xpath('//input[@id="pick_up_time"][@value=""]')
+    #page.should have_xpath('//select[@id="source"]/option[@value="Airport"][@selected=""]')
+    #page.should have_xpath('//select[@id="destination"]/option[@value="Airport"][@selected=""]')
+    #page.should have_xpath('//input[@id="no_of_passengers"][@value=""]')
+    #page.should have_xpath('//input[@id="comments"][@value=""]')
+  elsif type == 'form with pre-filled fields'
+    page.should have_xpath('//form[@id="new_cab_request"]')
+    page.should have_xpath('//input[@id="traveler_name"][@value="cat"]')
+    page.should have_xpath('//input[@id="contact_no"][@value="1234567890"]')
+    page.should have_xpath('//input[@id="pick_up_date"][@value="07/02/9999"]')
+    page.should have_xpath('//input[@id="pick_up_time"][@value="11:30 PM"]')
+    page.should have_xpath('//select[@id="source"]/option[@value="ThoughtWorks"][@selected=""]')
+    page.should have_xpath('//select[@id="destination"]/option[@value="other"][@selected=""]')
+    page.should have_xpath('//input[@id="other_destination"][@value="India Gate"]')
+    page.should have_xpath('//input[@id="no_of_passengers"][@value="51"]')
+    page.should have_xpath('//input[@id="comments"][@value=""]')
+  elsif type == 'error message'
+    page.should have_content("No of passengers should not be more than 50")
+  elsif type == 'error messages'
+    page.should have_content("Traveler name can't be blank")
+    page.should have_content("Contact no can't be blank")
+    page.should have_content("Contact no is not a number")
+    page.should have_content("Contact no is the wrong length (should be 10 characters)")
+    page.should have_content("Pick up date can't be blank")
+    page.should have_content("Pick up date time can't be blank")
+    page.should have_content("No of passengers can't be blank")
+    page.should have_content("No of passengers is not a number")
+    page.should have_content("No of passengers should not be more than 50")
+    page.should have_content("Source and Destination can't be same")
   end
 end
 
@@ -112,6 +149,14 @@ Then /^User should be able to view all ([^"]*) including ([^"]*)/ do |category,t
       page.should have_content(vendor.name)
       page.should have_content(vendor.contact_no)
     end
-   end
+  end
   page.should have_xpath('//table[@id="table"]')
+end
+
+
+Then /^User should be able to view CabRequest form with ([^"]*)$/ do |fields|
+  if fields.include? 'pre-filled'
+  elsif fields.include? 'blank'
+    page.should have_xpath('//form[@id="new_cab_request"]')
+  end
 end

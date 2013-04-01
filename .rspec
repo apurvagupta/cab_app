@@ -1,4 +1,4 @@
---format NyanCatMusicFormatter
+--format Fuubar
 --colour
 --format html
 --out spec/reports/index.html

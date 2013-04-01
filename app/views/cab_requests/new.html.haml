@@ -61,7 +61,7 @@
               -#.controls
               %select{ :id => "source" , :class => "input-block-level", :name => "cab_request[source]" , :onchange => "onSelectedValueChange('source','other_source');" }
                 -@sources.each do|source|
-                  %option{:selected => (source == @cab_request.source)||(source == @source)}= source
+                  %option{value: source,:selected => (source == @cab_request.source)||(source == @source)}= source
                 %end
 
               %input{:type => "hidden", :class => "input-block-level", :name => "source", :id => "other_source" , :value => @other_source , :disabled => false}
@@ -74,7 +74,7 @@
               -#.controls
               %select{:name => "cab_request[destination]", :class => "input-block-level", :id => "destination", :onchange => "onSelectedValueChange('destination','other_destination');" }
                 -@destinations.each do|destination|
-                  %option{:selected => (destination == @cab_request.destination)||(destination == @destination)}= destination
+                  %option{value: destination,:selected => (destination == @cab_request.destination)||(destination == @destination)}= destination
                 %end
 
 
@@ -94,7 +94,7 @@
             .control-group
               -#=f.label "Any Message:", class: 'control-label'
               -#.controls
-              =f.text_field :comments, :class=>"input-block-level", :placeholder => "Any message"
+              =f.text_field :comments, :class=>"input-block-level", :placeholder => "Any message", :id => "comments"
 
         .row-fluid
           .span6
