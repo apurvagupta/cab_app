@@ -9,7 +9,6 @@ class CabRequestsController < ApplicationController
   def new
     call_api
     @cab_request = CabRequest.new(requester: @req.requester_name, contact_no: @req.requester_contact_no)
-    @prev_req    = CabRequest.find_all_by_requester(@req.requester_name, limit: 3)
   end
 
   def create
@@ -47,7 +46,5 @@ class CabRequestsController < ApplicationController
       format.xls
   end
   end
-
-
 
 end

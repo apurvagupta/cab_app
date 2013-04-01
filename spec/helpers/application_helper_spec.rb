@@ -33,7 +33,15 @@ describe ApplicationHelper do
     it "should return nil if the session doesn't have a user" do
       current_user.should be_nil
     end
+  end
 
+  context 'fetch previous request' do
+    it 'should return list of request' do
+      @req = build(:requester)
+      request = create(:cab_request)
+      req_list = fetch_prev_request
+      req_list.should == [request]
+    end
   end
 
 end

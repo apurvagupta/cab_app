@@ -1,6 +1,7 @@
 -@num = Array(1..50)
 -@sources = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
 -@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
+-@prev_req = fetch_prev_request
 .row-fluid
   .span6
     .form-horizontal
@@ -107,32 +108,29 @@
 
 
   .span6
-    -#.row-fluid
-    -#  .span1
-    -#  .span9
-    -#    %h3 Your Previous Requests Are
-    -#    %br
-    -#  .span2
-    -#
-    -#.row-fluid
-    -#  .span1
-    -#  .span9
-    -#    %table{:cellspacing => 50 ,id: "table", class: "table table-striped table-hover"}
-    -#
-    -#      %th Time
-    -#      %th From
-    -#      %th To
-    -#      %th No of passengers
-    -#
-    -#      - @prev_req.each do |each_request|
-    -#        %tr
-    -#        %td= ist(each_request.pick_up_date_time)
-    -#        %td= each_request.source
-    -#        %td= each_request.destination
-    -#        %td= each_request.no_of_passengers
-    -#
-    -#      %end
-    -#
-    -#
-    -#
-    -#  .span2
+    .row-fluid
+      .span1
+      .span9
+        %h3 Your Previous Requests Are
+        %br
+      .span2
+
+    .row-fluid
+      .span1
+      .span9
+        %table{:cellspacing => 50 ,id: "table", class: "table table-striped table-hover"}
+
+          %th Time
+          %th From
+          %th To
+          %th No of passengers
+
+          - @prev_req.each do |each_request|
+            %tr
+            %td= ist(each_request.pick_up_date_time)
+            %td= each_request.source
+            %td= each_request.destination
+            %td= each_request.no_of_passengers
+
+          %end
+      .span2
