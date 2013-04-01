@@ -54,6 +54,7 @@ $(document).ready(function() {
     });
 
 
+
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy",minDate: 0});
     $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
     $('#dropdown').click(function(){
