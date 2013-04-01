@@ -32,9 +32,9 @@ Given /^User is on (.+)$/ do |page_name|
 end
 
 Given /^There are admins and vendors/ do
-  Vendor.create!(name:"deer",contact_no:"1234567890",status:false)
-  Vendor.create!(name:"bear",contact_no:"9876543210",status:true)
-  Admin.create!(name:"spider",contact_no:"9876543210",status:false)
+  Vendor.create!(name:"deer",contact_no:"9876543210",status:false)
+  Vendor.create!(name:"bear",contact_no:"1234567890",status:true)
+  Admin.create!(name:"spider",contact_no:"9876543210",status:true)
 end
 
 Given /^User fills in ([^"]*) as ([^"]*)$/ do |element, text|
@@ -75,7 +75,7 @@ Then /^User should be able to view active admin & active vendor/ do
       page.should have_xpath('//table[@id="table"]')
       page.should have_content('spider')
       page.should have_content('9876543210')
-      page.should have_content('deer')
+      page.should have_content('bear')
       page.should have_content('1234567890')
 end
 

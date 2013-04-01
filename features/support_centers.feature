@@ -6,9 +6,9 @@ Feature: Managing admin/vendor
   Background:
     Given User is logged in
 
-
   Scenario: Requester views active admin/vendor
     And   Current User is not an Admin
+    And   There are admins and vendors
     And   User is on the support centers page
     Then  User should be able to view active admin & active vendor
 
@@ -17,9 +17,11 @@ Feature: Managing admin/vendor
     And    There are admins and vendors
     And    User is on the support centers edit page
     And    User selects spider from drop down list admins
-    And    User selects deer from drop down list vendors
+    And    User selects bear from drop down list vendors
     When   User updates current admin/vendor
     Then   User should be able to view active admin & active vendor
     And    User should be able to view 'Admins' link
     And    User should be able to view 'Vendors' link
     And    User should be able to view 'Update' link
+
+
