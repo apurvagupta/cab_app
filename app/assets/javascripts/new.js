@@ -43,13 +43,13 @@ $(document).ready(function() {
         }
         else if($('#pick_up_time').val() == "")
         {
+            $('#pick_up_time').val("");
             $('#pick_up_time').timepicker({
                 minuteStep: 30,
                 defaultTime: 'current',
                 showInputs: false,
                 disableFocus: true
         });
-            $('#pick_up_time').val("");
         }
     });
 
