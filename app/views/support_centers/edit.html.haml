@@ -15,7 +15,7 @@
             .span10
               %select{:name => "admin" , id: "admins"}
                 -@admins.each do|admin|
-                  %option{ :selected => admin.status }= admin.name
+                  %option{:value => admin.name, :selected => admin.status }= admin.name
                 %end
           %br
 
@@ -25,7 +25,7 @@
             .span10
               %select{:name => "vendor", id: "vendors"}
                 -@vendors.each do|vendor|
-                  %option{ :selected => vendor.status }= vendor.name
+                  %option{:value => vendor.name, :selected => vendor.status }= vendor.name
                 %end
 
           %br

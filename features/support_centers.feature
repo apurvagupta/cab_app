@@ -20,8 +20,8 @@ Feature: Managing admin/vendor
     And    User selects bear from drop down list vendors
     When   User updates current admin/vendor
     Then   User should be able to view active admin & active vendor
-    And    User should be able to view 'Admins' link
-    And    User should be able to view 'Vendors' link
-    And    User should be able to view 'Update' link
+    And    User should be able to view Admins link
+    And    User should be able to view Vendors link
+    And    User should be able to view Update link
 
 

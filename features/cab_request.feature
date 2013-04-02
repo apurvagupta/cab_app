@@ -1,4 +1,3 @@
-
 @javascript
 Feature: Requesting a cab
   In order to book a cab
@@ -22,7 +21,7 @@ Feature: Requesting a cab
     And    Users have some previous requests
     When   User creates cab_request
     Then   User should be able to view all his CabRequests including this one
-    And    User should be able to view 'Download XLS Sheet' link
+    And    User should be able to view Download XLS Sheet link
 
   Scenario: Sends an invalid Cab Request
     And    User fills in traveler_name as cat
@@ -33,11 +32,10 @@ Feature: Requesting a cab
     And    User selects other from drop down list destination
     And    User fills in other_destination as India Gate
     And    User fills in no_of_passengers as 51
+    And    User fills in comments as please
     When   User creates cab_request
-    Then   User should be able to view 'cab_request' form with pre-filled fields
-    And    User should be able to view 'an appropriate' error message
+    Then   User should be able to view cab_request form with pre-filled fields and an appropriate error message
 
   Scenario: Sends a blank Cab Request
     When   User creates cab_request
-    Then   User should be able to view 'cab_request' form with blank fields
-    And    User should be able to view 'appropriate' error messages
+    Then   User should be able to view cab_request form with blank fields and appropriate error messages

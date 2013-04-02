@@ -11,5 +11,5 @@ Feature: Viewing cab requests
     And   User fills in to_date as 23/12/9999
     And   Users have some previous requests
     When  User display reports
-    Then  User should be able to view all CabRequests including in from-to date
-    And   User should be able to view 'Download XLS Sheet' link
+    Then  User should be able to view all CabRequests including from-to date
+    And   User should be able to view Download XLS Sheet link

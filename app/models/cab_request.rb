@@ -11,7 +11,7 @@ class CabRequest < ActiveRecord::Base
   validates_length_of :contact_no, is: 10
   validates_length_of :source, maximum: 20
   validates_length_of :destination, maximum: 20
-  validates_numericality_of :no_of_passengers
+  validates_numericality_of :no_of_passengers, only_integer: true
   validates_inclusion_of :no_of_passengers, in: 1..50, message: 'should not be more than 50'
   validates_length_of :comments, maximum: 25
 
