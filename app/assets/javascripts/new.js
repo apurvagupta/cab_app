@@ -13,7 +13,6 @@ function onSelectedValueChange(ddl_id,txt_id)
         document.getElementById(txt_id).type = "hidden";
         document.getElementById(txt_id).disabled=true;
     }
-
 }
 
 $(document).ready(function() {
@@ -69,7 +68,99 @@ $(document).ready(function() {
     })
 
 
+    $('#destination').change(function(){
+    if(($('#destination').val() == $('#source').val()) && ($('#destination').val() != 'other'))
+    {
+       this.setCustomValidity("destination cant be same as source");
+
+        console.log("d if");
+    }
+    else
+    {  console.log("d else");
+       this.setCustomValidity("");
+        $('.source input-block-level').setCustomValidity("");
+    }
+
+   });
+
+
+
+    $('#source').change(function(){
+        if($('#source').val() == $('#destination').val() && ($('#source').val() != 'other'))
+        {    console.log("s if");
+            this.setCustomValidity("source cant be same as destination");
+        }
+        else
+        {    console.log("s else");
+            this.setCustomValidity("");
+            console.log(this);
+            console.log($('#source'));
+            this.setCustomValidity("");
+        }
+
+    });
+
+
+    $('#other_destination').blur(function(){
+        if($('#other_destination').val() == $('#other_source').val() )
+        {
+            this.setCustomValidity("destination cant be same as source");
+        }
+        else
+        {
+            this.setCustomValidity("");
+        }
+    });
+
+    $('#other_source').blur(function(){
+        if($('#other_source').val() == $('#other_destination').val() )
+        {
+            this.setCustomValidity("source cant be same as destination");
+        }
+        else
+        {
+            this.setCustomValidity("");
+        }
+    });
+
+    $('#to_date').blur(function(){
+        if($('#to_date').val() < $('#from_date').val())
+        {
+            this.setCustomValidity("should be more than from_date");
+        }
+
+
+    });
+//    $('#Create_cab_request').click(function(){
+//
+//        console.log(Date());
+//        if($('pick_up_date').val() == Date.today())
+//        {
+//            alert("yes");
+//        }
+//
+//
+//    });
+
+
+//      $('#Create_cab_request').click(function(){
+//
+//
+//          if($('#destination').val() == $('#source').val())
+//          {
+//              alert('if');
+//              $('#destination').setCustomValidity("destination cant be same as source");
+//          }
+//          else
+//          {
+//              $('#destination').setCustomValidity("");
+//          }
+//
+//      });
+
+
+//      $('#new_cab_request').validate();
+//      $('#new_admin').validate();
+
 });
-
-
 

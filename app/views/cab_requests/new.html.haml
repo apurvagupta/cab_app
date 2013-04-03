@@ -25,76 +25,56 @@
             %h4 For
           .span6
             .control-group
-              -#= f.label "Name:", class: 'control-label'
-              -#.controls
-              = f.text_field :traveler_name , :class => "input-block-level", :id => "traveler_name", :placeholder => "name"
-
-
+              = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "name", autofocus: true, required: true, title: 'only alphabets(maximum 10)', pattern: '^[a-z A-Z]+$', maxlength: 10
             .control-group
-              -#-#= f.label "Contact No:", class: 'control-label'
-              -#.controls
-              = f.text_field :contact_no, :class => "input-block-level", :placeholder => "contact no" , :id => "contact_no"
-
+              = f.text_field :contact_no, class: "input-block-level", placeholder: "contact no" , id: "contact_no", required: true, title: 'exactly 10 integers ', pattern: '^[0-9]{10,10}$'
 
         .row-fluid.form-main
           .span6
             %h4 When
           .span6
             .control-group
-              -#-#=f.label "When", class: 'control-label'
-              -#.controls
-
-              =f.text_field :pick_up_date, :class => "input-block-level uneditable-input", :id => "pick_up_date", autocomplete: "off", placeholder: "Date"
-
+              =f.text_field :pick_up_date, class: "input-block-level uneditable-input", id: "pick_up_date", autocomplete: "off", placeholder: "Date", required: true, :value => ist(@cab_request.pick_up_date_time)
             .control-group
-              -#-#= f.label "At What Time:", class: 'control-label'
-              -#.controls
-              -#= ist(@cab_request.pick_up_date_time)
-              = f.text_field :pick_up_date_time  , :class => "input-block-level uneditable-input", :id => 'pick_up_time', :value => ist(@cab_request.pick_up_date_time), autocomplete: "off", placeholder: "Time"
-
+              = f.text_field :pick_up_date_time  , class: "input-block-level uneditable-input", id: 'pick_up_time', value: ist(@cab_request.pick_up_date_time), autocomplete: "off", placeholder: "Time", required: true
 
         .row-fluid.form-main
           .span6
             %h4 From
           .span6
             .control-group
-              -#.controls
-              %select{ :id => "source" , :class => "input-block-level", :name => "cab_request[source]" , :onchange => "onSelectedValueChange('source','other_source');" }
+              %select{ id: "source" , class: "source input-block-level", name: "cab_request[source]", required: true, onchange: "onSelectedValueChange('source','other_source');" }
                 -@sources.each do|source|
-                  %option{value: source,:selected => (source == @cab_request.source)||(source == @source)}= source
+                  %option{value: source, selected: (source == @cab_request.source)||(source == @source)}= source
                 %end
 
-              %input{:type => "hidden", :class => "input-block-level", :name => "source", :id => "other_source" , :value => @other_source , :disabled => false}
+              %input{type: "hidden", class: "input-block-level", name: "source", id: "other_source" , value: @other_source , disabled: false, required: true, title: 'maximum 20 characters', maxlength: 20}
 
         .row-fluid.form-main
           .span6
             %h4 To
           .span6
             .control-group
-              -#.controls
-              %select{:name => "cab_request[destination]", :class => "input-block-level", :id => "destination", :onchange => "onSelectedValueChange('destination','other_destination');" }
+              %select{name: "cab_request[destination]", class: "destination input-block-level", id: "destination", required: true, onchange: "onSelectedValueChange('destination','other_destination');" }
                 -@destinations.each do|destination|
                   %option{value: destination,:selected => (destination == @cab_request.destination)||(destination == @destination)}= destination
                 %end
 
+              %input{type: 'hidden', class: "input-block-level", name: "destination", id: "other_destination" , disabled: true , value: @other_destination, required: true, maxlength: 20, title: 'maximum 20 characters'}
 
-              %input{:type => 'hidden', :class=>"input-block-level", :name=> "destination", :id => "other_destination" , :disabled => true ,:value => @other_destination}
         .row-fluid.form-main
           .span6
             %h4 Passengers
           .span6
             .control-group
-              -#=f.label "No of passengers:", class: 'control-label'
-              -#.controls
-              = f.text_field :no_of_passengers , :class=>"input-block-level",:value => @cab_request.no_of_passengers, :placeholder => "No of passengers", :id => "no_of_passengers"
+              = f.text_field  :no_of_passengers, type: 'number', class: "input-block-level", value: @cab_request.no_of_passengers, placeholder: "No of passengers (including you)", id: "no_of_passengers", required: true, min: '1', max: '50', title: '1..50 only'
+
         .row-fluid
           .span6
             %h4 Comments
           .span6
             .control-group
-              -#=f.label "Any Message:", class: 'control-label'
-              -#.controls
-              =f.text_field :comments, :class=>"input-block-level", :placeholder => "Any message", :id => "comments"
+              =f.text_field :comments, class: "input-block-level", placeholder: "Any message", id: "comments", maxlength: 25
 
         .row-fluid
           .span6
@@ -104,7 +84,7 @@
               =f.submit "Confirm Booking" ,class: 'btn btn-block', id: "Create cab_request"
             .span5
               =f.button "Reset", class: 'btn btn-block', type: 'reset', id: "reset_btn"
-
+      %end
 
   .span6
     .row-fluid
@@ -117,7 +97,7 @@
     .row-fluid
       .span1
       .span9
-        %table{:cellspacing => 50 ,id: "table", class: "table table-striped table-hover"}
+        %table{cellspacing: 50 ,id: "table", class: "table table-striped table-hover"}
 
           %th Time
           %th From
