@@ -22,17 +22,18 @@ describe ApplicationController do
     response.should be_success
   end
 
-  it 'should fetch user info from JSON string' do
-    expected_info = Requester.new
-    expected_info.requester_name = 'ooga'
-    expected_info.requester_contact_no = '1234567890'
-    $response = '{ "name" : "ooga", "profile" :  { "mobile" : "1234567890"}}'
-    controller = ApplicationController.new
-    actual_info = controller.fetch_requester_info
+  it 'should return true if the logged in user is admin' do
+    session[:cas_user] = 'homer'
+    Admin.create(name: 'homer', contact_no: '9876543212', status: false)
+    CASClient::Frameworks::Rails::Filter.fake('homer')
     get :new
-    result = expected_info.requester_name == actual_info.requester_name && expected_info.requester_contact_no == actual_info.requester_contact_no
-    result.should  be_true
+    controller.instance_variable_get(:@is_admin).should == true
   end
 
+  it 'should return false if the logged in user is not an admin' do
+    CASClient::Frameworks::Rails::Filter.fake('homer')
+    get :new
+    controller.instance_variable_get(:@is_admin).should == false
+  end
 end
 

@@ -18,6 +18,16 @@ describe CabRequestsController do
     it 'should create a valid cab request' do
       get(:new, cab_request: @valid_request_hash).should render_template('cab_requests/new')
     end
+
+    it 'should fetch user info from JSON string' do
+      expected_info = Requester.new
+      expected_info.requester_name = 'ooga'
+      expected_info.requester_contact_no = '1234567890'
+      controller.stub(:call_api).and_return('{ "name" : "ooga", "profile" :  { "mobile" : "1234567890"}}')
+      get :new
+      result = expected_info.requester_name == session[:requester].requester_name && expected_info.requester_contact_no == session[:requester].requester_contact_no
+      result.should  be_true
+    end
   end
 
   context 'create' do
@@ -42,11 +52,10 @@ describe CabRequestsController do
 
   context 'show' do
 
-    before(:each) do
+    before :each do
       @valid_request = create(:cab_request)
     end
     it 'should assign CabRequest data to @cab_requests' do
-
       get :show, requester: @valid_request_hash[:requester]
       controller.instance_variable_get(:@cab_requests).should == [@valid_request]
     end

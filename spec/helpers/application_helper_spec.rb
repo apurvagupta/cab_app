@@ -11,18 +11,6 @@ describe ApplicationHelper do
 
   end
 
-  it 'should return true if the logged in user is admin' do
-    session[:cas_user] = 'homer'
-    Admin.create(name: 'homer', contact_no: '9876543212', status: false)
-    CASClient::Frameworks::Rails::Filter.fake('homer')
-    is_admin?.should == true
-  end
-
-  it 'should return false if the logged in user is not an admin' do
-    CASClient::Frameworks::Rails::Filter.fake('homer')
-    is_admin?.should == false
-  end
-
   context 'current user' do
     it 'should return the session user if the session has a user' do
       session[:cas_user] = "chuck_norris"
@@ -35,13 +23,13 @@ describe ApplicationHelper do
     end
   end
 
-  context 'fetch previous request' do
-    it 'should return list of request' do
-      @req = build(:requester)
-      request = create(:cab_request)
-      req_list = fetch_prev_request
-      req_list.should == [request]
-    end
-  end
+  #context 'fetch previous request' do
+  #  it 'should return list of request' do
+  #    @req = build(:requester)
+  #    request = create(:cab_request)
+  #    req_list = fetch_prev_request
+  #    req_list.should == [request]
+  #  end
+  #end
 
 end

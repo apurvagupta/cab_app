@@ -28,10 +28,12 @@
                 <div class="navbar-inner">
                   <div class="tabbable">
                    <ul class="nav nav-tabs">
-                     <li><img src="/assets/cab_logo.gif"></li>
+                    <li class="cab-logo">
+                      <img src="/assets/cab_logo.gif">
+                    </li>
                     <li><a href="/cab_requests/new" id="Book A Cab">Book A Cab</a></li>
                     <li><a href="/cab_requests/show" id="View My Requests">View My Requests</a></li>
-                    <% if is_admin? %>
+                    <% if @is_admin %>
                         <li>
                           <a href="/support_centers" id="Manage App" >Manage App</a>
                         </li>
@@ -45,7 +47,7 @@
                     <% end %>
                   </ul>
               <ul class="nav pull-right">
-                <li id="welcome_text">Welcome, <%= @req.requester_name %>
+                <li id="welcome_text">Welcome, <%= current_user %>
                 </li>
                 <li class="dropdown">
                   <a id="dropdown"  class="dropdown-toggle" data-toggle="dropdown" href="#">
