@@ -89,29 +89,29 @@ Then /^User should be able to view cab_request form with blank fields$/ do
   page.should_not have_xpath('//input[@id="comments"][@value]')
 end
 
-Then /^User should be able to view cab_request form with blank fields and appropriate error messages$/ do
-  page.should have_xpath('//form[@id="new_cab_request"]')
-  page.should have_xpath('//input[@id="traveler_name"][@value=""]')
-  page.should have_xpath('//input[@id="contact_no"][@value=""]')
-  page.should have_xpath('//input[@id="pick_up_date"][@value=""]')
-  page.should have_xpath('//input[@id="pick_up_time"]')
-  page.should_not have_xpath('//input[@id="pick_up_time"][@value]')
-  page.should have_xpath('//select[@id="source"]/option[@value="Airport"]')
-  page.should have_xpath('//select[@id="destination"]/option[@value="Airport"]')
-  page.should have_xpath('//input[@id="no_of_passengers"]')
-  page.should_not have_xpath('//input[@id="no_of_passengers"][@value]')
-  page.should have_xpath('//input[@id="comments"][@value=""]')
-  page.should have_content("Traveler name can't be blank")
-  page.should have_content("Contact no can't be blank")
-  page.should have_content("Contact no is not a number")
-  page.should have_content("Contact no is the wrong length (should be 10 characters)")
-  page.should have_content("Pick up date can't be blank")
-  page.should have_content("Pick up date time can't be blank")
-  page.should have_content("No of passengers can't be blank")
-  page.should have_content("No of passengers is not a number")
-  page.should have_content("No of passengers should not be more than 50")
-  page.should have_content("Source and Destination can't be same")
-end
+#Then /^User should be able to view cab_request form with blank fields and appropriate error messages$/ do
+#  page.should have_xpath('//form[@id="new_cab_request"]')
+#  page.should have_xpath('//input[@id="traveler_name"][@value=""]')
+#  page.should have_xpath('//input[@id="contact_no"][@value=""]')
+#  page.should have_xpath('//input[@id="pick_up_date"][@value=""]')
+#  page.should have_xpath('//input[@id="pick_up_time"]')
+#  page.should_not have_xpath('//input[@id="pick_up_time"][@value]')
+#  page.should have_xpath('//select[@id="source"]/option[@value="Airport"]')
+#  page.should have_xpath('//select[@id="destination"]/option[@value="Airport"]')
+#  page.should have_xpath('//input[@id="no_of_passengers"]')
+#  page.should_not have_xpath('//input[@id="no_of_passengers"][@value]')
+#  page.should have_xpath('//input[@id="comments"][@value=""]')
+#  page.should have_content("Traveler name can't be blank")
+#  page.should have_content("Contact no can't be blank")
+#  page.should have_content("Contact no is not a number")
+#  page.should have_content("Contact no is the wrong length (should be 10 characters)")
+#  page.should have_content("Pick up date can't be blank")
+#  page.should have_content("Pick up date time can't be blank")
+#  page.should have_content("No of passengers can't be blank")
+#  page.should have_content("No of passengers is not a number")
+#  page.should have_content("No of passengers should not be more than 50")
+#  page.should have_content("Source and Destination can't be same")
+#end
 
 
 Then /^User should be able to view new_([^"]*) form with blank fields$/ do |content|

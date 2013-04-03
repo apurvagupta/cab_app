@@ -13,11 +13,11 @@
 
       .field
         = f.label "Name:"
-        = f.text_field :name, :id => 'name', :value => "", required: true, title: 'only alphabets', pattern: '^[a-z A-Z]+$', autofocus: true
+        = f.text_field :name, :id => 'name', required: true, title: 'only alphabets', pattern: '^[a-z A-Z]+$', autofocus: true
 
       .field
         = f.label "Contact No:"
-        = f.text_field :contact_no, :id => 'contact_no', :value => "", required: true, title: 'exactly 10 integers ', pattern: '^[0-9]{10,10}$'
+        = f.text_field :contact_no, :id => 'contact_no', required: true, title: 'exactly 10 integers ', pattern: '^[0-9]{10,10}$'
 
 
       .action

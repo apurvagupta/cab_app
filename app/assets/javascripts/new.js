@@ -14,7 +14,7 @@ function onSelectedValueChange(ddl_id,txt_id)
         document.getElementById(txt_id).disabled=true;
     }
 }
-
+globalVar = "this a global variable";
 $(document).ready(function() {
 
 
@@ -143,8 +143,8 @@ $(document).ready(function() {
 //    });
 
 
-//      $('#Create_cab_request').click(function(){
-//
+      $('#Create cab_request').click(function(){
+
 //
 //          if($('#destination').val() == $('#source').val())
 //          {
@@ -155,8 +155,8 @@ $(document).ready(function() {
 //          {
 //              $('#destination').setCustomValidity("");
 //          }
-//
-//      });
+            alert(globalVar);
+      });
 
 
 //      $('#new_cab_request').validate();

@@ -36,6 +36,6 @@ Feature: Requesting a cab
     When   User creates cab_request
     Then   User should be able to view cab_request form with pre-filled fields and an appropriate error message
 
-  Scenario: Sends a blank Cab Request
-    When   User creates cab_request
-    Then   User should be able to view cab_request form with blank fields and appropriate error messages
+#  Scenario: Sends a blank Cab Request
+#    When   User creates cab_request
+#    Then   User should be able to view cab_request form with blank fields and appropriate error messages

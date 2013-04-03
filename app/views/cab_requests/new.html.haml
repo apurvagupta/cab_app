@@ -34,7 +34,7 @@
             %h4 When
           .span6
             .control-group
-              =f.text_field :pick_up_date, class: "input-block-level uneditable-input", id: "pick_up_date", autocomplete: "off", placeholder: "Date", required: true, :value => ist(@cab_request.pick_up_date_time)
+              =f.text_field :pick_up_date, class: "input-block-level uneditable-input", id: "pick_up_date", autocomplete: "off", placeholder: "Date", required: true
             .control-group
               = f.text_field :pick_up_date_time  , class: "input-block-level uneditable-input", id: 'pick_up_time', value: ist(@cab_request.pick_up_date_time), autocomplete: "off", placeholder: "Time", required: true
 
