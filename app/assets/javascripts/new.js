@@ -1,4 +1,5 @@
 
+var time,destination,other_destination;
 function onSelectedValueChange(ddl_id,txt_id)
 {
     var ddl_list = document.getElementById(ddl_id);
@@ -17,7 +18,6 @@ function onSelectedValueChange(ddl_id,txt_id)
 
 $(document).ready(function() {
 
-     var time;
     if ($('#source').val() == 'other')
     {
         $('#other_source').attr('type',"text");
@@ -29,8 +29,8 @@ $(document).ready(function() {
         $('#other_destination').attr('disabled',false);
     }
 
-
     $('#pick_up_time').focus(function(){
+        time = this;
         if($('#pick_up_time').val() != "")
         {
             $('#pick_up_time').timepicker({
@@ -48,12 +48,9 @@ $(document).ready(function() {
                 defaultTime: 'current',
                 showInputs: false,
                 disableFocus: true
-        });
+            });
         }
     });
-
-
-    var destination,other_destination;
 
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy",minDate: 0});
     $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
@@ -71,31 +68,11 @@ $(document).ready(function() {
 
     $('#destination').change(function(){
         destination = this;
-   });
-
-    $('#pick_up_time').focus(function(){
-       time=this;
-    });
-
-    $('#source').change(function(){
-        if($('#source').val() == $('#destination').val() && ($('#source').val() != 'other'))
-        {    console.log("s if");
-            this.setCustomValidity("source cant be same as destination");
-        }
-        else
-        {    console.log("s else");
-            this.setCustomValidity("");
-            console.log(this);
-            console.log($('#source'));
-            this.setCustomValidity("");
-        }
-
     });
 
     $('#other_destination').blur(function(){
         other_destination = this;
     });
-
 
     $('#to_date').blur(function(){
         to_date = this;
@@ -106,26 +83,25 @@ $(document).ready(function() {
         }
     });
 
-    $('#Create_cab_request').click(function(){
-       if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
+    $('#source').change(function(){
+        if($('#source').val() == $('#destination').val() && ($('#source').val() != 'other'))
         {
-            destination.setCustomValidity("destination cant be same as source");
-        }
-        else if(($('#source').val() == 'other') && ($('#other_source').val() == ($('#other_destination').val())))
-        {
-             destination.setCustomValidity("");
-             other_destination.setCustomValidity("destination cant be same as source");
+            this.setCustomValidity("source cant be same as destination");
         }
         else
         {
-           destination.setCustomValidity("");
-           other_destination.setCustomValidity("");
+            this.setCustomValidity("");
+            this.setCustomValidity("");
         }
+
+    });
+
+    $('#Create_cab_request').click(function(){
 
         current_dateTime = new Date();
         var dateTimeString = $('#pick_up_date').val()+" "+$('#pick_up_time').val();
-        var dateTime = new Date(dateTimeString);
-        var formattedDateTime= new Date("0"+dateTime.getDate().toString()+"/"+(dateTime.getMonth()+1).toString()+"/"+dateTime.getFullYear().toString()+" "+$('#pick_up_time').val());
+        var split_array = dateTimeString.split("/");
+        var formattedDateTime = new Date(split_array[1] + "/" + split_array[0] + "/" + split_array[2]);
         if (current_dateTime > formattedDateTime)
         {
             time.setCustomValidity("Time cannot be less than current time");
@@ -135,8 +111,21 @@ $(document).ready(function() {
             time.setCustomValidity("");
         }
 
+        if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
+        {
+            destination.setCustomValidity("destination cant be same as source");
+        }
+        else if(($('#source').val() == 'other') && ($('#other_source').val() == ($('#other_destination').val())))
+        {
+            destination.setCustomValidity("");
+            other_destination.setCustomValidity("destination cant be same as source");
+        }
+        else
+        {
+            destination.setCustomValidity("");
+            other_destination.setCustomValidity("");
+        }
     });
-
 
 });
 
