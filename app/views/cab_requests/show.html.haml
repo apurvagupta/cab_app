@@ -5,9 +5,10 @@
   .span1
 
   .span10
-    =render '/cab_requests'
-    %br
-    %br
-    %a{href: "/cab_requests/show.xls", id: 'xls_link'} Download XLS Sheet
+    -if @cab_requests != nil && @cab_requests != []
+      =render '/cab_requests'
+      %br
+      %br
+      %a{href: "/cab_requests/show.xls", id: 'xls_link'} Download XLS Sheet
 
   .span1

@@ -26,7 +26,7 @@
             %h4 For
           .span6
             .control-group
-              = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "name", autofocus: true, required: true, title: 'only alphabets(maximum 10)', pattern: '^[a-z A-Z]+$', maxlength: 10
+              = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "first name", autofocus: true, required: true, title: 'only alphabets(maximum 10)', pattern: '^[a-z A-Z]+$', maxlength: 10
             .control-group
               = f.text_field :contact_no, class: "input-block-level", placeholder: "contact no" , id: "contact_no", required: true, title: 'exactly 10 integers ', pattern: '^[0-9]{10,10}$'
 
@@ -75,7 +75,7 @@
             %h4 Comments
           .span6
             .control-group
-              =f.text_field :comments, class: "input-block-level", placeholder: "Any message", id: "comments", maxlength: 25
+              =f.text_area :comments, class: "input-block-level", placeholder: "Any message(optional)", id: "comments", maxlength: 25
 
         .row-fluid
           .span6

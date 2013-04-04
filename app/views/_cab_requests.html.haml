@@ -14,7 +14,7 @@
       %td= each_request.requester
       %td= each_request.traveler_name
       %td= each_request.contact_no
-      %td= date
+      %td= date.strftime("%d/%m/%Y")
       %td= ist(each_request.pick_up_date_time)
       %td= each_request.source
       %td= each_request.destination

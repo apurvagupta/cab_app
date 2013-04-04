@@ -1,6 +1,6 @@
 ---
 
-requester_details:
-  base_api: 'https://my.thoughtworks.com/api/core/v2/users/username/'
-  user_id:  'ooga'
-  password: 'booga'
+#requester_details:
+#  base_api: 'https://my.thoughtworks.com/api/core/v2/users/username/'
+#  user_id:  'ooga'
+#  password: 'booga'

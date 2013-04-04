@@ -19,7 +19,7 @@ class VendorsController < ApplicationController
     if @info.save
       redirect_to vendors_path
     else
-      render action: 'new'
+      render template: 'vendors/new'
     end
 
   end
@@ -30,7 +30,7 @@ class VendorsController < ApplicationController
     if @info.update_attributes(params[:vendor])
       redirect_to vendors_path
     else
-      render action: 'edit'
+      render template: 'vendors/edit'
     end
 
   end

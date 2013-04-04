@@ -53,7 +53,7 @@ $(document).ready(function() {
     });
 
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy",minDate: 0});
-    $('.date_picker').datepicker({dateFormat: "yy-mm-dd"});
+    $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
     $('#dropdown').click(function(){
         $("#dropdown").backgroundColor='orangered';
     });
@@ -109,9 +109,9 @@ $(document).ready(function() {
 
 
     $('#display_reports').click(function(){
-      if($('#to_date').val() < $('#from_date').val())
+      if (new Date($('#to_date').val()) < new Date ($('#from_date').val()))
       {
-          to_date.setCustomValidity("should be more than from_date");
+          to_date.setCustomValidity("should be more than from date");
       }
       else
       {

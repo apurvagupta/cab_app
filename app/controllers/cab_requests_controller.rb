@@ -8,8 +8,9 @@ class CabRequestsController < ApplicationController
   end
 
   def new
-    session[:requester] ||= fetch_requester_info
-    @cab_request = CabRequest.new(requester: session[:cas_user],traveler_name: session[:requester].requester_name, contact_no: session[:requester].requester_contact_no)
+    #session[:requester] ||= fetch_requester_info
+    @cab_request = CabRequest.new(requester: session[:cas_user])
+    # traveler_name: session[:requester].requester_name, contact_no: session[:requester].requester_contact_no
   end
 
   def create
@@ -54,35 +55,35 @@ private
     end
   end
 
-  def load_config
-    config_file = Rails.root.join('base_config.yaml')
-    if File.exists? config_file
-      base_config = YAML.load_file(config_file)
-    else
-      base_config = {}
-    end
-
-    base_config
-  end
-
-  def call_api
-    requester_configs = load_config['requester_details'] if load_config
-    unless session[:cas_user].nil? || requester_configs.nil?
-      requester_details_api = requester_configs['base_api'] + session[:cas_user]
-      response = open(requester_details_api, http_basic_authentication: [requester_configs['user_id'],requester_configs['password']]).read rescue nil
-    end
-    response
-  end
-
-  def fetch_requester_info
-    @req = Requester.new
-    response = call_api
-    response_json = JSON.parse(response[response.index('{')..response.length]) if response
-    unless response_json.nil?
-      @req.requester_name = response_json['name']
-      @req.requester_contact_no = response_json['profile']['mobile']
-    end
-    @req
-  end
+  #def load_config
+  #  config_file = Rails.root.join('base_config.yaml')
+  #  if File.exists? config_file
+  #    base_config = YAML.load_file(config_file)
+  #  else
+  #    base_config = {}
+  #  end
+  #
+  #  base_config
+  #end
+  #
+  #def call_api
+  #  requester_configs = load_config['requester_details'] if load_config
+  #  unless session[:cas_user].nil? || requester_configs.nil?
+  #    requester_details_api = requester_configs['base_api'] + session[:cas_user]
+  #    response = open(requester_details_api, http_basic_authentication: [requester_configs['user_id'],requester_configs['password']]).read rescue nil
+  #  end
+  #  response
+  #end
+  #
+  #def fetch_requester_info
+  #  @req = Requester.new
+  #  response = call_api
+  #  response_json = JSON.parse(response[response.index('{')..response.length]) if response
+  #  unless response_json.nil?
+  #    @req.requester_name = response_json['name']
+  #    @req.requester_contact_no = response_json['profile']['mobile']
+  #  end
+  #  @req
+  #end
 
 end

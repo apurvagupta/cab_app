@@ -169,6 +169,7 @@ body{
   h4{
    text-align: center;
    color: grey;
+
   }
 .footer>a>img{
    vertical-align: bottom;
@@ -210,12 +211,10 @@ span>a>img{
 
 a{
   margin-right: 10px;
-  color: #707070 ;
   text-decoration: none;
 }
 
 a:hover{
-  color: black;
   text-decoration: none;
 }
 
@@ -226,9 +225,14 @@ a:hover{
 .nav-tabs {
   border-bottom: none;
 }
-//.required{
-//  color: red;
-//}
+
+#comments{
+  height: 66px;
+  width: 282px;
+
+}
+
+
 //.span8{
 //  background-color: orangered;
 //}
