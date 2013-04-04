@@ -1,4 +1,4 @@
--@sources = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
+-@sources = ["ThoughtWorks","Airport","Guest House","McKinsey","other"]
 -@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
 -#-@prev_req = fetch_prev_request
 .row-fluid
@@ -43,19 +43,19 @@
             %h4 From
           .span6
             .control-group
-              %select{ id: "source" , class: "source input-block-level", name: "cab_request[source]", required: true, onchange: "onSelectedValueChange('source','other_source');" }
+              %select{  name: "cab_request[source]", class: "source input-block-level",id: "source", onchange: "onSelectedValueChange('source','other_source');" }
                 -@sources.each do|source|
-                  %option{value: source, selected: (source == @cab_request.source)||(source == @source)}= source
+                  %option{value: source, :selected => (source == @cab_request.source)||(source == @source)}= source
                 %end
 
-              %input{type: "hidden", class: "input-block-level", name: "source", id: "other_source" , value: @other_source , disabled: false, required: true, title: 'maximum 20 characters', maxlength: 20}
+              %input{type: "hidden", class: "input-block-level", name: "source", id: "other_source" , value: @other_source , disabled: true, required: true, title: 'maximum 20 characters', maxlength: 20}
 
         .row-fluid.form-main
           .span6
             %h4 To
           .span6
             .control-group
-              %select{name: "cab_request[destination]", class: "destination input-block-level", id: "destination", required: true, onchange: "onSelectedValueChange('destination','other_destination');" }
+              %select{name: "cab_request[destination]", class: "destination input-block-level", id: "destination", onchange: "onSelectedValueChange('destination','other_destination');" }
                 -@destinations.each do|destination|
                   %option{value: destination,:selected => (destination == @cab_request.destination)||(destination == @destination)}= destination
                 %end
@@ -81,7 +81,7 @@
           .span6
 
             .span7
-              =f.submit "Confirm Booking" ,class: 'btn btn-block', id: "Create cab_request"
+              =f.submit "Confirm Booking" ,class: 'btn btn-block', id: "Create_cab_request"
             .span5
               =f.button "Reset", class: 'btn btn-block', type: 'reset', id: "reset_btn"
       %end

@@ -14,7 +14,7 @@ function onSelectedValueChange(ddl_id,txt_id)
         document.getElementById(txt_id).disabled=true;
     }
 }
-globalVar = "this a global variable";
+
 $(document).ready(function() {
 
 
@@ -53,6 +53,7 @@ $(document).ready(function() {
     });
 
 
+    var destination,other_destination;
 
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy",minDate: 0});
     $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
@@ -69,98 +70,52 @@ $(document).ready(function() {
 
 
     $('#destination').change(function(){
-    if(($('#destination').val() == $('#source').val()) && ($('#destination').val() != 'other'))
-    {
-       this.setCustomValidity("destination cant be same as source");
-
-        console.log("d if");
-    }
-    else
-    {  console.log("d else");
-       this.setCustomValidity("");
-        $('.source input-block-level').setCustomValidity("");
-    }
-
+        destination = this;
    });
 
-
-
-    $('#source').change(function(){
-        if($('#source').val() == $('#destination').val() && ($('#source').val() != 'other'))
-        {    console.log("s if");
-            this.setCustomValidity("source cant be same as destination");
-        }
-        else
-        {    console.log("s else");
-            this.setCustomValidity("");
-            console.log(this);
-            console.log($('#source'));
-            this.setCustomValidity("");
-        }
-
-    });
-
-
     $('#other_destination').blur(function(){
-        if($('#other_destination').val() == $('#other_source').val() )
-        {
-            this.setCustomValidity("destination cant be same as source");
-        }
-        else
-        {
-            this.setCustomValidity("");
-        }
+        other_destination = this;
     });
 
-    $('#other_source').blur(function(){
-        if($('#other_source').val() == $('#other_destination').val() )
-        {
-            this.setCustomValidity("source cant be same as destination");
-        }
-        else
-        {
-            this.setCustomValidity("");
-        }
-    });
 
     $('#to_date').blur(function(){
+        to_date = this;
+
         if($('#to_date').val() < $('#from_date').val())
         {
-            this.setCustomValidity("should be more than from_date");
+            to_date.setCustomValidity("should be more than from_date");
         }
-
-
     });
-//    $('#Create_cab_request').click(function(){
-//
-//        console.log(Date());
-//        if($('pick_up_date').val() == Date.today())
-//        {
-//            alert("yes");
-//        }
-//
-//
-//    });
 
+      $('#Create_cab_request').click(function(){
+           if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
+            {
+                destination.setCustomValidity("destination cant be same as source");
+            }
+            else if(($('#source').val() == 'other') && ($('#other_source').val() == ($('#other_destination').val())))
+            {
+                 destination.setCustomValidity("");
+                 other_destination.setCustomValidity("destination cant be same as source");
+            }
+            else
+            {
+               destination.setCustomValidity("");
+               other_destination.setCustomValidity("");
+            }
 
-      $('#Create cab_request').click(function(){
+      });
 
+//      $('#display_reports').click(function(){
 //
-//          if($('#destination').val() == $('#source').val())
+//          if($('#to_date').val() < $('#from_date').val())
 //          {
-//              alert('if');
-//              $('#destination').setCustomValidity("destination cant be same as source");
+//              to_date.setCustomValidity("should be more than from_date");
 //          }
 //          else
 //          {
-//              $('#destination').setCustomValidity("");
+//              to_date.setCustomValidity("");
 //          }
-            alert(globalVar);
-      });
-
-
-//      $('#new_cab_request').validate();
-//      $('#new_admin').validate();
-
+//
+//      });
 });
 

@@ -46,7 +46,11 @@ end
 
 
 When /^User creates ([^"]*)$/ do  |action|
-  id = 'Create ' + action
+  if action == "cab_request"
+    id = 'Create_' + action
+  else
+    id = 'Create ' + action
+  end
   click_on id
 end
 
