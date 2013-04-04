@@ -89,8 +89,7 @@ Then /^User should be able to view cab_request form with blank fields$/ do
   page.should have_xpath('//select[@id="destination"]/option[@value="Airport"]')
   page.should have_xpath('//input[@id="no_of_passengers"]')
   page.should_not have_xpath('//input[@id="no_of_passengers"][@value]')
-  page.should have_xpath('//input[@id="comments"]')
-  page.should_not have_xpath('//input[@id="comments"][@value]')
+  page.should have_xpath('//textarea[@id="comments"]')
 end
 
 #Then /^User should be able to view cab_request form with blank fields and appropriate error messages$/ do
@@ -144,8 +143,7 @@ Then /^User should be able to view cab_request form with pre-filled fields and a
   page.should have_xpath('//select[@id="destination"]/option[@value="other"][@selected=""]')
   page.should have_xpath('//input[@id="other_destination"][@value="India Gate"]')
   page.should have_xpath('//input[@id="no_of_passengers"][@value="51"]')
-  page.should have_xpath('//input[@id="comments"][@value="please"]')
-  page.should have_content("No of passengers should not be more than 50")
+  page.should have_content('No of passengers should not be more than 50')
 end
 
 Then /^User should be able to view edit_([^"]*) form with pre-filled fields$/ do |content|

@@ -32,7 +32,6 @@ Feature: Requesting a cab
     And    User selects other from drop down list destination
     And    User fills in other_destination as India Gate
     And    User fills in no_of_passengers as 51
-    And    User fills in comments as please
     When   User creates cab_request
     Then   User should be able to view cab_request form with pre-filled fields and an appropriate error message
 

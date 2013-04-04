@@ -19,15 +19,15 @@ describe CabRequestsController do
       get(:new, cab_request: @valid_request_hash).should render_template('cab_requests/new')
     end
 
-    it 'should fetch user info from JSON string' do
-      expected_info = Requester.new
-      expected_info.requester_name = 'ooga'
-      expected_info.requester_contact_no = '1234567890'
-      controller.stub(:call_api).and_return('{ "name" : "ooga", "profile" :  { "mobile" : "1234567890"}}')
-      get :new
-      result = expected_info.requester_name == session[:requester].requester_name && expected_info.requester_contact_no == session[:requester].requester_contact_no
-      result.should  be_true
-    end
+    #it 'should fetch user info from JSON string' do
+    #  expected_info = Requester.new
+    #  expected_info.requester_name = 'ooga'
+    #  expected_info.requester_contact_no = '1234567890'
+    #  controller.stub(:call_api).and_return('{ "name" : "ooga", "profile" :  { "mobile" : "1234567890"}}')
+    #  get :new
+    #  result = expected_info.requester_name == session[:requester].requester_name && expected_info.requester_contact_no == session[:requester].requester_contact_no
+    #  result.should  be_true
+    #end
   end
 
   context 'create' do
