@@ -17,7 +17,7 @@ function onSelectedValueChange(ddl_id,txt_id)
 
 $(document).ready(function() {
 
-
+     var time;
     if ($('#source').val() == 'other')
     {
         $('#other_source').attr('type',"text");
@@ -73,6 +73,25 @@ $(document).ready(function() {
         destination = this;
    });
 
+    $('#pick_up_time').focus(function(){
+       time=this;
+    });
+
+    $('#source').change(function(){
+        if($('#source').val() == $('#destination').val() && ($('#source').val() != 'other'))
+        {    console.log("s if");
+            this.setCustomValidity("source cant be same as destination");
+        }
+        else
+        {    console.log("s else");
+            this.setCustomValidity("");
+            console.log(this);
+            console.log($('#source'));
+            this.setCustomValidity("");
+        }
+
+    });
+
     $('#other_destination').blur(function(){
         other_destination = this;
     });
@@ -87,35 +106,37 @@ $(document).ready(function() {
         }
     });
 
-      $('#Create_cab_request').click(function(){
-           if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
-            {
-                destination.setCustomValidity("destination cant be same as source");
-            }
-            else if(($('#source').val() == 'other') && ($('#other_source').val() == ($('#other_destination').val())))
-            {
-                 destination.setCustomValidity("");
-                 other_destination.setCustomValidity("destination cant be same as source");
-            }
-            else
-            {
-               destination.setCustomValidity("");
-               other_destination.setCustomValidity("");
-            }
+    $('#Create_cab_request').click(function(){
+       if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
+        {
+            destination.setCustomValidity("destination cant be same as source");
+        }
+        else if(($('#source').val() == 'other') && ($('#other_source').val() == ($('#other_destination').val())))
+        {
+             destination.setCustomValidity("");
+             other_destination.setCustomValidity("destination cant be same as source");
+        }
+        else
+        {
+           destination.setCustomValidity("");
+           other_destination.setCustomValidity("");
+        }
 
-      });
+        current_dateTime = new Date();
+        var dateTimeString = $('#pick_up_date').val()+" "+$('#pick_up_time').val();
+        var dateTime = new Date(dateTimeString);
+        var formattedDateTime= new Date("0"+dateTime.getDate().toString()+"/"+(dateTime.getMonth()+1).toString()+"/"+dateTime.getFullYear().toString()+" "+$('#pick_up_time').val());
+        if (current_dateTime > formattedDateTime)
+        {
+            time.setCustomValidity("Time cannot be less than current time");
+        }
+        else
+        {
+            time.setCustomValidity("");
+        }
 
-//      $('#display_reports').click(function(){
-//
-//          if($('#to_date').val() < $('#from_date').val())
-//          {
-//              to_date.setCustomValidity("should be more than from_date");
-//          }
-//          else
-//          {
-//              to_date.setCustomValidity("");
-//          }
-//
-//      });
+    });
+
+
 });
 
