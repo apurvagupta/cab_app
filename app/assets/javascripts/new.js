@@ -53,7 +53,7 @@ $(document).ready(function() {
     });
 
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy",minDate: 0});
-    $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
+    $('.date_picker').datepicker({dateFormat: "yy-mm-dd"});
     $('#dropdown').click(function(){
         $("#dropdown").backgroundColor='orangered';
     });
@@ -65,7 +65,6 @@ $(document).ready(function() {
         $('.content-main').css('min-height', $(document).height()-120)
     })
 
-
     $('#destination').change(function(){
         destination = this;
     });
@@ -76,56 +75,51 @@ $(document).ready(function() {
 
     $('#to_date').blur(function(){
         to_date = this;
-
-        if($('#to_date').val() < $('#from_date').val())
-        {
-            to_date.setCustomValidity("should be more than from_date");
-        }
     });
 
-    $('#source').change(function(){
-        if($('#source').val() == $('#destination').val() && ($('#source').val() != 'other'))
-        {
-            this.setCustomValidity("source cant be same as destination");
-        }
-        else
-        {
-            this.setCustomValidity("");
-            this.setCustomValidity("");
-        }
-
-    });
 
     $('#Create_cab_request').click(function(){
-
         current_dateTime = new Date();
         var dateTimeString = $('#pick_up_date').val()+" "+$('#pick_up_time').val();
         var split_array = dateTimeString.split("/");
         var formattedDateTime = new Date(split_array[1] + "/" + split_array[0] + "/" + split_array[2]);
         if (current_dateTime > formattedDateTime)
         {
-            time.setCustomValidity("Time cannot be less than current time");
+           time.setCustomValidity("Time cannot be less than current time");
         }
         else
         {
-            time.setCustomValidity("");
+           time.setCustomValidity("");
         }
-
         if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
         {
-            destination.setCustomValidity("destination cant be same as source");
+           destination.setCustomValidity("destination cant be same as source");
         }
         else if(($('#source').val() == 'other') && ($('#other_source').val() == ($('#other_destination').val())))
         {
-            destination.setCustomValidity("");
-            other_destination.setCustomValidity("destination cant be same as source");
+           destination.setCustomValidity("");
+           other_destination.setCustomValidity("destination cant be same as source");
         }
         else
         {
-            destination.setCustomValidity("");
-            other_destination.setCustomValidity("");
+           destination.setCustomValidity("");
+           other_destination.setCustomValidity("");
         }
     });
 
+
+    $('#display_reports').click(function(){
+      if($('#to_date').val() < $('#from_date').val())
+      {
+          to_date.setCustomValidity("should be more than from_date");
+      }
+      else
+      {
+         to_date.setCustomValidity("");
+      }
+    });
+
+
 });
+
 

@@ -22,13 +22,16 @@
           .span1
       %end
 
-      -if @cab_requests != nil && @cab_requests != []
-        = render '/cab_requests'
-        %br
-        %br
-        = link_to 'Download XLS Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to),id:"Download XLS Sheet"
-        %nbsp
-        %nbsp
-      -elsif @cab_requests == []
-        %h4 No record found
+      .row-fluid
+        .span1
+        .span11
+          -if @cab_requests != nil && @cab_requests != []
+            = render '/cab_requests'
+            %br
+            %br
+            = link_to 'Download XLS Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to),id:"Download XLS Sheet"
+            %nbsp
+            %nbsp
+          -elsif @cab_requests == []
+            %h4 No record found
     .span1
