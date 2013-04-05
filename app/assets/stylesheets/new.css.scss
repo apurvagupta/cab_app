@@ -180,10 +180,6 @@ body{
   font-size: 11px;
 }
 
-.content-main{
-  //min-height: 980px;
-}
-
 
 .form-main{
   border-bottom:  1px lightgrey inset;
@@ -260,19 +256,30 @@ h4{
   font-weight: bold;
   text-shadow: white 1px 1px 1px;
 }
-.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
-  border-color:none;
+.nav-tabs a:hover{
+  border: none;
+  zoom: 0;
+
 }
-.nav-tabs.nav-stacked > li > a:hover,
-.nav-tabs.nav-stacked > li > a:focus {
-  border-color: none;
-  z-index: 0;
+.nav-tabs{
+  list-style: none;
+  padding-top: 15px;
+  margin-left: 0px;
 }
+//.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+//  border-color:none;
+//}
+//.nav-tabs.nav-stacked > li > a:hover,
+//.nav-tabs.nav-stacked > li > a:focus {
+//  border-color: none;
+//  z-index: 0;
+//}
 .pageContainer{
   background: #eaebeb;
   border-radius: 10px;
   border: #cfcfcf 1px solid;
   padding: 10px 20px;
+  margin-top: 5px;
 }
 #comments{
   height: 66px;

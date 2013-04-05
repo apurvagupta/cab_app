@@ -22,26 +22,26 @@
         </div>
 
         <div class= "row-fluid">
-            <div class="content-main">
-              <ul class="nav nav-tabs">
-                <li><a href="/cab_requests/new" id="Book A Cab">Book A Cab</a></li>
-                <li><a href="/cab_requests/show" id="View My Requests">View My Requests</a></li>
-                <% if @is_admin %>
-                    <li>
-                      <a href="/support_centers" id="Manage App" >Manage App</a>
-                    </li>
-                    <li>
-                      <a href="/support_centers/show" id="View All Reports" >View All Reports</a>
-                    </li>
-                <% else %>
-                    <li>
-                      <a href="/support_centers" id="Contact Us" >Contact Us</a>
-                    </li>
-                <% end %>
-              </ul>
-              <%= yield%>
 
-            </div>
+          <ul class="nav-tabs">
+            <li><a href="/cab_requests/new" id="Book A Cab">Book A Cab</a></li>
+            <li><a href="/cab_requests/show" id="View My Requests">View My Requests</a></li>
+            <% if @is_admin %>
+                <li>
+                  <a href="/support_centers" id="Manage App" >Manage App</a>
+                </li>
+                <li>
+                  <a href="/support_centers/show" id="View All Reports" >View All Reports</a>
+                </li>
+            <% else %>
+                <li>
+                  <a href="/support_centers" id="Contact Us" >Contact Us</a>
+                </li>
+            <% end %>
+          </ul>
+          <%= yield%>
+
+
           </div>
         <div class= "row-fluid">
 
