@@ -19,7 +19,6 @@ class AdminsController < ApplicationController
     if @info.save
       redirect_to admins_path
     else
-
       render template: 'admins/new'
     end
   end
