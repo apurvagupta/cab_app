@@ -13,7 +13,7 @@ Scenario: Requester home page
   Then   User should be able to view cab_request form with blank fields
   And    User should be able to view View My Requests link
   And    User should be able to view Contact Us link
-  And    User should be able to view Log Out link
+  And    User should be able to view Logout link
 
 
 Scenario: Admins home page
@@ -23,7 +23,7 @@ Scenario: Admins home page
   And    User should be able to view View My Requests link
   And    User should be able to view Manage App link
   And    User should be able to view View All Reports link
-  And    User should be able to view Log Out link
+  And    User should be able to view Logout link
 
 Scenario: New Admin page
   And    Current User is Admin
