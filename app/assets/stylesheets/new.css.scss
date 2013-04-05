@@ -63,12 +63,6 @@ msg{
     color: #500000;
    }
 
-.form-horizontal{
-  color: black;
-  background-color: #ffffff;
-  border-radius: 0px;
-
-}
 
 
 #dropdown{
@@ -83,7 +77,10 @@ msg{
 .cab-logo {
   width: 156px;
 }
-
+.nav {
+  margin: 10px 0px !important;
+  list-style: none;
+}
 .navbar-inverse .brand {
   //border-right: 1px #ffffff solid;
   color: #ffffff;
@@ -147,17 +144,29 @@ ul.dropdown-menu>li>a{
 .page-title{
   padding-top: 15px;
   padding-bottom: 15px;
-  background-image: url('header.jpg');
   color: #ffffff;
+  overflow: hidden;
+  clear:both;
 }
-
+.page-title h1{
+  background: url('crs_logo.png') no-repeat;
+  text-indent: -9999px;
+  float:left;
+  width: 400px;
+}
+.page-title div.loginInfo{
+  float:right;
+  padding: 20px 0px 0px;
+  text-shadow: black 2px 1px 2px;
+}
+.page-title div.loginInfo a{
+  color: #7ecae0;
+}
+.page-title div.loginInfo span{
+  font-weight: bold;
+}
 body{
-  color: black;
-  background-image: url('header.jpg');
-  border-top-width: 5px;
-  border-top: solid;
-  border-top-color: orangered;
-  //background-color: seagreen;
+  background: url('header_bg.png') repeat-x;
 }
 
 
@@ -166,18 +175,13 @@ body{
 }
 
 .footer{
-  color: white;
-  text-align: right;
+  text-align: center;
+  padding: 10px 0px;
+  font-size: 11px;
 }
 
 .content-main{
   //min-height: 980px;
-  background-image: none;
-  background-color: #ffffff;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 
@@ -230,25 +234,49 @@ span>a>img{
 }
 
 a{
-  margin-right: 10px;
   text-decoration: none;
 }
 
 a:hover{
   text-decoration: none;
 }
-
-.span3{
-    text-align: center;
+h3{
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0px 0px 20px;
+  margin: 0px;
+}
+h4{
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .nav-tabs {
   border-bottom: none;
 }
-
+.nav-tabs a {
+  color: #006f8f;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: white 1px 1px 1px;
+}
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+  border-color:none;
+}
+.nav-tabs.nav-stacked > li > a:hover,
+.nav-tabs.nav-stacked > li > a:focus {
+  border-color: none;
+  z-index: 0;
+}
+.pageContainer{
+  background: #eaebeb;
+  border-radius: 10px;
+  border: #cfcfcf 1px solid;
+  padding: 10px 20px;
+}
 #comments{
   height: 66px;
-  width: 282px;
+  width: 100%;
 
 }
 

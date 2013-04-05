@@ -1,9 +1,8 @@
 -@sources = ["ThoughtWorks","Airport","Guest House","McKinsey","other"]
 -@destinations = ["Airport","Guest House","McKinsey","ThoughtWorks","other"]
 -#-@prev_req = fetch_prev_request
-%br
 .row-fluid
-  .span6
+  .span12.pageContainer
     .form-horizontal
       = form_for(@cab_request) do |f|
 
@@ -15,34 +14,31 @@
                 %li=  msg
               %end
         .row-fluid
-          .span1
           .span9
             %h3 Make your booking here
-            %br
-          .span2
 
         .row-fluid.form-main
-          .span6
+          .span2
             %h4 For
-          .span6
+          .span4
             .control-group
               = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "first name", autofocus: true, required: true, title: 'Only Alphabets', pattern: '^[a-z A-Z]+$', maxlength: 10
             .control-group
               = f.text_field :contact_no, class: "input-block-level", placeholder: "contact no" , id: "contact_no", required: true, title: 'exactly 10 integers ', pattern: '^[0-9]{10,10}$'
 
         .row-fluid.form-main
-          .span6
+          .span2
             %h4 When
-          .span6
+          .span4
             .control-group
               =f.text_field :pick_up_date, class: "input-block-level uneditable-input", id: "pick_up_date", autocomplete: "off", placeholder: "Date", required: true, readonly: true
             .control-group
               = f.text_field :pick_up_date_time  , class: "input-block-level uneditable-input", id: 'pick_up_time', value: ist(@cab_request.pick_up_date_time), autocomplete: "off", placeholder: "Time", required: true, readonly: true
 
         .row-fluid.form-main
-          .span6
+          .span2
             %h4 From
-          .span6
+          .span4
             .control-group
               %select{  name: "cab_request[source]", class: "source input-block-level",id: "source", onchange: "onSelectedValueChange('source','other_source');" }
                 -@sources.each do|source|
@@ -52,9 +48,9 @@
               %input{type: "hidden", class: "input-block-level", name: "source", id: "other_source" , value: @other_source , disabled: true, required: true, title: 'maximum 20 characters', maxlength: 20}
 
         .row-fluid.form-main
-          .span6
+          .span2
             %h4 To
-          .span6
+          .span4
             .control-group
               %select{name: "cab_request[destination]", class: "destination input-block-level", id: "destination", onchange: "onSelectedValueChange('destination','other_destination');" }
                 -@destinations.each do|destination|
@@ -64,30 +60,28 @@
               %input{type: 'hidden', class: "input-block-level", name: "destination", id: "other_destination" , disabled: true , value: @other_destination, required: true, maxlength: 20, title: 'maximum 20 characters'}
 
         .row-fluid.form-main
-          .span6
+          .span2
             %h4 Passengers
-          .span6
+          .span4
             .control-group
               = f.text_field  :no_of_passengers, type: 'number', class: "input-block-level", value: @cab_request.no_of_passengers, placeholder: "No of passengers (including you)", id: "no_of_passengers", required: true, min: '1', max: '50', title: '1..50 only'
 
         .row-fluid
-          .span6
+          .span2
             %h4 Comments
-          .span6
+          .span4
             .control-group
               =f.text_area :comments, class: "input-block-level", placeholder: "Any message(optional)", id: "comments", maxlength: 25
 
         .row-fluid
-          .span6
-          .span6
-
-            .span7
-              =f.submit "Confirm Booking" ,class: 'btn btn-block', id: "Create_cab_request"
-            .span5
+          .span2
+          .span10
+            .span2
+              =f.submit "Confirm Booking" ,class: 'btn btn-primary', id: "Create_cab_request"
+            .span2
               =f.button "Reset", class: 'btn btn-block', type: 'reset', id: "reset_btn"
       %end
 
-  .span6
     -#.row-fluid
     -#  .span1
     -#  .span9
