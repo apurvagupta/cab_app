@@ -120,7 +120,9 @@ ul.dropdown-menu>li>a{
   border-top-left-radius: 10px;
   padding-bottom: 1.4px;
 }
-
+.nav-tabs > li > a {
+  border: none;
+}
 .page-title{
   padding-top: 15px;
   padding-bottom: 15px;
