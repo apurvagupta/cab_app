@@ -12,11 +12,11 @@
           .span4
             From:
             &nbsp
-            %input{type: 'text', id: "from_date" ,name: "from", class: "date_picker uneditable-input", value: @from, required: true,  autocomplete: 'off', readonly: true}
+            %input{type: 'text', id: "from_date" ,name: "from", class: "date_picker uneditable-input", value: @from, required: true,  autocomplete: 'off'}
           .span4
             To:
             &nbsp
-            %input{type: 'text', id: "to_date", name: "to" ,class: "date_picker uneditable-input", value: @to, required: true, autocomplete: 'off', readonly: true}
+            %input{type: 'text', id: "to_date", name: "to" ,class: "date_picker uneditable-input", value: @to, required: true, autocomplete: 'off'}
           .span2
             =button_tag 'display',:id => "display_reports", :class =>"btn btn-block"
           .span1

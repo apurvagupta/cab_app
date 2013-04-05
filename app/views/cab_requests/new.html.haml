@@ -22,9 +22,9 @@
             %h4 For
           .span4
             .control-group
-              = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "first name", autofocus: true, required: true, title: 'Only Alphabets', pattern: '^[a-z A-Z]+$', maxlength: 10
+              = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "name", required: true, title: 'Only Alphabets'
             .control-group
-              = f.text_field :contact_no, class: "input-block-level", placeholder: "contact no" , id: "contact_no", required: true, title: 'exactly 10 integers ', pattern: '^[0-9]{10,10}$'
+              = f.text_field :contact_no, class: "input-block-level", placeholder: "contact no" , id: "contact_no", required: true, title: 'A valid phone no. '
 
         .row-fluid.form-main
           .span2
@@ -33,7 +33,7 @@
             .control-group
               =f.text_field :pick_up_date, class: "input-block-level uneditable-input", id: "pick_up_date", autocomplete: "off", placeholder: "Date", required: true
             .control-group
-              = f.text_field :pick_up_date_time  , class: "input-block-level uneditable-input", id: 'pick_up_time', value: ist(@cab_request.pick_up_date_time), autocomplete: "off", placeholder: "Time", required: true, readonly: true
+              = f.text_field :pick_up_date_time  , class: "input-block-level uneditable-input", id: 'pick_up_time', value: ist(@cab_request.pick_up_date_time), autocomplete: "off", placeholder: "Time", required: true
 
         .row-fluid.form-main
           .span2

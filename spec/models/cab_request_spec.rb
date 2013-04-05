@@ -44,21 +44,7 @@ describe CabRequest do
       @cab_request.save.should be_false
       @cab_request.errors[:traveler_name].first.should == 'can\'t be blank'
     end
-
-
-    it 'should not contain anything other than alphabets and symbol dot' do
-      @cab_request.traveler_name = 'apurva0'
-      @cab_request.save.should be_false
-      @cab_request.errors[:traveler_name].first.should == 'is invalid'
-    end
-
-    it 'should not contain more than 10 alphabets' do
-      @cab_request.traveler_name = 'hello'*3
-      @cab_request.save.should be_false
-      @cab_request.errors[:traveler_name].first.should == 'is too long (maximum is 10 characters)'
-    end
   end
-
 
   context 'Contact number ' do
 
@@ -66,18 +52,6 @@ describe CabRequest do
       @cab_request.contact_no = nil
       @cab_request.save.should be_false
       @cab_request.errors[:contact_no].first.should == 'can\'t be blank'
-    end
-
-    it 'should not contain non-numeric data' do
-      @cab_request.contact_no = 'a$$@7466748'
-      @cab_request.save.should be_false
-      @cab_request.errors[:contact_no].first.should == 'is not a number'
-    end
-
-    it 'should not contain more or less than ten digits' do
-      @cab_request.contact_no = '456780'
-      @cab_request.save.should be_false
-      @cab_request.errors[:contact_no].first.should == 'is the wrong length (should be 10 characters)'
     end
 
   end
