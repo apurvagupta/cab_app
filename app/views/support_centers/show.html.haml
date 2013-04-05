@@ -28,8 +28,8 @@
           -if @cab_requests != nil && @cab_requests != []
             = render '/cab_requests'
             %br
-            %br
             = link_to 'Download XLS Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to),id:"Download XLS Sheet"
+            %br
             %nbsp
             %nbsp
           -elsif @cab_requests == []

@@ -24,7 +24,7 @@ class SupportCentersController < ApplicationController
     if params[:from]
       from_date  = Time.parse(date_time_parser(params[:from],'00:00:00'))
       to_date    = Time.parse(date_time_parser(params[:to],'00:00:00')).tomorrow()
-      @cab_requests = CabRequest.where(pick_up_date_time: (from_date..to_date))
+      @cab_requests = CabRequest.where(pick_up_date_time: (from_date..to_date)).order(:pick_up_date_time)
       @dates        = []
       @cab_requests.each do |cab_request|
         @dates.push cab_request.pick_up_date_time.to_date

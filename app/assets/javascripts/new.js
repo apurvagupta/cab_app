@@ -122,6 +122,8 @@ $(document).ready(function() {
       }
     });
 
+    $("#pick_up_date").keypress(function(event) {event.preventDefault();});
+
 
 });
 

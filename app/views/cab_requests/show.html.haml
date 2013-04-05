@@ -8,7 +8,8 @@
     -if @cab_requests != nil && @cab_requests != []
       =render '/cab_requests'
       %br
-      %br
       %a{href: "/cab_requests/show.xls", id: 'xls_link'} Download XLS Sheet
-
+      %br
+    -elsif @cab_requests == []
+      %h4 You haven't made any request
   .span1
