@@ -1,12 +1,10 @@
 = render '/permissions'
 
 -if @is_admin
-  %br
-  %br
   .row-fluid
-    .span1
-    .span10
-      %table{cellspacing: 50, id: 'table',class: 'table table-striped table-hover'}
+    .span12
+      %a.btn{href: new_vendor_path, id: 'New'}+
+      %table{cellspacing: 50, id: 'table',class: 'table table-striped table-hover table-bordered'}
         %th Name
         %th Contact No
         %th
@@ -15,9 +13,11 @@
           %tr
             %td= vendor.name
             %td= vendor.contact_no
-            %td= link_to 'Edit', edit_vendor_path(vendor)
-            %td= link_to 'Delete', vendor_path(vendor), :method => :delete, :confirm => 'Are you sure?', :hidden => vendor.status
+            %td
+              %a{href: edit_vendor_path(vendor), id:'Edit'}
+                %i.icon-pencil
+            %td
+              %a{href: vendor_path(vendor), id: 'Delete', :method => :delete, :confirm => 'Are you sure?', :hidden => vendor.status}
+                %i.icon-trash
         %end
 
-      = link_to 'New', new_vendor_path
-    .span1

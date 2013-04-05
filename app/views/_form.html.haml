@@ -1,6 +1,5 @@
-.row-fluid
-  .span1
-  .span11
+.row-fluid.form-main
+  .span12
     = form_for(@info) do |f|
       -if @info.errors.any?
         #error_explanation
@@ -12,17 +11,19 @@
       %end
 
       .field
-        = f.label "Name:"
-        = f.text_field :name, :id => 'name', required: true, title: 'only alphabets'
+        .control-group
+          = f.label "Name:"
+        .controls
+          = f.text_field :name, :id => 'name', required: true, title: 'only alphabets'
 
       .field
-        = f.label "Contact No:"
-        = f.text_field :contact_no, :id => 'contact_no'
-
+        .control-group
+          = f.label "Contact No:"
+        .controls
+          = f.text_field :contact_no, :id => 'contact_no'
 
       .action
-        .span2
-          .field
-            = f.submit :class => 'btn btn-block' ,id: "submit"
+        .field
+          = f.submit :class => 'btn btn-primary' ,id: "submit"
 
 

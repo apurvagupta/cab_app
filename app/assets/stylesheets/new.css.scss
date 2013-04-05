@@ -219,9 +219,23 @@ a{
   text-decoration: none;
 }
 
+#xls_link{
+  float: right;
+  margin-bottom: 15px;
+}
+
 a:hover{
   text-decoration: none;
 }
+#New{
+  float: right;
+  margin-bottom: 15px;
+  font-size: 30px;
+  vertical-align: middle;
+  padding-top: 0px;
+  border: round(10px);
+}
+
 h3{
   font-size: 20px;
   font-weight: bold;
@@ -232,7 +246,14 @@ h4{
   font-size: 14px;
   font-weight: bold;
 }
-
+h5.message{
+  font-size:16px;
+}
+ul.adminLinks li{
+  float:left;
+  list-style-type:none;
+  padding: 0px 10px;
+}
 .nav-tabs {
   border-bottom: none;
 }

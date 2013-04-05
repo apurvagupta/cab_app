@@ -1,15 +1,9 @@
-%h2= @notice
-%br
-%br
-.row-fluid
-  .span1
-
-  .span10
-    -if @cab_requests != nil && @cab_requests != []
-      =render '/cab_requests'
-      %br
-      %a{href: "/cab_requests/show.xls", id: 'xls_link'} Download XLS Sheet
-      %br
-    -elsif @cab_requests == []
-      %h4 You haven't made any request
-  .span1
+-#%h2= @notice
+.span12
+  -if @cab_requests != nil && @cab_requests != []
+    %a.btn.btn-info{href: "/cab_requests/show.xls", id: 'xls_link'}
+      %i.icon-download-alt
+      XLS Sheet
+    =render '/cab_requests'
+  -elsif @cab_requests == []
+    %h4 You haven't made any request

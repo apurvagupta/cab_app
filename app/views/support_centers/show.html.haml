@@ -18,7 +18,7 @@
             &nbsp
             %input{type: 'text', id: "to_date", name: "to" ,class: "date_picker uneditable-input", value: @to, required: true, autocomplete: 'off'}
           .span2
-            =button_tag 'display',:id => "display_reports", :class =>"btn btn-block"
+            =button_tag 'Display',:id => "display_reports", :class =>"btn btn-block"
           .span1
       %end
 
@@ -26,12 +26,10 @@
         .span1
         .span11
           -if @cab_requests != nil && @cab_requests != []
+            %a.btn.btn-info{href: support_centers_show_path(:format => :xls, :from => @from, :to => @to), id:"xls_link"}
+              %i.icon-download-alt
+              XLS Sheet
             = render '/cab_requests'
-            %br
-            = link_to 'Download XLS Sheet', support_centers_show_path(:format => :xls, :from => @from, :to => @to),id:"Download XLS Sheet"
-            %br
-            %nbsp
-            %nbsp
           -elsif @cab_requests == []
             %h4 No record found
     .span1

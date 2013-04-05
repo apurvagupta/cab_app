@@ -4,7 +4,11 @@ class CabRequestsController < ApplicationController
   require 'time'
 
   def index
-    redirect_to '/cab_requests/new'
+    if @is_admin
+      redirect_to '/support_centers/show'
+    else
+      redirect_to '/cab_requests/new'
+    end
   end
 
   def new

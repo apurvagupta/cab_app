@@ -1,39 +1,31 @@
 = render '/permissions'
 -if @is_admin
-  %br
-  %br
   .row-fluid
-    .span1
-    .span10
-      %h5 CAB REQUEST MESSAGE WILL BE SENT TO:
-      %br
-      .form-horizontal
-        =form_tag({:action => :update}, :id => 'edit') do
-          .row-fluid
-            .span2
-              %h5 ADMIN
-            .span10
+    .span12
+      %h5 Cab request message will be sent to:
+      =form_tag({:action => :update}, :id => 'edit') do
+        .row-fluid
+          .span2
+            %h5 Admin
+          .span4
+            .control-group
               %select{:name => "admin" , id: "admins"}
                 -@admins.each do|admin|
                   %option{:value => admin.name, :selected => admin.status }= admin.name
                 %end
-          %br
 
-          .row-fluid
-            .span2
-              %h5 VENDOR
-            .span10
+        .row-fluid
+          .span2
+            %h5 Vendor
+          .span4
+            .control-group
               %select{:name => "vendor", id: "vendors"}
                 -@vendors.each do|vendor|
                   %option{:value => vendor.name, :selected => vendor.status }= vendor.name
                 %end
 
-          %br
 
-          .row-fluid
-            .span2
-            .span10
-              .span2
-                =submit_tag "Update", class: 'btn btn-block' ,id: "submit"
-              .span10
-    .span1
+        .row-fluid
+          .span2
+          .span4
+            =submit_tag "Update", class: 'btn btn-primary' ,id: "submit"
