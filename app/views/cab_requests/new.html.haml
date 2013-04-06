@@ -22,7 +22,7 @@
           .control-group
             = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "name", required: true, title: 'Only Alphabets'
           .control-group
-            = f.text_field :contact_no, class: "input-block-level", placeholder: "contact no" , id: "contact_no", required: true, title: 'A valid phone no. '
+            = f.text_field :contact_no, class: "input-block-level", placeholder: "contact no" , id: "contact_no", required: true, pattern: '.{10,}' , title: 'A valid phone no. with minimum 10 digits'
 
       .row-fluid.form-main
         .span2

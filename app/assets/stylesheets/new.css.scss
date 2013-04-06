@@ -155,7 +155,9 @@ body{
   background: url('header_bg.png') repeat-x;
 }
 
-
+.nav-tabs > li > a:hover{
+  text-decoration: underline;
+}
 .vertical-line{
   border-right: 1px lightgrey inset;
 }
