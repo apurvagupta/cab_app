@@ -31,8 +31,7 @@ class CabRequestsController < ApplicationController
        @destination             = 'other'
     end
     if @cab_request.save
-       @notice = 'YOUR REQUEST HAS BEEN SENT'
-       redirect_to '/cab_requests/show'
+       redirect_to '/cab_requests/show', {:notice => 'Your request has been sent with ReqID ' + @cab_request.id.to_s}
     else
        render template: 'cab_requests/new'
     end

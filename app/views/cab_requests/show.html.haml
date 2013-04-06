@@ -1,9 +1,12 @@
--#%h2= @notice
 .span12
   -if @cab_requests != nil && @cab_requests != []
+    -if notice
+      .span8
+        %h5.message
+          = notice
     %a.btn.btn-info{href: "/cab_requests/show.xls", id: 'xls_link'}
       %i.icon-download-alt
       XLS Sheet
     =render '/cab_requests'
   -elsif @cab_requests == []
-    %h4 You haven't made any request
+    %h4 Oops! You haven't made any request

@@ -1,5 +1,5 @@
-%br
-%table{:cellspacing => 50 ,id: "table", :class=>"table table-striped table-hover"}
+%table{:cellspacing => 50 ,id: "table", :class=>"table table-striped table-hover table-bordered"}
+  %th ReqID
   %th Requester
   %th Traveller
   %th Mobile No.
@@ -11,6 +11,7 @@
 
   - @cab_requests.zip(@dates).each do |each_request,date|
     %tr
+      %td= each_request.id
       %td= each_request.requester
       %td= each_request.traveler_name
       %td= each_request.contact_no
