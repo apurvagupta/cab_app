@@ -54,6 +54,12 @@ describe CabRequest do
       @cab_request.errors[:contact_no].first.should == 'can\'t be blank'
     end
 
+    it 'should not be less than 10 characters' do
+      @cab_request.contact_no = "12345"
+      @cab_request.save.should be_false
+      @cab_request.errors[:contact_no].first.should == 'is too short (minimum is 10 characters)'
+    end
+
   end
 
   context 'pick_up_date_time' do
