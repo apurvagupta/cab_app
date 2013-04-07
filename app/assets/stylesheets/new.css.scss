@@ -158,6 +158,18 @@ body{
 .nav-tabs > li > a:hover{
   text-decoration: underline;
 }
+#show{
+  text-align: center;
+  padding-top: 10px;
+}
+#display_reports{
+  vertical-align: top;
+  width: 10%;
+}
+
+.span12>hr{
+  border-color: rgb(207, 207, 207);
+}
 .vertical-line{
   border-right: 1px lightgrey inset;
 }

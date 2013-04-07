@@ -1,35 +1,28 @@
 = render '/permissions'
-%br
-%br
 -if @is_admin
-  .row-fluid
-    .span1
-    .span10
-      =form_tag({:action => :show, :method => :get}, :id => 'show') do
-
-        .row-fluid
-          .span1
-          .span4
-            From:
-            &nbsp
-            %input{type: 'text', id: "from_date" ,name: "from", class: "date_picker uneditable-input", value: @from, required: true,  autocomplete: 'off'}
-          .span4
-            To:
-            &nbsp
-            %input{type: 'text', id: "to_date", name: "to" ,class: "date_picker uneditable-input", value: @to, required: true, autocomplete: 'off'}
-          .span2
-            =button_tag 'Display',:id => "display_reports", :class =>"btn btn-block"
-          .span1
-      %end
-
-      .row-fluid
-        .span1
-        .span11
-          -if @cab_requests != nil && @cab_requests != []
-            %a.btn.btn-info{href: support_centers_show_path(:format => :xls, :from => @from, :to => @to), id:"xls_link"}
-              %i.icon-download-alt
-              XLS Sheet
-            = render '/cab_requests'
-          -elsif @cab_requests == []
-            %h4 No record found
-    .span1
+  .span12
+    =form_tag({:action => :show, :method => :get}, :id => 'show') do
+      From:
+      &nbsp;
+      %input{type: 'text', id: "from_date" ,name: "from", class: "date_picker uneditable-input", value: @from, required: true,  autocomplete: 'off'}
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      To:
+      &nbsp;
+      %input{type: 'text', id: "to_date", name: "to" ,class: "date_picker uneditable-input", value: @to, required: true, autocomplete: 'off'}
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      =button_tag 'Display',:id => "display_reports", :class =>"btn"
+      -if @cab_requests != nil && @cab_requests != []
+        %a.btn.btn-info{href: support_centers_show_path(:format => :xls, :from => @from, :to => @to), id:"xls_link"}
+          %i.icon-download-alt
+          XLS Sheet
+    %end
+    -if @cab_requests != nil && @cab_requests != []
+      %hr
+      = render '/cab_requests'
+    -elsif @cab_requests == []
+      %hr
+      %h4 No record found
