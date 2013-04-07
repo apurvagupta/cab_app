@@ -3,7 +3,7 @@
 -if @is_admin
   .row-fluid
     .span12
-      %a.btn{href: new_admin_path, id: "New"}+
+      %a.btn{href: new_admin_path, id: "New", title: "new"}+
       %table{cellspacing: 50, id: 'table', :class=>"table table-striped table-hover table-bordered "}
         %th Name
         %th Contact No
@@ -14,10 +14,10 @@
             %td= admin.name
             %td= admin.contact_no
             %td
-              %a{href: edit_admin_path(admin), id: 'Edit'}
+              %a{href: edit_admin_path(admin), id: 'Edit', title: "edit"}
                 %i.icon-pencil
             %td
-              %a{href: admin_path(admin) ,id: 'Delete' ,:method => :delete, :confirm => 'Are you sure?', :hidden => admin.status || admin.name == @user_id}
+              %a{href: admin_path(admin) ,id: 'Delete' , title: "delete", :method => :delete, :confirm => 'Are you sure?', :hidden => admin.status || admin.name == @user_id}
                 %i.icon-trash
         %end
 
