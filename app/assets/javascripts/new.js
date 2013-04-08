@@ -1,5 +1,5 @@
 
-var time,destination,other_destination;
+var time,source,destination,other_destination;
 function onSelectedValueChange(ddl_id,txt_id)
 {
     var ddl_list = document.getElementById(ddl_id);
@@ -68,8 +68,20 @@ $(document).ready(function() {
         $('.content-main').css('min-height', $(document).height()-120)
     })
 
+    $('#source').change(function(){
+        source = this;
+        if ($('#source').val() != 'Select')
+        {
+            $(this).css('color', 'black');
+        }
+    });
+
     $('#destination').change(function(){
         destination = this;
+        if ($('#destination').val() != 'Select')
+        {
+            $(this).css('color', 'black');
+        }
     });
 
     $('#other_destination').blur(function(){
@@ -94,8 +106,16 @@ $(document).ready(function() {
         {
            time.setCustomValidity("");
         }
+
+        if(source == null || destination == null)
+        {
+           source.setCustomValidity("please select your option");
+           destination.setCusomValidity("please select your option");
+        }
+
         if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
         {
+
            destination.setCustomValidity("destination cant be same as source");
         }
         else if(($('#source').val() == 'other') && ($('#other_source').val() == ($('#other_destination').val())))

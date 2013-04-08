@@ -38,7 +38,8 @@
           %h4 From
         .span4
           .control-group
-            %select{  name: "cab_request[source]", class: "source input-block-level",id: "source", onchange: "onSelectedValueChange('source','other_source');" }
+            %select{  name: "cab_request[source]", class: "source input-block-level",id: "source", onchange: "onSelectedValueChange('source','other_source');", required: true }
+              %option{:disabled => "", :selected => "", :value => ""} Select
               -@sources.each do|source|
                 %option{value: source, :selected => (source == @cab_request.source)||(source == @source)}= source
               %end
@@ -50,7 +51,8 @@
           %h4 To
         .span4
           .control-group
-            %select{name: "cab_request[destination]", class: "destination input-block-level", id: "destination", onchange: "onSelectedValueChange('destination','other_destination');" }
+            %select{name: "cab_request[destination]", class: "destination input-block-level", id: "destination", onchange: "onSelectedValueChange('destination','other_destination');" , required: true}
+              %option{:disabled => "", :selected => "", :value => ""} Select
               -@destinations.each do|destination|
                 %option{value: destination,:selected => (destination == @cab_request.destination)||(destination == @destination)}= destination
               %end
