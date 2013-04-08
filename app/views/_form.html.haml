@@ -1,5 +1,5 @@
-.row-fluid.form-main
-  .span12
+.row-fluid
+  .form-horizontal
     = form_for(@info) do |f|
       -if @info.errors.any?
         #error_explanation
@@ -10,20 +10,21 @@
             %end
       %end
 
-      .field
-        .control-group
-          = f.label "Name:"
-        .controls
-          = f.text_field :name, :id => 'name', required: true, title: 'only alphabets'
+        .row-fluid
+          .span2
+            = f.label "Name:"
+          .span4
+            .control-group
+              = f.text_field :name, :id => 'name', required: true, title: 'only alphabets', pattern: '^[a-b A-Z]$'
 
-      .field
-        .control-group
-          = f.label "Contact No:"
-        .controls
-          = f.text_field :contact_no, :id => 'contact_no'
+        .row-fluid
+          .span2
+            = f.label "Contact No:"
+          .span4
+            .control-group
+              = f.text_field :contact_no, :id => 'contact_no', required: true, pattern: '^[0-9]+${10}'
 
-      .action
-        .field
-          = f.submit :class => 'btn btn-primary' ,id: "submit"
-
-
+        .row-fluid
+          .span2
+          .span4
+            = f.submit :class => 'btn btn-primary' ,id: "submit"

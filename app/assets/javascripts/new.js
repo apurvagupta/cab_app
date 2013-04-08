@@ -74,6 +74,7 @@ $(document).ready(function() {
         {
             $(this).css('color', 'black');
         }
+        source.setCustomValidity("");
     });
 
     $('#destination').change(function(){
@@ -82,6 +83,8 @@ $(document).ready(function() {
         {
             $(this).css('color', 'black');
         }
+        destination.setCustomValidity("");
+
     });
 
     $('#other_destination').blur(function(){
@@ -105,12 +108,6 @@ $(document).ready(function() {
         else
         {
            time.setCustomValidity("");
-        }
-
-        if(source == null || destination == null)
-        {
-           source.setCustomValidity("please select your option");
-           destination.setCusomValidity("please select your option");
         }
 
         if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
