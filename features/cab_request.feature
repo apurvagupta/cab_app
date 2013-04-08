@@ -21,7 +21,7 @@ Feature: Requesting a cab
     And    Users have some previous requests
     When   User creates cab_request
     Then   User should be able to view all his CabRequests including this one
-    And    User should be able to view Download XLS Sheet link
+    And    User should be able to view XLS Sheet link
 
   Scenario: Sends an invalid Cab Request
     And    User fills in traveler_name as cat

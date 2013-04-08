@@ -12,4 +12,4 @@ Feature: Viewing cab requests
     And   Users have some previous requests
     When  User display reports
     Then  User should be able to view all CabRequests including from-to date
-    And   User should be able to view Download XLS Sheet link
+    And   User should be able to view XLS Sheet link

@@ -18,8 +18,9 @@ Scenario: Requester home page
 
 Scenario: Admins home page
   And    Current User is Admin
-  When   User is on the home page
-  Then   User should be able to view cab_request form with blank fields
+  When   User is on the support centers show page
+  Then   User should be able to view support_centers_show form with blank fields
+  And    User should be able to view Book A Cab link
   And    User should be able to view View My Requests link
   And    User should be able to view Manage App link
   And    User should be able to view View All Reports link
