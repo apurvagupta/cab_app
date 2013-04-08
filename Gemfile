@@ -8,6 +8,7 @@ gem 'pry'
 gem 'therubyracer'
 gem 'json'
 gem 'capybara-webkit'
+gem 'will_paginate-bootstrap'
 
 # Gems used only for assets and not required
 # in production environments by default.

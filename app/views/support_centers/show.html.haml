@@ -23,6 +23,7 @@
     -if @cab_requests != nil && @cab_requests != []
       %hr
       = render '/cab_requests'
+      = will_paginate @cab_requests_page , renderer: BootstrapPagination::Rails
     -elsif @cab_requests == []
       %hr
       %h4 No record found

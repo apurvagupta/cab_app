@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+require 'will_paginate/array'
 class SupportCentersController < ApplicationController
 
   def index
@@ -25,6 +26,7 @@ class SupportCentersController < ApplicationController
       from_date  = Time.parse(date_time_parser(params[:from],'00:00:00'))
       to_date    = Time.parse(date_time_parser(params[:to],'00:00:00')).tomorrow()
       @cab_requests = CabRequest.where(pick_up_date_time: (from_date..to_date)).order(:pick_up_date_time)
+      @cab_requests_page = @cab_requests.paginate(page: params[:page], per_page: 10)
       @dates        = []
       @cab_requests.each do |cab_request|
         @dates.push cab_request.pick_up_date_time.to_date
