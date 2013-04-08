@@ -17,7 +17,7 @@
               %a{href: edit_admin_path(admin), id: 'Edit', title: "edit"}
                 %i.icon-pencil
             %td
-              %a{href: admin_path(admin) ,id: 'Delete' , title: "delete", :method => :delete, :confirm => 'Are you sure?', :hidden => admin.status || admin.name == @user_id}
+              %a{href: admin_path(admin) ,id: 'Delete', title: "delete", "data-method" => "delete", "data-confirm" => 'Are you sure?', :hidden => admin.status || admin.name == @user_id}
                 %i.icon-trash
         %end
 
