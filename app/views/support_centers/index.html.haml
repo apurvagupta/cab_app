@@ -1,14 +1,6 @@
 = render '/contact_us'
 
 -if @is_admin
-  .row-fluid
-    .span3
-    .span8
-      %ul.adminLinks
-        %li
-          %a{href:"/support_centers/edit"}Update
-        %li
-          %a{href:"/admins"}Admins
-        %li
-          %a{href:"vendors"}Vendors
-    .span1
+  %ul.adminLinks
+    %li
+      %a.btn.btn-primary{href:"/support_centers/edit"}Update

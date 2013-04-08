@@ -26,10 +26,15 @@
             <li><a href="/cab_requests/show" id="View My Requests">View My Requests</a></li>
             <% if @is_admin %>
                 <li>
-                  <a href="/support_centers" id="Manage App" >Manage App</a>
-                </li>
-                <li>
                   <a href="/support_centers/show" id="View All Reports" >View All Reports</a>
+                </li>
+                <li class="dropdown">
+                    <a id="dropdown"  class="dropdown-toggle" data-toggle="dropdown" href="#">Manage </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/support_centers">App</a></li>
+                      <li><a href="/admins">Admins</a></li>
+                      <li><a href="/vendors">Vendors</a></li>
+                    </ul>
                 </li>
             <% else %>
                 <li>

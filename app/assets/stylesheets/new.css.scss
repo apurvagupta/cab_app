@@ -1,5 +1,3 @@
-
-
 div {
   &.field, &.actions {
     margin-bottom: 10px;
@@ -34,99 +32,26 @@ div {
     font-size: 10px;
     list-style: square;
     color: black;
-
   }
 
 }
 
 msg{
     color: #500000;
-   }
-
-
-
-#dropdown{
-  background-color: orangered;
-  padding-top: 13px;
-  max-height: 10px;
-  padding-right: 0px;
-  padding-left: 4px;
-
 }
 
 .cab-logo {
   width: 156px;
-}
-.nav {
-  margin: 10px 0px !important;
-  list-style: none;
-}
-.navbar-inverse .brand {
-  //border-right: 1px #ffffff solid;
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 200;
-  margin: 0px 0px 0px -27px;
-}
-
-.navbar{
-  border: none;
-  margin-bottom: 0px;
-
 }
 
 .uneditable-input{
   cursor: pointer;
 }
 
-li.dropdown.open{
-  a{
-    border: none;
-    background-color: #ffffff;
-    color: #000000;
-  }
-}
-
-ul.dropdown-menu>li>a{
-  background-color: #ffffff;
-  color:  black;
-}
-
-.navbar ul.nav>li>a{
-  //padding-left: 5px;
-  //padding-right: 10px;
-  font-size: 15px;
-  color: #ffffff;
-  border-right: 1px solid white;
-}
-
-.navbar ul>li#welcome_text{
-
-  padding-top: 10px;
-  list-style-type: none;
-  padding-right: 0px;
-  //padding-right: 10px;
-}
-
-.navbar ul.nav.pull-right>li>a{
-  border-right: none;
-}
-
-.navbar-inverse .navbar-inner{
-  color: #ffffff;
-  border: none;
-  background-color: orangered;
-  background-image: none;
-  filter: none;
-  max-height: 30px;
-  border-radius: 0px;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  padding-bottom: 1.4px;
-}
 .nav-tabs > li > a {
   border: none;
 }
+
 .page-title{
   padding-top: 15px;
   padding-bottom: 15px;
@@ -134,34 +59,37 @@ ul.dropdown-menu>li>a{
   overflow: hidden;
   clear:both;
 }
+
 .page-title h1{
   background: url('crs_logo.png') no-repeat;
   text-indent: -9999px;
   float:left;
   width: 400px;
 }
+
 .page-title div.loginInfo{
   float:right;
   padding: 20px 0px 0px;
   text-shadow: black 2px 1px 2px;
 }
+
 .page-title div.loginInfo a{
   color: #7ecae0;
 }
+
 .page-title div.loginInfo span{
   font-weight: bold;
 }
+
 body{
   background: url('header_bg.png') repeat-x;
 }
 
-.nav-tabs > li > a:hover{
-  text-decoration: underline;
-}
 #show{
   text-align: center;
   padding-top: 10px;
 }
+
 #display_reports{
   vertical-align: top;
   width: 10%;
@@ -170,6 +98,7 @@ body{
 .span12>hr{
   border-color: rgb(207, 207, 207);
 }
+
 .vertical-line{
   border-right: 1px lightgrey inset;
 }
@@ -180,57 +109,43 @@ body{
   font-size: 11px;
 }
 
-
 .form-main{
   border-bottom:  1px lightgrey inset;
   margin-bottom: 10px;
 }
+
 .span6{
   h4{
    text-align: center;
    color: grey;
 
   }
-.footer>a>img{
-   vertical-align: bottom;
-}
 
-.span6.span4#cancel_button{
-  width: 140%;
-}
-#reset_btn{
-  line-height: 18px;
-}
-.span9{
-  h3{
-    text-align: center;
-    font-family: "georgia";
-    font-style: italic;
-    font-weight: bold;
+  #reset_btn{
+    line-height: 18px;
   }
-}
 
-.control-group{
-  h3{
-    font-weight: normal;
+  .control-group{
+    h3{
+      font-weight: normal;
+      }
   }
-}
-#other_source{
-  margin-top: 10px;
-}
-#other_destination{
-  margin-top: 10px;
-}
 
-span>a>img{
-  vertical-align: bottom;
-}
-#pick_up_date{ cursor:default;}
-#pick_up_time{ cursor:default;}
-}
+  #other_source{
+    margin-top: 10px;
+  }
 
-a{
-  text-decoration: none;
+  #other_destination{
+    margin-top: 10px;
+  }
+
+  span>a>img{
+    vertical-align: bottom;
+  }
+
+  #pick_up_date{ cursor:default;}
+
+  #pick_up_time{ cursor:default;}
 }
 
 #xls_link{
@@ -241,6 +156,7 @@ a{
 a:hover{
   text-decoration: none;
 }
+
 #New{
   float: right;
   margin-bottom: 15px;
@@ -256,45 +172,39 @@ h3{
   padding: 0px 0px 20px;
   margin: 0px;
 }
+
 h4{
   font-size: 14px;
   font-weight: bold;
 }
+
 h5.message{
   font-size:16px;
 }
-ul.adminLinks li{
-  float:left;
-  list-style-type:none;
-  padding: 0px 10px;
-}
+
 .nav-tabs {
   border-bottom: none;
 }
+
 .nav-tabs a {
   color: #006f8f;
   font-size: 16px;
   font-weight: bold;
   text-shadow: white 1px 1px 1px;
 }
+
 .nav-tabs a:hover{
   border: none;
   zoom: 0;
 
 }
+
 .nav-tabs{
   list-style: none;
   padding-top: 15px;
   margin-left: 0px;
 }
-//.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
-//  border-color:none;
-//}
-//.nav-tabs.nav-stacked > li > a:hover,
-//.nav-tabs.nav-stacked > li > a:focus {
-//  border-color: none;
-//  z-index: 0;
-//}
+
 .pageContainer{
   background: #eaebeb;
   border-radius: 10px;
@@ -302,6 +212,7 @@ ul.adminLinks li{
   padding: 10px 20px;
   margin-top: 5px;
 }
+
 #comments{
   height: 66px;
   width: 100%;
@@ -312,15 +223,32 @@ ul.adminLinks li{
 }
 #destination{
   color: #808080;
+
+.adminLinks{
+  margin: 0px 0px 0px 0px;
 }
 
+.adminLinks > li{
+  list-style: none;
+}
 
-//.span8{
-//  background-color: orangered;
-//}
-/**********************************
+.nav-tabs .open .dropdown-toggle, .nav-pills .open .dropdown-toggle, .nav > li.dropdown.open.active > a:hover, .nav > li.dropdown.open.active > a:focus{
+  color: #006f8f;
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid #d3d3d3;
+}
 
-Use: Main Screen Import
+.dropdown-menu > li > a{
+  padding: 3px 10px;
+  color: #006f8f;
+  font-size: 16px;
+  text-shadow: white 1px 1px 1px;
+}
 
-***********************************/
+.dropdown-menu > li > a:hover{
+  color: #006f8f;
+  background: none;
+  font-weight: bold;
+}
 

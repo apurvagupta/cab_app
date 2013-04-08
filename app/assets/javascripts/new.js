@@ -57,12 +57,7 @@ $(document).ready(function() {
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy",minDate: 0});
     $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
     $("#pick_up_time").keypress(function(event) {event.preventDefault();});
-    $('#dropdown').click(function(){
-        $("#dropdown").backgroundColor='orangered';
-    });
-    $('#logout').hover(function(){
-        $("#logout").backgroundColor='none';
-    });
+
     $('.content-main').css('min-height', $(document).height()-220)
     $(document).on('resize',function(){
         $('.content-main').css('min-height', $(document).height()-120)
@@ -103,7 +98,7 @@ $(document).ready(function() {
         var formattedDateTime = new Date(split_array[1] + "/" + split_array[0] + "/" + split_array[2]);
         if (current_dateTime > formattedDateTime)
         {
-           time.setCustomValidity("Time cannot be less than current time");
+           time.setCustomValidity("Time can't be less than current time");
         }
         else
         {
@@ -112,13 +107,12 @@ $(document).ready(function() {
 
         if(($('#source').val() == $('#destination').val()) && ($('#destination').val() != 'other'))
         {
-
-           destination.setCustomValidity("destination cant be same as source");
+           destination.setCustomValidity("destination can't be same as source");
         }
         else if(($('#source').val() == 'other') && ($('#other_source').val() == ($('#other_destination').val())))
         {
            destination.setCustomValidity("");
-           other_destination.setCustomValidity("destination cant be same as source");
+           other_destination.setCustomValidity("destination can't be same as source");
         }
         else
         {
@@ -138,9 +132,6 @@ $(document).ready(function() {
          to_date.setCustomValidity("");
       }
     });
-
-    $("#pick_up_date").keypress(function(event) {event.preventDefault();});
-
 
 });
 
