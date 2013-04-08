@@ -8,6 +8,7 @@
       %i.icon-download-alt
       XLS Sheet
     =render '/cab_requests'
-    = will_paginate @cab_requests_page, :renderer => BootstrapPagination::Rails
+    .pagination-centered
+      = will_paginate @cab_requests_page, :renderer => BootstrapPagination::Rails
   -elsif @cab_requests == []
     %h4 Oops! You haven't made any request

@@ -4,7 +4,7 @@
     =form_tag({:action => :show, :method => :get}, :id => 'show') do
       From:
       &nbsp;
-      %input{type: 'text', id: "from_date" ,name: "from", class: "date_picker uneditable-input", value: @from, required: true,  autocomplete: 'off'}
+      %input{type: 'text', id: "from_date" ,name: "from", class: "date_picker uneditable-input", value:@from, required: true,  autocomplete: 'off'}
       &nbsp;
       &nbsp;
       &nbsp;
@@ -23,7 +23,8 @@
     -if @cab_requests != nil && @cab_requests != []
       %hr
       = render '/cab_requests'
-      = will_paginate @cab_requests_page , renderer: BootstrapPagination::Rails
+      .pagination-centered
+        = will_paginate @cab_requests_page,params: {from: params[:from],to: params[:to]} ,renderer: BootstrapPagination::Rails
     -elsif @cab_requests == []
       %hr
       %h4 No record found
