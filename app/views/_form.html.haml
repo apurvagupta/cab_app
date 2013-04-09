@@ -15,14 +15,14 @@
             = f.label "Name:"
           .span4
             .control-group
-              = f.text_field :name, :id => 'name', required: true, title: 'only alphabets', pattern: '^[a-b A-Z]$'
+              = f.text_field :name, :id => 'name', required: true, title: 'only alphabets', pattern: '^[a-z A-Z]+$', autofocus: true
 
         .row-fluid
           .span2
             = f.label "Contact No:"
           .span4
             .control-group
-              = f.text_field :contact_no, :id => 'contact_no', required: true, pattern: '^[0-9]+${10}'
+              = f.text_field :contact_no, :id => 'contact_no', required: true, title: 'exactly 10 integers ', pattern: '^[0-9]{10}$'
 
         .row-fluid
           .span2

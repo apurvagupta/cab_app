@@ -22,7 +22,7 @@ Scenario: Admins home page
   Then   User should be able to view support_centers_show form with blank fields
   And    User should be able to view Book A Cab link
   And    User should be able to view View My Requests link
-  And    User should be able to view Manage App link
+  And    User should be able to view Manage link
   And    User should be able to view View All Reports link
   And    User should be able to view Logout link
 
