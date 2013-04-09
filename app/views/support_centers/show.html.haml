@@ -24,7 +24,7 @@
       %hr
       = render '/cab_requests'
       .pagination-centered
-        = will_paginate @cab_requests_page,params: {from: params[:from],to: params[:to]} ,renderer: BootstrapPagination::Rails
+        = will_paginate @cab_requests_page, previous_label: "Previous", next_label: "Next", params: {from: params[:from],to: params[:to]} ,renderer: BootstrapPagination::Rails
     -elsif @cab_requests == []
       %hr
       %h4 No record found

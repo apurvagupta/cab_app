@@ -33,6 +33,7 @@ group :development, :test do
   gem 'factory_girl'
   gem 'magic_encoding'
   gem 'capybara-webkit'
+  gem 'webrick', '~> 1.3.1'
 end
 
 

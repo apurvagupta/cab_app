@@ -9,6 +9,6 @@
       XLS Sheet
     =render '/cab_requests'
     .pagination-centered
-      = will_paginate @cab_requests_page, :renderer => BootstrapPagination::Rails
+      = will_paginate @cab_requests_page, previous_label: "Previous", next_label: "Next", :renderer => BootstrapPagination::Rails
   -elsif @cab_requests == []
     %h4 Oops! You haven't made any request
