@@ -44,6 +44,13 @@ describe CabRequest do
       @cab_request.save.should be_false
       @cab_request.errors[:traveler_name].first.should == 'can\'t be blank'
     end
+
+    it 'should not be more than 35 characters' do
+      @cab_request.traveler_name = 'Hello'*50
+      @cab_request.save.should be_false
+      @cab_request.errors[:traveler_name].first.should == 'is too long (maximum is 35 characters)'
+    end
+
   end
 
   context 'Contact number ' do

@@ -253,3 +253,10 @@ h5.message{
   font-weight: bold;
 }
 
+#table{
+  table-layout: fixed;
+}
+
+#table td{
+  word-wrap: break-word;
+}

@@ -20,9 +20,9 @@
           %h4 For
         .span4
           .control-group
-            = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "Name", required: true, title: 'Only Alphabets'
+            = f.text_field :traveler_name , class: "input-block-level", id: "traveler_name", placeholder: "Name", required: true, title: 'Enter your name', maxlength: '35'
           .control-group
-            = f.text_field :contact_no, class: "input-block-level", placeholder: "Contact No." , id: "contact_no", required: true, pattern: '.{10,}' , title: 'A valid phone no. with minimum 10 digits'
+            = f.text_field :contact_no, class: "input-block-level", placeholder: "Contact No." , id: "contact_no", required: true, pattern: '.{10,30}' , title: 'A valid phone no. with minimum 10 and maximum 30 digits'
 
       .row-fluid.form-main
         .span2
