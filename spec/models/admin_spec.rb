@@ -60,6 +60,14 @@ describe Admin do
     end
 
   end
+  context 'Email' do
+
+    it 'should not be blank' do
+      @admin.email = nil
+      @admin.save.should be_false
+    end
+
+  end
 
   context 'User Status ' do
     it 'should not contain other than a boolean value ' do

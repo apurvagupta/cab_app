@@ -60,6 +60,15 @@ describe Vendor do
 
   end
 
+  context 'Email' do
+
+    it 'should not be blank' do
+      @vendor.email = nil
+      @vendor.save.should be_false
+    end
+
+  end
+
   context ' Vendor Status ' do
     it ' should not contain other than a boolean value ' do
       @vendor.status = nil

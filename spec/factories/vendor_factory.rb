@@ -3,6 +3,7 @@ FactoryGirl.define do
   factory :vendor, class: Vendor do
     name 'bhidu'
     contact_no '9039499999'
+    email "xyz@gmail.com"
     status true
   end
 
