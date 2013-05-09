@@ -16,6 +16,7 @@ class AdminsController < ApplicationController
 
   def create
     @info = Admin.new(params[:admin])
+    binding.pry
     if @info.save
       redirect_to admins_path
     else

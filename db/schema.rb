@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228090904) do
+ActiveRecord::Schema.define(:version => 20130509104945) do
 
   create_table "admins", :force => true do |t|
     t.string  "name"
     t.string  "contact_no"
     t.boolean "status",     :default => false
+    t.string  "email"
   end
 
   create_table "cab_requests", :force => true do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130228090904) do
     t.string  "name"
     t.string  "contact_no"
     t.boolean "status",     :default => false
+    t.string  "email"
   end
 
 end

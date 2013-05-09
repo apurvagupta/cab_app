@@ -26,5 +26,12 @@
 
         .row-fluid
           .span2
+            = f.label "Email:"
+          .span4
+            .control-group
+              = f.text_field :email, :id => 'email', required: true, title: 'valid email', pattern: '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'
+
+        .row-fluid
+          .span2
           .span4
             = f.submit :class => 'btn btn-primary' ,id: "submit"

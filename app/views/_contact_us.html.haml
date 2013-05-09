@@ -12,6 +12,11 @@
           %b Admin's contact number:
         %td
           =@admin.try(:contact_no)
+      %tr
+        %td
+          %b Admin's email:
+        %td
+          =@admin.try(:email)
 
       %tr
         %td
@@ -23,3 +28,8 @@
           %b Vendor's contact number:
         %td
           =@vendor.try(:contact_no)
+      %tr
+        %td
+          %b Vendor's email:
+        %td
+          =@vendor.try(:email)
