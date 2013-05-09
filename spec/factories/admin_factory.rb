@@ -3,7 +3,7 @@ FactoryGirl.define do
   factory :admin, class: Admin do
     name 'ooga'
     contact_no '8765432100'
-    email 'email'
+    email 'apurvagupta@gmail.com'
     status true
   end
 

@@ -11,6 +11,7 @@ Feature: Creating a new Admin
     And   User is on the new admin page
     And   User fills in name as donkey
     And   User fills in contact_no as 1234567890
+    And   User fills in email as apurvagupta@gmail.com
     When  User creates Admin
     Then  User should be able to view all admins including this one
     And   User should be able to view Edit link

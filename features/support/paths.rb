@@ -12,7 +12,7 @@ module NavigationHelpers
             if $1 == 'admins'
               id = Admin.pluck(:id).first.to_s
             elsif $1 == 'vendors'
-              Vendor.create!(name:'homer',contact_no: '1234567890',status:false)
+              Vendor.create!(name:'homer',contact_no: '1234567890', email: 'apurva@gmail.com', status:false)
               id = Vendor.pluck(:id).first.to_s
             end
             url = '/' + $1 + '/' + id + '/edit'

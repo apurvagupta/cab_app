@@ -1,0 +1,84 @@
+commit 42479efcf6954baea871075f7b432eb28f838bbc
+Author: Apurva Gupta <apurvagu@inapurvagu.corporate.thoughtworks.com>
+Date:   Thu May 9 16:59:50 2013 +0530
+
+    wrote unit tests for email
+
+diff --git app/.DS_Store app/.DS_Store
+index ba5dc86..cf678d6 100644
+Binary files app/.DS_Store and app/.DS_Store differ
+diff --git app/models/vendor.rb app/models/vendor.rb
+index 92412c1..387819d 100644
+--- app/models/vendor.rb
++++ app/models/vendor.rb
+@@ -1,7 +1,6 @@
+ # -*- encoding : utf-8 -*-
+ class Vendor < ActiveRecord::Base
+   attr_accessible :name, :contact_no, :email, :status
+-
+   validates_presence_of :name, :contact_no, :email
+   validates_inclusion_of :status, in: [true, false]
+   validates_numericality_of :contact_no, only_integer: true
+diff --git spec/factories/admin_factory.rb spec/factories/admin_factory.rb
+index 935044a..5a4f16a 100644
+--- spec/factories/admin_factory.rb
++++ spec/factories/admin_factory.rb
+@@ -3,6 +3,7 @@ FactoryGirl.define do
+   factory :admin, class: Admin do
+     name 'ooga'
+     contact_no '8765432100'
++    email 'email'
+     status true
+   end
+ 
+diff --git spec/factories/vendor_factory.rb spec/factories/vendor_factory.rb
+index 6491e87..654d63c 100644
+--- spec/factories/vendor_factory.rb
++++ spec/factories/vendor_factory.rb
+@@ -3,6 +3,7 @@ FactoryGirl.define do
+   factory :vendor, class: Vendor do
+     name 'bhidu'
+     contact_no '9039499999'
++    email "xyz@gmail.com"
+     status true
+   end
+ 
+diff --git spec/models/admin_spec.rb spec/models/admin_spec.rb
+index 30a9327..84fa588 100644
+--- spec/models/admin_spec.rb
++++ spec/models/admin_spec.rb
+@@ -60,6 +60,14 @@ describe Admin do
+     end
+ 
+   end
++  context 'Email' do
++
++    it 'should not be blank' do
++      @admin.email = nil
++      @admin.save.should be_false
++    end
++
++  end
+ 
+   context 'User Status ' do
+     it 'should not contain other than a boolean value ' do
+diff --git spec/models/vendor_spec.rb spec/models/vendor_spec.rb
+index 7ebdbdb..f676844 100644
+--- spec/models/vendor_spec.rb
++++ spec/models/vendor_spec.rb
+@@ -60,6 +60,15 @@ describe Vendor do
+ 
+   end
+ 
++  context 'Email' do
++
++    it 'should not be blank' do
++      @vendor.email = nil
++      @vendor.save.should be_false
++    end
++
++  end
++
+   context ' Vendor Status ' do
+     it ' should not contain other than a boolean value ' do
+       @vendor.status = nil

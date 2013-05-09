@@ -5,8 +5,8 @@ describe SupportCentersController do
 
   before :each do
     CASClient::Frameworks::Rails::Filter.fake('homer')
-    new_admin_hash  = {name: 'homer',contact_no: '9876543210', status: true}
-    new_vendor_hash = {name: 'tina',contact_no: '9876543210', status: true}
+    new_admin_hash  = {name: 'homer',contact_no: '9876543210',email: 'apurvagupta@gmail.com', status: true}
+    new_vendor_hash = {name: 'tina',contact_no: '9876543210',email: 'pulkitko@gmail.com', status: true}
     @admin            = Admin.create!(new_admin_hash)
     @vendor           = Vendor.create!(new_vendor_hash)
   end
@@ -33,6 +33,7 @@ describe SupportCentersController do
       @admin1 = Admin.new
       @admin1.name = 'riya '
       @admin1.contact_no = '1234567890'
+      @admin1.email = 'apurva@gmail.com'
       @admin1.status = false
       @admin1.save!
       put :update, admin: @admin1.name, vendor: @vendor.name
@@ -44,6 +45,7 @@ describe SupportCentersController do
       @vendor1 = Vendor.new
       @vendor1.name = 'riya '
       @vendor1.contact_no = '1234567890'
+      @vendor1.email = 'apurva@gmail.com'
       @vendor1.status = false
       @vendor1.save!
       put :update, admin: @admin.name, vendor: @vendor1.name

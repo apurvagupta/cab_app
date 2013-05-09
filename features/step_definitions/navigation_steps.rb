@@ -6,7 +6,7 @@ Given /^User is logged in$/ do
 end
 
 Given /^Current User is Admin$/ do
-  Admin.create!(name: 'homer', contact_no: '1234567890', status: false)
+  Admin.create!(name: 'homer', contact_no: '1234567890',email:"apurva@gmail.com", status: false)
 end
 
 
@@ -20,9 +20,9 @@ Given /^User is on (.+)$/ do |page_name|
 end
 
 Given /^There are admins and vendors/ do
-  Vendor.create!(name:"deer",contact_no:"1234567890",status:false)
-  Vendor.create!(name:"bear",contact_no:"1234567890",status:true)
-  Admin.create!(name:"spider",contact_no:"9876543210",status:true)
+  Vendor.create!(name:"deer",contact_no:"1234567890",email:"apurvagupta0@gmail.com",status:false)
+  Vendor.create!(name:"bear",contact_no:"1234567890",email:"shipra@gmail.com",status:true)
+  Admin.create!(name:"spider",contact_no:"9876543210",email:"pulkit@gmail.com",status:true)
 end
 
 Given /^User fills in ([^"]*) as ([^"]*)$/ do |element, text|
@@ -150,6 +150,7 @@ Then /^User should be able to view edit_([^"]*) form with pre-filled fields$/ do
   page.should have_xpath('//form[@id="edit_'+content+'_1"]')
   page.should have_xpath('//input[@id="name"][@value="homer"]')
   page.should have_xpath('//input[@id="contact_no"][@value="1234567890"]')
+  page.should have_xpath('//input[@id="email"][@value="apurva@gmail.com"]')
 end
 
 Then /^User should be able to view support_centers_edit form with drop down lists$/ do
@@ -182,14 +183,15 @@ Then /^User should be able to view all ([^"]*) including ([^"]*)/ do |category,t
     admins.each do |admin|
       page.should have_content(admin.name)
       page.should have_content(admin.contact_no)
+      page.should have_content(admin.email)
     end
   elsif category == 'Vendors'
     vendors = Vendor.all
     vendors.each do |vendor|
       page.should have_content(vendor.name)
       page.should have_content(vendor.contact_no)
+      page.should have_content(vendor.email)
     end
   end
-  page.should have_xpath('//table[@id="table"]')
 end
 

@@ -11,6 +11,7 @@ Feature: Configuring Vendors
     And   User is on the new vendor page
     And   User fills in name as bull
     And   User fills in contact_no as 1234567890
+    And   User fills in email as apurvagupta0@gmail.com
     When  User creates Vendor
     Then  User should be able to view all vendors including this one
     And   User should be able to view Edit link
