@@ -11,13 +11,3 @@ CabApp::Application.initialize!
 CASClient::Frameworks::Rails::Filter.configure(
     :cas_base_url => "https://cas.thoughtworks.com/cas/"
 )
-
-ActionMailer::Base.smtp_settings = {
-    :user_name => "twcabrequest",
-    :password => "Th0ughtW0rk$",
-    :domain => "gmail.com",
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-}
