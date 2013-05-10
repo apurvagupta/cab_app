@@ -31,8 +31,10 @@ class CabRequestsController < ApplicationController
        @cab_request.destination = @other_destination
        @destination             = 'other'
     end
+    admin_email = Admin.where(status: true).pluck(:email).first
+    vendor_email = Vendor.where(status: true).pluck(:email).first
     if @cab_request.save
-       CabRequestMailer.send_email(@cab_request).deliver
+       CabRequestMailer.send_email(@cab_request,admin_email,vendor_email).deliver
        redirect_to '/cab_requests/show', {:notice => 'Your request has been sent with ReqID ' + @cab_request.id.to_s}
     else
        render template: 'cab_requests/new'
