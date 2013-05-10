@@ -26,6 +26,13 @@ describe Vendor do
 
   context 'vendor name' do
 
+    it 'should be unique' do
+      @vendor.save.should be_true
+      @vendor1= build(:vendor)
+      @vendor1.save.should be_false
+      @vendor1.errors[:name].first.should == 'has already been taken'
+    end
+
     it 'should not be blank' do
       @vendor.name= nil
       @vendor.save.should be_false

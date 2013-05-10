@@ -8,10 +8,12 @@ FactoryGirl.define do
   end
 
   factory :inactive_valid_admin, parent: :admin do
+    name 'pooga'
     status false
   end
 
   factory :invalid_admin, parent: :admin do
+    name 'dooga'
     contact_no '9876543'
   end
 end

@@ -163,6 +163,8 @@ end
 
 Then /^User should be able to view all ([^"]*) including ([^"]*)/ do |category,type|
   if category.include? 'CabRequests'
+    Vendor.create!(name:"bear",contact_no:"1234567890",email:"shipra@gmail.com",status:true)
+    Admin.create!(name:"spider",contact_no:"9876543210",email:"pulkit@gmail.com",status:true)
     if category == 'his CabRequests'
       cab_requests = CabRequest.where(requester: 'homer')
     else

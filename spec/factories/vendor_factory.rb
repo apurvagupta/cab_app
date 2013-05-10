@@ -8,10 +8,12 @@ FactoryGirl.define do
   end
 
   factory :inactive_valid_vendor, parent: :vendor do
+    name 'dhidu'
     status false
   end
 
   factory :invalid_vendor, parent: :vendor do
+    name 'ghidu'
     contact_no '9876543'
   end
 end

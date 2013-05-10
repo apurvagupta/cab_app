@@ -32,6 +32,14 @@ describe Admin do
       @admin.save.should be_false
     end
 
+    it 'should be unique' do
+      @admin.save.should be_true
+      @admin1 = build(:admin)
+      @admin1.save.should be_false
+      @admin1.errors[:name].first.should == 'has already been taken'
+
+    end
+
     it 'should not contain digits' do
       @admin.name = 'hello@123'
       @admin.save.should be_false

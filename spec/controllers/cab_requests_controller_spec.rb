@@ -8,6 +8,16 @@ describe CabRequestsController do
     @valid_request_hash = attributes_for(:cab_request)
   end
 
+  before :all do
+    Admin.create(name: "billu", contact_no: "1234567890", email: "sample", status: true)
+    Vendor.create(name: "billu", contact_no: "1234567890", email: "sample", status: true)
+  end
+
+  after :all do
+    Admin.delete_all
+    Vendor.delete_all
+  end
+
   context 'index' do
     it 'should redirect to new cab request page' do
       get(:index).should redirect_to '/cab_requests/new'
@@ -33,6 +43,7 @@ describe CabRequestsController do
   context 'create' do
     it 'should redirect to show path if saved' do
       post(:create, cab_request: @valid_request_hash).should redirect_to ('/cab_requests/show')
+
     end
 
     it 'should render new cab request template if not saved' do

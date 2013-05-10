@@ -34,6 +34,7 @@ describe AdminsController do
   context 'create' do
     it 'should redirect to admins_path on successful save' do
       new_admin = attributes_for(:inactive_valid_admin)
+      new_admin[:name]='neeli'
       post(:create, admin: new_admin).should redirect_to(admins_path)
     end
 
