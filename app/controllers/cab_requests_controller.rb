@@ -33,7 +33,9 @@ class CabRequestsController < ApplicationController
     end
     admin_email = Admin.where(status: true).pluck(:email).first
     vendor_email = Vendor.where(status: true).pluck(:email).first
-    if @cab_request.save
+    if vendor_email == nil
+      render template: '_message'
+    elsif @cab_request.save
        CabRequestMailer.send_email(@cab_request,admin_email,vendor_email).deliver
        redirect_to '/cab_requests/show', {:notice => 'Your request has been sent with ReqID ' + @cab_request.id.to_s}
     else
@@ -43,7 +45,7 @@ class CabRequestsController < ApplicationController
 
   def show
     @cab_requests = CabRequest.where(requester: session[:cas_user]).reverse
-    @cab_requests_page = @cab_requests.paginate(page: params[:page], per_page: 10)
+    @cab_requests_page = @cab_requests.paginate(page: params[:page], per_page: 5)
     @dates        = []
     @cab_requests.each do |cr|
       @dates.push cr.pick_up_date_time.to_date

@@ -123,7 +123,8 @@ $(document).ready(function() {
 
 
     $('#display_reports').click(function(){
-      if (new Date($('#to_date').val()) < new Date ($('#from_date').val()))
+
+         if(new Date($('#to_date').val()) < new Date($('#from_date').val()))
       {
           to_date.setCustomValidity("should be more than from date");
       }

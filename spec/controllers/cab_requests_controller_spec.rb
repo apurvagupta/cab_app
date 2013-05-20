@@ -43,7 +43,6 @@ describe CabRequestsController do
   context 'create' do
     it 'should redirect to show path if saved' do
       post(:create, cab_request: @valid_request_hash).should redirect_to ('/cab_requests/show')
-
     end
 
     it 'should render new cab request template if not saved' do
@@ -59,6 +58,7 @@ describe CabRequestsController do
       post :create, cab_request: attributes_for(:cab_request, destination: 'other'), destination: 'Rajouri Gardens'
       controller.instance_variable_get(:@cab_request)[:destination].should == 'Rajouri Gardens'
     end
+
   end
 
   context 'show' do

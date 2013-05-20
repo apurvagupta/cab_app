@@ -11,5 +11,4 @@ FactoryGirl.define do
     r.no_of_passengers 1
     r.comments 'Help me pass test'
   end
-
 end

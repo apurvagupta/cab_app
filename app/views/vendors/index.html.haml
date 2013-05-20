@@ -19,7 +19,7 @@
               %a{href: edit_vendor_path(vendor), id:'Edit', title: "edit"}
                 %i.icon-pencil
             %td
-              %a{href: vendor_path(vendor), id: 'Delete', title: "delete", :method => :delete, :confirm => 'Are you sure?', :hidden => vendor.status}
+              %a{href: vendor_path(vendor), id: 'Delete', title: "delete", "data-method" => :delete, "data-confirm" => 'Are you sure?', :hidden => vendor.status}
                 %i.icon-trash
         %end
 

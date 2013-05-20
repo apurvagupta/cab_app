@@ -113,7 +113,9 @@ body{
   border-bottom:  1px lightgrey inset;
   margin-bottom: 10px;
 }
-
+form {
+  margin: 20px 0 20px;
+}
 .span6{
   h4{
    text-align: center;
@@ -233,26 +235,20 @@ h5.message{
   list-style: none;
 }
 
-.nav-tabs .open .dropdown-toggle, .nav-pills .open .dropdown-toggle, .nav > li.dropdown.open.active > a:hover, .nav > li.dropdown.open.active > a:focus{
-  color: #006f8f;
-  text-decoration: none;
-  background-color: transparent;
-  border: 1px solid #d3d3d3;
+.nav-tabs > li > ul {
+  position: absolute;
+  left:  542px;
+  top: 130px;
+  list-style: none;
+  background-color: #cfcfcf;
+  padding: 8px;
+  border-radius: 4px;
+  display: none;
 }
 
-.dropdown-menu > li > a{
-  padding: 3px 10px;
-  color: #006f8f;
-  font-size: 16px;
-  text-shadow: white 1px 1px 1px;
+.nav-tabs >  li:hover > ul {
+  display: block;
 }
-
-.dropdown-menu > li > a:hover{
-  color: #006f8f;
-  background: none;
-  font-weight: bold;
-}
-
 #table{
   table-layout: fixed;
 }
