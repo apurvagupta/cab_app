@@ -7,7 +7,6 @@ gem 'haml-rails'
 gem 'pry'
 gem 'therubyracer'
 gem 'json'
-gem 'capybara-webkit'
 gem 'will_paginate-bootstrap'
 
 # Gems used only for assets and not required
@@ -32,7 +31,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'magic_encoding'
-  gem 'capybara-webkit'
   gem 'webrick', '~> 1.3.1'
 end
 
