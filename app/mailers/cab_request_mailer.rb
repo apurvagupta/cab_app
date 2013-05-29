@@ -1,4 +1,5 @@
 class CabRequestMailer < ActionMailer::Base
+  ActionMailer::Base.delivery_method = :smtp
   default :from => "twcabrequest@gmail.com"
 
 # send a signup email to the user, pass in the user object that contains the user's email address

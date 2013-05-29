@@ -113,9 +113,7 @@ body{
   border-bottom:  1px lightgrey inset;
   margin-bottom: 10px;
 }
-form {
-  margin: 20px 0 20px;
-}
+
 .span6{
   h4{
    text-align: center;
@@ -195,12 +193,6 @@ h5.message{
   text-shadow: white 1px 1px 1px;
 }
 
-.nav-tabs a:hover{
-  border: none;
-  zoom: 0;
-
-}
-
 .nav-tabs{
   list-style: none;
   padding-top: 15px;
@@ -237,15 +229,19 @@ h5.message{
 
 .nav-tabs > li > ul {
   position: absolute;
-  left:  542px;
+  left:  547px;
   top: 130px;
   list-style: none;
-  background-color: #cfcfcf;
-  padding: 8px;
-  border-radius: 4px;
+  background-color: #fff;
+  padding-right: 15px;
+  padding-left: 6px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   display: none;
 }
-
+.nav-tabs > li > ul > li {
+  padding:  4px;
+}
 .nav-tabs >  li:hover > ul {
   display: block;
 }
@@ -255,4 +251,10 @@ h5.message{
 
 #table td{
   word-wrap: break-word;
+}
+
+#reset_btn {
+  width: auto;
+  padding-left: 35px;
+  padding-right: 35px;
 }

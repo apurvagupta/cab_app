@@ -1,10 +1,12 @@
 # -*- encoding : utf-8 -*-
 class PickUpTimeDatatypeChangedTimeToDatetime < ActiveRecord::Migration
   def up
-    change_column :cab_requests, :pick_up_time, :datetime
+    remove_column :cab_requests, :pick_up_time
+    add_column :cab_requests, :pick_up_time, :datetime
   end
 
   def down
-    change_column :cab_requests, :pick_up_time, :time
+    add_column :cab_requests, :pick_up_time, :time
+    remove_column :cab_requests, :pick_up_time
   end
 end

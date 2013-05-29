@@ -1,6 +1,6 @@
 class RemoveColumnEmailFromCabRequest < ActiveRecord::Migration
   def up
-    remove_column :cab_requests, :email, :string
+    remove_column :cab_requests, :email
   end
 
   def down

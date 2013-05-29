@@ -1,13 +1,21 @@
+  gem 'factory_girl'
+  gem 'magic_encoding'
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'sqlite3'
 gem 'rubycas-client'
 gem 'haml-rails'
 gem 'pry'
+gem 'vmc'
 gem 'therubyracer'
 gem 'json'
 gem 'will_paginate-bootstrap'
+gem 'mailhopper'
+gem 'delayed_mailhopper'
+gem 'delayed_job_active_record'
+
+
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,17 +30,17 @@ group :assets do
 end
 
 
-group :development, :test do
-  gem 'cucumber-rails'
-  gem 'simplecov'
-  gem 'rspec-rails'
-  gem 'rspec_junit_formatter'
-  gem 'fuubar'
-  gem 'database_cleaner'
-  gem 'factory_girl'
-  gem 'magic_encoding'
-  gem 'webrick', '~> 1.3.1'
-end
+  group :development, :test do
+    gem 'sqlite3'
+    gem 'simplecov'
+    gem 'rspec-rails'
+    gem 'rspec_junit_formatter'
+    gem 'fuubar'
+    gem 'database_cleaner'
+    gem 'factory_girl'
+    gem 'magic_encoding'
+    gem 'webrick', '~> 1.3.1'
+  end
 
 
 # To use ActiveModel has_secure_password
@@ -49,3 +57,4 @@ end
 
 # To use debugger
 # gem 'debugger'
+

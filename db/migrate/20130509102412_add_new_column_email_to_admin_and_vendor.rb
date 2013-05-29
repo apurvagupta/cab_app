@@ -6,8 +6,8 @@ class AddNewColumnEmailToAdminAndVendor < ActiveRecord::Migration
   end
 
   def down
-    remove_column :admins, :email, :string
-    remove_column :vendors, :email, :string
-    remove_column :cab_requests, :email, :string
+    remove_column :admins, :email
+    remove_column :vendors, :email
+    remove_column :cab_requests, :email
   end
 end

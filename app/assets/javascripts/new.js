@@ -55,7 +55,21 @@ $(document).ready(function() {
     $('.date_picker').keypress(function(event) {event.preventDefault();});
     $('#pick_up_date').keypress(function(event) {event.preventDefault();});
     $('#pick_up_date').datepicker({dateFormat: "dd/mm/yy",minDate: 0});
-    $('.date_picker').datepicker({dateFormat: "dd/mm/yy"});
+
+    $('#from_date').datepicker({
+        dateFormat: "dd/mm/yy",
+        onSelect: function(selected) {
+            $("#to_date").datepicker("option","minDate", selected)
+
+        }
+    });
+    $('#to_date').datepicker({
+        dateFormat: "dd/mm/yy",
+        onSelect: function(selected) {
+            $("#from_date").datepicker("option","maxDate", selected)
+        }
+    });
+
     $("#pick_up_time").keypress(function(event) {event.preventDefault();});
 
     $('.content-main').css('min-height', $(document).height()-220)
@@ -119,19 +133,6 @@ $(document).ready(function() {
            destination.setCustomValidity("");
            other_destination.setCustomValidity("");
         }
-    });
-
-
-    $('#display_reports').click(function(){
-
-         if(new Date($('#to_date').val()) < new Date($('#from_date').val()))
-      {
-          to_date.setCustomValidity("should be more than from date");
-      }
-      else
-      {
-         to_date.setCustomValidity("");
-      }
     });
 
 });

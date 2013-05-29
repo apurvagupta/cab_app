@@ -10,8 +10,4 @@ module ApplicationHelper
   def current_user
     session[:cas_user]
   end
-
-  #def fetch_prev_request
-  #    @prev_req    = CabRequest.find_all_by_requester(@req.requester_name, limit: 3)
-  #end
 end
