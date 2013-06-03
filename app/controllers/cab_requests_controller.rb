@@ -36,7 +36,7 @@ class CabRequestsController < ApplicationController
     if vendor_email == nil
       render template: '_message'
     elsif @cab_request.save
-       #CabRequestMailer.send_email(@cab_request,admin_email,vendor_email).deliver
+       CabRequestMailer.send_email(@cab_request,admin_email,vendor_email).deliver
        redirect_to '/cab_requests/show', {:notice => 'Your request has been sent with ReqId ' + @cab_request.id.to_s}
     else
        render template: 'cab_requests/new'
