@@ -1,7 +1,6 @@
-  gem 'factory_girl'
-  gem 'magic_encoding'
 source 'http://rubygems.org'
 
+gem 'magic_encoding'
 gem 'rails', '3.2.11'
 gem 'rubycas-client'
 gem 'haml-rails'
@@ -13,10 +12,7 @@ gem 'will_paginate-bootstrap'
 gem 'mailhopper'
 gem 'delayed_mailhopper'
 gem 'delayed_job_active_record'
-
-
 gem 'pg'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -34,6 +30,8 @@ end
     gem 'sqlite3'
     gem 'simplecov'
     gem 'rspec-rails'
+    gem 'cucumber'
+    gem 'capybara'
     gem 'rspec_junit_formatter'
     gem 'fuubar'
     gem 'database_cleaner'

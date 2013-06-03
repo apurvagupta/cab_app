@@ -9,7 +9,7 @@
   %th To
   %th No of passengers
 
-  - @cab_requests_page.zip(@dates).each do |each_request,date|
+  - @cab_requests.zip(@dates).each do |each_request,date|
     %tr
       %td= each_request.id
       %td= each_request.requester

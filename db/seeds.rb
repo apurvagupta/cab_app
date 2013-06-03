@@ -6,5 +6,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#Admin.create( name: "riyakata", contact_no: "8527644166", status: true, email: "riyakata@thoughtworks.com")
-Admin.create( name: "vishalsh", contact_no: "8527644166", email: "vishalsh@thoughworks.com" , status: true)
+
+Admin.create( name: "vishalsh", contact_no: "8800991035", email: "vishalsh@thoughtworks.com" , status: true)
+Admin.create( name: "damandek", contact_no: "8800991035", email: "damandek@thoughtworks.com" , status: true)
