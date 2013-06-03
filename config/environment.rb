@@ -12,15 +12,12 @@ CASClient::Frameworks::Rails::Filter.configure(
     :cas_base_url => "https://cas.thoughtworks.com/cas/"
 )
 
-  ActionMailer::Base.smtp_settings = {
-      :user_name => "twcabrequest",
-      :password => "Th0ughtW0rk$",
-      :domain => "gmail.com",
-      :address        => 'smtp.sendgrid.net',
-      :port           => '587',
-      :authentication => :plain,
-      :user_name      => ENV['vishisharma'],
-      :password       => ENV['abcd1234'],
-      :domain         => 'heroku.com',
-      :enable_starttls_auto => true
-  }
+ActionMailer::Base.smtp_settings = {
+    :user_name => "twcabrequest",
+    :password => "Th0ughtW0rk$",
+    :domain => "gmail.com",
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+}
