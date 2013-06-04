@@ -14,7 +14,9 @@ class CabRequestMailer < ActionMailer::Base
 
                                                          "\nOn:\t" + cab_request.pick_up_date_time.to_s+
 
-                                                         "\nNo of passengers:\t" + cab_request.no_of_passengers.to_s )
+                                                         "\nNo of passengers:\t" + cab_request.no_of_passengers.to_s+
+
+                                                         "\nComments:\t" + cab_request.comments)
 
   end
 end
