@@ -3,7 +3,6 @@ module ApplicationHelper
 
   def ist(time)
     unless time.nil?
-      time = time - 5.hours - 30.minutes
       time.in_time_zone(TZInfo::Timezone.get('Asia/Kolkata')).strftime('%I:%M %p')
     end
   end

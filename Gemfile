@@ -30,8 +30,9 @@ end
     gem 'sqlite3'
     gem 'simplecov'
     gem 'rspec-rails'
-    gem 'cucumber'
-    gem 'capybara'
+    gem 'selenium-webdriver'
+    gem 'cucumber-rails', :require => false
+    gem 'capybara-webkit'
     gem 'rspec_junit_formatter'
     gem 'fuubar'
     gem 'database_cleaner'

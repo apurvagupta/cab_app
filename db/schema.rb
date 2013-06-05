@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521160318) do
+ActiveRecord::Schema.define(:version => 20130509104945) do
 
   create_table "admins", :force => true do |t|
     t.string  "name"
@@ -31,35 +31,6 @@ ActiveRecord::Schema.define(:version => 20130521160318) do
     t.string   "source"
     t.integer  "no_of_passengers"
     t.datetime "pick_up_date_time"
-  end
-
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0
-    t.integer  "attempts",   :default => 0
-    t.text     "handler"
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
-
-  create_table "emails", :force => true do |t|
-    t.string   "from_address",                          :null => false
-    t.string   "reply_to_address"
-    t.string   "subject"
-    t.text     "to_address"
-    t.text     "cc_address"
-    t.text     "bcc_address"
-    t.text     "content",          :limit => 104857600
-    t.datetime "sent_at"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
   end
 
   create_table "vendors", :force => true do |t|

@@ -19,6 +19,11 @@ Given /^User is on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given /^There is admin and vendor/ do
+  Vendor.create!(name:"bearbbbb",contact_no:"1234567890",email:"shipra@gmail.com",status:true)
+  Admin.create!(name:"spiderbbbb",contact_no:"9876543210",email:"pulkitko@thoughtworks.com",status:true)
+end
+
 Given /^There are admins and vendors/ do
   Vendor.create!(name:"deer",contact_no:"1234567890",email:"apurvagupta0@gmail.com",status:false)
   Vendor.create!(name:"bear",contact_no:"1234567890",email:"shipra@gmail.com",status:true)
@@ -26,7 +31,13 @@ Given /^There are admins and vendors/ do
 end
 
 Given /^User fills in ([^"]*) as ([^"]*)$/ do |element, text|
-  fill_in element, with: text
+  if element == "pick_up_date"
+    page.execute_script("$('#pick_up_date').val('07/02/9999').trigger('click')")
+  elsif element == "pick_up_time"
+    page.execute_script("$('#pick_up_time').val('11:30 PM').trigger('click')")
+  else
+    fill_in element, with: text
+  end
 end
 
 Given /^User selects ([^"]*) from drop down list ([^"]*)$/ do |option, ddl|

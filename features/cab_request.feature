@@ -7,6 +7,7 @@ Feature: Requesting a cab
   Background:
     Given  User is logged in
     And    Current User is not an Admin
+    And    There is admin and vendor
     And    User is on the home page
 
   Scenario: Sends a valid Cab Request

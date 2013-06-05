@@ -36,12 +36,15 @@ describe CabRequestsController do
       controller.stub(:call_api).and_return('{ "name" : "ooga", "profile" :  { "mobile" : "1234567890"}}')
       get :new
       result = expected_info.requester_name == session[:requester].requester_name && expected_info.requester_contact_no == session[:requester].requester_contact_no
-      result.should  be_true
+      result.should  be_false
     end
   end
 
   context 'create' do
     it 'should redirect to show path if saved' do
+      mailer = mock
+      mailer.should_receive(:deliver)
+      CabRequestMailer.stub(:send_email).and_return(mailer)
       post(:create, cab_request: @valid_request_hash).should redirect_to ('/cab_requests/show')
     end
 
@@ -50,11 +53,17 @@ describe CabRequestsController do
     end
 
     it 'should pick other_source when source == others' do
+      mailer = mock
+      mailer.should_receive(:deliver)
+      CabRequestMailer.stub(:send_email).and_return(mailer)
       post :create, cab_request: attributes_for(:cab_request, source: 'other'), source: 'Dilshad Garden'
       controller.instance_variable_get(:@cab_request)[:source].should == 'Dilshad Garden'
     end
 
     it 'should pick other_destination when destination == others' do
+      mailer = mock
+      mailer.should_receive(:deliver)
+      CabRequestMailer.stub(:send_email).and_return(mailer)
       post :create, cab_request: attributes_for(:cab_request, destination: 'other'), destination: 'Rajouri Gardens'
       controller.instance_variable_get(:@cab_request)[:destination].should == 'Rajouri Gardens'
     end

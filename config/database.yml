@@ -9,8 +9,8 @@ development:
   pool: 5
   timeout: 5000
 
-test:
-  adapter: Sqlite3
+test: &test
+  adapter: sqlite3
   database: db/development.sqlite3
   pool: 5
   timeout: 5000
