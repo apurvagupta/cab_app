@@ -21,16 +21,28 @@ class SupportCentersController < ApplicationController
     @vendors = Vendor.all
   end
 
+  def update_cab_request_status
+    @cab_request = CabRequest.where(id: params[:req_id]).first
+    @cab_request.update_attribute(:status, params[:new_status])
+    @cab_requests = CabRequest.all
+    redirect_to '/support_centers/show'
+  end
+
   def show
     if params[:from]
       from_date  = Time.parse(date_time_parser(params[:from],'00:00:00'))
       to_date    = Time.parse(date_time_parser(params[:to],'00:00:00')).tomorrow()
-      @cab_requests = CabRequest.where(pick_up_date_time: (from_date..to_date)).order(:pick_up_date_time)
+      if (params[:filter_by_date] == "Booking Date")
+        @cab_requests = CabRequest.where(created_at: (from_date..to_date)).order(:created_at)
+      elsif (params[:filter_by_date] == "Travel Date")
+        @cab_requests = CabRequest.where(pick_up_date_time: (from_date..to_date)).order(:pick_up_date_time)
+      end
       @cab_requests_page = @cab_requests.paginate(page: params[:page], per_page: 10)
       @dates        = []
       @cab_requests.each do |cab_request|
         @dates.push cab_request.pick_up_date_time.to_date
       end
+      @filter_by_date = params[:filter_by_date]
       @from = params[:from]
       @to   = params[:to]
     end

@@ -8,6 +8,8 @@
   %th From
   %th To
   %th No of passengers
+  %th Status
+  -#%th
 
   - @cab_requests_page.zip(@dates).each do |each_request,date|
     %tr
@@ -20,4 +22,7 @@
       %td= each_request.source
       %td= each_request.destination
       %td= each_request.no_of_passengers
+      %td
+        %input{value: each_request.status}
+        %input{type: 'button', class: 'btn btn-primary', value: 'update'}
   %end

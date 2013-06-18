@@ -1,7 +1,16 @@
 = render '/permissions'
+-@filter_by = ["Booking Date","Travel Date"]
 -if @is_admin
   .span12
     =form_tag({:action => :show, :method => :get}, :id => 'show') do
+      %select{name:'filter_by_date', id: 'filter_by_date'}
+        %option{:disabled => "", :selected => "", :value => ""} --Filter By--
+        -@filter_by.each do|filter_by_date|
+          %option{value: filter_by_date, selected: (filter_by_date == @filter_by_date)}= filter_by_date
+        %end
+      &nbsp;
+      &nbsp;
+      &nbsp;
       From:
       &nbsp;
       %input{type: 'text', id: "from_date" ,name: "from", class: "date_picker uneditable-input", value:@from, required: true,  autocomplete: 'off'}
@@ -16,15 +25,46 @@
       &nbsp;
       =button_tag 'Display',:id => "display_reports", :class =>"btn"
       -if @cab_requests != nil && @cab_requests != []
-        %a.btn.btn-info{href: support_centers_show_path(:format => :xls, :from => @from, :to => @to), id:"xls_link"}
+        %a.btn.btn-info{href: support_centers_show_path(:format => :xls, filter_by_date: params[:filter_by_date], :from => @from, :to => @to), id:"xls_link"}
           %i.icon-download-alt
           XLS Sheet
     %end
     -if @cab_requests != nil && @cab_requests != []
       %hr
-      = render '/cab_requests'
+      %table{:cellspacing => 50 ,id: "table", :class=>"table table-striped table-hover table-bordered"}
+        %th ReqId
+        %th Requester
+        %th Traveller
+        %th Mobile No.
+        %th Booked on
+        %th Travel Date
+        %th Time
+        %th From
+        %th To
+        %th No of passengers
+        %th Status
+
+        - @cab_requests_page.zip(@dates).each do |each_request,date|
+          %tr
+            %td= each_request.id
+            %td= each_request.requester
+            %td= each_request.traveler_name
+            %td= each_request.contact_no
+            %td= each_request.created_at.strftime("%d/%m/%Y")
+            %td= date.strftime("%d/%m/%Y")
+            %td= ist(each_request.pick_up_date_time)
+            %td= each_request.source
+            %td= each_request.destination
+            %td= each_request.no_of_passengers
+            %td
+              %a.change_status_modal{"data-id" => each_request.id, :href => "#change_status_modal"}
+                =each_request.status
+        %end
+
       .pagination-centered
-        = will_paginate @cab_requests_page, previous_label: "Previous", next_label: "Next", params: {from: params[:from],to: params[:to]} ,renderer: BootstrapPagination::Rails
+        = will_paginate @cab_requests_page, previous_label: "Previous", next_label: "Next", params: {filter_by_date: params[:filter_by_date], from: params[:from], to: params[:to]} ,renderer: BootstrapPagination::Rails
     -elsif @cab_requests == []
       %hr
       %h4 No record found
+
+  = render '/change_status_modal'

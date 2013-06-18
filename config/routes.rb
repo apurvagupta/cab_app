@@ -6,6 +6,7 @@ CabApp::Application.routes.draw do
   match '/support_centers/edit' , controller: 'support_centers#edit'
   match '/cab_requests/show' , controller: 'cab_requests#show'
   match '/support_centers/show' , controller: 'support_centers#show'
+  match '/support_centers/update_cab_request_status', controller: 'support_centers#update_cab_request_status'
   match '/anonymous/new' , controller: 'anonymous#new'
   resources :cab_requests
   resources :admins

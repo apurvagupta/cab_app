@@ -135,6 +135,29 @@ $(document).ready(function() {
         }
     });
 
+    $('#change_status_modal').on('show', function() {
+        $('#update_status').on( "click", function(e){
+            e.preventDefault();
+            var d = {
+                req_id: $('#change_status_modal').data('id'),
+                new_status: $('#new_status').val()
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '/support_centers/update_cab_request_status/',
+                data: d
+            });
+            $("#change_status_modal").modal("hide");
+        });
+    });
+
+    $('.change_status_modal').click(function(e) {
+        e.preventDefault();
+        $('#change_status_modal').data('id', $(this).data('id')).modal('show');
+    });
+
 });
+
 
 

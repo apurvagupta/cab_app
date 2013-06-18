@@ -1,0 +1,13 @@
+#change_status_modal.modal.fade
+  .modal-header
+    %a.close{"data-dismiss" => "modal"} ×
+    %h3 Update Cab Request Status
+  .modal-body
+    .row-fluid
+      .span3
+        %label{for: "new_status"}Enter new status
+      .span4
+        %input{ autofocus: 'autofocus', id: "new_status", type: "text", required: true, title: "Enter new status" }
+  .modal-footer
+    %a.btn.btn-primary{id: "update_status"}Update
+    %a.btn{"data-dismiss" => "modal", :href => "#"} Cancel
