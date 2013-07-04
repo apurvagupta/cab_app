@@ -18,7 +18,9 @@ class CabRequestMailer < ActionMailer::Base
 
                                                          "\nNo of passengers:\t" + cab_request.no_of_passengers.to_s+
 
-                                                         "\nComments:\t" + cab_request.comments)
+                                                         "\nComments:\t" + cab_request.comments+
+
+                                                         "\nStatus:\t" + cab_request.status)
 
   end
 end

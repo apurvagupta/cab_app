@@ -139,7 +139,6 @@ $(document).ready(function() {
         $("#table").hide();
         $("#xls_link").hide();
         $("hr").hide();
-        $("#from_date").focus();
     });
 
     edit_message = $.find('.edit_message');
