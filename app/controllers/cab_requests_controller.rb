@@ -45,7 +45,11 @@ class CabRequestsController < ApplicationController
 
   def show
     @cab_requests      = CabRequest.where(requester: session[:cas_user]).reverse
-    @cab_requests_page = @cab_requests.paginate(page: params[:page], per_page: 10)
+    if @cab_requests
+      @cab_requests_page = @cab_requests.paginate(page: params[:page], per_page: 10)
+    else
+      @cab_requests_page = []
+    end
     @dates             = []
     @cab_requests.each do |cr|
       @dates.push cr.pick_up_date_time.to_date

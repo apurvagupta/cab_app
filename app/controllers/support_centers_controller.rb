@@ -65,10 +65,14 @@ class SupportCentersController < ApplicationController
       to_date = Time.parse(date_time_parser(params[:to], '00:00:00')).tomorrow()
       if (params[:filter_by] == "Booking Date")
         @cab_requests = CabRequest.where(created_at: (from_date..to_date)).order(:created_at)
-      else (params[:filter_by] == "Travel Date")
+      else
         @cab_requests = CabRequest.where(pick_up_date_time: (from_date..to_date)).order(:pick_up_date_time)
       end
-      @cab_requests_page = @cab_requests.paginate(page: params[:page], per_page: 10)
+      if @cab_requests
+        @cab_requests_page = @cab_requests.paginate(page: params[:page], per_page: 10)
+      else
+        @cab_requests_page = []
+      end
       @dates = []
       @cab_requests.each do |cab_request|
         @dates.push cab_request.pick_up_date_time.to_date
