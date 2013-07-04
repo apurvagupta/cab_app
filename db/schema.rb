@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509104945) do
+ActiveRecord::Schema.define(:version => 20130704055626) do
 
   create_table "admins", :force => true do |t|
     t.string  "name"
@@ -24,13 +24,14 @@ ActiveRecord::Schema.define(:version => 20130509104945) do
     t.string   "contact_no"
     t.string   "destination"
     t.text     "comments"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "requester"
     t.string   "traveler_name"
     t.string   "source"
     t.integer  "no_of_passengers"
     t.datetime "pick_up_date_time"
+    t.string   "status",            :default => "Pending"
   end
 
   create_table "vendors", :force => true do |t|

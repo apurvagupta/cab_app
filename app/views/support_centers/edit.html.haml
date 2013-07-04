@@ -13,7 +13,7 @@
                 -@admins.each do|admin|
                   %option{:value => admin.name, :selected => admin.status }= admin.name
                 %end
-
+                %option{:value => "All", :selected => @all_active} All
         .row-fluid
           .span2
             %h5 Vendor

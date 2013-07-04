@@ -31,12 +31,12 @@ class CabRequestsController < ApplicationController
        @cab_request.destination = @other_destination
        @destination             = 'other'
     end
-    admin_email  = Admin.where(status: true).pluck(:email).first
+    admin_emails  = Admin.where(status: true).pluck(:email)
     vendor_email = Vendor.where(status: true).pluck(:email).first
     if vendor_email == nil
       render template: '_message'
     elsif @cab_request.save
-       #CabRequestMailer.send_email(@cab_request,params[:cab_request][:pick_up_date],params[:cab_request][:pick_up_date_time],admin_email,vendor_email).deliver
+       CabRequestMailer.send_email(@cab_request,params[:cab_request][:pick_up_date],params[:cab_request][:pick_up_date_time],admin_emails,vendor_email).deliver
        redirect_to '/cab_requests/show', {:notice => 'Your request has been sent with ReqId ' + @cab_request.id.to_s}
     else
        render template: 'cab_requests/new'

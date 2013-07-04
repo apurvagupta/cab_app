@@ -150,6 +150,7 @@ $(document).ready(function() {
         $(edit_message[index]).click(function () {
             $(update_message[index]).attr('disabled', false);
             $(update_message)[index].focus();
+            $(update_button)[index].style.display="inline";
             $(update_button[index]).attr('disabled', false);
         });
     });
@@ -166,6 +167,7 @@ $(document).ready(function() {
             });
             $(update_message[index]).attr('disabled', true);
             $(update_button[index]).attr('disabled', true);
+            $(update_button)[index].style.display="none";
         });
     });
 });

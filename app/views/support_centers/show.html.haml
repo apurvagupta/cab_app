@@ -59,7 +59,7 @@
               %input{class: "update_message" ,value: each_request.status, disabled: true}
               %a{href: '#', class: "edit_message", title: "edit status"}
                 %i.icon-pencil
-              %button{class: 'btn btn-primary update_button', "data-id" => each_request.id, disabled: true}update
+              %button{class: 'btn btn-primary update_button', "data-id" => each_request.id, style: 'display:none;', disabled: true}update
         %end
 
       .pagination-centered
