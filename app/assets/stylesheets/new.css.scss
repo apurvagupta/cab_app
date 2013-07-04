@@ -206,11 +206,34 @@ h5.message{
   padding: 10px 20px;
   margin-top: 5px;
 }
+.update_message {
+  width: 110px;
+  border: none;
+}
+
+#table tr:nth-child(odd) input:disabled  {
+  background-color: #f9f9f9;
+  cursor: auto;
+}
+
+#table tr:nth-child(even) input:disabled {
+  background-color: #eaebeb;
+  cursor: auto;
+}
+
+#table tr:hover input:disabled {
+  background-color: #f5f5f5;
+}
+
+
+
+.update_button {
+  margin-left: 9px;
+}
 
 #comments{
   height: 66px;
   width: 100%;
-
 }
 #source{
   color: #808080;

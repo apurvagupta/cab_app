@@ -135,28 +135,39 @@ $(document).ready(function() {
         }
     });
 
-    $('#change_status_modal').on('show', function() {
-        $('#update_status').on( "click", function(e){
-            e.preventDefault();
-            var d = {
-                req_id: $('#change_status_modal').data('id'),
-                new_status: $('#new_status').val()
-            }
+    $("#filter_by").change(function(){
+        $("#table").hide();
+        $("#xls_link").hide();
+        $("hr").hide();
+        $("#from_date").focus();
+    });
 
-            $.ajax({
-                type: "POST",
-                url: '/support_centers/update_cab_request_status/',
-                data: d
-            });
-            $("#change_status_modal").modal("hide");
+    edit_message = $.find('.edit_message');
+    update_message = $.find('.update_message');
+    update_button = $.find('.update_button');
+
+    $.each(edit_message,function(index,value) {
+        $(edit_message[index]).click(function () {
+            $(update_message[index]).attr('disabled', false);
+            $(update_message)[index].focus();
+            $(update_button[index]).attr('disabled', false);
         });
     });
 
-    $('.change_status_modal').click(function(e) {
-        e.preventDefault();
-        $('#change_status_modal').data('id', $(this).data('id')).modal('show');
+    $.each(update_button,function(index,value) {
+        $(update_button[index]).click(function () {
+            var d = {
+                req_id: $(this).data('id'),
+                new_status: $(update_message[index]).val()
+            }
+            $.ajax({
+                url: '/support_centers/update_cab_request_status/',
+                data: d
+            });
+            $(update_message[index]).attr('disabled', true);
+            $(update_button[index]).attr('disabled', true);
+        });
     });
-
 });
 
 
