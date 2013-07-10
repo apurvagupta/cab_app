@@ -15,8 +15,7 @@
             = f.label "Name:"
           .span4
             .control-group
-              = f.text_field :name, :id => 'name', required: true, title: 'only alphabets', pattern: '^[a-z A-Z]+$', autofocus: true
-              Enter only CAS username
+              = f.text_field :name, :id => 'name', required: true, title: 'only alphabets', pattern: '^[a-z A-Z]+$', autofocus: true, placeholder: "CAS username only"
 
         .row-fluid
           .span2
