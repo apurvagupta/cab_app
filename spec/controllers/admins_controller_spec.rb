@@ -11,7 +11,7 @@ describe AdminsController do
   context 'index' do
     it 'should get list of admins' do
       get :index
-      controller.instance_variable_get(:@admins).should == @sample_admins
+      controller.instance_variable_get(:@admins).should include @sample_admins.first
     end
   end
 

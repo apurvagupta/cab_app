@@ -11,7 +11,7 @@ describe VendorsController do
     it 'should populate array of vendor' do
       get :index
       response.should be_success
-      controller.instance_variable_get(:@vendors).should == [@active_valid_vendor]
+      controller.instance_variable_get(:@vendors).should include @active_valid_vendor
     end
     it 'should renders the index view' do
       get(:index).should render_template('vendors/index')

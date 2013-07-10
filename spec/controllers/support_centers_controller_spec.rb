@@ -14,7 +14,9 @@ describe SupportCentersController do
   context 'index' do
     it 'should assign requested Admin data to @admin' do
       get(:index).should be_success
-      assigns(:admin).should == @admin
+      assigns(:admins_name).should include @admin.name
+      assigns(:admins_contact_no).should include @admin.contact_no
+      assigns(:admins_email).should include @admin.email
     end
 
     it 'should assign requested Vendor data to @vendor' do
@@ -57,12 +59,12 @@ describe SupportCentersController do
   context 'edit' do
     it 'should assign requested User data to @admins' do
       get :edit
-      assigns(:admins).should == [@admin]
+      assigns(:admins).should include @admin
     end
 
     it 'should assign requested Vendor data to @vendors' do
       get :edit
-      assigns(:vendors).should == [@vendor]
+      assigns(:vendors).should include @vendor
     end
   end
 
@@ -78,7 +80,7 @@ describe SupportCentersController do
 
     it 'should assign CabRequest data to @cab_requests ' do
       get :show, from: @from, to: @to
-      assigns(:cab_requests).should == [@cab_request]
+      assigns(:cab_requests).should include @cab_request
     end
 
     it 'should render html page' do
