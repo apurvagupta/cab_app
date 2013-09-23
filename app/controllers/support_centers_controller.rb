@@ -55,7 +55,7 @@ class SupportCentersController < ApplicationController
     requester = CabRequest.where(id: params[:req_id]).pluck(:requester).first  + "@thoughtworks.com"
     date = @cab_request.pick_up_date_time.to_date.strftime("%d/%m/%Y")
     time = ist(@cab_request.pick_up_date_time)
-    CabRequestMailer.send_email(@cab_request,date,time,requester,"").deliver
+    CabRequestMailer.send_email(@cab_request,date,time,requester,"","").deliver
     redirect_to '/support_centers/show'
   end
 
